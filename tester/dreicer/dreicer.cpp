@@ -1,5 +1,6 @@
 #include <cmath>
 #include "dreicer.h"
+using namespace std;
 
 
 //! \f$ e^3 \f$
@@ -82,10 +83,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
 			+ log(electron_temperature * 1e-3);
 
-	/*! electron temperature
-	\f[ T_\mathrm{e} \mathrm{[kJ]} = t_\mathrm{e} \mathrm{[keV]} \cdot e\f]
-	*/
-	electron_temperature *= ITM_QE;
+
+	cout << "Coulomb logarithm: " << coulomb_log << "\n";
+
 
 
 	//! \a REQ-2: electron collision time
@@ -95,6 +95,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
+	
+	
+	cout << "Electron collision time: " << tao << " s\n";
 
 	//! \a REQ-1: Dreicer field
 		/*!
@@ -104,6 +107,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	double Ed = me2_c3__e / (tao * electron_temperature);
 	double Edc = Ed/electric_field;
+	
+	cout << "Dreicer field: " << Ed << " V/m\n";
+	cout << "normalised Dreicer field: " << Edc << "\n";
 
 
 	//! \a REQ-7: alpha
@@ -116,6 +122,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double alpha = electric_field/Ed * me_c2/electron_temperature;
 	double alpha_2 = alpha*alpha;
 	
+	
+	cout << "alpha: " << alpha << "\n";
+	cout << "alpha^2: " << alpha_2 << "\n";
+	
 	//! \a REQ-6: lambda
 	/*
 	\f[
@@ -124,6 +134,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	double lambda = 8*alpha*(alpha-1/2*sqrt(alpha*(alpha-1)));
+	cout << "lambda: " << lambda << "\n";
 	
 	//! \a REQ-5: multiplication factor
 	/*
@@ -133,6 +144,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	double gamma = sqrt((1+effective_charge)*alpha_2/8/(alpha-1))*(ITM_PI/2-asin(1-2/alpha));
+	cout << "gamma: " << gamma << "\n";
 
 
 
@@ -148,20 +160,27 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 	double h=1/(16*(alpha-1))*(alpha*(effective_charge+1)-\
 		effective_charge+7+2*sqrt(alpha/(alpha-1))*(1+effective_charge)*(alpha-2));
+	cout << "h: " << h << "\n";
+
 
 
 	//! \return: Dreicer generation rate
 		/*!
 	\f[
-	!!!
+	C_"R" \cdot n_"e" \cdot\frac{1}{\tau} \left(\frac{E_"D"}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_"D"}{E} - \sqrt{2  \frac{E_"D"}{E}} \gamma(\alpha,Z)}
 		
 	\f]
 	*/	
 	
 		
-	double Cr=1;
-	return Cr*electron_density/tao*pow(Edc,h)*\
-		exp(-lambda/4*Edc-sqrt(2*Edc)*gamma;
+	double Cr=1;	
+	double dgr = Cr*electron_density/tao*pow(Edc,h)*\
+		exp(-lambda/4*Edc-sqrt(2*Edc)*gamma);
+		
+	cout << "DGR: " << dgr << "\n";
+	
+	return dgr;
+
 	
 	
 	
