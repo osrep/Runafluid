@@ -6,6 +6,6 @@
 int is_field_critical(profile pro);
 
 double calculate_critical_field(double electron_density, double electron_temperature);
-double dreicer_generation_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field)
+double dreicer_generation_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field);
 
 #endif /* DREICER_H_ */
