@@ -7,6 +7,7 @@
 #include "constants.h"
 #include "cpo_utils.h"
 #include "critical_field.h"
+#include "dreicer.h"
 
 // double growth_rate_limit = 1e12;
 
