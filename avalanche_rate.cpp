@@ -19,6 +19,12 @@ double me2_c3 = me_c2 * ITM_ME * ITM_C;
 //! 	\f[	\frac{m_\mathrm{e}^2 \cdot c^3}{e} \f]
 double me2_c3__e = me2_c3 / ITM_QE;
 
+
+
+//! 	\f[	\frac{4\pi\epsilon_0^2\cdot m_\mathrm{e}^2 c^3}{e^4} \f]
+double pi_4_e02_me_c2__e3 = ITM_PI * 4.0 * pow(ITM_EPS0, 2) * me_c2 / pow(ITM_QE, 3);
+
+
 //! 	\f[	\frac{4\pi\epsilon_0^2\cdot m_\mathrm{e}^2 c^3}{e^4} \f]
 double pi_4_e02_me2_c3__e4 = ITM_PI * 4.0 * pow(ITM_EPS0, 2) * me2_c3 / pow(ITM_QE, 4);
 
@@ -71,20 +77,12 @@ double calculate_critical_field(double electron_density, double electron_tempera
 
 
 
-double dreicer_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field) {
+double avalanche_generation_rate(double electron_density, double electron_temperature,
+		double effective_charge, double electric_field, double dt) {
 		
 		
-	//! electron temperature: electronvolt to joule
-	/*!
-	\f[
-		T_\mathrm{e}~\mathrm{[J]} = e \cdot t_\mathrm{e}~\mathrm{[eV]}
-	\f]
-	*/	
-		
-	double tej = electron_temperature* ITM_EV;
 	
-	//! \a REQ-3: Coulomb logarithm
+	//! \a REQ-1: Coulomb logarithm
 	/*!
 	\f[
 		\ln \Lambda = 14.9-0.5 \cdot \log \left(n_\mathrm{e} \cdot 10^{-20}\right) + \log \left(t_\mathrm{e} \cdot 10^{-3}\right) .
@@ -96,9 +94,22 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 	cout << "Coulomb logarithm: " << coulomb_log << "\n";
 
+	
+	
+
+	//! \a REQ-2: Cut off electric field
+		/*!
+	\f[
+		E_c = \frac{n_\mathrm{e}e^3 \ln \Lambda}{4 \pi \varepsilon_0^2 m_\mathrm{e}c^2}		
+	\f]
+	*/
+	double Ec = electron_density*coulomb_log/pi_4_e02_me_c2__e3;
+	
+	cout << "cut-off electric field: " << Ec << " V/m\n";
+	
 
 
-	//! \a REQ-2: electron collision time
+	//! \a REQ-3: electron collision time
 	/*! 
 	\f[
 		\tau = 4 \pi \epsilon_0^2 \cdot \frac{m_\mathrm{e}^2 \cdot c^3 }{e^4} \cdot \frac{1}{n_\mathrm{e} \ln \Lambda}		
@@ -106,87 +117,14 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
 	
-	
 	cout << "Electron collision time: " << tao << " s\n";
-
-	//! \a REQ-1: Dreicer field
-		/*!
-	\f[
-		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}~\mathrm{[J]}}		
-	\f]
-	*/
-	double Ed = me2_c3__e / (tao * tej);
-	double Edc = Ed/electric_field;
 	
-	cout << "Dreicer field: " << Ed << " V/m\n";
-	cout << "normalised Dreicer field: " << Edc << "\n";
 
-
-	//! \a REQ-7: alpha
-	/*!
-	\f[	
-		\alpha = \frac{E}{E_\mathrm{D}} \cdot \frac{m_\mathrm{e} \cdot c^2}{T_\mathrm{e}~\mathrm{[J]}}
-	\f]
-	*/
+	double agr;
 	
-	double alpha = electric_field/Ed * me_c2/tej;
-	double alpha_2 = alpha*alpha;
+	agr = electron_density*dt*(electric_field/Ec - 1) / (2*tao*coulomb_log);
 	
-	
-	cout << "alpha: " << alpha << "\n";
-	cout << "alpha^2: " << alpha_2 << "\n";
-	
-	//! \a REQ-6: lambda
-	/*!
-	\f[	
-		\lambda(\alpha)=8\alpha\left( \alpha-\frac{1}{2}-\sqrt{\alpha(\alpha-1}\right)
-	\f]
-	*/
-	double lambda = 8*alpha*(alpha-1/2*sqrt(alpha*(alpha-1)));
-	cout << "lambda: " << lambda << "\n";
-	
-	//! \a REQ-5: multiplication factor
-	/*!
-	\f[	
-		\gamma(\alpha,Z) = \sqrt{\frac{(1+Z)\alpha^2}{8(\alpha-1)}}\cdot \left( \frac{\pi}{2}-\sin^{-1}\left(1-\frac{2}{\alpha} \right) \right)
-	\f]
-	*/
-	double gamma = sqrt((1+effective_charge)*alpha_2/8/(alpha-1))*(ITM_PI/2-asin(1-2/alpha));
-	cout << "gamma: " << gamma << "\n";
-
-
-
-	//! \a REQ-4: h factor
-	/*!	
-	\f[	
-		h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1} \cdot (1+Z)\cdot(\alpha-2)}
-		\right)
-	\f]
-	*/
-
-
-	double h=1/(16*(alpha-1))*(alpha*(effective_charge+1)-\
-		effective_charge+7+2*sqrt(alpha/(alpha-1))*(1+effective_charge)*(alpha-2));
-	cout << "h: " << h << "\n";
-
-
-
-	//! \return Dreicer generation rate
-		/*!
-	\f[
-	\gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
-		
-	\f]
-	*/	
-	
-		
-	double Cr=1;	
-	double dgr = Cr*electron_density/tao*pow(Edc,h)*\
-		exp(-lambda/4*Edc-sqrt(2*Edc)*gamma);
-		
-	cout << "DGR: " << dgr << "\n";
-	
-	return dgr;
+	return agr;
 
 	
 	
