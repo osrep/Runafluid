@@ -97,7 +97,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	
 	
 
-	//! \a REQ-2: Cut off electric field
+	//! \a REQ-2: Critical electric field
 		/*!
 	\f[
 		E_c = \frac{n_\mathrm{e}e^3 \ln \Lambda}{4 \pi \varepsilon_0^2 m_\mathrm{e}c^2}		
@@ -105,7 +105,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	*/
 	double Ec = electron_density*coulomb_log/pi_4_e02_me_c2__e3;
 	
-	cout << "cut-off electric field: " << Ec << " V/m\n";
+	cout << "critical electric field: " << Ec << " V/m\n";
 	
 
 
@@ -115,14 +115,16 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		\tau = 4 \pi \epsilon_0^2 \cdot \frac{m_\mathrm{e}^2 \cdot c^3 }{e^4} \cdot \frac{1}{n_\mathrm{e} \ln \Lambda}		
 	\f]
 	*/
+	Ec = calculate_critical_field(electron_density, electron_temperature); 
+	
+	cout << "cut-off electric field: " << Ec << " V/m\n";
+	
 	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
 	
 	cout << "Electron collision time: " << tao << " s\n";
 	
 
-	double agr;
-	
-	agr = electron_density*dt*(electric_field/Ec - 1) / (2*tao*coulomb_log);
+	double agr = electron_density*dt*(electric_field/Ec - 1) / (2*tao*coulomb_log);
 	
 	return agr;
 
