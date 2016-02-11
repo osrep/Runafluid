@@ -114,9 +114,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 	//! \a REQ-7: alpha
 	/*
-	\f[
-	
-		!!!!
+	\f[	
+		\alpha = \frac{E}{E_\mathrm{D}} \cdot \frac{m_"e" \cdot c^2}{T_\mathrm{e}}
 	\f]
 	*/
 	double alpha = electric_field/Ed * me_c2/electron_temperature;
@@ -167,7 +166,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	//! \return: Dreicer generation rate
 		/*!
 	\f[
-	C_"R" \cdot n_"e" \cdot\frac{1}{\tau} \left(\frac{E_"D"}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_"D"}{E} - \sqrt{2  \frac{E_"D"}{E}} \gamma(\alpha,Z)}
+	\gamma_\mathrm{D} \cdot n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
 		
 	\f]
 	*/	
