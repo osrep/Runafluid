@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Runafluid specification
-   &#160;<span id="projectnumber">0.6</span>
+   &#160;<span id="projectnumber">0.7</span>
    </div>
   </td>
  </tr>
@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">int</span> &amp;critical_field_warning, <span class="keywordtype">int</span> &amp;growth_rate_warning) {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        critical_field_warning = <a class="code" href="critical__field_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a>(</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        critical_field_warning = <a class="code" href="avalanche__rate_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a>(</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <a class="code" href="cpo__utils_8cpp.html#affff233f460a921a6096f36f03cb72c5">cpo_to_profile</a>(coreprof, coreimpur, equilibrium));</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
@@ -143,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Time value differs in cpo slices of the same index.&quot;</span>);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">if</span> (critical_field_warning == 0) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                critical_field_warning = <a class="code" href="critical__field_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a>(</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                critical_field_warning = <a class="code" href="avalanche__rate_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a>(</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                        <a class="code" href="cpo__utils_8cpp.html#affff233f460a921a6096f36f03cb72c5">cpo_to_profile</a>(coreprof[slice], coreimpur[slice], equilibrium[slice]));</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordflow">if</span> (critical_field_warning != 0)</div>
@@ -166,8 +166,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="constants_8h_html_a873d040ac408da8093e9edc1e5e4e3c4"><div class="ttname"><a href="constants_8h.html#a873d040ac408da8093e9edc1e5e4e3c4">ITM_ILLEGAL_INT</a></div><div class="ttdeci">#define ITM_ILLEGAL_INT</div><div class="ttdoc">ERROR CODE. </div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00029">constants.h:29</a></div></div>
 <div class="ttc" id="constants_8h_html"><div class="ttname"><a href="constants_8h.html">constants.h</a></div></div>
 <div class="ttc" id="cpo__utils_8cpp_html_a7afd2b89fd6b15943e05451c0564714d"><div class="ttname"><a href="cpo__utils_8cpp.html#a7afd2b89fd6b15943e05451c0564714d">equal</a></div><div class="ttdeci">bool equal(double a, double b, double tolerance)</div><div class="ttdef"><b>Definition:</b> <a href="cpo__utils_8cpp_source.html#l00014">cpo_utils.cpp:14</a></div></div>
+<div class="ttc" id="avalanche__rate_8cpp_html_a9b14d57f395af0da8f38a32c983f08e8"><div class="ttname"><a href="avalanche__rate_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a></div><div class="ttdeci">int is_field_critical(profile pro)</div><div class="ttdef"><b>Definition:</b> <a href="avalanche__rate_8cpp_source.html#l00046">avalanche_rate.cpp:46</a></div></div>
 <div class="ttc" id="cpo__utils_8cpp_html_affff233f460a921a6096f36f03cb72c5"><div class="ttname"><a href="cpo__utils_8cpp.html#affff233f460a921a6096f36f03cb72c5">cpo_to_profile</a></div><div class="ttdeci">profile cpo_to_profile(const ItmNs::Itm::coreprof &amp;coreprof, const ItmNs::Itm::coreimpur &amp;coreimpur, const ItmNs::Itm::equilibrium &amp;equilibrium)</div><div class="ttdef"><b>Definition:</b> <a href="cpo__utils_8cpp_source.html#l00072">cpo_utils.cpp:72</a></div></div>
-<div class="ttc" id="critical__field_8cpp_html_a9b14d57f395af0da8f38a32c983f08e8"><div class="ttname"><a href="critical__field_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a></div><div class="ttdeci">int is_field_critical(profile pro)</div><div class="ttdef"><b>Definition:</b> <a href="critical__field_8cpp_source.html#l00026">critical_field.cpp:26</a></div></div>
 <div class="ttc" id="cpo__utils_8h_html"><div class="ttname"><a href="cpo__utils_8h.html">cpo_utils.h</a></div></div>
 <div class="ttc" id="critical__field_8h_html"><div class="ttname"><a href="critical__field_8h.html">critical_field.h</a></div></div>
 <div class="ttc" id="dreicer_8h_html"><div class="ttname"><a href="dreicer_8h.html">dreicer.h</a></div></div>
@@ -175,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 11 2016 15:39:22 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 11 2016 17:17:31 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

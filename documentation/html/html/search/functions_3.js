@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['equal',['equal',['../cpo__utils_8cpp.html#a7afd2b89fd6b15943e05451c0564714d',1,'equal(double a, double b, double tolerance):&#160;cpo_utils.cpp'],['../cpo__utils_8h.html#a7afd2b89fd6b15943e05451c0564714d',1,'equal(double a, double b, double tolerance):&#160;cpo_utils.cpp']]]
+  ['dreicer_5fgeneration_5frate',['dreicer_generation_rate',['../dreicer_8cpp.html#a3075f4b38bed902b805ce89273a313e9',1,'dreicer_generation_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field):&#160;dreicer.cpp'],['../tester_2dreicer_2dreicer_8cpp.html#a3075f4b38bed902b805ce89273a313e9',1,'dreicer_generation_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field):&#160;dreicer.cpp'],['../tester_2dreicer_2dreicer_8h.html#a3075f4b38bed902b805ce89273a313e9',1,'dreicer_generation_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field):&#160;dreicer.cpp']]]
 ];
