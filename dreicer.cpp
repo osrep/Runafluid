@@ -73,6 +73,16 @@ double calculate_critical_field(double electron_density, double electron_tempera
 
 double dreicer_generation_rate(double electron_density, double electron_temperature,
 		double effective_charge, double electric_field) {
+		
+		
+	//! electron temperature: electronvolt to joule
+	/*!
+	\f[
+		T_\mathrm{e}~\mathrm{[J]} = e \cdot t_\mathrm{e}~\mathrm{[eV]}
+	\f]
+	*/	
+		
+	double tej = electron_temperature* ITM_EV;
 	
 	//! \a REQ-3: Coulomb logarithm
 	/*!
@@ -102,10 +112,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	//! \a REQ-1: Dreicer field
 		/*!
 	\f[
-		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}}		
+		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}~\mathrm{[J]}}		
 	\f]
 	*/
-	double Ed = me2_c3__e / (tao * electron_temperature);
+	double Ed = me2_c3__e / (tao * tej);
 	double Edc = Ed/electric_field;
 	
 	cout << "Dreicer field: " << Ed << " V/m\n";
@@ -113,12 +123,13 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 
 	//! \a REQ-7: alpha
-	/*
+	/*!
 	\f[	
-		\alpha = \frac{E}{E_\mathrm{D}} \cdot \frac{m_"e" \cdot c^2}{T_\mathrm{e}}
+		\alpha = \frac{E}{E_\mathrm{D}} \cdot \frac{m_\mathrm{e} \cdot c^2}{T_\mathrm{e}~\mathrm{[J]}}
 	\f]
 	*/
-	double alpha = electric_field/Ed * me_c2/electron_temperature;
+	
+	double alpha = electric_field/Ed * me_c2/tej;
 	double alpha_2 = alpha*alpha;
 	
 	
@@ -126,9 +137,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	cout << "alpha^2: " << alpha_2 << "\n";
 	
 	//! \a REQ-6: lambda
-	/*
-	\f[
-	
+	/*!
+	\f[	
 		\lambda(\alpha)=8\alpha\left( \alpha-\frac{1}{2}-\sqrt{\alpha(\alpha-1}\right)
 	\f]
 	*/
@@ -136,10 +146,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	cout << "lambda: " << lambda << "\n";
 	
 	//! \a REQ-5: multiplication factor
-	/*
-	\f[
-	
-		\gamma(\alpha,Z) = \sqrt{\frac{(1+Z)\alpha^2}{8(\alpha-1)}}\cdot\left( \frac{\pi}{2}-sin^{-1}\left(1-\frac{2}{\alpha}\right)\right)
+	/*!
+	\f[	
+		\gamma(\alpha,Z) = \sqrt{\frac{(1+Z)\alpha^2}{8(\alpha-1)}}\cdot \left( \frac{\pi}{2}-\sin^{-1}\left(1-\frac{2}{\alpha} \right) \right)
 	\f]
 	*/
 	double gamma = sqrt((1+effective_charge)*alpha_2/8/(alpha-1))*(ITM_PI/2-asin(1-2/alpha));
@@ -148,11 +157,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 
 	//! \a REQ-4: h factor
-	/*	
-	\f[
-	
-		h = \frac{1}{16(\alpha - 1)}\cdot left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1} \cdot (1+Z)\cdot(\alpha-2)}
-		right)
+	/*!	
+	\f[	
+		h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1} \cdot (1+Z)\cdot(\alpha-2)}
+		\right)
 	\f]
 	*/
 
@@ -163,10 +171,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 
 
-	//! \return: Dreicer generation rate
+	//! \return Dreicer generation rate
 		/*!
 	\f[
-	\gamma_\mathrm{D} \cdot n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
+	\gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
 		
 	\f]
 	*/	
