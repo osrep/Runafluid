@@ -1,0 +1,9 @@
+digraph "/home/matyi/svn/runafluid/trunk/tester/dreicer" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_efe9db04b786903ee8ad8e648b7fc20b {
+    graph [ bgcolor="#ddddee", pencolor="black", label="tester" fontname="Helvetica", fontsize="10", URL="dir_efe9db04b786903ee8ad8e648b7fc20b.html"]
+  dir_d4d73d0d7ea5d5b8477be724b66ca5cf [shape=box, label="dreicer", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_d4d73d0d7ea5d5b8477be724b66ca5cf.html"];
+  }
+}
