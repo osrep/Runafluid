@@ -116,11 +116,12 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	double Ed = me2_c3__e / (tao * tej);
-	double Edc = Ed/electric_field;
+	double Edn = electric_field/Ed;
 	
 	cout << "Dreicer field: " << Ed << " V/m\n";
-	cout << "normalised Dreicer field: " << Edc << "\n";
-
+	cout << "normalised electric field (E/E_D): " << Edn << "\n";
+	cout << "normalised electric field (Kulsrud1973, E/2E_D): " << Edn/2 << "\n";
+	
 
 	//! \a REQ-7: alpha
 	/*!
@@ -129,7 +130,12 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double alpha = electric_field/Ed * me_c2/tej;
+	
+	cout << "me_c2: " << me_c2 << "\n";
+	cout << "tej: " << tej << "\n";
+	
+	
+	double alpha = Edn * me_c2/tej;
 	double alpha_2 = alpha*alpha;
 	
 	
@@ -181,9 +187,12 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	
 		
 	double Cr=1;	
-	double dgr = Cr*electron_density/tao*pow(Edc,h)*\
-		exp(-lambda/4*Edc-sqrt(2*Edc)*gamma);
+	double dgr = Cr*electron_density/tao*pow(Edn,-h)*\
+		exp(-lambda/4/Edn-sqrt(2/Edn)*gamma);
+			
 		
+	cout << "base: " << Cr*electron_density/tao*pow(Edn,-h) << "\n";	
+	cout << "exp: " << (-lambda/4/Edn-sqrt(2/Edn)*gamma) << "\n";	
 	cout << "DGR: " << dgr << "\n";
 	
 	return dgr;

@@ -14,9 +14,9 @@ using namespace std;
 int main(void){
 
 	double electron_density = 1e20;//e20;//m^-3
-	double electron_temperature = 1.2;//1000.0;//eV
+	double electron_temperature = 120.0;//eV
 	double effective_charge  = 	2.0;
-	double electric_field = 0.08;// V/m
+	double electric_field = 100;//3.930;// V/m
 	
 	double rate=-999999999;
 	rate = dreicer_generation_rate(electron_density, electron_temperature,
@@ -26,9 +26,9 @@ int main(void){
 		
 	cout << "Dreicer generation rate: " << rate << "\n";	
 	
-	double rate2 = rate/electron_density;
+	/*double rate2 = rate/electron_density;
 	
-	cout << "Dreicer generation rate: " << rate2 << "\n";	
+	cout << "Dreicer generation rate: " << rate2 << "\n";	*/
 	
  
 	return 0;
