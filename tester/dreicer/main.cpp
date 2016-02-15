@@ -4,8 +4,8 @@
 #include <stdexcept>
 
 #include "constants.h"
-#include "dreicer.h"
-#include "dreicer.cpp"
+#include "dreicer2.h"
+#include "dreicer2.cpp"
 
 using namespace std;
 
@@ -14,9 +14,9 @@ using namespace std;
 int main(void){
 
 	double electron_density = 1e20;//e20;//m^-3
-	double electron_temperature = 1606;//eV
-	double effective_charge  = 	2.0;
-	double electric_field = 3.991;// V/m
+	double electron_temperature = 1218;//eV
+	double effective_charge  = 	10.0;
+	double electric_field = 6.46;//3.991;// V/m
 	
 	double rate=-999999999;
 	rate = dreicer_generation_rate(electron_density, electron_temperature,
