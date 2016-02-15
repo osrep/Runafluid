@@ -121,26 +121,18 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	cout << "Electron collision time: " << tao << " s\n";
 
 	//! \a REQ-1: Dreicer field
-	/*! old:
+	/*!
 	\f[
 		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}~\mathrm{[J]}}		
 	\f]
 	*/
 	
-	/*! new:
-	\f[
-		E_D = \frac{4 \pi e^3 n_\mathrm{e} \ln\Lambda}{m_\mathrm{e} \cdot T_\mathrm{e}~\mathrm{[J]}}		
-	\f]
-	*/
 	
-	
-	double Ed_old = me2_c3__e / (tao * tej);
-	double Ed = ITM_PI * 4.0 *e3 * coulomb_log/ITM_ME/vth/vth;
+	double Ed = me2_c3__e / (tao * tej);
 	double Edn = electric_field/Ed;
 	
 	
 	
-	cout << "Dreicer field: " << Ed_old << " V/m\n";	
 	cout << "Dreicer field: " << Ed << " V/m\n";
 	cout << "normalised electric field (E/E_D): " << Edn << "\n";
 	cout << "normalised electric field (Kulsrud1973, E/2E_D): " << Edn/2 << "\n";

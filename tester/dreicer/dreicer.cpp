@@ -118,6 +118,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Ed = me2_c3__e / (tao * tej);
 	double Edn = electric_field/Ed;
 	
+	cout << "\n! !! !!! !! ! ! !! !!! ELECTRIC FIELD MANUAL SET !!! !! ! ! !! !!! !! !\n\n";
+	Edn = 0.12;
+	
+	
 	cout << "Dreicer field: " << Ed << " V/m\n";
 	cout << "normalised electric field (E/E_D): " << Edn << "\n";
 	cout << "normalised electric field (Kulsrud1973, E/2E_D): " << Edn/2 << "\n";
