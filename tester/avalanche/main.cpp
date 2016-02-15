@@ -25,7 +25,7 @@ int main(void){
 		
 		
 		
-	cout << "Avalanche generation rate: " << rate << "\n";	
+	cout << "Avalanche generation: " << rate << "\n";	
 	
 	double rate2 = rate/electron_density;
 	
