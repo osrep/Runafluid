@@ -84,6 +84,12 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		
 	double tej = electron_temperature* ITM_EV;
 	
+	cout << "\n! !! !!! temperature edited !!! !! ! \n \n";
+	tej = 1000*me_c2;
+	electron_temperature = tej/ITM_EV;
+	
+	
+	
 	//! \a REQ-3: Coulomb logarithm
 	/*!
 	\f[
@@ -118,8 +124,12 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Ed = me2_c3__e / (tao * tej);
 	double Edn = electric_field/Ed;
 	
-	cout << "\n! !! !!! !! ! ! !! !!! ELECTRIC FIELD MANUAL SET !!! !! ! ! !! !!! !! !\n\n";
-	Edn = 0.12;
+	cout << "\n! !! !!! electric field edited !!! !! ! \n \n";
+	Edn = 0.2;
+
+	
+	/*cout << "\n! !! !!! !! ! ! !! !!! ELECTRIC FIELD MANUAL SET !!! !! ! ! !! !!! !! !\n\n";
+	Edn = 0.12;*/
 	
 	
 	cout << "Dreicer field: " << Ed << " V/m\n";
@@ -165,11 +175,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	cout << "gamma: " << gamma << "\n";
 
 
-
 	//! \a REQ-4: h factor
 	/*!	
 	\f[	
-		h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1} \cdot (1+Z)\cdot(\alpha-2)}
+		h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1}} \cdot (1+Z)\cdot(\alpha-2)
 		\right)
 	\f]
 	*/
@@ -201,6 +210,16 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		
 	cout << "exp2: " << 1/Edn-sqrt(2/Edn) << "\n";	
 	cout << "DGR: " << dgr << "\n";
+	
+	cout << "EXP(1): " << exp(1) << "\n";
+	
+	
+	// non-relativistic
+	double snr;
+	snr = Cr*electron_density/tao*pow(Edn,-3/16*(effective_charge+1))*exp(-1/4/Edn-sqrt((effective_charge+1)/Edn));
+		
+	cout << "SNR: " << snr << "\n";
+	
 	
 	return dgr;
 

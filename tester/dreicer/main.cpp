@@ -4,8 +4,8 @@
 #include <stdexcept>
 
 #include "constants.h"
-#include "dreicer2.h"
-#include "dreicer2.cpp"
+#include "dreicer.h"
+#include "dreicer.cpp"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main(void){
 
 	double electron_density = 1e20;//e20;//m^-3
 	double electron_temperature = 1218;//eV
-	double effective_charge  = 	10.0;
+	double effective_charge  = 	1.0;
 	double electric_field = 6.46;//3.991;// V/m
 	
 	double rate=-999999999;
