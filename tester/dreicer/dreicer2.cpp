@@ -151,6 +151,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	
 	
 	double alpha = Edn * me_c2/tej;
+	alpha = Edn;
 	double alpha_2 = alpha*alpha;
 	
 	
