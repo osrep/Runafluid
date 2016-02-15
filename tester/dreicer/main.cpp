@@ -24,11 +24,11 @@ int main(void){
 		
 		
 		
-	cout << "Dreicer generation rate: " << rate << "\n";	
+	cout << "Dreicer generation: " << rate << "\n";	
 	
-	/*double rate2 = rate/electron_density;
+	double rate2 = rate/electron_density;
 	
-	cout << "Dreicer generation rate: " << rate2 << "\n";	*/
+	cout << "Dreicer generation rate: " << rate2 << "\n";	
 	
  
 	return 0;
