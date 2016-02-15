@@ -41,3 +41,4 @@
 \form#40:\[ \Delta n_r = \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_c} -1 \right) \Delta t \]
 \form#41:\[ \Delta n_r = \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t \]
 \form#42:\[ \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t \]
+\form#43:\[ h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1}} \cdot (1+Z)\cdot(\alpha-2) \right) \]
