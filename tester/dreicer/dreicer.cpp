@@ -193,6 +193,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		
 	cout << "base: " << Cr*electron_density/tao*pow(Edn,-h) << "\n";	
 	cout << "exp: " << (-lambda/4/Edn-sqrt(2/Edn)*gamma) << "\n";	
+	
+		
+	cout << "exp2: " << 1/Edn-sqrt(2/Edn) << "\n";	
 	cout << "DGR: " << dgr << "\n";
 	
 	return dgr;
