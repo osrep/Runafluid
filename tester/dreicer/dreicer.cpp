@@ -181,7 +181,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Er;
 	Er = Ed*tej/me_c2;	
 	cout << "ER: " << Er << "\n";
-	
+	double Er2;
+	Er2 = calculate_critical_field(electron_density, electron_temperature);	
+	cout << "ER (old): " << Er2 << "\n";
+		
 	
 	//! non-relativistic (67)
 	/*!
@@ -190,6 +193,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/	
 	
+	double Cr=1.0;	
 	double snr = Cr*electron_density/tao*pow(Edn,-3/16*(effective_charge+1))*exp(-1/4/Edn-sqrt((effective_charge+1)/Edn));		
 
 	cout << "SNR: " << snr << "\n";
@@ -203,7 +207,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/		
 		
-	double Cr=1.0;	
 	double dgr = Cr*electron_density/tao*pow(Edn,-h)*\
 		exp(-lambda/4/Edn-sqrt(2/Edn)*gamma);
 			
