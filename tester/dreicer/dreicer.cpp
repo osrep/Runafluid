@@ -169,7 +169,31 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double h=1/(16*(alpha-1))*(alpha*(effective_charge+1)-\
 		effective_charge+7+2*sqrt(alpha/(alpha-1))*(1+effective_charge)*(alpha-2));
 	cout << "h: " << h << "\n";
+	
+		
+	//! runaway limit (65)
+	/*!
+	\f[
+		E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2}
+	\f]
+	*/
+	
+	double Er;
+	Er = Ed*tej/me_c2;	
+	cout << "ER: " << Er << "\n";
+	
+	
+	//! non-relativistic (67)
+	/*!
+	\f[
+		\gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} }  \right)
+	\f]
+	*/	
+	
+	double snr = Cr*electron_density/tao*pow(Edn,-3/16*(effective_charge+1))*exp(-1/4/Edn-sqrt((effective_charge+1)/Edn));		
 
+	cout << "SNR: " << snr << "\n";
+	
 
 	//! \return Dreicer generation rate (64)
 	/*!
@@ -183,34 +207,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double dgr = Cr*electron_density/tao*pow(Edn,-h)*\
 		exp(-lambda/4/Edn-sqrt(2/Edn)*gamma);
 			
-	/*	
-	cout << "base: " << Cr*electron_density/tao*pow(Edn,-h) << "\n";	
-	cout << "exp: " << (-lambda/4/Edn-sqrt(2/Edn)*gamma) << "\n";			
-	cout << "exp2: " << 1/Edn-sqrt(2/Edn) << "\n";	
-	cout << "DGR: " << dgr << "\n";	
-	cout << "EXP(1): " << exp(1) << "\n";
-	*/
-	
-	//! runaway limit (65)
-	/*!
-	\f[
-		E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2}
-	\f]
-	*/
-	
-	double Er;
-	Er = Ed*tej/me_c2;	
-	cout << "ER: " << Er << "\n";
-	
-	//! non-relativistic (67)
-	/*!
-	\f[
-		\gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{((1+Z) \frac{E}{E_\mathrm{D}} }  \right)
-	\f]
-	*/	
-	
-	double snr = Cr*electron_density/tao*pow(Edn,-3/16*(effective_charge+1))*exp(-1/4/Edn-sqrt((effective_charge+1)/Edn));		
-	cout << "SNR: " << snr << "\n";
+
+
 	
 	//Dreicer generation rate
 	return dgr;
