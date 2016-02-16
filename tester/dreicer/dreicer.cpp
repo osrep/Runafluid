@@ -84,10 +84,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		
 	double tej = electron_temperature* ITM_EV;
 	
-	cout << "\n! !! !!! temperature edited !!! !! ! \n \n";
+	/* /*cout << "\n! !! !!! temperature edited !!! !! ! \n \n";
 	tej = 1000*me_c2;
 	electron_temperature = tej/ITM_EV;
-	
+	*/
 	
 	
 	//! \a REQ-3: Coulomb logarithm
@@ -124,8 +124,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Ed = me2_c3__e / (tao * tej);
 	double Edn = electric_field/Ed;
 	
+	/*/*
 	cout << "\n! !! !!! electric field edited !!! !! ! \n \n";
-	Edn = 0.2;
+	Edn = 0.2;*/
 
 	
 	/*cout << "\n! !! !!! !! ! ! !! !!! ELECTRIC FIELD MANUAL SET !!! !! ! ! !! !!! !! !\n\n";

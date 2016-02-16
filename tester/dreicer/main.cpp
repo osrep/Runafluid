@@ -13,10 +13,10 @@ using namespace std;
 
 int main(void){
 
-	double electron_density = 1e20;//e20;//m^-3
-	double electron_temperature = 1218;//eV
-	double effective_charge  = 	1.0;
-	double electric_field = 6.46;//3.991;// V/m
+	double electron_density = 5e19;//1e20;//e20;//m^-3
+	double electron_temperature = 50000;//1218;//eV
+	double effective_charge  = 	2.0;
+	double electric_field = 0.10;//6.46;//3.991;// V/m
 	
 	double rate=-999999999;
 	rate = dreicer_generation_rate(electron_density, electron_temperature,
