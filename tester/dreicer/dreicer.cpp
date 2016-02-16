@@ -190,7 +190,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 
 
-	//! \return Dreicer generation rate
+	//! \return Dreicer generation rate (64)
 		/*!
 	\f[
 	\gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
@@ -213,8 +213,12 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	
 	cout << "EXP(1): " << exp(1) << "\n";
 	
+	//runaway limit (65)
+	double Er;
+	Er = Ed*tej/me_c2;	
+	cout << "ER: " << Er << "\n";
 	
-	// non-relativistic
+	// non-relativistic (67)
 	double snr;
 	snr = Cr*electron_density/tao*pow(Edn,-3/16*(effective_charge+1))*exp(-1/4/Edn-sqrt((effective_charge+1)/Edn));
 		
