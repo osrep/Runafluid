@@ -154,7 +154,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double gamma = sqrt((1+effective_charge)*alpha_2/8/(alpha-1))*(ITM_PI/2-asin(1-2/alpha));
+	double gamma = sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
 	cout << "gamma: " << gamma << "\n";
 
 
@@ -166,12 +166,12 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 
-	double h=1/(16*(alpha-1))*(alpha*(effective_charge+1)-\
-		effective_charge+7+2*sqrt(alpha/(alpha-1))*(1+effective_charge)*(alpha-2));
+	double h = 1/(16*(alpha-1)) * (alpha*(effective_charge+1) - \
+		effective_charge + 7 + 2*sqrt(alpha/(alpha-1)) * (1+effective_charge)*(alpha-2));
 	cout << "h: " << h << "\n";
 	
 		
-	//! runaway limit (65)
+	//! runaway limit -- critical field (65)
 	/*!
 	\f[
 		E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2}
@@ -179,11 +179,11 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double Er;
-	Er = Ed*tej/me_c2;	
+	Er = /*Ed*tej/me_c2;	
 	cout << "ER: " << Er << "\n";
 	double Er2;
-	Er2 = calculate_critical_field(electron_density, electron_temperature);	
-	cout << "ER (old): " << Er2 << "\n";
+	Er2 =*/ calculate_critical_field(electron_density, electron_temperature);	
+	cout << "ER" << Er << "\n";
 		
 	
 	//! non-relativistic (67)
@@ -194,7 +194,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/	
 	
 	double Cr=1.0;	
-	double snr = Cr*electron_density/tao*pow(Edn,-3/16*(effective_charge+1))*exp(-1/4/Edn-sqrt((effective_charge+1)/Edn));		
+	double snr = Cr*electron_density/tao * pow(Edn,-3/16*(effective_charge+1)) * exp(-1/4/Edn - sqrt((effective_charge+1)/Edn));		
 
 	cout << "SNR: " << snr << "\n";
 	
@@ -207,11 +207,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/		
 		
-	double dgr = Cr*electron_density/tao*pow(Edn,-h)*\
-		exp(-lambda/4/Edn-sqrt(2/Edn)*gamma);
-			
-
-
+	double dgr = Cr*electron_density/tao * pow(Edn,-h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma);
 	
 	//Dreicer generation rate
 	return dgr;
