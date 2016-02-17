@@ -64,3 +64,7 @@
 \form#63:\begin{eqnarray*} \Delta n_r = 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \end{eqnarray*}
 \form#64:\begin{eqnarray*} \Delta n_r \approx& \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t & \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \\ \Delta n_r =& 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)}\end{eqnarray*}
 \form#65:\begin{eqnarray} \Delta n_r \approx& \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t & \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \\ \Delta n_r =& 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)}\end{eqnarray}
+\form#66:\[ \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t ~~~~~~~ \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \]
+\form#67:\[ \Delta n_r = 0 ~~~~~~~ \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \]
+\form#68:\[ \Delta n_r = 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \]
+\form#69:\[ \Delta n_r = 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \]
