@@ -48,3 +48,19 @@
 \form#47:\[ \gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{((1+Z) \frac{E}{E_\mathrm{D}} } \right) \]
 \form#48:\[ \gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{((1+Z) \frac{E_\mathrm{D}}{E} } \right) \]
 \form#49:\[ \gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} } \right) \]
+\form#50:\[ \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t \mathrm{"(if"} E \ge E_"a" \mathrm{")"} \]
+\form#51:\[ \Delta n_r = 0 \mathrm{"(if"} E < E_"a" \mathrm{")"} \]
+\form#52:\[ \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t \mathrm{(if} E \ge E_\mathrm{a} \mathrm{)} \]
+\form#53:\[ \Delta n_r = 0 \mathrm{(if} E < E_\mathrm{a} \mathrm{)} \]
+\form#54:\[ \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t \mathrm{(if } E \ge E_\mathrm{a} \mathrm{)} \]
+\form#55:\[ \Delta n_r = 0 \mathrm{(if } E < E_\mathrm{a} \mathrm{)} \]
+\form#56:\[ \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \]
+\form#57:\[ \Delta n_r = 0 \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \]
+\form#58:\begin{eqnarray*} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \\ \end{eqnarray*}
+\form#59:\begin{eqnarray*} \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t & \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \\ */ double agr = electron_density*dt*(electric_field/Ec - 1) / (2*tao*coulomb_log); /* \Delta n_r = 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \end{eqnarray*}
+\form#60:\begin{eqnarray*} \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t & \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \\ */ double agr = electron_density*dt*(electric_field/Ec - 1) / (2*tao*coulomb_log); /*! \Delta n_r = 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \end{eqnarray*}
+\form#61:\begin{eqnarray*} \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t & \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \\ \Delta n_r = 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} */ double agr = electron_density*dt*(electric_field/Ec - 1) / (2*tao*coulomb_log); /*! \Delta n_r = 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \end{eqnarray*}
+\form#62:\begin{eqnarray*} \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t & \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \\ \Delta n_r = 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)}\end{eqnarray*}
+\form#63:\begin{eqnarray*} \Delta n_r = 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \end{eqnarray*}
+\form#64:\begin{eqnarray*} \Delta n_r \approx& \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t & \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \\ \Delta n_r =& 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)}\end{eqnarray*}
+\form#65:\begin{eqnarray} \Delta n_r \approx& \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) \Delta t & \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \\ \Delta n_r =& 0 & \mathrm{(if~} E < E_\mathrm{a} \mathrm{)}\end{eqnarray}
