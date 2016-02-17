@@ -83,7 +83,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/	
 		
 	double tej = electron_temperature* ITM_EV;
-	
+
 	//! \a REQ-3: Coulomb logarithm
 	/*!
 	\f[
@@ -94,20 +94,15 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 			+ log(electron_temperature * 1e-3);
 
 
-	cout << "Coulomb logarithm: " << coulomb_log << "\n";
-
-
-
 	//! \a REQ-2: electron collision time
 	/*! 
 	\f[
 		\tau = 4 \pi \epsilon_0^2 \cdot \frac{m_\mathrm{e}^2 \cdot c^3 }{e^4} \cdot \frac{1}{n_\mathrm{e} \ln \Lambda}		
 	\f]
 	*/
-	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
 	
-	
-	cout << "Electron collision time: " << tao << " s\n";
+	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
+
 
 	//! \a REQ-1: Dreicer field
 		/*!
@@ -116,25 +111,19 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	double Ed = me2_c3__e / (tao * tej);
-	double Edc = Ed/electric_field;
+	double Edn = electric_field/Ed;
 	
-	cout << "Dreicer field: " << Ed << " V/m\n";
-	cout << "normalised Dreicer field: " << Edc << "\n";
-
 
 	//! \a REQ-7: alpha
 	/*!
 	\f[	
 		\alpha = \frac{E}{E_\mathrm{D}} \cdot \frac{m_\mathrm{e} \cdot c^2}{T_\mathrm{e}~\mathrm{[J]}}
 	\f]
-	*/
+	*/	
+		
+	double alpha = Edn * me_c2/tej;
+	double alpha_2 = alpha*alpha;	
 	
-	double alpha = electric_field/Ed * me_c2/tej;
-	double alpha_2 = alpha*alpha;
-	
-	
-	cout << "alpha: " << alpha << "\n";
-	cout << "alpha^2: " << alpha_2 << "\n";
 	
 	//! \a REQ-6: lambda
 	/*!
@@ -142,8 +131,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\lambda(\alpha)=8\alpha\left( \alpha-\frac{1}{2}-\sqrt{\alpha(\alpha-1}\right)
 	\f]
 	*/
+	
 	double lambda = 8*alpha*(alpha-1/2*sqrt(alpha*(alpha-1)));
-	cout << "lambda: " << lambda << "\n";
+	
 	
 	//! \a REQ-5: multiplication factor
 	/*!
@@ -151,44 +141,54 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\gamma(\alpha,Z) = \sqrt{\frac{(1+Z)\alpha^2}{8(\alpha-1)}}\cdot \left( \frac{\pi}{2}-\sin^{-1}\left(1-\frac{2}{\alpha} \right) \right)
 	\f]
 	*/
-	double gamma = sqrt((1+effective_charge)*alpha_2/8/(alpha-1))*(ITM_PI/2-asin(1-2/alpha));
-	cout << "gamma: " << gamma << "\n";
-
+	
+	double gamma = sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
 
 
 	//! \a REQ-4: h factor
 	/*!	
 	\f[	
-		h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1} \cdot (1+Z)\cdot(\alpha-2)}
+		h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1}} \cdot (1+Z)\cdot(\alpha-2)
 		\right)
 	\f]
 	*/
 
-
-	double h=1/(16*(alpha-1))*(alpha*(effective_charge+1)-\
-		effective_charge+7+2*sqrt(alpha/(alpha-1))*(1+effective_charge)*(alpha-2));
-	cout << "h: " << h << "\n";
-
-
-
-	//! \return Dreicer generation rate
-		/*!
-	\f[
-	\gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
+	double h = 1/(16*(alpha-1)) * (alpha*(effective_charge+1) - \
+		effective_charge + 7 + 2*sqrt(alpha/(alpha-1)) * (1+effective_charge)*(alpha-2));
+	
 		
+	//! runaway limit -- critical field (65)
+	/*!
+	\f[
+		E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2}
+	\f]
+	*/
+	
+	double Er = calculate_critical_field(electron_density, electron_temperature);	
+
+	//! non-relativistic (67)
+	/*!
+	\f[
+		\gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} }  \right)
 	\f]
 	*/	
 	
-		
-	double Cr=1;	
-	double dgr = Cr*electron_density/tao*pow(Edc,h)*\
-		exp(-lambda/4*Edc-sqrt(2*Edc)*gamma);
-		
-	cout << "DGR: " << dgr << "\n";
-	
-	return dgr;
+	double Cr=1.0;	
+	double snr = Cr*electron_density/tao * pow(Edn,-3/16*(effective_charge+1)) * exp(-1/4/Edn - sqrt((effective_charge+1)/Edn));		
 
+
+	//! \return Dreicer generation rate (64)
+	/*!
+	\f[
+		\gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
+		
+	\f]
+	*/		
+		
+	double dgr = Cr*electron_density/tao * pow(Edn,-h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma);
 	
+	//Dreicer generation rate
+	return dgr;
 	
 	
 }
