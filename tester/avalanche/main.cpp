@@ -18,10 +18,11 @@ int main(void){
 	double effective_charge  = 	10.0;
 	double electric_field = 0.12;// V/m
 	double dt = 1e-10; //s
+	Ea= 0.01;// V/m
 	
 	double rate=-999999999;
 	rate = avalanche_generation_rate(electron_density, electron_temperature,
-		effective_charge, electric_field,dt);
+		effective_charge, electric_field, Ea, dt);
 		
 				
 	cout << "Avalanche generation: " << rate << "\n";	

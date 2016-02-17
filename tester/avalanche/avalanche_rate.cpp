@@ -72,7 +72,7 @@ double calculate_critical_field(double electron_density, double electron_tempera
 
 
 double avalanche_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field, double dt) {
+		double effective_charge, double electric_field, double Ea, double dt) {
 		
 		
 	//! \a REQ-1: Coulomb logarithm
@@ -108,12 +108,22 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	//! \return Avalanche generation rate
 	/*!
 	\f[
-		\Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right)  \Delta t		
+		\Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right)  \Delta t  \mathrm{"(if"}	E \ge E_"a"	\mathrm{")"}		
 		
 	\f]
 	*/
 
 	double agr = electron_density*dt*(electric_field/Ec - 1) / (2*tao*coulomb_log);
+	
+	/*!
+	\f[
+		\Delta n_r = 0  \mathrm{"(if"}	E < E_"a"	\mathrm{")"}
+		
+	\f]
+	*/
+	if (electric_field < Ea){
+		agr = 0;
+	}
 	
 	return agr;
 	
