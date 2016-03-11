@@ -103,7 +103,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
 						coreprof.rho_tor(rho));
 
-		/*! local Zeff 
+		/*! local effective charge
 		counting ions in \a rho cell
 		*/
 		celll.effective_charge = 0.0;
