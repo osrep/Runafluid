@@ -88,7 +88,11 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 
 	for (int rho = 0; rho < cells; rho++) {
 		cell celll;
+		
+		//! local electron density		
 		celll.electron_density = coreprof.ne.value(rho);
+		
+		//! local electron temperature
 		celll.electron_temperature = coreprof.te.value(rho);
 		
 		/*! local electric field
@@ -99,7 +103,9 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
 						coreprof.rho_tor(rho));
 
-		//! counting ions in \a rho cell
+		/*! local Zeff 
+		counting ions in \a rho cell
+		*/
 		celll.effective_charge = 0.0;
 		for (int ion = 0; ion < coreprof.compositions.ions.rows(); ion++) {
 			celll.effective_charge += coreprof.ni.value(rho, ion)
