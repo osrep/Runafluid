@@ -50,6 +50,16 @@ int is_field_critical(profile pro) {
 }
 
 
+int step_counter(profile pro) {
+
+	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
+			
+	}
+
+	return it;
+}
+
+
 int init_dreicer(profile pro) {
 
 	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {

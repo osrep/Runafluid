@@ -57,14 +57,27 @@ fix time label
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, double &growth_rate_limit,
-		int &critical_field_warning, int &growth_rate_warning) {
+		ItmNs::Itm::equilibriumArray &equilibrium, int steps) {
 
+
+
+	/*dreicer_rate = 0.0;
+	avalanche_rate = 0.0*/;
+	int dreicer_error = 1;
+	/*int*/ steps = 0;
+	
+	
 	try {
 	//! critical field: \sa is_field_critical
-		critical_field_warning = is_field_critical(
-				cpo_to_profile(coreprof, coreimpur, equilibrium));
-
+	
+		steps = step_counter(cpo_to_profile(coreprof, coreimpur, equilibrium));
+		
+	/*	double
+		
+		dreicer_error = init_dreicer(
+				cpo_to_profile(coreprof, coreimpur, equilibrium)
+				);
+*/
 	
 
 	} catch (const std::exception& ex) {
@@ -81,11 +94,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 main function
 
 arrays by time*/
+
+/*
 void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &coreimpur,
-		ItmNs::Itm::equilibriumArray &equilibrium, double &ea, double &dreicer_rate, double &avalanche_rate
-		/*double &growth_rate_limit,
-		int &critical_field_warning, int &growth_rate_warning, double &critical_field_time,
-		double &growth_rate_time*/) {
+		ItmNs::Itm::equilibriumArray &equilibrium, double &ea, double &dreicer_rate, double &avalanche_rate) {
 
 	dreicer_rate = 0.0;
 	avalanche_rate = 0.0;
@@ -111,20 +123,11 @@ void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &corei
 				
 				
 				//! Initialisation of Dreicer module
-				critical_field_warning = dreicer_init(
+				dreicer_error = init_dreicer(
 						cpo_to_profile(coreprof[slice], coreimpur[slice], equilibrium[slice]));
 				
 				
-/*
-			//! critical field: \sa is_field_critical
-			if (critical_field_warning == 0) {
-				critical_field_warning = is_field_critical(
-						cpo_to_profile(coreprof[slice], coreimpur[slice], equilibrium[slice]));
 
-				if (critical_field_warning != 0)
-					critical_field_time = coreprof[slice].time;
-			}
-*/
 
 		}
 
@@ -138,5 +141,5 @@ void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &corei
 		//! internal error in growth_rate
 		growth_rate_warning = ITM_ILLEGAL_INT;
 	}
-}
+}*/
 	
