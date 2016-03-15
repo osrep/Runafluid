@@ -48,6 +48,18 @@ int is_field_critical(profile pro) {
 	return 0;
 }
 
+
+int init_dreicer(profile pro) {
+
+	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
+		if (dreicer_generation_rate(it->electron_density, it->electron_temperature, it->effective_charge, it->electric_field)
+			return 1;
+	}
+
+	return 0;
+}
+
+
 double calculate_critical_field(double electron_density, double electron_temperature) {
 	
 	//! \a REQ-4: Coulomb logarithm
