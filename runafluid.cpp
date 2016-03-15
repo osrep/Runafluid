@@ -6,9 +6,10 @@
 
 #include "constants.h"
 #include "cpo_utils.h"
-#include "critical_field.h"
-#include "dreicer.h"
+//#include "critical_field.h"
 
+#include "dreicer.h"
+#include "avalanche_rate.h"
 // double growth_rate_limit = 1e12;
 
 
@@ -81,12 +82,16 @@ main function
 
 arrays by time*/
 void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &coreimpur,
-		ItmNs::Itm::equilibriumArray &equilibrium, double &growth_rate_limit,
+		ItmNs::Itm::equilibriumArray &equilibrium, double &ea, double &dreicer_rate, double &avalanche_rate
+		/*double &growth_rate_limit,
 		int &critical_field_warning, int &growth_rate_warning, double &critical_field_time,
-		double &growth_rate_time) {
+		double &growth_rate_time*/) {
 
-	critical_field_warning = 0;
-	growth_rate_warning = 0;
+	dreicer_rate = 0.0;
+	avalanche_rate = 0.0;
+	
+	int dreicer_error = 0;
+	int avalanche_error = 0;
 
 	try {
 		int slices = coreprof.array.rows();
@@ -103,7 +108,14 @@ void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &corei
 			if (!equal(coreprof[slice].time, coreimpur[slice].time, 0.01)
 					|| !equal(coreprof[slice].time, equilibrium[slice].time, 0.01))
 				throw std::invalid_argument("Time value differs in cpo slices of the same index.");
-
+				
+				
+				//! Initialisation of Dreicer module
+				critical_field_warning = dreicer_init(
+						cpo_to_profile(coreprof[slice], coreimpur[slice], equilibrium[slice]));
+				
+				
+/*
 			//! critical field: \sa is_field_critical
 			if (critical_field_warning == 0) {
 				critical_field_warning = is_field_critical(
@@ -112,12 +124,12 @@ void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &corei
 				if (critical_field_warning != 0)
 					critical_field_time = coreprof[slice].time;
 			}
-
+*/
 
 		}
 
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during firing actor Runaway Indicator." << std::endl;
+		std::cerr << "ERROR An error occurred during firing actor Runaway Fluid." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 
 		//! internal error in critical_field
