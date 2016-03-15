@@ -48,6 +48,17 @@ int is_field_critical(profile pro) {
 	return 0;
 }
 
+
+int init_avalanche(profile pro) {
+
+	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
+		if (dreicer_generation_rate(it->electron_density, it->electron_temperature, it->effective_charge, it->electric_field, it->ea)
+			return 1;
+	}
+
+	return 0;
+}
+
 double calculate_critical_field(double electron_density, double electron_temperature) {
 	
 	//! \a REQ-1: Coulomb logarithm
@@ -72,7 +83,7 @@ double calculate_critical_field(double electron_density, double electron_tempera
 
 
 double avalanche_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field, double Ea, double dt) {
+		double effective_charge, double electric_field, double Ea) {
 		
 		
 	//! \a REQ-1: Coulomb logarithm
