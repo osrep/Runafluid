@@ -70,7 +70,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	try {
 	//! critical field: \sa is_field_critical
 	
-		steps = step_counter(cpo_to_profile(coreprof, coreimpur, equilibrium));
+		steps = 5;//step_counter(cpo_to_profile(coreprof, coreimpur, equilibrium));
 		
 	/*	double
 		
