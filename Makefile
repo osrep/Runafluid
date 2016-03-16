@@ -7,7 +7,7 @@ CXXFLAGS += -I/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/include/
 LDFLAGS = -L$(UAL)/lib -lUALCPPInterface -lUALLowLevel
 LDFLAGS += -L/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/lib -lblitz
 
-all: librunin.a
+all: librunafluid.a
 
 librunafluid.a: runafluid.o cpo_utils.o critical_field.o dreicer.o avalanche_rate.o
 	ar -rvs $@ $^
