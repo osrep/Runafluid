@@ -56,15 +56,15 @@ main function
 fix time label
 
 */
+
+/*
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		ItmNs::Itm::equilibriumArray &equilibrium, int &steps) {
 
 
 
-	/*dreicer_rate = 0.0;
-	avalanche_rate = 0.0*/;
 	int dreicer_error = 1;
-	/*int*/ steps = 0;
+	steps = 0;
 	
 	
 	try {
@@ -72,12 +72,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 		steps = 5;//step_counter(cpo_to_profile(coreprof, coreimpur, equilibrium));
 		
-	/*	double
-		
-		dreicer_error = init_dreicer(
-				cpo_to_profile(coreprof, coreimpur, equilibrium)
-				);
-*/
+//		double
+//		
+//		dreicer_error = init_dreicer(
+//				cpo_to_profile(coreprof, coreimpur, equilibrium)
+//				);
+//
 	
 
 	} catch (const std::exception& ex) {
@@ -88,7 +88,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		steps = ITM_ILLEGAL_INT;
 		
 	}
-}
+}*/
+
 
 /*!
 main function
@@ -97,12 +98,13 @@ arrays by time*/
 
 
 
-/*
+
 void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &coreimpur,
-		ItmNs::Itm::equilibriumArray &equilibrium, int &avalanche_rate) {
+		ItmNs::Itm::equilibriumArray &equilibrium, int &steps) {
 		
+		steps=0;
 		
-}	*/	
+}		
 /*
 void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &coreimpur,
 		ItmNs::Itm::equilibriumArray &equilibrium, double &ea, double &dreicer_rate, double &avalanche_rate) {
