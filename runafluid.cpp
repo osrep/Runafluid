@@ -85,7 +85,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 		
 		//! internal error in critical_field
-		critical_field_warning = ITM_ILLEGAL_INT;
+		steps = ITM_ILLEGAL_INT;
 		
 	}
 }
