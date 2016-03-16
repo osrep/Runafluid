@@ -23,7 +23,7 @@ test: runin.o cpo_utils.o critical_field.o dreicer.o avalanche_rate.o test/test.
 	$(CXX) $(CXXFLAGS) -c -o $@ $^
 	
 ual:
-	$(CXX) $(CXXFLAGS) $(UAL)/include/UALClasses.h -o $(ITMWORK)/runin/UALClasses.h.gch
+	$(CXX) $(CXXFLAGS) $(UAL)/include/UALClasses.h -o $(ITMWORK)/runatester/UALClasses.h.gch
 	
 clean:
 	rm *.a *.o test/*.o test.bin
