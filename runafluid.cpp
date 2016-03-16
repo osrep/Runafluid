@@ -100,9 +100,8 @@ arrays by time*/
 
 
 void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &coreimpur,
-		ItmNs::Itm::equilibriumArray &equilibrium, int &steps) {
+		ItmNs::Itm::equilibriumArray &equilibrium) {
 		
-		steps=0;
 		
 }		
 /*
