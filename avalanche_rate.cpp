@@ -52,7 +52,7 @@ int is_field_critical(profile pro) {
 int init_avalanche(profile pro, double Ea) {
 
 	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-		if (dreicer_generation_rate(it->electron_density, it->electron_temperature, it->effective_charge, it->electric_field, Ea))
+		if (avalanche_generation_rate(it->electron_density, it->electron_temperature, it->effective_charge, it->electric_field, Ea))
 			return 1;
 	}
 
