@@ -95,13 +95,13 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
 			+ log(electron_temperature * 1e-3);
 
-	cout << "Coulomb logarithm: " << coulomb_log << "\n";
+	//cout << "Coulomb logarithm: " << coulomb_log << "\n";
 		
 
 	//! \a REQ-2: Critical electric field
 	
 	double Ec = calculate_critical_field(electron_density, electron_temperature); 
-	cout << "critical electric field: " << Ec << " V/m\n";
+	//cout << "critical electric field: " << Ec << " V/m\n";
 
 
 	//! \a REQ-3: electron collision time
@@ -113,7 +113,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	
 	
 	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
-	cout << "Electron collision time: " << tao << " s\n";
+	//cout << "Electron collision time: " << tao << " s\n";
 	
 
 	//! \return Avalanche generation rate

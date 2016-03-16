@@ -117,7 +117,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 			+ log(electron_temperature * 1e-3);
 
 
-	cout << "Coulomb logarithm: " << coulomb_log << "\n";
+	//cout << "Coulomb logarithm: " << coulomb_log << "\n";
 
 
 	//! \a REQ-2: electron collision time
@@ -128,7 +128,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);		
-	cout << "Electron collision time: " << tao << " s\n";
+	//cout << "Electron collision time: " << tao << " s\n";
 
 
 	//! \a REQ-1: Dreicer field
@@ -140,9 +140,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Ed = me2_c3__e / (tao * tej);
 	double Edn = electric_field/Ed;
 
-	cout << "Dreicer field: " << Ed << " V/m\n";
-	cout << "normalised electric field (E/E_D): " << Edn << "\n";
-	cout << "normalised electric field (Kulsrud1973, E/2E_D): " << Edn/2 << "\n";
+	//cout << "Dreicer field: " << Ed << " V/m\n";
+	//cout << "normalised electric field (E/E_D): " << Edn << "\n";
+	//cout << "normalised electric field (Kulsrud1973, E/2E_D): " << Edn/2 << "\n";
 	
 
 	//! \a REQ-7: alpha
@@ -155,8 +155,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double alpha = Edn * me_c2/tej;
 	double alpha_2 = alpha*alpha;	
 	
-	cout << "alpha: " << alpha << "\n";
-	cout << "alpha^2: " << alpha_2 << "\n";
+	//cout << "alpha: " << alpha << "\n";
+	//cout << "alpha^2: " << alpha_2 << "\n";
 	
 	
 	//! \a REQ-6: lambda
@@ -167,7 +167,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double lambda = 8*alpha*(alpha-1/2*sqrt(alpha*(alpha-1)));
-	cout << "lambda: " << lambda << "\n";
+	//cout << "lambda: " << lambda << "\n";
 	
 	
 	//! \a REQ-5: multiplication factor
@@ -178,7 +178,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double gamma = sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
-	cout << "gamma: " << gamma << "\n";
+	//cout << "gamma: " << gamma << "\n";
 
 
 	//! \a REQ-4: h factor
@@ -191,7 +191,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 	double h = 1/(16*(alpha-1)) * (alpha*(effective_charge+1) - \
 		effective_charge + 7 + 2*sqrt(alpha/(alpha-1)) * (1+effective_charge)*(alpha-2));
-	cout << "h: " << h << "\n";
+	//cout << "h: " << h << "\n";
 	
 		
 	//! runaway limit -- critical field (65)
@@ -206,7 +206,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	cout << "ER: " << Er << "\n";
 	double Er2;
 	Er2 =*/ calculate_critical_field(electron_density, electron_temperature);	
-	cout << "ER" << Er << "\n";
+	//cout << "ER" << Er << "\n";
 		
 	
 	//! non-relativistic (67)
@@ -219,7 +219,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Cr=1.0;	
 	double snr = Cr*electron_density/tao * pow(Edn,-3/16*(effective_charge+1)) * exp(-1/4/Edn - sqrt((effective_charge+1)/Edn));		
 
-	cout << "SNR: " << snr << "\n";
+	//cout << "SNR: " << snr << "\n";
 	
 
 	//! \return Dreicer generation rate (64)
