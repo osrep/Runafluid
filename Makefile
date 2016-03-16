@@ -9,7 +9,8 @@ LDFLAGS += -L/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/lib -lblitz
 
 all: librunafluid.a
 
-librunafluid.a: runafluid.o cpo_utils.o critical_field.o dreicer.o avalanche_rate.o
+#critical_field.o dreicer.o avalanche_rate.o
+librunafluid.a: runafluid.o cpo_utils.o 
 	ar -rvs $@ $^
 	
 test/test.o: test/test.cpp
