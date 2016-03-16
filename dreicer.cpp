@@ -52,11 +52,12 @@ int is_field_critical(profile pro) {
 
 int step_counter(profile pro) {
 
+	int it2=0;
 	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-			
+		it2++;	
 	}
 
-	return it;
+	return it2;
 }
 
 
