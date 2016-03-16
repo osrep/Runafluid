@@ -359,10 +359,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runaway_indicator</actor>
+  <actor>runafluid</actor>
   <actorVersion></actorVersion>
   <actorDoc></actorDoc>
-  <actorFolder>eu/itm/runaway_indicator</actorFolder>
+  <actorFolder>eu/itm/runafluid</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
