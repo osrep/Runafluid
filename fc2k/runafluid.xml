@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>librunin.a</fFile>
+  <fFile>librunafluid.a</fFile>
   <subrt>fire</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
@@ -299,31 +299,13 @@
             <string>equilibrium</string>
           </vector>
           <vector>
-            <string>double</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>growth_rate_limit</string>
-          </vector>
-          <vector>
             <string>integer</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>critical_field_warning</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>growth_rate_warning</string>
+            <string>steps</string>
           </vector>
         </tupleParams>
         <uHash>
