@@ -298,6 +298,15 @@
             <string>0</string>
             <string>equilibrium</string>
           </vector>
+          <vector>
+            <string>equilibrium</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>steps</string>
+          </vector>
         </tupleParams>
         <uHash>
           <entry>
