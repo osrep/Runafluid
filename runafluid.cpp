@@ -57,14 +57,14 @@ fix time label
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibriumArray &equilibrium/*, int steps*/) {
+		ItmNs::Itm::equilibriumArray &equilibrium, int &steps) {
 
 
 
 	/*dreicer_rate = 0.0;
 	avalanche_rate = 0.0*/;
 	int dreicer_error = 1;
-	int steps = 0;
+	/*int*/ steps = 0;
 	
 	
 	try {
@@ -95,6 +95,14 @@ main function
 
 arrays by time*/
 
+
+
+/*
+void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &coreimpur,
+		ItmNs::Itm::equilibriumArray &equilibrium, int &avalanche_rate) {
+		
+		
+}	*/	
 /*
 void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &coreimpur,
 		ItmNs::Itm::equilibriumArray &equilibrium, double &ea, double &dreicer_rate, double &avalanche_rate) {
