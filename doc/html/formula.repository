@@ -1,0 +1,28 @@
+\form#0:$ \pi $
+\form#1:$ m_e $
+\form#2:$ \mu_0 $
+\form#3:$ \epsilon_0 $
+\form#4:\[ 2 \cdot \left| a-b\right| \le \left( |a| + |b| \right) \cdot tolerance \]
+\form#5:\[ y_a = y_i + \frac{y_{i+1}-y_i}{x_{i+1}-x_i}\cdot(x_a -x_i) \]
+\form#6:\[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \]
+\form#7:$R $
+\form#8:$ e^3 $
+\form#9:$ 4\pi\epsilon_0^2 m_\mathrm{e} c^2 $
+\form#10:\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]
+\form#11:\[ E_\mathrm{c} = \frac{n_\mathrm{e} e^3 \ln \Lambda}{4\pi\epsilon_0^2 m_\mathrm{e} c^2} \]
+\form#12:\[ m_\mathrm{e} \cdot c^2 \]
+\form#13:\[ m_\mathrm{e}^2 \cdot c^3 \]
+\form#14:\[ \frac{m_\mathrm{e}^2 \cdot c^3}{e} \]
+\form#15:\[ \frac{4\pi\epsilon_0^2\cdot m_\mathrm{e}^2 c^3}{e^4} \]
+\form#16:$ n_\mathrm{e}$
+\form#17:$10^{20} \mathrm{~m}^{-3}$
+\form#18:$ t_\mathrm{e}$
+\form#19:$\mathrm{keV}$
+\form#20:$ Z_\mathrm{eff} $
+\form#21:$ E_\parallel $
+\form#22:$N/C$
+\form#23:\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_\mathrm{e} \cdot 10^{-20}\right) + \log \left(t_\mathrm{e} \cdot 10^{-3}\right) . \]
+\form#24:\[ T_\mathrm{e} \mathrm{[kJ]} = t_\mathrm{e} \mathrm{[keV]} \cdot e\]
+\form#25:\[ \tau = 4 \pi \epsilon_0^2 \cdot \frac{m_\mathrm{e}^2 \cdot c^3 }{e^4} \cdot \frac{1}{n_\mathrm{e} \ln \Lambda} \]
+\form#26:\[ E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}} \]
+\form#27:\[ \dot{n}_r^I= \frac{n_\mathrm{e}}{\tau} \cdot \left(\frac{m_\mathrm{e} c^2}{2 T_\mathrm{e}} \right)^{3/2}\cdot \left( \frac{E_D}{E_\parallel}\right)^{3 \left(1+Z_\mathrm{eff}\right) / 16} \cdot \exp \left( -\frac{E_D}{4E_\parallel} - \sqrt{\frac{1+Z_\mathrm{eff} \cdot E_D}{E_\parallel}}\right) \]
