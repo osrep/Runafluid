@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>/u/maradi/svn/runafluid/trunk/librunafluid.a</fFile>
+  <fFile>librunafluid.a</fFile>
   <subrt>fire</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
