@@ -7,7 +7,7 @@ CXXFLAGS += -I/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/include/
 LDFLAGS = -L$(UAL)/lib -lUALCPPInterface -lUALLowLevel
 LDFLAGS += -L/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/lib -lblitz
 
-all: librunafluid.a libdistread.a test/iotest.a test/distredit.a
+all: librunafluid.a libdistread.a test/libiotest.a test/libdistredit.a
 
 #dreicer.o avalanche.o
 librunafluid.a: runafluid.o  init.o  cpo_utils.o 
@@ -17,9 +17,9 @@ libdistread.a: distread.o cpo_utils.o
 	ar -rvs $@ $^
 	
 		
-test/iotest.a: test/iotest.o
+test/libiotest.a: test/iotest.o
 
-test/distredit.a: test/distredit.o
+test/libdistredit.a: test/distredit.o
 	ar -rvs $@ $^
 	
 #test/test.o: test/test.cpp
@@ -35,4 +35,4 @@ ual:
 	$(CXX) $(CXXFLAGS) $(UAL)/include/UALClasses.h -o $(ITMWORK)/runatester/UALClasses.h.gch
 	
 clean:
-	rm *.a *.o test/*.o #test.bin
+	rm *.a *.o test/*.o test/*.a #test.bin
