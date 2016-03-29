@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Runaway Indicator (RUNIN): /home/matyi/2016_aradi_wpcd/runin/trunk/cpo_utils.h File Reference</title>
+<title>RUNAFLUID: /home/matyi/svn/runafluid/trunk/cpo_utils.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,8 +29,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Runaway Indicator (RUNIN)
-   &#160;<span id="projectnumber">1.8</span>
+   <div id="projectname">RUNAFLUID
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -65,6 +72,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('cpo__utils_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -79,32 +101,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_5b578c88fa614d6d0863a4ad17d41e14.html">runin</a></li><li class="navelem"><a class="el" href="dir_4c48c30f92ccedd79444b9459e1fb0b1.html">trunk</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">cpo_utils.h File Reference</div>  </div>
+<div class="title">/home/matyi/svn/runafluid/trunk/cpo_utils.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;UALClasses.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="init_8h_source.html">init.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="constants_8h_source.html">constants.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for cpo_utils.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="cpo__utils_8h__incl.png" border="0" usemap="#_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2cpo__utils_8h" alt=""/></div>
-<map name="_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2cpo__utils_8h" id="_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2cpo__utils_8h">
+<div class="center"><img src="cpo__utils_8h__incl.png" border="0" usemap="#_2home_2matyi_2svn_2runafluid_2trunk_2cpo__utils_8h" alt=""/></div>
+<map name="_2home_2matyi_2svn_2runafluid_2trunk_2cpo__utils_8h" id="_2home_2matyi_2svn_2runafluid_2trunk_2cpo__utils_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="cpo__utils_8h__dep__incl.png" border="0" usemap="#_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2cpo__utils_8hdep" alt=""/></div>
-<map name="_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2cpo__utils_8hdep" id="_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2cpo__utils_8hdep">
+<div class="center"><img src="cpo__utils_8h__dep__incl.png" border="0" usemap="#_2home_2matyi_2svn_2runafluid_2trunk_2cpo__utils_8hdep" alt=""/></div>
+<map name="_2home_2matyi_2svn_2runafluid_2trunk_2cpo__utils_8hdep" id="_2home_2matyi_2svn_2runafluid_2trunk_2cpo__utils_8hdep">
 </map>
 </div>
 </div>
@@ -118,8 +136,10 @@ Functions</h2></td></tr>
 <tr class="separator:a50572137eb8210b5b8da231639e016b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b814648cece2c5758fb5d05031e2b7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8h.html#a60b814648cece2c5758fb5d05031e2b7">interpolate</a> (const Array&lt; double, 1 &gt; &amp;x, const Array&lt; double, 1 &gt; &amp;y, double xa)</td></tr>
 <tr class="separator:a60b814648cece2c5758fb5d05031e2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affff233f460a921a6096f36f03cb72c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8h.html#affff233f460a921a6096f36f03cb72c5">cpo_to_profile</a> (const ItmNs::Itm::coreprof &amp;coreprof, const ItmNs::Itm::coreimpur &amp;coreimpur, const ItmNs::Itm::equilibrium &amp;equilibrium)</td></tr>
-<tr class="separator:affff233f460a921a6096f36f03cb72c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae63f9764ade23dc7ebdd963984b0fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8h.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_to_profile</a> (const ItmNs::Itm::coreprof &amp;coreprof, const ItmNs::Itm::coreimpur &amp;coreimpur, const ItmNs::Itm::equilibrium &amp;equilibrium, const ItmNs::Itm::distribution &amp;distribution)</td></tr>
+<tr class="separator:adae63f9764ade23dc7ebdd963984b0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad568a9485e52ca3feed1192d8617b7ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8h.html#ad568a9485e52ca3feed1192d8617b7ec">cpo_to_profile</a> (<a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> pro, const ItmNs::Itm::coreprof &amp;coreprof, const ItmNs::Itm::coreimpur &amp;coreimpur, const ItmNs::Itm::equilibrium &amp;equilibrium, const ItmNs::Itm::distribution &amp;distribution)</td></tr>
+<tr class="separator:ad568a9485e52ca3feed1192d8617b7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a50572137eb8210b5b8da231639e016b0"></a>
@@ -150,12 +170,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="affff233f460a921a6096f36f03cb72c5"></a>
+<a class="anchor" id="adae63f9764ade23dc7ebdd963984b0fc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> cpo_to_profile </td>
+          <td class="memname"><a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> cpo_to_profile </td>
           <td>(</td>
           <td class="paramtype">const ItmNs::Itm::coreprof &amp;&#160;</td>
           <td class="paramname"><em>coreprof</em>, </td>
@@ -170,7 +190,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const ItmNs::Itm::equilibrium &amp;&#160;</td>
-          <td class="paramname"><em>equilibrium</em>&#160;</td>
+          <td class="paramname"><em>equilibrium</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ItmNs::Itm::distribution &amp;&#160;</td>
+          <td class="paramname"><em>distribution</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -179,18 +205,68 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Copy data from CPO inputs to profile structure </p>
 <p>read electron density profile length of dataset: cells</p>
-<p>read electron temperature profile</p>
+<p>read electron temperature profile length of dataset, comparing with cells</p>
+<p>read eparallel profile length of dataset, comparing with cells</p>
+<p>read data in every $$</p>
+<p>electron density</p>
+<p>electron temperature</p>
 <p>local electric field </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \]" src="form_6.png"/>
+<img class="formulaDsp" alt="\[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \]" src="form_10.png"/>
 </p>
-<p> where B_{av} is known on discreate <img class="formulaInl" alt="$R $" src="form_7.png"/> major radius and interpolated at $$ major radius</p>
-<p>counting ions in <em>rho</em> cell</p>
-<p>counting impurities in <em>rho</em> cell</p>
+<p> where B_{av} is known on discreate <img class="formulaInl" alt="$R $" src="form_11.png"/> major radius and interpolated at $$ normalised minor radius</p>
+<p>runaway density before (in m^-3) distsource_identifier = 7</p>
+<p>total sum of electric charge in <em>rho</em> cell for all ion population</p>
+<p>total sum of electric charge in <em>rho</em> cell for all impurity population</p>
 <p>number of impurities by species</p>
 <p>charge of impurity </p>
 
-<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00072">72</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00077">77</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad568a9485e52ca3feed1192d8617b7ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpo_to_profile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td>
+          <td class="paramname"><em>pro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ItmNs::Itm::coreprof &amp;&#160;</td>
+          <td class="paramname"><em>coreprof</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ItmNs::Itm::coreimpur &amp;&#160;</td>
+          <td class="paramname"><em>coreimpur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ItmNs::Itm::equilibrium &amp;&#160;</td>
+          <td class="paramname"><em>equilibrium</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ItmNs::Itm::distribution &amp;&#160;</td>
+          <td class="paramname"><em>distribution</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -232,7 +308,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ 2 \cdot \left| a-b\right| \le \left( |a| + |b| \right) \cdot tolerance \]" src="form_4.png"/>
+<img class="formulaDsp" alt="\[ 2 \cdot \left| a-b\right| \le \left( |a| + |b| \right) \cdot tolerance \]" src="form_8.png"/>
 </p>
  
 <p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00014">14</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
@@ -270,7 +346,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>linear interpolation</p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ y_a = y_i + \frac{y_{i+1}-y_i}{x_{i+1}-x_i}\cdot(x_a -x_i) \]" src="form_5.png"/>
+<img class="formulaDsp" alt="\[ y_a = y_i + \frac{y_{i+1}-y_i}{x_{i+1}-x_i}\cdot(x_a -x_i) \]" src="form_9.png"/>
 </p>
  
 <p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00052">52</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
@@ -278,11 +354,15 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 27 2016 14:23:08 for Runaway Indicator (RUNIN) by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="cpo__utils_8h.html">cpo_utils.h</a></li>
+    <li class="footer">Generated on Tue Mar 29 2016 14:13:18 for RUNAFLUID by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
 </body>
 </html>

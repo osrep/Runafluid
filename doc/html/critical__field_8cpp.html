@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Runaway Indicator (RUNIN): /home/matyi/2016_aradi_wpcd/runin/trunk/critical_field.cpp File Reference</title>
+<title>RUNAFLUID: /home/matyi/svn/runafluid/trunk/critical_field.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,8 +29,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Runaway Indicator (RUNIN)
-   &#160;<span id="projectnumber">1.8</span>
+   <div id="projectname">RUNAFLUID
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -65,6 +72,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('critical__field_8cpp.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -79,26 +101,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_5b578c88fa614d6d0863a4ad17d41e14.html">runin</a></li><li class="navelem"><a class="el" href="dir_4c48c30f92ccedd79444b9459e1fb0b1.html">trunk</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">critical_field.cpp File Reference</div>  </div>
+<div class="title">/home/matyi/svn/runafluid/trunk/critical_field.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
 <code>#include &quot;<a class="el" href="critical__field_8h_source.html">critical_field.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="products_8h_source.html">products.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for critical_field.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="critical__field_8cpp__incl.png" border="0" usemap="#_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2critical__field_8cpp" alt=""/></div>
-<map name="_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2critical__field_8cpp" id="_2home_2matyi_22016__aradi__wpcd_2runin_2trunk_2critical__field_8cpp">
+<div class="center"><img src="critical__field_8cpp__incl.png" border="0" usemap="#_2home_2matyi_2svn_2runafluid_2trunk_2critical__field_8cpp" alt=""/></div>
+<map name="_2home_2matyi_2svn_2runafluid_2trunk_2critical__field_8cpp" id="_2home_2matyi_2svn_2runafluid_2trunk_2critical__field_8cpp">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="critical__field_8cpp__dep__incl.png" border="0" usemap="#_2home_2matyi_2svn_2runafluid_2trunk_2critical__field_8cppdep" alt=""/></div>
+<map name="_2home_2matyi_2svn_2runafluid_2trunk_2critical__field_8cppdep" id="_2home_2matyi_2svn_2runafluid_2trunk_2critical__field_8cppdep">
 </map>
 </div>
 </div>
@@ -106,19 +130,10 @@ Include dependency graph for critical_field.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9b14d57f395af0da8f38a32c983f08e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a> (<a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> pro)</td></tr>
+<tr class="memitem:a9b14d57f395af0da8f38a32c983f08e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a> (<a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> pro)</td></tr>
 <tr class="separator:a9b14d57f395af0da8f38a32c983f08e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2a76ff205da07cb646aa10ac6364196"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#ac2a76ff205da07cb646aa10ac6364196">calculate_critical_field</a> (double electron_density, double electron_temperature)</td></tr>
 <tr class="separator:ac2a76ff205da07cb646aa10ac6364196"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aff99da95c225d58a2c9acf9aa04a267b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#aff99da95c225d58a2c9acf9aa04a267b">e3</a> = pow(<a class="el" href="constants_8h.html#a77e0eb0b8fcb75e536301fe341303175">ITM_QE</a>, 3)</td></tr>
-<tr class="memdesc:aff99da95c225d58a2c9acf9aa04a267b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><img class="formulaInl" alt="$ e^3 $" src="form_8.png"/>  <a href="#aff99da95c225d58a2c9acf9aa04a267b">More...</a><br /></td></tr>
-<tr class="separator:aff99da95c225d58a2c9acf9aa04a267b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a386cf4a0f25bd6f743030af95a3a6f1b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#a386cf4a0f25bd6f743030af95a3a6f1b">pi_e02_me_4_c2</a> = <a class="el" href="constants_8h.html#a0bea85a1e2f78dd42a48a943c1a12d3e">ITM_PI</a> * pow(<a class="el" href="constants_8h.html#aed54d35408384e07621b6cfb50319838">ITM_EPS0</a>, 2) * <a class="el" href="constants_8h.html#adf6e4ab51323f4d7be76c7b9dbcb968c">ITM_ME</a> * 4.0 * pow(<a class="el" href="constants_8h.html#a48959d42dd830a75c067524cf145b171">ITM_C</a>, 2)</td></tr>
-<tr class="memdesc:a386cf4a0f25bd6f743030af95a3a6f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><img class="formulaInl" alt="$ 4\pi\epsilon_0^2 m_\mathrm{e} c^2 $" src="form_9.png"/>  <a href="#a386cf4a0f25bd6f743030af95a3a6f1b">More...</a><br /></td></tr>
-<tr class="separator:a386cf4a0f25bd6f743030af95a3a6f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ac2a76ff205da07cb646aa10ac6364196"></a>
@@ -146,14 +161,14 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p><em>REQ-4</em>: Coulomb logarithm</p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_10.png"/>
+<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_12.png"/>
 </p>
 <dl class="section return"><dt>Returns</dt><dd><em>REQ-3</em>: Critical field</dd></dl>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_\mathrm{c} = \frac{n_\mathrm{e} e^3 \ln \Lambda}{4\pi\epsilon_0^2 m_\mathrm{e} c^2} \]" src="form_11.png"/>
+<img class="formulaDsp" alt="\[ E_\mathrm{c} = \frac{n_\mathrm{e} e^3 \ln \Lambda}{4\pi\epsilon_0^2 m_\mathrm{e} c^2} \]" src="form_13.png"/>
 </p>
 
-<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00037">37</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
+<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00029">29</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
 
 </div>
 </div>
@@ -164,7 +179,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int is_field_critical </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td>
           <td class="paramname"><em>pro</em></td><td>)</td>
           <td></td>
         </tr>
@@ -184,49 +199,20 @@ Variables</h2></td></tr>
 <dd>
 <em>REQ-3</em>: Critical electric field </dd></dl>
 
-<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00026">26</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="aff99da95c225d58a2c9acf9aa04a267b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double e3 = pow(<a class="el" href="constants_8h.html#a77e0eb0b8fcb75e536301fe341303175">ITM_QE</a>, 3)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><img class="formulaInl" alt="$ e^3 $" src="form_8.png"/> </p>
-
-<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00006">6</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a386cf4a0f25bd6f743030af95a3a6f1b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double pi_e02_me_4_c2 = <a class="el" href="constants_8h.html#a0bea85a1e2f78dd42a48a943c1a12d3e">ITM_PI</a> * pow(<a class="el" href="constants_8h.html#aed54d35408384e07621b6cfb50319838">ITM_EPS0</a>, 2) * <a class="el" href="constants_8h.html#adf6e4ab51323f4d7be76c7b9dbcb968c">ITM_ME</a> * 4.0 * pow(<a class="el" href="constants_8h.html#a48959d42dd830a75c067524cf145b171">ITM_C</a>, 2)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><img class="formulaInl" alt="$ 4\pi\epsilon_0^2 m_\mathrm{e} c^2 $" src="form_9.png"/> </p>
-
-<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00009">9</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
+<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00018">18</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 27 2016 14:23:08 for Runaway Indicator (RUNIN) by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="critical__field_8cpp.html">critical_field.cpp</a></li>
+    <li class="footer">Generated on Tue Mar 29 2016 14:13:18 for RUNAFLUID by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
 </body>
 </html>

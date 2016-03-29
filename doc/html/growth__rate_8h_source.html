@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Runaway Indicator (RUNIN): /home/matyi/2016_aradi_wpcd/runin/trunk/growth_rate.h Source File</title>
+<title>RUNAFLUID: /home/matyi/svn/runafluid/trunk/growth_rate.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,8 +29,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Runaway Indicator (RUNIN)
-   &#160;<span id="projectnumber">1.8</span>
+   <div id="projectname">RUNAFLUID
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -65,6 +72,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('growth__rate_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -79,14 +101,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_5b578c88fa614d6d0863a4ad17d41e14.html">runin</a></li><li class="navelem"><a class="el" href="dir_4c48c30f92ccedd79444b9459e1fb0b1.html">trunk</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">growth_rate.h</div>  </div>
+<div class="title">/home/matyi/svn/runafluid/trunk/growth_rate.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="growth__rate_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GROWTH_RATE_H_</span></div>
@@ -94,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="constants_8h.html">constants.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">int</span> <a class="code" href="growth__rate_8h.html#ab4c3c91ccba91a8670225abdc9b036b8">is_growth_rate_over_limit</a>(<a class="code" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> pro, <span class="keywordtype">double</span> limit);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">int</span> <a class="code" href="growth__rate_8h.html#ab4c3c91ccba91a8670225abdc9b036b8">is_growth_rate_over_limit</a>(<a class="code" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> pro, <span class="keywordtype">double</span> limit);</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">double</span> <a class="code" href="growth__rate_8h.html#ac0ffbf95382cfeff0e10241307ef2023">calculate_growth_rate</a>(<span class="keywordtype">double</span> electron_density, <span class="keywordtype">double</span> electron_temperature,</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keywordtype">double</span> effective_charge, <span class="keywordtype">double</span> electric_field);</div>
@@ -103,13 +120,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="constants_8h_html"><div class="ttname"><a href="constants_8h.html">constants.h</a></div></div>
 <div class="ttc" id="growth__rate_8h_html_ac0ffbf95382cfeff0e10241307ef2023"><div class="ttname"><a href="growth__rate_8h.html#ac0ffbf95382cfeff0e10241307ef2023">calculate_growth_rate</a></div><div class="ttdeci">double calculate_growth_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field)</div><div class="ttdoc">Calculation of growth rate. </div><div class="ttdef"><b>Definition:</b> <a href="growth__rate_8cpp_source.html#l00055">growth_rate.cpp:55</a></div></div>
 <div class="ttc" id="growth__rate_8h_html_ab4c3c91ccba91a8670225abdc9b036b8"><div class="ttname"><a href="growth__rate_8h.html#ab4c3c91ccba91a8670225abdc9b036b8">is_growth_rate_over_limit</a></div><div class="ttdeci">int is_growth_rate_over_limit(profile pro, double limit)</div><div class="ttdef"><b>Definition:</b> <a href="growth__rate_8cpp_source.html#l00034">growth_rate.cpp:34</a></div></div>
-<div class="ttc" id="constants_8h_html_ad8c925a4173ed4678edea26a585358d7"><div class="ttname"><a href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a></div><div class="ttdeci">std::vector&lt; cell &gt; profile</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00040">constants.h:40</a></div></div>
+<div class="ttc" id="init_8h_html_ad8c925a4173ed4678edea26a585358d7"><div class="ttname"><a href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a></div><div class="ttdeci">std::vector&lt; cell &gt; profile</div><div class="ttdef"><b>Definition:</b> <a href="init_8h_source.html#l00015">init.h:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 27 2016 14:23:08 for Runaway Indicator (RUNIN) by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="growth__rate_8h.html">growth_rate.h</a></li>
+    <li class="footer">Generated on Tue Mar 29 2016 14:13:18 for RUNAFLUID by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
 </body>
 </html>

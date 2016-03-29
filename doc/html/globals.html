@@ -4,10 +4,17 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Runaway Indicator (RUNIN): File Members</title>
+<title>RUNAFLUID: File Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -22,8 +29,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Runaway Indicator (RUNIN)
-   &#160;<span id="projectnumber">1.8</span>
+   <div id="projectname">RUNAFLUID
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -76,16 +83,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
-      <li class="current"><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li class="current"><a href="#index_s"><span>s</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -102,6 +127,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="contents">
 <div class="textblock">Here is a list of all file members with links to the files they belong to:</div>
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>avalanche_generation_rate()
+: <a class="el" href="avalanche_8cpp.html#af8859138d8dea41097670458f1afc914">avalanche.cpp</a>
+, <a class="el" href="avalanche_8h.html#af8859138d8dea41097670458f1afc914">avalanche.h</a>
+</li>
+</ul>
+
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
 <li>binary_search()
@@ -122,15 +155,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="growth__rate_8cpp.html#ac0ffbf95382cfeff0e10241307ef2023">growth_rate.cpp</a>
 </li>
 <li>cpo_to_profile()
-: <a class="el" href="cpo__utils_8h.html#affff233f460a921a6096f36f03cb72c5">cpo_utils.h</a>
-, <a class="el" href="cpo__utils_8cpp.html#affff233f460a921a6096f36f03cb72c5">cpo_utils.cpp</a>
+: <a class="el" href="cpo__utils_8h.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_utils.h</a>
+, <a class="el" href="cpo__utils_8cpp.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_utils.cpp</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>DISTSOURCE_IDENTIFIER
+: <a class="el" href="constants_8h.html#a3f8c41e35ab731b112dac6c385b1dc9b">constants.h</a>
+</li>
+<li>dreicer_generation_rate()
+: <a class="el" href="dreicer_8h.html#a3075f4b38bed902b805ce89273a313e9">dreicer.h</a>
+, <a class="el" href="dreicer_8cpp.html#a3075f4b38bed902b805ce89273a313e9">dreicer.cpp</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
 <li>e3
-: <a class="el" href="critical__field_8cpp.html#aff99da95c225d58a2c9acf9aa04a267b">critical_field.cpp</a>
+: <a class="el" href="products_8h.html#aff99da95c225d58a2c9acf9aa04a267b">products.h</a>
 </li>
 <li>equal()
 : <a class="el" href="cpo__utils_8h.html#a7afd2b89fd6b15943e05451c0564714d">cpo_utils.h</a>
@@ -141,19 +185,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
 <li>fire()
-: <a class="el" href="runin_8cpp.html#ad9738bab6a8efe2123c73c514a067337">runin.cpp</a>
+: <a class="el" href="distread_8cpp.html#ad4dc030bed121bbd4d9f58cb52a292dc">distread.cpp</a>
+, <a class="el" href="runafluid_8cpp.html#ae0b0fb0084830eda9e9ca64881119c25">runafluid.cpp</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>init_dreicer()
+: <a class="el" href="dreicer_8cpp.html#a90b56abed9d2107780fd2976eb5d2db8">dreicer.cpp</a>
+</li>
 <li>interpolate()
 : <a class="el" href="cpo__utils_8cpp.html#a60b814648cece2c5758fb5d05031e2b7">cpo_utils.cpp</a>
 , <a class="el" href="cpo__utils_8h.html#a60b814648cece2c5758fb5d05031e2b7">cpo_utils.h</a>
 </li>
 <li>is_field_critical()
-: <a class="el" href="critical__field_8h.html#a9b14d57f395af0da8f38a32c983f08e8">critical_field.h</a>
-, <a class="el" href="critical__field_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">critical_field.cpp</a>
+: <a class="el" href="critical__field_8cpp.html#a9b14d57f395af0da8f38a32c983f08e8">critical_field.cpp</a>
+, <a class="el" href="critical__field_8h.html#a9b14d57f395af0da8f38a32c983f08e8">critical_field.h</a>
 </li>
 <li>is_growth_rate_over_limit()
 : <a class="el" href="growth__rate_8cpp.html#ab4c3c91ccba91a8670225abdc9b036b8">growth_rate.cpp</a>
@@ -189,12 +237,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>me2_c3
 : <a class="el" href="growth__rate_8cpp.html#a623c90d2993b99710769d9aaf4afe770">growth_rate.cpp</a>
+, <a class="el" href="products_8h.html#a623c90d2993b99710769d9aaf4afe770">products.h</a>
 </li>
 <li>me2_c3__e
-: <a class="el" href="growth__rate_8cpp.html#a178d2f0115f799cda5528f0438a73ed4">growth_rate.cpp</a>
+: <a class="el" href="products_8h.html#a178d2f0115f799cda5528f0438a73ed4">products.h</a>
+, <a class="el" href="growth__rate_8cpp.html#a178d2f0115f799cda5528f0438a73ed4">growth_rate.cpp</a>
 </li>
 <li>me_c2
-: <a class="el" href="growth__rate_8cpp.html#ac18f39d30c7a62fc3c0da7f2a6a045c1">growth_rate.cpp</a>
+: <a class="el" href="products_8h.html#ac18f39d30c7a62fc3c0da7f2a6a045c1">products.h</a>
+, <a class="el" href="growth__rate_8cpp.html#ac18f39d30c7a62fc3c0da7f2a6a045c1">growth_rate.cpp</a>
 </li>
 </ul>
 
@@ -202,20 +253,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
 <li>pi_4_e02_me2_c3__e4
 : <a class="el" href="growth__rate_8cpp.html#a095035391c04125bcb6379d7366b3817">growth_rate.cpp</a>
+, <a class="el" href="products_8h.html#a095035391c04125bcb6379d7366b3817">products.h</a>
+</li>
+<li>pi_4_e02_me_c2__e3
+: <a class="el" href="products_8h.html#adf8b0ecbebce2306719b469a0bf0e956">products.h</a>
 </li>
 <li>pi_e02_me_4_c2
-: <a class="el" href="critical__field_8cpp.html#a386cf4a0f25bd6f743030af95a3a6f1b">critical_field.cpp</a>
+: <a class="el" href="products_8h.html#a386cf4a0f25bd6f743030af95a3a6f1b">products.h</a>
 </li>
 <li>profile
-: <a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">constants.h</a>
+: <a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">init.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>runafluid_control()
+: <a class="el" href="init_8cpp.html#acf5a9ea457c9d7d3f5bb7aed993d23e5">init.cpp</a>
+, <a class="el" href="init_8h.html#a254836c1c583eb7aa63f0765b245f82d">init.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>stepCounter()
+: <a class="el" href="dreicer_8cpp.html#a9689dddd9890e4a354e94f21f245c7c6">dreicer.cpp</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 27 2016 14:23:08 for Runaway Indicator (RUNIN) by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Tue Mar 29 2016 14:13:23 for RUNAFLUID by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
 </body>
 </html>
