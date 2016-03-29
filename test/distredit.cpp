@@ -7,7 +7,7 @@
 
 /*! 
 
-runaway distribution reader
+runaway distribution editor
 
 */
 
