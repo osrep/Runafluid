@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>libdistread.a</fFile>
+  <fFile>/u/maradi/itmwork/runafluid/test/libdistredit.a</fFile>
   <subrt>fire</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
@@ -304,7 +304,7 @@
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>0</string>
+            <string>1</string>
             <string>distribution</string>
           </vector>
           <vector>
@@ -314,7 +314,7 @@
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>rundensity</string>
+            <string>temp</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -350,10 +350,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runafluid_distread</actor>
+  <actor>runafluid_distredit</actor>
   <actorVersion></actorVersion>
   <actorDoc></actorDoc>
-  <actorFolder>eu/itm/runafluid_distread</actorFolder>
+  <actorFolder>eu/itm/runafluid_distredit</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
