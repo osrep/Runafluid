@@ -23,6 +23,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			
 		double rundensity = 0.0;
 		double rundensity2 = 1234.56;
+		int rho = 0;
 		
 		//! reading profile from CPO inputs
 		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
@@ -32,7 +33,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			//rundensity = 1234.5678;//
 			rundensity = it->runaway_density;
 			distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity2;
-		
+			rho++;
 		
 		}		
 		
