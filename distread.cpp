@@ -21,7 +21,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		try {
 			
-		//double rundensity = 0.0;
+		//double 
+		
+		int rho = 0;
+		int index_back=0;
+		rundensity = 0.0;
 		
 		//! reading profile from CPO inputs
 		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
@@ -29,7 +33,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			//rundensity = 1234.5678;//
-			rundensity = it->runaway_density;
+			if(rho<=index_back){
+				rundensity = it->runaway_density;
+			}
+			rho++;
 		
 		
 		}		
