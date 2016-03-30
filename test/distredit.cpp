@@ -16,7 +16,7 @@ runaway distribution editor
 */
 
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, double &temp) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_out, double &temp) {
 		
 		
 		try {
@@ -34,7 +34,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			//rundensity = 1234.5678;//
 			rundensity = it->runaway_density;
-			distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity2;
+			distribution_out.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity2;
 			rho++;
 		
 		}		
