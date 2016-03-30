@@ -14,10 +14,10 @@ Runafluid actor
 
 */
 
-double runafluid_control(double electron_density, double rundensity, double electron_temperature,
+double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
 		double effective_charge, double electric_field, double timestep){
 	
-	double rundensity_before = 0.0;
+	//double rundensity_before = 0.0;
 	double rundensity_after = 0.0;
 	double rate_dreicer = 0.0;
 	double rate_avalanche = 0.0;
@@ -37,12 +37,12 @@ double runafluid_control(double electron_density, double rundensity, double elec
 		n_R = (R_DR+R_A)*dt
 		*/
 		
-		rundensity_after = (rate_dreicer + rate_avalanche) * timestep;					
+		rundensity_after = rundensity_before + (rate_dreicer + rate_avalanche) * timestep;					
 
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
-		
+		rundensity_after = ITM_ILLEGAL_INT;
 		//! internal error in distribution
 		
 	}
