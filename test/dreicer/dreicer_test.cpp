@@ -1,5 +1,6 @@
 #include <stdexcept>
 #include <iostream>
+#include <fstream>
 #include "../../critical_field.cpp"
 #include "../../dreicer.cpp"
 
@@ -24,13 +25,13 @@ int main(){
 	try {
 	
 		//! Initialise data file
-		ofstream datafile, dataf1, dataf2;
+		std::ofstream datafile, dataf1, dataf2;
   		datafile.open ("dreicer.dat");
   		
-  		dataf1.open ("dreicer.dat");
-  		dataf2.open ("dreicer.dat");
   		
-  		/*
+  		dataf1.open ("dreicer1.dat");
+  		dataf2.open ("dreicer2.dat");
+  		
 		for (int i=0;i<50;i++){
 			electron_temperature = pow(10,i/10);			
 			dataf2 << electron_temperature << "\t";
@@ -49,8 +50,8 @@ int main(){
 				}
 			}
 			datafile << "\n";
-		}*/
-		datafile << "test\n";
+		}
+		//datafile << "test\n";
 		//! close data writing
 		datafile.close();
 			
