@@ -304,8 +304,17 @@
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>1</string>
+            <string>0</string>
             <string>distribution</string>
+          </vector>
+          <vector>
+            <string>distribution</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>distribution_out</string>
           </vector>
           <vector>
             <string>double</string>
