@@ -1,6 +1,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include <math.h> 
 #include "../../critical_field.cpp"
 #include "../../dreicer.cpp"
 
@@ -25,9 +26,18 @@ int main(){
 	try {
 	
 		//! Initialise data file
-		std::ofstream datafile, dataf1, dataf2;
+		std::ofstream datafile, datafilog, dataf0, dataf1, dataf2;
   		datafile.open ("dreicer.dat");
+  		datafilog.open ("dreicer_log.dat");
   		
+  		
+  		
+		datafile << "#" << "electric field" << "\t" << "electron temperature" << "\t"  << "dreicer generation"  << "\n";
+		
+		datafilog << "#" << "electric field (log10)" << "\t" << "electron temperature (log10)" << "\t"  << "dreicer generation (log10)"  << "\n";
+  		
+  		
+  		dataf0.open ("dreicer0.dat");	
   		
   		dataf1.open ("dreicer1.dat");
   		dataf2.open ("dreicer2.dat");
@@ -44,12 +54,15 @@ int main(){
 				effective_charge, electric_field);
 		
 				if (j==0){
-					datafile << rate_dreicer;
+					dataf0 << rate_dreicer;
 				}else{	
-					datafile << "\t" << rate_dreicer ;
+					dataf0 << "\t" << rate_dreicer ;
 				}
+				datafile << electric_field << "\t" << electron_temperature << "\t"  << rate_dreicer  << "\n";
+				datafilog << log10(electric_field) << "\t" << log10(electron_temperature) << "\t"  << log10(rate_dreicer)  << "\n";
+				
 			}
-			datafile << "\n";
+			dataf0 << "\n";
 		}
 		//datafile << "test\n";
 		//! close data writing
