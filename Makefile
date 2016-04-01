@@ -7,7 +7,7 @@ CXXFLAGS += -I/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/include/
 LDFLAGS = -L$(UAL)/lib -lUALCPPInterface -lUALLowLevel
 LDFLAGS += -L/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/lib -lblitz
 
-all: librunafluid.a libdistread.a test/libiotest.a test/libdistredit.a
+all: librunafluid.a libdistread.a test/libiotest.a test/libdistredit.a test/libefieldedit.a
 
 #dreicer.o avalanche.o
 librunafluid.a: runafluid.o  init.o  cpo_utils.o 
@@ -20,6 +20,10 @@ libdistread.a: distread.o cpo_utils.o
 test/libiotest.a: test/iotest.o
 
 test/libdistredit.a: test/distredit.o init.o cpo_utils.o 
+	ar -rvs $@ $^	
+	
+	
+test/libefieldedit.a: test/efieldedit.o init.o cpo_utils.o 
 	ar -rvs $@ $^
 	
 #test/test.o: test/test.cpp
