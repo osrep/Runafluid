@@ -76,7 +76,7 @@
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:623">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:624">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -807,10 +807,10 @@
             </property>
         </port>
     </entity>
-    <entity name="Runafluid" class="ptolemy.actor.TypedCompositeActor">
+    <entity name="runaway-fluid" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:203:277">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:203:278">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1740,6 +1740,6 @@
     <link port="Display end.input" relation="relation8"/>
     <link port="Is Present.input" relation="relation6"/>
     <link port="Is Present.output" relation="relation9"/>
-    <link port="Runafluid.input" relation="relation3"/>
-    <link port="Runafluid.output" relation="relation7"/>
+    <link port="runaway-fluid.input" relation="relation3"/>
+    <link port="runaway-fluid.output" relation="relation7"/>
 </entity>
