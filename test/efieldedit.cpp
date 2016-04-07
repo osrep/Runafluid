@@ -59,7 +59,7 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 }
 
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int input_switch, double &output) {
+void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_switch, double &output) {
 		
 		
 		try {
