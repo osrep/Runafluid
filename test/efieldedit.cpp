@@ -65,12 +65,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 	try {
 
 
-	/*	bool $absrelefield = false;
+		bool $absrelefield = false;
 		
 		//! SWITCH
 		if (input_switch == 0){
 			$absrelefield = true;
-		}*/
+		}
 		
 			
 		int rho = 0;
