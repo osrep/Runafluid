@@ -59,12 +59,13 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 }
 
 
-void fire(ItmNs::Itm::coreprof &coreprof) {
+void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int input_switch, double &output) {
 		
 		
 		try {
 			
 		int rho = 0;
+		output = 0;
 					
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
