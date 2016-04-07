@@ -7,6 +7,7 @@
 #include "../constants.h"
 #include "../init.h"
 #include "../cpo_utils.h"
+#include "../critical_field.cpp"
 
 /*! 
 
@@ -65,15 +66,16 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 	try {
 
 
-		bool $absrelefield = false;
+		bool $relefield = false;
 		
 		//! SWITCH
 		if (input_switch == 0){
-			$absrelefield = true;
+			$relefield = true;
 		}
 		
 			
 		int rho = 0;
+		double critical_field=0;
 		output = 0;
 		
 
@@ -86,7 +88,15 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
-			coreprof.profiles1d.eparallel.value(rho) = electric_field;
+			if $relefield{
+				critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
+				coreprof.profiles1d.eparallel.value(rho) = electric_field/critical_field;
+			} else {
+			
+			//! absolut electric field
+			
+				coreprof.profiles1d.eparallel.value(rho) = electric_field;
+			}
 			
 			rho++;
 		
