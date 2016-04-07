@@ -88,7 +88,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
-			if $relefield{
+			if ($relefield){
 				critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
 				coreprof.profiles1d.eparallel.value(rho) = electric_field/critical_field;
 			} else {
