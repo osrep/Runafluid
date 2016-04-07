@@ -83,7 +83,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 		
 		*/
 		
-		int_switch(input_switch,&$relefield,$dreicer);
+		int_switch(input_switch,&$relefield,&$dreicer);
 		
 		if (input_switch % 2 == 0){
 			$relefield = true;
