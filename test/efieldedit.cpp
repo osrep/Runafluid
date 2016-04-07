@@ -59,14 +59,14 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 	return pro;
 }
 
-
+/*
 void int_switch(int input_switch, bool &sw1, bool &sw2){
 
 	if (input_switch==1){
 		&sw1=true;
 	}
 
-}
+}*/
 
 void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_switch, double &output) {
 		
@@ -83,7 +83,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 		
 		*/
 		
-		int_switch(input_switch,&$relefield,&$dreicer);
+//		int_switch(input_switch,&$relefield,&$dreicer);
 		
 		if (input_switch % 2 == 0){
 			$relefield = true;
