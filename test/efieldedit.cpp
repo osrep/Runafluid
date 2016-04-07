@@ -62,10 +62,23 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_switch, double &output) {
 		
 		
-		try {
+	try {
+
+
+	/*	bool $absrelefield = false;
+		
+		//! SWITCH
+		if (input_switch == 0){
+			$absrelefield = true;
+		}*/
+		
 			
 		int rho = 0;
 		output = 0;
+		
+
+		
+		
 					
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
@@ -73,7 +86,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
-			coreprof.profiles1d.eparallel.value(rho)*=1e6;
+			coreprof.profiles1d.eparallel.value(rho) = electric_field;
 			
 			rho++;
 		
