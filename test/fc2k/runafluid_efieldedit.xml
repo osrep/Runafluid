@@ -314,10 +314,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runafluid_distredit</actor>
+  <actor>runafluid_efieldedit</actor>
   <actorVersion></actorVersion>
   <actorDoc></actorDoc>
-  <actorFolder>eu/itm/runafluid_distredit</actorFolder>
+  <actorFolder>eu/itm/runafluid_efieldedit</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
