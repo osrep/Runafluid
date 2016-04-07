@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>/u/maradi/itmwork/runafluid/test/libdistredit.a</fFile>
+  <fFile>/u/maradi/itmwork/runafluid/test/libefieldedit.a</fFile>
   <subrt>fire</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
@@ -277,44 +277,8 @@
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>0</string>
+            <string>1</string>
             <string>coreprof</string>
-          </vector>
-          <vector>
-            <string>coreimpur</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>coreimpur</string>
-          </vector>
-          <vector>
-            <string>equilibrium</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>equilibrium</string>
-          </vector>
-          <vector>
-            <string>distribution</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>1</string>
-            <string>distribution</string>
-          </vector>
-          <vector>
-            <string>double</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>temp</string>
           </vector>
         </tupleParams>
         <uHash>

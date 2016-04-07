@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
     "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
-<entity name="runafluid" class="ptolemy.actor.TypedCompositeActor">
+<entity name="runaway-fluid-test" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
     </property>
     <property name="iteration" class="ptolemy.data.expr.Parameter" value="10">
@@ -63,20 +63,20 @@
         </property>
         <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#Director">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{65, 50}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[65.0, 50.0]">
         </property>
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, -4, 1928, 1023}, maximized=true}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, -4, 1032, 733}, maximized=true}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1612, 861]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[790, 571]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000002">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{803.5, 414.5}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{827.4999999999999, 398.5000000000001}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:624">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -361,7 +361,7 @@
         </port>
     </entity>
     <entity name="condition variable expression" class="ptolemy.actor.lib.Expression">
-        <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="{time=input.time + time_step,&#10;cpos={&#10;hcd={&#10;distribution=input.cpos.hcd.distribution&#10;},&#10;mhd={&#10;equilibrium=input.cpos.mhd.equilibrium&#10;},&#10;core={&#10;coreprof=input.cpos.core.coreprof, &#10;coreimpur=input.cpos.core.coreimpur&#10;}&#10;},&#10;iteration=input.iteration + 1}">
+        <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="{time=input.time + time_step,&#10;actuator_runaways=actuator_runaways,&#10;cpos={&#10;hcd={&#10;distribution=input.cpos.hcd.distribution&#10;},&#10;mhd={&#10;equilibrium=input.cpos.mhd.equilibrium&#10;},&#10;core={&#10;coreprof=input.cpos.core.coreprof, &#10;coreimpur=input.cpos.core.coreimpur&#10;}&#10;},&#10;iteration=input.iteration + 1}">
             <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
             </property>
             <property name="style" class="ptolemy.actor.gui.style.TextStyle">
@@ -378,7 +378,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
 <property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
 <property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:214:11">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:214:21">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
@@ -810,7 +810,7 @@
     <entity name="runaway-fluid" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:203:278">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:203:296">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -827,7 +827,7 @@
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
-</property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[405.0, 85.0]">
+</property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[240.0, 85.0]">
         </property>
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62827:65:61:urn:lsid:kepler-project.org/ns/:62444:212:90">
         </property>
@@ -841,20 +841,20 @@
         </property>
         <port name="input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
-            </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="{-20.0, 335.0}">
             </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
         </port>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
-            </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="{490.0, 325.0}">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
             </property>
         </port>
         <entity name="RUNAFLUID" class="ptolemy.actor.TypedCompositeActor">
@@ -1576,8 +1576,8 @@
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Switch actor routes inputs to specified output channels. The actor has two input ports: the input port for data, and the control port, used to select which output channel to use. The actor outputs the input token on the channel most recently received via the control port.&lt;/p&gt;&#10;&#10;&lt;p&gt;Each time the actor iterates, it checks to see if a token is available on its control port. If so, the actor reads the value and uses it to determine which of its output channels to broadcast (0,1,2,3, etc.). If an input token is available on the input port, then that token is read and sent to the specified output channel. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the actor has never received a value on the control port, then the actor will output to channel zero. If the value of the most recently received control token is out of range (less than zero, or greater than or equal to the width of the output), then the actor will not fire and the input token will be lost. &lt;/p&gt;&#10;&#10;&lt;p&gt;The actor is similar to the TokenToSeparateChannelsTransmitter, except that the output channel of the Switch actor is specified via the control port. The TokenToSeparateChannelsTransmitter sends each input token to a different consecutive output channel.&lt;/p&gt;</configure></property>
-<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts to the channel specified via the control port.</configure></property>
 <property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts tokens of any type.</configure></property>
+<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts to the channel specified via the control port.</configure></property>
 <property name="port:control" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts integer tokens that indicate which output channel to broadcast (0, 1, 2, 3, etc).</configure></property>
 </property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:51:1">
                 </property>
@@ -1718,11 +1718,21 @@
         <property name="width" class="ptolemy.data.expr.Parameter" value="1">
         </property>
     </relation>
-    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex" value="{0.0, 0.0}">
+        </vertex>
     </relation>
     <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+        </property>
+        <vertex name="vertex1" value="[40.0, -5.0]">
+        </vertex>
     </relation>
-    <link port="DDF Boolean Select.trueInput" relation="relation7"/>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="DDF Boolean Select.trueInput" relation="relation11"/>
     <link port="DDF Boolean Select.falseInput" relation="relation"/>
     <link port="DDF Boolean Select.control" relation="relation2"/>
     <link port="DDF Boolean Select.output" relation="relation4"/>
@@ -1741,5 +1751,5 @@
     <link port="Is Present.input" relation="relation6"/>
     <link port="Is Present.output" relation="relation9"/>
     <link port="runaway-fluid.input" relation="relation3"/>
-    <link port="runaway-fluid.output" relation="relation7"/>
+    <link port="runaway-fluid.output" relation="relation11"/>
 </entity>
