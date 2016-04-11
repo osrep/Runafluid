@@ -70,13 +70,13 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1612, 861]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.25">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-132.5, 287.5}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{350.49999999999994, 300.5}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:106">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:115">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -316,7 +316,7 @@
         </property>
         <port name="trueInput" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
+            <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="1">
             </property>
         </port>
         <port name="falseInput" class="ptolemy.actor.TypedIOPort">
@@ -326,7 +326,7 @@
         </port>
         <port name="control" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="1">
+            <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
             </property>
@@ -932,7 +932,7 @@
         <entity name="RUNAFLUID" class="ptolemy.actor.TypedCompositeActor">
             <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:7:36">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:7:43">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1546,7 +1546,7 @@
                 </property>
                 <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#Itm">
                 </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="{350, 300}">
+                <property name="_location" class="ptolemy.kernel.util.Location" value="[365.0, 300.0]">
                 </property>
                 <port name="coreprof0_in" class="ptolemy.actor.TypedIOPort">
                     <property name="input"/>
@@ -1703,12 +1703,8 @@
             <relation name="relation9" class="ptolemy.actor.TypedIORelation">
             </relation>
             <relation name="relation11" class="ptolemy.actor.TypedIORelation">
-                <vertex name="vertex" value="[345.0, 325.0]">
-                </vertex>
             </relation>
             <relation name="relation12" class="ptolemy.actor.TypedIORelation">
-                <vertex name="vertex" value="[345.0, 315.0]">
-                </vertex>
             </relation>
             <link port="input_bundle" relation="relation10"/>
             <link port="output_bundle" relation="relation"/>
@@ -1752,12 +1748,14 @@
             <link port="runafluid_distread.iter_in" relation="relation4"/>
             <link port="runafluid_efieldedit.coreprof0_in" relation="relation7"/>
             <link port="runafluid_efieldedit.coreprof0_out" relation="relation17"/>
+            <link port="runafluid_efieldedit.electric_field_test1_in" relation="relation11"/>
+            <link port="runafluid_efieldedit.electric_field_switch2_in" relation="relation12"/>
             <link port="runafluid_efieldedit.output3_out" relation="relation9"/>
             <link port="runafluid_efieldedit.time_in" relation="relation2"/>
             <link port="runafluid_efieldedit.iter_in" relation="relation4"/>
-            <link port="Unpack TEST input switch.output" relation="relation11"/>
+            <link port="Unpack TEST input switch.output" relation="relation12"/>
             <link port="Unpack TEST input switch.input" relation="relation10"/>
-            <link port="Unpack TEST electric field.output" relation="relation12"/>
+            <link port="Unpack TEST electric field.output" relation="relation11"/>
             <link port="Unpack TEST electric field.input" relation="relation10"/>
         </entity>
         <entity name="SWITCH" class="ptolemy.actor.TypedCompositeActor">
