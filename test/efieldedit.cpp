@@ -125,6 +125,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
+		output = ITM_ILLEGAL_INT;
 		
 		//! internal error in distribution
 		
