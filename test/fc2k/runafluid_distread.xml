@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>libdistread.a</fFile>
+  <fFile>/u/maradi/itmwork/runafluid/test/libdistread.a</fFile>
   <subrt>fire</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
@@ -272,33 +272,6 @@
         </tc>
         <tupleParams>
           <vector>
-            <string>coreprof</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>coreprof</string>
-          </vector>
-          <vector>
-            <string>coreimpur</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>coreimpur</string>
-          </vector>
-          <vector>
-            <string>equilibrium</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>equilibrium</string>
-          </vector>
-          <vector>
             <string>distribution</string>
             <string>1</string>
             <string>0</string>
@@ -306,6 +279,15 @@
             <string>1</string>
             <string>0</string>
             <string>distribution</string>
+          </vector>
+          <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>distribution_switch</string>
           </vector>
           <vector>
             <string>double</string>
