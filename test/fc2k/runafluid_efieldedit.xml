@@ -280,6 +280,33 @@
             <string>1</string>
             <string>coreprof</string>
           </vector>
+          <vector>
+            <string>double</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>electric_field</string>
+          </vector>
+          <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>input_switch</string>
+          </vector>
+          <vector>
+            <string>double</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>output</string>
+          </vector>
         </tupleParams>
         <uHash>
           <entry>
