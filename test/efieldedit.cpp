@@ -122,8 +122,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 			//rho++;
 		
 		}		
-		rho = pro.size();
-		output += (rho*10);
+		//rho = pro.size();
+		//output += (rho*10);
+		
+		if(input_switch==2){
+			output = pro.size();
+		}
 				
 	
 
