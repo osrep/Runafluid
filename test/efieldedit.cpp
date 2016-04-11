@@ -129,9 +129,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &electric_
 			output = (double)pro.size();
 		}
 		
-		if(electric_field_switch==3){
-			output = (double)coreprof.ne.value.rows();
-		}
+		/*if(electric_field_switch==3){
+			output = (double)pro.size();
+		}*/
 				
 	
 
