@@ -111,7 +111,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 			} else {
 			
 			//! absolut electric field
-				output = coreprof.profiles1d.eparallel.value(rho);
+				output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
 				coreprof.profiles1d.eparallel.value(rho) = electric_field;
 			}
 			
