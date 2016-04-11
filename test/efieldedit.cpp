@@ -60,15 +60,15 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 }
 
 /*
-void int_switch(int input_switch, bool &sw1, bool &sw2){
+void int_switch(int electric_field_switch, bool &sw1, bool &sw2){
 
-	if (input_switch==1){
+	if (electric_field_switch==1){
 		&sw1=true;
 	}
 
 }*/
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_switch, double &output) {
+void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &electric_field_switch, double &output) {
 		
 		
 	try {
@@ -83,9 +83,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 		
 		*/
 		
-//		int_switch(input_switch,&$relefield,&$dreicer);
+//		int_switch(electric_field_switch,&$relefield,&$dreicer);
 		
-		if (input_switch % 2 == 0){
+		if (electric_field_switch % 2 == 0){
 			$relefield = true;			
 			output = 9.87654321;
 		}else{				
@@ -125,8 +125,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 		//rho = pro.size();
 		//output += (rho*10);
 		
-		if(input_switch==2){
-			output = pro.size();
+		if(electric_field_switch==2){
+			output = (double)pro.size();
+		}
+		
+		if(electric_field_switch==3){
+			output = (double)coreprof.ne.value.rows();
 		}
 				
 	
