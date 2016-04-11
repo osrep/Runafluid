@@ -4,10 +4,36 @@
 #include <stdexcept>
 #include <UALClasses.h>
 
-#include "constants.h"
-#include "cpo_utils.h"
-#include "runafluid.h"
-#include "init.h"
+#include "../constants.h"
+#include "../cpo_utils.h"
+#include "../runafluid.h"
+#include "../init.h"
+
+
+
+profile read_distribution(const ItmNs::Itm::distribution &distribution) {
+
+	profile pro;
+
+	//! read electron density profile length of dataset: cells	
+	int cells = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
+	
+
+    //! read data in every $\rho$ 
+
+	for (int rho = 0; rho < cells; rho++) {
+		cell celll;
+				
+		//! runaway distribution
+
+		celll.runaway_density = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
+		
+
+		pro.push_back(celll);
+	}
+
+	return pro;
+}
 
 
 /*! 
@@ -15,8 +41,7 @@
 runaway distribution reader
 
 */
-void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, double &rundensity) {
+void fire(ItmNs::Itm::distribution &distribution, double &rundensity) {
 		
 		
 		try {
@@ -28,7 +53,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		rundensity = 0.0;
 		
 		//! reading profile from CPO inputs
-		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
+		profile pro = read_distribution(distribution);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
@@ -41,7 +66,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		}		
 		
-				
+	rundensity = 4224.4224;			
 	
 
 	} catch (const std::exception& ex) {
