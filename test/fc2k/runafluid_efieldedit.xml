@@ -287,7 +287,7 @@
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>electric_field</string>
+            <string>electric_field_test</string>
           </vector>
           <vector>
             <string>integer</string>
@@ -296,7 +296,7 @@
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>input_switch</string>
+            <string>electric_field_switch</string>
           </vector>
           <vector>
             <string>double</string>
