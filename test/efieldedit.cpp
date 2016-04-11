@@ -122,7 +122,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 			rho++;
 		
 		}		
-		
+		output += (rho*10);
 				
 	
 
