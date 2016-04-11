@@ -41,7 +41,7 @@ profile read_distribution(const ItmNs::Itm::distribution &distribution) {
 runaway distribution reader
 
 */
-void fire(ItmNs::Itm::distribution &distribution, double &rundensity) {
+void fire(ItmNs::Itm::distribution &distribution, int &distribution_switch, double &rundensity) {
 		
 		
 		try {
@@ -66,7 +66,14 @@ void fire(ItmNs::Itm::distribution &distribution, double &rundensity) {
 		
 		}		
 		
-	rundensity = 4224.4224;			
+	if (distribution_switch == 1) {
+		rundensity = 4224.4224;			
+	}
+	
+	if (distribution_switch == 2) {
+		rundensity = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();			
+	}
+	
 	
 
 	} catch (const std::exception& ex) {
