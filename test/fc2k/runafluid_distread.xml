@@ -1,9 +1,11 @@
 <generactor.ActorGenerator>
-  <version>R2.2.6</version>
+  <version>R2.2.9</version>
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
   <fFile>/u/maradi/itmwork/runafluid/test/libdistread.a</fFile>
+  <mainLibraryOptim></mainLibraryOptim>
+  <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
@@ -268,7 +270,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/R2.2.6/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/R2.2.9/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams>
           <vector>
@@ -600,7 +602,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/R2.2.6/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/R2.2.9/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams/>
         <uHash>
@@ -637,7 +639,7 @@
     </generactor.TupleP>
   </returnType>
   <semantic>Itm</semantic>
-  <keplerFolder>/u/maradi/kepler</keplerFolder>
+  <keplerFolder>/pfs/home/maradi/kepler</keplerFolder>
   <ptFolder>empty</ptFolder>
   <compiler>g++</compiler>
   <libraries/>
@@ -649,5 +651,6 @@
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
-  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/R2.2.6/bin/..</FC2Kpath>
+  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/R2.2.9/bin/..</FC2Kpath>
+  <fDiagnosticInfo>false</fDiagnosticInfo>
 </generactor.ActorGenerator>
