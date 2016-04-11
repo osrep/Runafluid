@@ -48,7 +48,7 @@ double calculate_critical_field(double electron_density, double electron_tempera
 }
 
 double calculate_dreicer_field(double electron_density, double electron_temperature){
-	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
+	
 	
 	//! \a REQ-4: Coulomb logarithm
 	/*!
@@ -58,6 +58,9 @@ double calculate_dreicer_field(double electron_density, double electron_temperat
 	*/
 	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
 			+ log(electron_temperature * 1e-3);
+
+
+	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
 
 	//! \a REQ-3: Dreicer field
 		/*!
