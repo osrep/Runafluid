@@ -132,7 +132,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		if(electric_field_switch==3){
 			output = (double)coreprof.ne.value.rows();
 		}
-				
+			
+			
+		if(electric_field_switch==4){
+			output = (double)4;
+		}	
 	
 
 	} catch (const std::exception& ex) {
