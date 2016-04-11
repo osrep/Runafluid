@@ -68,7 +68,7 @@ void int_switch(int electric_field_switch, bool &sw1, bool &sw2){
 
 }*/
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &electric_field_switch, double &output) {
+void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &electric_field_switch, double &output) {
 		
 		
 	try {
@@ -111,12 +111,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &electric_
 			if ($relefield){
 				output = 98765.4321;
 				critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
-				coreprof.profiles1d.eparallel.value(rho) = electric_field/critical_field;
+				coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;
 			} else {
 			
 			//! absolut electric field
 				output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
-				coreprof.profiles1d.eparallel.value(rho) = electric_field;
+				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
 			}
 			
 			//rho++;
