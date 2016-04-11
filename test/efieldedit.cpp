@@ -86,14 +86,17 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 //		int_switch(input_switch,&$relefield,&$dreicer);
 		
 		if (input_switch % 2 == 0){
-			$relefield = true;
+			$relefield = true;			
+			output = 9.87654321;
+		}else{				
+			output = 1.23456789;
 		}
 		
 			
 		int rho = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
-		output = 0;
+//		output = 0;
 		
 
 		
@@ -106,6 +109,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field, int &input_swi
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 			if ($relefield){
+				output = 98765.4321;
 				critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
 				coreprof.profiles1d.eparallel.value(rho) = electric_field/critical_field;
 			} else {
