@@ -1,9 +1,9 @@
 <generactor.ActorGenerator>
-  <version>R2.2.9</version>
+  <version>branches/R2.2_r532</version>
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>/u/maradi/itmwork/runafluid/test/libdistread.a</fFile>
+  <fFile>test/libdistread.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
@@ -270,7 +270,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/R2.2.9/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r532/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams>
           <vector>
@@ -602,7 +602,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/R2.2.9/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r532/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams/>
         <uHash>
@@ -651,6 +651,6 @@
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
-  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/R2.2.9/bin/..</FC2Kpath>
+  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r532/bin/..</FC2Kpath>
   <fDiagnosticInfo>false</fDiagnosticInfo>
 </generactor.ActorGenerator>
