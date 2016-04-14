@@ -1,11 +1,9 @@
 CXX=g++
 
-CXXFLAGS = -pthread -g -fPIC -I$(UAL)/include -I$(UAL)/lowlevel -I$(UAL)/cppinterface/
-CXXFLAGS += -I/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/include/
+CXXFLAGS = -pthread -g -fPIC 
+CXXFLAGS+=$(shell eval-pkg-config --cflags ual-cpp-gnu)
+LDFLAGS=$(shell eval-pkg-config --libs ual-cpp-gnu)
 #CXXFLAGS += -I$(ITMLIBDIR)/itmconstants/include/
-
-LDFLAGS = -L$(UAL)/lib -lUALCPPInterface -lUALLowLevel
-LDFLAGS += -L/afs/ipp-garching.mpg.de/itm/switm/blitz/0.10/lib -lblitz
 
 all: librunafluid.a test/libdistread.a test/libiotest.a test/libdistredit.a test/libefieldedit.a
 
