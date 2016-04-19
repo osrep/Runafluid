@@ -5,7 +5,6 @@
 #include <UALClasses.h>
 
 #include "../constants.h"
-#include "../init.h"
 #include "../cpo_utils.h"
 #include "../critical_field.cpp"
 

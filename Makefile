@@ -20,7 +20,7 @@ test/libiotest.a: test/iotest.o
 test/libdistredit.a: test/distredit.o init.o cpo_utils.o 
 	ar -rvs $@ $^		
 	
-test/libefieldedit.a: test/efieldedit.o init.o cpo_utils.o 
+test/libefieldedit.a: test/efieldedit.o cpo_utils.o 
 	ar -rvs $@ $^
 	
 #test/test.o: test/test.cpp
