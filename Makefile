@@ -18,8 +18,7 @@ test/libdistread.a: test/distread.o cpo_utils.o
 test/libiotest.a: test/iotest.o
 
 test/libdistredit.a: test/distredit.o init.o cpo_utils.o 
-	ar -rvs $@ $^	
-	
+	ar -rvs $@ $^		
 	
 test/libefieldedit.a: test/efieldedit.o init.o cpo_utils.o 
 	ar -rvs $@ $^
