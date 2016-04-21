@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Runafluid specification
-   &#160;<span id="projectnumber">0.8</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -87,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">/home/matyi/svn/runafluid/trunk/dreicer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="constants_8h_source.html">constants.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="init_8h_source.html">init.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for dreicer.h:</div>
 <div class="dyncontent">
@@ -107,82 +107,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9b14d57f395af0da8f38a32c983f08e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dreicer_8h.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a> (<a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> pro)</td></tr>
-<tr class="separator:a9b14d57f395af0da8f38a32c983f08e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2a76ff205da07cb646aa10ac6364196"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dreicer_8h.html#ac2a76ff205da07cb646aa10ac6364196">calculate_critical_field</a> (double electron_density, double electron_temperature)</td></tr>
-<tr class="separator:ac2a76ff205da07cb646aa10ac6364196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3075f4b38bed902b805ce89273a313e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dreicer_8h.html#a3075f4b38bed902b805ce89273a313e9">dreicer_generation_rate</a> (double electron_density, double electron_temperature, double effective_charge, double electric_field)</td></tr>
 <tr class="separator:a3075f4b38bed902b805ce89273a313e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ac2a76ff205da07cb646aa10ac6364196"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double calculate_critical_field </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>electron_density</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>electron_temperature</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p><em>REQ-1</em>: Coulomb logarithm</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_10.png"/>
-</p>
-<dl class="section return"><dt>Returns</dt><dd><em>REQ-2</em>: Critical electric field</dd></dl>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_\mathrm{c} = \frac{n_\mathrm{e} e^3 \ln \Lambda}{4\pi\epsilon_0^2 m_\mathrm{e} c^2} \]" src="form_11.png"/>
-</p>
-<p><em>REQ-4</em>: Coulomb logarithm</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_10.png"/>
-</p>
-<dl class="section return"><dt>Returns</dt><dd><em>REQ-3</em>: Critical field</dd></dl>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_\mathrm{c} = \frac{n_\mathrm{e} e^3 \ln \Lambda}{4\pi\epsilon_0^2 m_\mathrm{e} c^2} \]" src="form_11.png"/>
-</p>
-<p><em>REQ-4</em>: Coulomb logarithm</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_10.png"/>
-</p>
-<dl class="section return"><dt>Returns</dt><dd><em>REQ-3</em>: Critical field</dd></dl>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_\mathrm{c} = \frac{n_\mathrm{e} e^3 \ln \Lambda}{4\pi\epsilon_0^2 m_\mathrm{e} c^2} \]" src="form_11.png"/>
-</p>
-<p><em>REQ-1</em>: Coulomb logarithm</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_10.png"/>
-</p>
-<dl class="section return"><dt>Returns</dt><dd><em>REQ-2</em>: Critical electric field</dd></dl>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_\mathrm{c} = \frac{n_\mathrm{e} e^3 \ln \Lambda}{4\pi\epsilon_0^2 m_\mathrm{e} c^2} \]" src="form_11.png"/>
-</p>
-<p><em>REQ-4</em>: Coulomb logarithm</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_10.png"/>
-</p>
-<dl class="section return"><dt>Returns</dt><dd><em>REQ-3</em>: Critical field</dd></dl>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_\mathrm{c} = \frac{n_\mathrm{e} e^3 \ln \Lambda}{4\pi\epsilon_0^2 m_\mathrm{e} c^2} \]" src="form_11.png"/>
-</p>
-
-<p>Definition at line <a class="el" href="avalanche__rate_8cpp_source.html#l00057">57</a> of file <a class="el" href="avalanche__rate_8cpp_source.html">avalanche_rate.cpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a3075f4b38bed902b805ce89273a313e9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -262,90 +190,15 @@ Functions</h2></td></tr>
 <p class="formulaDsp">
 <img class="formulaDsp" alt="\[ \gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2 \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)} \]" src="form_21.png"/>
 </p>
-<p>electron temperature: electronvolt to joule</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ T_\mathrm{e}~\mathrm{[J]} = e \cdot t_\mathrm{e}~\mathrm{[eV]} \]" src="form_32.png"/>
-</p>
-<p><em>REQ-3</em>: Coulomb logarithm</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_\mathrm{e} \cdot 10^{-20}\right) + \log \left(t_\mathrm{e} \cdot 10^{-3}\right) . \]" src="form_16.png"/>
-</p>
-<p><em>REQ-2</em>: electron collision time</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \tau = 4 \pi \epsilon_0^2 \cdot \frac{m_\mathrm{e}^2 \cdot c^3 }{e^4} \cdot \frac{1}{n_\mathrm{e} \ln \Lambda} \]" src="form_17.png"/>
-</p>
-<p><em>REQ-1</em>: Dreicer field</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}~\mathrm{[J]}} \]" src="form_33.png"/>
-</p>
-<p><em>REQ-7</em>: alpha</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \alpha = \frac{E}{E_\mathrm{D}} \cdot \frac{m_\mathrm{e} \cdot c^2}{T_\mathrm{e}~\mathrm{[J]}} \]" src="form_31.png"/>
-</p>
-<p><em>REQ-6</em>: lambda</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \lambda(\alpha)=8\alpha\left( \alpha-\frac{1}{2}-\sqrt{\alpha(\alpha-1}\right) \]" src="form_23.png"/>
-</p>
-<p><em>REQ-5</em>: multiplication factor</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \gamma(\alpha,Z) = \sqrt{\frac{(1+Z)\alpha^2}{8(\alpha-1)}}\cdot \left( \frac{\pi}{2}-\sin^{-1}\left(1-\frac{2}{\alpha} \right) \right) \]" src="form_34.png"/>
-</p>
-<p><em>REQ-4</em>: h factor</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1}} \cdot (1+Z)\cdot(\alpha-2) \right) \]" src="form_43.png"/>
-</p>
-<p>runaway limit &ndash; critical field (65)</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2} \]" src="form_44.png"/>
-</p>
-<p>non-relativistic (67)</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} } \right) \]" src="form_49.png"/>
-</p>
-<dl class="section return"><dt>Returns</dt><dd>Dreicer generation rate (64)</dd></dl>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2 \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)} \]" src="form_21.png"/>
-</p>
 
-<p>Definition at line <a class="el" href="dreicer_8cpp_source.html#l00074">74</a> of file <a class="el" href="dreicer_8cpp_source.html">dreicer.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9b14d57f395af0da8f38a32c983f08e8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int is_field_critical </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td>
-          <td class="paramname"><em>pro</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Critical field warning</p>
-<p>The module outputs an integer value (0 or 1) which indicates, whether electric field is above the critical level, thus runaway generation is possible. When the electric field exceeds the critical level this warning raises, a value of 1 is outputted. However it does not mean that runaway electrons are present, the warning only signs the possibility.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pro</td><td>profile</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>4.1.3 Functional Requirements </p><dl class="section return"><dt>Returns</dt><dd><em>REQ-1</em>: If a radius exists where electric field is above critical, returns 1. </dd>
-<dd>
-<em>REQ-2</em>: If electric field is below critical across the whole profile, returns 0. </dd>
-<dd>
-<em>REQ-3</em>: Critical electric field </dd></dl>
-
-<p>Definition at line <a class="el" href="avalanche__rate_8cpp_source.html#l00046">46</a> of file <a class="el" href="avalanche__rate_8cpp_source.html">avalanche_rate.cpp</a>.</p>
+<p>Definition at line <a class="el" href="dreicer_8cpp_source.html#l00051">51</a> of file <a class="el" href="dreicer_8cpp_source.html">dreicer.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 17 2016 16:13:25 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 21 2016 15:40:08 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

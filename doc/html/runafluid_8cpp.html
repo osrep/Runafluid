@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Runafluid specification
-   &#160;<span id="projectnumber">0.8</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -94,8 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;UALClasses.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="constants_8h_source.html">constants.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cpo__utils_8h_source.html">cpo_utils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="critical__field_8h_source.html">critical_field.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="dreicer_8h_source.html">dreicer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="runafluid_8h_source.html">runafluid.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="init_8h_source.html">init.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for runafluid.cpp:</div>
 <div class="dyncontent">
@@ -108,51 +108,43 @@ Include dependency graph for runafluid.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad9738bab6a8efe2123c73c514a067337"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="runafluid_8cpp.html#ad9738bab6a8efe2123c73c514a067337">fire</a> (ItmNs::Itm::coreprof &amp;coreprof, ItmNs::Itm::coreimpur &amp;coreimpur, ItmNs::Itm::equilibrium &amp;equilibrium, double &amp;growth_rate_limit, int &amp;critical_field_warning, int &amp;growth_rate_warning)</td></tr>
-<tr class="separator:ad9738bab6a8efe2123c73c514a067337"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7bd081c5daabaab4f7d718353f4e027"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="runafluid_8cpp.html#ae7bd081c5daabaab4f7d718353f4e027">fire</a> (ItmNs::Itm::coreprofArray &amp;coreprof, ItmNs::Itm::coreimpurArray &amp;coreimpur, ItmNs::Itm::equilibriumArray &amp;equilibrium, double &amp;growth_rate_limit, int &amp;critical_field_warning, int &amp;growth_rate_warning, double &amp;critical_field_time, double &amp;growth_rate_time)</td></tr>
-<tr class="separator:ae7bd081c5daabaab4f7d718353f4e027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b0fb0084830eda9e9ca64881119c25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="runafluid_8cpp.html#ae0b0fb0084830eda9e9ca64881119c25">fire</a> (<a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;<a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">coreprof</a>, <a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;<a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">coreimpur</a>, <a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;<a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">equilibrium</a>, ItmNs::Itm::distribution &amp;distribution, double &amp;timestep)</td></tr>
+<tr class="separator:ae0b0fb0084830eda9e9ca64881119c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ad9738bab6a8efe2123c73c514a067337"></a>
+<a class="anchor" id="ae0b0fb0084830eda9e9ca64881119c25"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void fire </td>
           <td>(</td>
-          <td class="paramtype">ItmNs::Itm::coreprof &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;&#160;</td>
           <td class="paramname"><em>coreprof</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ItmNs::Itm::coreimpur &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;&#160;</td>
           <td class="paramname"><em>coreimpur</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ItmNs::Itm::equilibrium &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;&#160;</td>
           <td class="paramname"><em>equilibrium</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">ItmNs::Itm::distribution &amp;&#160;</td>
+          <td class="paramname"><em>distribution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>growth_rate_limit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>critical_field_warning</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>growth_rate_warning</em>&#160;</td>
+          <td class="paramname"><em>timestep</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -163,86 +155,18 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>main function</p>
 <p>fix time label </p>
-<p>critical field: </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="tester_2dreicer_2dreicer_8h.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a></dd></dl>
-<p>internal error in critical_field </p>
+<p>reading profile from CPO inputs (<a class="el" href="cpo__utils_8h.html">cpo_utils.h</a>)</p>
+<p>stepping iterator in profile</p>
+<p>internal error in distribution </p>
 
-<p>Definition at line <a class="el" href="runafluid_8cpp_source.html#l00058">58</a> of file <a class="el" href="runafluid_8cpp_source.html">runafluid.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae7bd081c5daabaab4f7d718353f4e027"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void fire </td>
-          <td>(</td>
-          <td class="paramtype">ItmNs::Itm::coreprofArray &amp;&#160;</td>
-          <td class="paramname"><em>coreprof</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ItmNs::Itm::coreimpurArray &amp;&#160;</td>
-          <td class="paramname"><em>coreimpur</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ItmNs::Itm::equilibriumArray &amp;&#160;</td>
-          <td class="paramname"><em>equilibrium</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>growth_rate_limit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>critical_field_warning</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>growth_rate_warning</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>critical_field_time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>growth_rate_time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>main function</p>
-<p>arrays by time </p>
-<p>critical field: </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="tester_2dreicer_2dreicer_8h.html#a9b14d57f395af0da8f38a32c983f08e8">is_field_critical</a></dd></dl>
-<p>internal error in critical_field</p>
-<p>internal error in growth_rate </p>
-
-<p>Definition at line <a class="el" href="runafluid_8cpp_source.html#l00083">83</a> of file <a class="el" href="runafluid_8cpp_source.html">runafluid.cpp</a>.</p>
+<p>Definition at line <a class="el" href="runafluid_8cpp_source.html#l00061">61</a> of file <a class="el" href="runafluid_8cpp_source.html">runafluid.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 17 2016 16:13:25 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 21 2016 15:40:08 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

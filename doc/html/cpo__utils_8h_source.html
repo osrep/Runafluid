@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Runafluid specification
-   &#160;<span id="projectnumber">0.8</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -89,28 +89,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CPO_UTILS_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;UALClasses.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="constants_8h.html">constants.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="cpo__utils_8h.html#a7afd2b89fd6b15943e05451c0564714d">equal</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> tolerance);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">int</span> <a class="code" href="cpo__utils_8h.html#a50572137eb8210b5b8da231639e016b0">binary_search</a>(<span class="keyword">const</span> Array&lt;double, 1&gt; &amp;array, <span class="keywordtype">double</span> search_key);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">double</span> <a class="code" href="cpo__utils_8h.html#a60b814648cece2c5758fb5d05031e2b7">interpolate</a>(<span class="keyword">const</span> Array&lt;double, 1&gt; &amp;x, <span class="keyword">const</span> Array&lt;double, 1&gt; &amp;y, <span class="keywordtype">double</span> xa);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<a class="code" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> <a class="code" href="cpo__utils_8h.html#affff233f460a921a6096f36f03cb72c5">cpo_to_profile</a>(<span class="keyword">const</span> ItmNs::Itm::coreprof &amp;coreprof, <span class="keyword">const</span> ItmNs::Itm::coreimpur &amp;coreimpur,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">const</span> ItmNs::Itm::equilibrium &amp;equilibrium);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CPO_UTILS_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="init_8h.html">init.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="constants_8h.html">constants.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="cpo__utils_8h.html#a7afd2b89fd6b15943e05451c0564714d">equal</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> tolerance);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">int</span> <a class="code" href="cpo__utils_8h.html#a50572137eb8210b5b8da231639e016b0">binary_search</a>(<span class="keyword">const</span> Array&lt;double, 1&gt; &amp;array, <span class="keywordtype">double</span> search_key);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">double</span> <a class="code" href="cpo__utils_8h.html#a60b814648cece2c5758fb5d05031e2b7">interpolate</a>(<span class="keyword">const</span> Array&lt;double, 1&gt; &amp;x, <span class="keyword">const</span> Array&lt;double, 1&gt; &amp;y, <span class="keywordtype">double</span> xa);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<a class="code" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> <a class="code" href="cpo__utils_8h.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_to_profile</a>(<span class="keyword">const</span> <a class="code" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;<a class="code" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">coreprof</a>, <span class="keyword">const</span> <a class="code" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;<a class="code" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">coreimpur</a>,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">const</span> <a class="code" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;<a class="code" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">equilibrium</a>, <span class="keyword">const</span> ItmNs::Itm::distribution &amp;distribution);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="cpo__utils_8h.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_to_profile</a>(<a class="code" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> pro, <span class="keyword">const</span> <a class="code" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;<a class="code" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">coreprof</a>, <span class="keyword">const</span> <a class="code" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;<a class="code" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">coreimpur</a>,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">const</span> <a class="code" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;<a class="code" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">equilibrium</a>, <span class="keyword">const</span> ItmNs::Itm::distribution &amp;distribution);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CPO_UTILS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="test_8cpp_html_a75b33ef1bbd9d54cf28d958a63ff7ccb"><div class="ttname"><a href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">coreprof</a></div><div class="ttdeci">ItmNs::Itm::coreprof coreprof</div><div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00080">test.cpp:80</a></div></div>
+<div class="ttc" id="init_8h_html"><div class="ttname"><a href="init_8h.html">init.h</a></div></div>
+<div class="ttc" id="cpo__utils_8h_html_adae63f9764ade23dc7ebdd963984b0fc"><div class="ttname"><a href="cpo__utils_8h.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_to_profile</a></div><div class="ttdeci">profile cpo_to_profile(const ItmNs::Itm::coreprof &amp;coreprof, const ItmNs::Itm::coreimpur &amp;coreimpur, const ItmNs::Itm::equilibrium &amp;equilibrium, const ItmNs::Itm::distribution &amp;distribution)</div><div class="ttdef"><b>Definition:</b> <a href="cpo__utils_8cpp_source.html#l00077">cpo_utils.cpp:77</a></div></div>
 <div class="ttc" id="constants_8h_html"><div class="ttname"><a href="constants_8h.html">constants.h</a></div></div>
 <div class="ttc" id="cpo__utils_8h_html_a50572137eb8210b5b8da231639e016b0"><div class="ttname"><a href="cpo__utils_8h.html#a50572137eb8210b5b8da231639e016b0">binary_search</a></div><div class="ttdeci">int binary_search(const Array&lt; double, 1 &gt; &amp;array, double search_key)</div><div class="ttdef"><b>Definition:</b> <a href="cpo__utils_8cpp_source.html#l00039">cpo_utils.cpp:39</a></div></div>
-<div class="ttc" id="constants_8h_html_ad8c925a4173ed4678edea26a585358d7"><div class="ttname"><a href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a></div><div class="ttdeci">std::vector&lt; cell &gt; profile</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00040">constants.h:40</a></div></div>
 <div class="ttc" id="cpo__utils_8h_html_a7afd2b89fd6b15943e05451c0564714d"><div class="ttname"><a href="cpo__utils_8h.html#a7afd2b89fd6b15943e05451c0564714d">equal</a></div><div class="ttdeci">bool equal(double a, double b, double tolerance)</div><div class="ttdef"><b>Definition:</b> <a href="cpo__utils_8cpp_source.html#l00014">cpo_utils.cpp:14</a></div></div>
-<div class="ttc" id="cpo__utils_8h_html_affff233f460a921a6096f36f03cb72c5"><div class="ttname"><a href="cpo__utils_8h.html#affff233f460a921a6096f36f03cb72c5">cpo_to_profile</a></div><div class="ttdeci">profile cpo_to_profile(const ItmNs::Itm::coreprof &amp;coreprof, const ItmNs::Itm::coreimpur &amp;coreimpur, const ItmNs::Itm::equilibrium &amp;equilibrium)</div><div class="ttdef"><b>Definition:</b> <a href="cpo__utils_8cpp_source.html#l00072">cpo_utils.cpp:72</a></div></div>
+<div class="ttc" id="test_8cpp_html_a57baa2ecde7d11ab405822ccce7fdb21"><div class="ttname"><a href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">equilibrium</a></div><div class="ttdeci">ItmNs::Itm::equilibrium equilibrium</div><div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00082">test.cpp:82</a></div></div>
 <div class="ttc" id="cpo__utils_8h_html_a60b814648cece2c5758fb5d05031e2b7"><div class="ttname"><a href="cpo__utils_8h.html#a60b814648cece2c5758fb5d05031e2b7">interpolate</a></div><div class="ttdeci">double interpolate(const Array&lt; double, 1 &gt; &amp;x, const Array&lt; double, 1 &gt; &amp;y, double xa)</div><div class="ttdef"><b>Definition:</b> <a href="cpo__utils_8cpp_source.html#l00052">cpo_utils.cpp:52</a></div></div>
+<div class="ttc" id="init_8h_html_ad8c925a4173ed4678edea26a585358d7"><div class="ttname"><a href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a></div><div class="ttdeci">std::vector&lt; cell &gt; profile</div><div class="ttdef"><b>Definition:</b> <a href="init_8h_source.html#l00015">init.h:15</a></div></div>
+<div class="ttc" id="test_8cpp_html_a11ae785e0360446650fdd47f4b1ee906"><div class="ttname"><a href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">coreimpur</a></div><div class="ttdeci">ItmNs::Itm::coreimpur coreimpur</div><div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00081">test.cpp:81</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 17 2016 16:13:25 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 21 2016 15:40:08 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

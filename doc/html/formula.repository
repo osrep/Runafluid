@@ -68,3 +68,13 @@
 \form#67:\[ \Delta n_r = 0 ~~~~~~~ \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \]
 \form#68:\[ \Delta n_r = 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \]
 \form#69:\[ \Delta n_r = 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \mathrm{(if~} E < E_\mathrm{a} \mathrm{)} \]
+\form#70:\[ \Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right) ~~~~~~~ \mathrm{(if~} E \ge E_\mathrm{a} \mathrm{)} \]
+\form#71:$ n_\mathrm{e}$
+\form#72:$10^{20} \mathrm{~m}^{-3}$
+\form#73:$ t_\mathrm{e}$
+\form#74:$\mathrm{keV}$
+\form#75:$ Z_\mathrm{eff} $
+\form#76:$ E_\parallel $
+\form#77:$N/C$
+\form#78:\[ T_\mathrm{e} \mathrm{[kJ]} = t_\mathrm{e} \mathrm{[keV]} \cdot e\]
+\form#79:\[ \dot{n}_r^I= \frac{n_\mathrm{e}}{\tau} \cdot \left(\frac{m_\mathrm{e} c^2}{2 T_\mathrm{e}} \right)^{3/2}\cdot \left( \frac{E_D}{E_\parallel}\right)^{3 \left(1+Z_\mathrm{eff}\right) / 16} \cdot \exp \left( -\frac{E_D}{4E_\parallel} - \sqrt{\frac{1+Z_\mathrm{eff} \cdot E_D}{E_\parallel}}\right) \]

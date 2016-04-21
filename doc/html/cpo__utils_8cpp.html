@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Runafluid specification
-   &#160;<span id="projectnumber">0.8</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -110,8 +110,8 @@ Functions</h2></td></tr>
 <tr class="separator:a50572137eb8210b5b8da231639e016b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b814648cece2c5758fb5d05031e2b7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#a60b814648cece2c5758fb5d05031e2b7">interpolate</a> (const Array&lt; double, 1 &gt; &amp;x, const Array&lt; double, 1 &gt; &amp;y, double xa)</td></tr>
 <tr class="separator:a60b814648cece2c5758fb5d05031e2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affff233f460a921a6096f36f03cb72c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#affff233f460a921a6096f36f03cb72c5">cpo_to_profile</a> (const ItmNs::Itm::coreprof &amp;coreprof, const ItmNs::Itm::coreimpur &amp;coreimpur, const ItmNs::Itm::equilibrium &amp;equilibrium)</td></tr>
-<tr class="separator:affff233f460a921a6096f36f03cb72c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae63f9764ade23dc7ebdd963984b0fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_to_profile</a> (const <a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;<a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">coreprof</a>, const <a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;<a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">coreimpur</a>, const <a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;<a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">equilibrium</a>, const ItmNs::Itm::distribution &amp;distribution)</td></tr>
+<tr class="separator:adae63f9764ade23dc7ebdd963984b0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a384e0a318cb1c6dd7be5f67b34362412"></a>
@@ -184,27 +184,33 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="affff233f460a921a6096f36f03cb72c5"></a>
+<a class="anchor" id="adae63f9764ade23dc7ebdd963984b0fc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="constants_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> cpo_to_profile </td>
+          <td class="memname"><a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> cpo_to_profile </td>
           <td>(</td>
-          <td class="paramtype">const ItmNs::Itm::coreprof &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;&#160;</td>
           <td class="paramname"><em>coreprof</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const ItmNs::Itm::coreimpur &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;&#160;</td>
           <td class="paramname"><em>coreimpur</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const ItmNs::Itm::equilibrium &amp;&#160;</td>
-          <td class="paramname"><em>equilibrium</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;&#160;</td>
+          <td class="paramname"><em>equilibrium</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ItmNs::Itm::distribution &amp;&#160;</td>
+          <td class="paramname"><em>distribution</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -213,18 +219,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Copy data from CPO inputs to profile structure </p>
 <p>read electron density profile length of dataset: cells</p>
-<p>read electron temperature profile</p>
+<p>read electron temperature profile length of dataset, comparing with cells</p>
+<p>read eparallel profile length of dataset, comparing with cells</p>
+<p>read data in every $$</p>
+<p>electron density</p>
+<p>electron temperature</p>
 <p>local electric field </p><p class="formulaDsp">
 <img class="formulaDsp" alt="\[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \]" src="form_6.png"/>
 </p>
-<p> where B_{av} is known on discreate <img class="formulaInl" alt="$R $" src="form_7.png"/> major radius and interpolated at $$ major radius</p>
-<p>counting ions in <em>rho</em> cell</p>
-<p>counting impurities in <em>rho</em> cell</p>
+<p> where B_{av} is known on discreate <img class="formulaInl" alt="$R $" src="form_7.png"/> major radius and interpolated at $$ normalised minor radius</p>
+<p>runaway density before (in m^-3) distsource_identifier = 7</p>
+<p>total sum of electric charge in <em>rho</em> cell for all ion population</p>
+<p>total sum of electric charge in <em>rho</em> cell for all impurity population</p>
 <p>number of impurities by species</p>
 <p>charge of impurity </p>
 
-<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00072">72</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00077">77</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -314,7 +326,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 17 2016 16:13:25 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 21 2016 15:40:08 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

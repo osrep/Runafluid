@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['me2_5fc3',['me2_c3',['../avalanche__rate_8cpp.html#a623c90d2993b99710769d9aaf4afe770',1,'me2_c3():&#160;avalanche_rate.cpp'],['../dreicer_8cpp.html#a623c90d2993b99710769d9aaf4afe770',1,'me2_c3():&#160;dreicer.cpp'],['../tester_2avalanche_2avalanche__rate_8cpp.html#a623c90d2993b99710769d9aaf4afe770',1,'me2_c3():&#160;avalanche_rate.cpp'],['../tester_2dreicer_2dreicer_8cpp.html#a623c90d2993b99710769d9aaf4afe770',1,'me2_c3():&#160;dreicer.cpp']]],
-  ['me2_5fc3_5f_5fe',['me2_c3__e',['../avalanche__rate_8cpp.html#a178d2f0115f799cda5528f0438a73ed4',1,'me2_c3__e():&#160;avalanche_rate.cpp'],['../dreicer_8cpp.html#a178d2f0115f799cda5528f0438a73ed4',1,'me2_c3__e():&#160;dreicer.cpp'],['../tester_2avalanche_2avalanche__rate_8cpp.html#a178d2f0115f799cda5528f0438a73ed4',1,'me2_c3__e():&#160;avalanche_rate.cpp'],['../tester_2dreicer_2dreicer_8cpp.html#a178d2f0115f799cda5528f0438a73ed4',1,'me2_c3__e():&#160;dreicer.cpp']]],
-  ['me_5fc2',['me_c2',['../avalanche__rate_8cpp.html#ac18f39d30c7a62fc3c0da7f2a6a045c1',1,'me_c2():&#160;avalanche_rate.cpp'],['../dreicer_8cpp.html#ac18f39d30c7a62fc3c0da7f2a6a045c1',1,'me_c2():&#160;dreicer.cpp'],['../tester_2avalanche_2avalanche__rate_8cpp.html#ac18f39d30c7a62fc3c0da7f2a6a045c1',1,'me_c2():&#160;avalanche_rate.cpp'],['../tester_2dreicer_2dreicer_8cpp.html#ac18f39d30c7a62fc3c0da7f2a6a045c1',1,'me_c2():&#160;dreicer.cpp']]]
+  ['e3',['e3',['../products_8h.html#aff99da95c225d58a2c9acf9aa04a267b',1,'products.h']]],
+  ['effective_5fcharge',['effective_charge',['../structcell.html#acd443b932a05e18d9301cab8467a2e6b',1,'cell']]],
+  ['electric_5ffield',['electric_field',['../structcell.html#a64f14fa8c9450870bd64a273da5bd470',1,'cell']]],
+  ['electron_5fdensity',['electron_density',['../structcell.html#ae57df640e1b731872fbf1dcc47dc47b4',1,'cell']]],
+  ['electron_5ftemperature',['electron_temperature',['../structcell.html#a33e6e6204a0736d4e6fa0bd8d34b50c9',1,'cell']]],
+  ['equilibrium',['equilibrium',['../test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21',1,'test.cpp']]]
 ];
