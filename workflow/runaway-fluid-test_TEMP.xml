@@ -76,7 +76,7 @@
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:804">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:808">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -1390,7 +1390,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[750.0, 475.0]">
         </property>
     </entity>
-    <entity name="Array Plotter" class="ptolemy.actor.lib.gui.ArrayPlotter">
+    <entity name="Boundary plotter" class="ptolemy.actor.lib.gui.ArrayPlotter">
         <property name="fillOnWrapup" class="ptolemy.data.expr.Parameter" value="true">
         </property>
         <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
@@ -1419,7 +1419,7 @@
 <property name="prop:legend" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Annotations that will be displayed with the plot graph. Specify a comma-separated list of values that correspond to the input data sets (e.g., rainfall, temperature, elevation).</configure></property>
 <property name="prop:iterationsPerUpdate" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of actor iterations that should pass between display updates. The value must be a non-negative integer. The default value is 1.</configure></property>
 <property name="prop:xUnit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The increment along the X-axis.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:15:1">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:82:1">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.ArrayPlotter">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:891:1">
@@ -1431,7 +1431,9 @@
         </property>
         <property name="semanticType22" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:5:1#ScatterPlot">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[985.0, 550.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[955.0, 550.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:15:1">
         </property>
         <configure>
 <?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
@@ -1808,8 +1810,8 @@
     <link port="Unpack equilibrium for content.output" relation="relation14"/>
     <link port="Unpack equilibrium for content.input" relation="relation12"/>
     <link port="cpocontent2.cpo" relation="relation14"/>
-    <link port="Array Plotter.input" relation="relation13"/>
-    <link port="Array Plotter.input" relation="relation15"/>
+    <link port="Boundary plotter.input" relation="relation13"/>
+    <link port="Boundary plotter.input" relation="relation15"/>
     <link port="ualdemux.inputCpo" relation="relation17"/>
     <link port="ualdemux.inTime" relation="relation11"/>
     <link port="ualdemux.eqgeometry/boundary[0]/r" relation="relation13"/>
