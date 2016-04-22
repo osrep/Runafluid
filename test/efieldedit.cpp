@@ -28,10 +28,10 @@ AB
 */
 
 
-void int_switch(int electric_field_switch, bool *sw1, bool *sw2){
+void int_switch(int electric_field_switch, bool *bools){
 
 	if (electric_field_switch==1){
-		&sw1=true;
+		bools[0]=true;
 	}
 
 }
@@ -97,7 +97,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		
 		*/
 		
-		int_switch(electric_field_switch,&$relefield,&$dreicer);
+		bool* bools=[$relefield,$dreicer];
+		
+		int_switch(electric_field_switch,bools);
 		
 	/*	if (electric_field_switch % 10 == 0){
 			$relefield = true;			
