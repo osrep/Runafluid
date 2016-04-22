@@ -21,8 +21,8 @@ AB
    1: absolute field 
 
  B  
-   0: related to dreicer field
-   1: related tocritical field
+   0: related to Dreicer field
+   1: related to critical field
 
 
 */
@@ -143,7 +143,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 			
 			if (bools[0]){
 				//output = 98765.4321;				
-				if (bools[0]){
+				if (bools[1]){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;					
 				} else {
