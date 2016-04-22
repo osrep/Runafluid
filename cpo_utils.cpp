@@ -118,7 +118,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		try{
 			celll.runaway_density = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
 			
-			std::cerr << celll.runaway_density << std::endl;
+			std::cerr << "IN  : " << celll.runaway_density << std::endl;
 
 		//! internal error in distribution
 		} catch (const std::exception& ex) {
