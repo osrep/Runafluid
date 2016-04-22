@@ -122,7 +122,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		//	std::cerr << "There is no runaway profile. Runaway profile" << std::endl;
 			//distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;
 			celll.runaway_density = 0;
-		
+		}
 		//! internal error in distribution
 		
 	}
