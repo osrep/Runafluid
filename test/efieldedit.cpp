@@ -30,13 +30,28 @@ AB
 
 void int_switch(int electric_field_switch, bool *bools){
 
-	if (electric_field_switch==1){
-		bools[0]=true;
+	//! number of elements in bools
+	int N = sizeof(bools)/sizeof(bool);
+	
+	for (int i=0; i<N-1; i++){
+		if (electric_field_switch==1){
+			bools[i]=true;
+		}
+		electric_field_switch /= 10;
 	}
 
 }
 
 
+/*!
+
+read_coreprof
+
+Reading coreprof to a profile. Other fields would be undefined!
+
+input: ItmNs::Itm::coreprof &coreprof
+output: profile
+*/
 profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 
 	profile pro;
@@ -88,8 +103,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 	try {
 
 
-		bool $relefield = false;
-		bool $dreicer = false;
+		/*bool $relefield = false;
+		bool $dreicer = false;*/
 		
 		/*! SWITCH
 		relative / absolute
@@ -97,16 +112,16 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		
 		*/
 		
-		bool bools[] = {$relefield, $dreicer};
+		bool bools[2];// = {$relefield, $dreicer};
 		
 		int_switch(electric_field_switch,bools);
 		
-		if (electric_field_switch % 10 == 0){
+		/*if (electric_field_switch % 10 == 0){
 			$relefield = true;			
 			output = 9.87654321;
 		}else{				
 			output = 1.23456789;
-		}
+		}*/
 		
 		
 		
@@ -126,14 +141,20 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
-			if ($relefield){
-				output = 98765.4321;
-				critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
-				coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;
+			if (bools[0]){
+				//output = 98765.4321;				
+				if (bools[0]){
+					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;					
+				} else {
+					dreicer_field = calculate_dreicer_field(it->electron_density, it->electron_temperature);
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field;					
+				}
+				
 			} else {
 			
 			//! absolut electric field
-				output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
+				//output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
 				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
 			}
 			
@@ -143,7 +164,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		//rho = pro.size();
 		//output += (rho*10);
 		
-		if(electric_field_switch==2){
+		//! successful running: return 0
+		output = 0;
+		
+		/*if(electric_field_switch==2){
 			output = (double)pro.size();
 		}
 		
@@ -154,7 +178,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 			
 		if(electric_field_switch==4){
 			output = (double)4;
-		}	
+		}*/	
 	
 
 	} catch (const std::exception& ex) {
