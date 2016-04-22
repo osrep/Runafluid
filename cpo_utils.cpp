@@ -117,12 +117,16 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		
 		try{
 			celll.runaway_density = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
+			
+			std::cerr << celll.runaway_density << std::endl;
 
 		//! internal error in distribution
 		} catch (const std::exception& ex) {
 		//	std::cerr << "There is no runaway profile. Runaway profile" << std::endl;
 			//distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;
 			celll.runaway_density = 0;
+			
+			std::cerr << "ERROR : Cannot read runaway density" << std::endl;
 		}
 		
 		///!celll.runaway_density = 0;
