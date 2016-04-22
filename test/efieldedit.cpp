@@ -118,7 +118,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
 			}
 			
-			//rho++;
+			rho++;
 		
 		}		
 		//rho = pro.size();
