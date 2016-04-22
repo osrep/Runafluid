@@ -97,17 +97,17 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		
 		*/
 		
-		bool* bools=[$relefield,$dreicer];
+		bool bools[] = {$relefield, $dreicer};
 		
 		int_switch(electric_field_switch,bools);
 		
-	/*	if (electric_field_switch % 10 == 0){
+		if (electric_field_switch % 10 == 0){
 			$relefield = true;			
 			output = 9.87654321;
 		}else{				
 			output = 1.23456789;
 		}
-		*/
+		
 		
 		
 			
