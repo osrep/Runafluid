@@ -40,7 +40,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rundensity_after = rundensity_before + (rate_dreicer + rate_avalanche) * timestep;					
 
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
+		std::cerr << "ERROR An error occurred during runing runafluid_control." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 		rundensity_after = ITM_ILLEGAL_INT;
 		//! internal error in distribution
