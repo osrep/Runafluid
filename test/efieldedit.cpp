@@ -14,23 +14,24 @@ Parallel electric field editor
 
 electric_field_switch:
 
-XX
+AB
 
+ A
+   0: relative field
+   1: absolute field 
 
-  0: relative field
-  1: absolute field 
-  
-  0: related to dreicer field
-  1: related tocritical field
+ B  
+   0: related to dreicer field
+   1: related tocritical field
 
 
 */
 
 
-void int_switch(int electric_field_switch, bool &sw1, bool &sw2){
+void int_switch(int electric_field_switch, bool *sw1, bool *sw2){
 
 	if (electric_field_switch==1){
-		sw1=true;
+		&sw1=true;
 	}
 
 }
@@ -96,7 +97,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		
 		*/
 		
-		int_switch(electric_field_switch,&$relefield,&$dreicer);
+		int_switch(electric_field_switch,*$relefield,*$dreicer);
 		
 	/*	if (electric_field_switch % 10 == 0){
 			$relefield = true;			
