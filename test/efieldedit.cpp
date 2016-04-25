@@ -145,10 +145,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 				//output = 98765.4321;				
 				if (bools[1]){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;					
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;		
+				output = 1011;			
 				} else {
 					dreicer_field = calculate_dreicer_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field;					
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field;	
+					
+				output = 1010;				
 				}
 				
 			} else {
@@ -156,6 +159,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 			//! absolut electric field
 				//output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
 				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
+				output = 1000;
 			}
 			
 			rho++;
@@ -165,7 +169,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		//output += (rho*10);
 		
 		//! successful running: return 0
-		output = 0;
+		//output = 0;
 		
 		/*if(electric_field_switch==2){
 			output = (double)pro.size();
