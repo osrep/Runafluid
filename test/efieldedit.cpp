@@ -144,9 +144,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
-			if (bools[0]){
+			//if (bools[0]){
+			if(electric_field_switch>=10){
 				//output = 98765.4321;				
-				if (bools[1]){
+				//if (bools[1]){				
+				if(electric_field_switch>=11){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;		
 				output = .90119;			
