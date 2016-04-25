@@ -61,6 +61,8 @@ fix time label
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, double &timestep) {
 
+
+		std::cerr << "Number of elements" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
 	try {
 			
 		double rundensity = 0.0;
@@ -73,8 +75,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		
 
-
-		std::cerr << "Number of elements" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
 		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep);
