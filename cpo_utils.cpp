@@ -98,10 +98,6 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 				"Number of values is different in runaway distribution and coreprof.profiles1d.eparallel.");
 
 
-
-
-		std::cerr << "Number of elements" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << cells << std::endl;
-		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
     //! read data in every $\rho$ 
 
 	for (int rho = 0; rho < cells; rho++) {

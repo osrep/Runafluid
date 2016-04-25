@@ -70,6 +70,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		//! stepping iterator in profile	
 		int rho = 0;	
+		
+		
+
+
+		std::cerr << "Number of elements" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
+		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep);
 			
