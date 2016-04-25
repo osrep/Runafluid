@@ -73,6 +73,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep);
 			
+			if(rho==0){
+			std::cerr << "DISTSOURCE_IDENTIFIER : " << DISTSOURCE_IDENTIFIER << std::endl;
+			}
+			
 			
 			std::cerr << "OUT : " << rundensity << std::endl;
 		    distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;//rundensity;
