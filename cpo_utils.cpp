@@ -93,9 +93,9 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 				
 				
 	//! read eparallel profile length of dataset, comparing with cells
-	if (distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() != cells)
+	/*if (distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() != cells)
 		throw std::invalid_argument(
-				"Number of values is different in runaway distribution and coreprof.profiles1d.eparallel.");
+				"Number of values is different in runaway distribution and coreprof.profiles1d.eparallel.");*/
 
 
     //! read data in every $\rho$ 
