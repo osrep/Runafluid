@@ -28,7 +28,7 @@ AB
 */
 
 
-void int_switch(int electric_field_switch, bool *bools){
+int int_switch(int electric_field_switch, bool *bools){
 
 	//! number of elements in bools
 	int N = sizeof(bools)/sizeof(bool);
@@ -39,6 +39,8 @@ void int_switch(int electric_field_switch, bool *bools){
 		}
 		electric_field_switch /= 10;
 	}
+	
+	return N;
 
 }
 
@@ -103,8 +105,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 	try {
 
 
-		/*bool $relefield = false;
-		bool $dreicer = false;*/
+		
 		
 		/*! SWITCH
 		relative / absolute
@@ -114,8 +115,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		
 		bool bools[2];// = {$relefield, $dreicer};
 		
-		int_switch(electric_field_switch,bools);
+		int swint = int_switch(electric_field_switch,bools);
 		
+		/*bool $relefield = false;
+		bool $dreicer = false;*/
 		/*if (electric_field_switch % 10 == 0){
 			$relefield = true;			
 			output = 9.87654321;
@@ -146,12 +149,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 				if (bools[1]){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;		
-				output = 1011;			
+				output = .90119;			
 				} else {
 					dreicer_field = calculate_dreicer_field(it->electron_density, it->electron_temperature);
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field;	
 					
-				output = 1010;				
+				output = .90109;				
 				}
 				
 			} else {
@@ -159,12 +162,14 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 			//! absolut electric field
 				//output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
 				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
-				output = 1000;
+				output = .90009;
 			}
 			
 			rho++;
 		
-		}		
+		}	
+		
+		output += (double)swint;	
 		//rho = pro.size();
 		//output += (rho*10);
 		
