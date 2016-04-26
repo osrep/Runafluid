@@ -87,7 +87,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			std::cerr << "OUT : " << rundensity << std::endl;
 			
 			if (rho<distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows()){
-		   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;//rundensity;
+		   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 1234.56789;//rundensity;
 		   	}
 		    rho++;
 		
@@ -105,7 +105,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	}
 	
 	try {
-		distribution.distri_vec.array.resize(3);
+		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.array.resize(3);
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during distribution array resize" << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
