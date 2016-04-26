@@ -103,6 +103,16 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//! internal error in distribution
 		
 	}
+	
+	try {
+		distribution.distri_vec.array.resize(3);
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR An error occurred during distribution array resize" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+		
+		//! internal error in distribution
+		
+	}
 }
 
 
