@@ -64,10 +64,25 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
 
-	int DISTSOURCE_IDENTIFIER2 = 7;
-	distribution.distri_vec.resize(8);
+	try {
+		distribution.distri_vec.resize(8);
+		std::cerr << "distri_vec resized" << std::endl;
+		
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR An error occurred during distri_vec resize" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+
+	
+		//! internal error in distribution
+	
+	}
+		
+		
 	try {
 		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.resize(coreprof.ne.value.rows());
+		std::cerr << "distribution array resized" << std::endl;
+		
+		
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during distribution array resize" << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
