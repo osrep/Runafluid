@@ -71,13 +71,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 		
 		//! stepping iterator in profile	
-		//int rho = 0;	
+		int rho = 0;	
 		
 		
 
 		
-		//for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-		for (int rho=0;rho < distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows(); rho++) {
+		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep);
 			
 			if(rho==0){
@@ -86,8 +85,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			
 			
 			std::cerr << "OUT : " << rundensity << std::endl;
-		    distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;//rundensity;
-		   // rho++;
+			
+			if (rho<distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows()){
+		   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;//rundensity;
+		   	}
+		    rho++;
 		
 		}		
 		
