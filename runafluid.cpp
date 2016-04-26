@@ -64,7 +64,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
 
-	ItmNs::Itm::distribution &distribution2 = distribution.getSlice();
+	//ItmNs::Itm::distribution &distribution2 = distribution.getSlice();
 
 //	distribution2.distri_vec(0).put(distribution.distri_vec(0).get());
 
