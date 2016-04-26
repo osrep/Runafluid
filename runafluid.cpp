@@ -77,7 +77,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 		
 		//for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-		for (int rho=0;rho < distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows(), rho++) {
+		for (int rho=0;rho < distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows(); rho++) {
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep);
 			
 			if(rho==0){
