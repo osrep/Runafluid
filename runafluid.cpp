@@ -62,7 +62,24 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, double &timestep) {
 
 
-		std::cerr << "Number of elements" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
+	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
+
+	int DISTSOURCE_IDENTIFIER2 = 7;
+	distribution.distri_vec.resize(8);
+	try {
+		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.resize(coreprof.ne.value.rows());
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR An error occurred during distribution array resize" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+	
+		//! internal error in distribution
+	
+	}
+
+
+	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
+
+
 	try {
 			
 		double rundensity = 0.0;

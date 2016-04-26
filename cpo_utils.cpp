@@ -99,19 +99,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 
 
     //! read data in every $\rho$ 
-	int DISTSOURCE_IDENTIFIER2 = 7;
-	//distribution.distri_vec.resize(8);
-	try {
-		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.resize(cells);
-	} catch (const std::exception& ex) {
-		/*std::cerr << "ERROR An error occurred during distribution array resize" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;*/
-		throw std::invalid_argument(
-				"An error occurred during distribution array resize.");
-	
-		//! internal error in distribution
-	
-	}
+
 
 
 	for (int rho = 0; rho < cells; rho++) {
