@@ -26,7 +26,7 @@ void fire(ItmNs::Itm::distribution &dist_in, ItmNs::Itm::distribution &dist_out,
 		std::cerr << "\t"<< i << ": \t" << dist_in.distri_vec.rows(i).source_id.type.flag.value() << std::endl;
 	}
 	
-
+	dist_initialised = 1;
 }
 
 
