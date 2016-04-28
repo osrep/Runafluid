@@ -76,7 +76,7 @@
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1054">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1084">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -220,7 +220,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[190.0, 15.0]">
         </property>
     </property>
-    <property name="electric_field_test" class="ptolemy.data.expr.Parameter" value="2e-3">
+    <property name="electric_field_test" class="ptolemy.data.expr.Parameter" value="3e-2">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -365,7 +365,7 @@
         </property>
     </property>
     <property name="DefaultTitle" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
-        <property name="displayText" class="ptolemy.data.expr.StringParameter" value="Runafluid | test workflow |">
+        <property name="displayText" class="ptolemy.data.expr.StringParameter" value="Electric field editor | test workflow |">
         </property>
         <property name="height" class="ptolemy.data.expr.Parameter" value="20">
         </property>
@@ -394,7 +394,7 @@
 <property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
 <property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
 <property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:60:1">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:60:2">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="null">
@@ -402,7 +402,7 @@
         </property>
         <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowWebExport">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-25.0, 30.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-50.0, 30.0]">
         </property>
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1">
         </property>
@@ -601,7 +601,7 @@
     <entity name="Read shot data" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:16:156">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:16:163">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -629,6 +629,135 @@
         <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8892182289737">
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{416.375, 253.5902083333333}">
+        </property>
+        <property name="DefaultTitle" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
+            <property name="displayText" class="ptolemy.data.expr.StringParameter" value="iter | 5 | 8 | 999">
+            </property>
+            <property name="height" class="ptolemy.data.expr.Parameter" value="20">
+            </property>
+            <property name="width" class="ptolemy.data.expr.Parameter" value="60">
+            </property>
+            <property name="style" class="ptolemy.actor.gui.style.TextStyle">
+                <property name="height" class="ptolemy.data.expr.Parameter" value="height">
+                </property>
+                <property name="width" class="ptolemy.data.expr.Parameter" value="width">
+                </property>
+            </property>
+            <property name="showTitleInHTML" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="include" class="ptolemy.data.expr.StringParameter" value="Entities">
+            </property>
+            <property name="instancesOf" class="ptolemy.data.expr.StringParameter" value="">
+            </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>$Id: DefaultTitle.java 63960 2012-07-13 22:59:42Z cxh $</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;A parameter specifying default title to associate&#10; with a model and with components in the model.&#10; By default, this attribute uses the model name&#10; and component names as the title.</configure></property>
+<property name="prop:height" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the height of the editing box.  This is an int that defaults to 20.</configure></property>
+<property name="prop:showTitleInHTML" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If set to true, then the title given by this parameter  will be shown in the HTML prior to the image of the model  (as well as in the image of the model, if it is visible  when the export to web occurs). This is a boolean that  defaults to true.</configure></property>
+<property name="prop:include" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specification of whether to provide the title for  Attributes, Entities, or both. This is either &quot;Entities&quot; (the  default), &quot;Attributes&quot;, &quot;All&quot;, or &quot;None&quot;.</configure></property>
+<property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
+<property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
+<property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
+</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:62:1">
+            </property>
+            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
+                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="null">
+                </property>
+            </property>
+            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowWebExport">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[475.0, 70.0]">
+            </property>
+            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1">
+            </property>
+        </property>
+        <property name="DefaultTitle2" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
+            <property name="displayText" class="ptolemy.data.expr.StringParameter" value="test | 5 | 2 | 999">
+            </property>
+            <property name="height" class="ptolemy.data.expr.Parameter" value="20">
+            </property>
+            <property name="width" class="ptolemy.data.expr.Parameter" value="60">
+            </property>
+            <property name="style" class="ptolemy.actor.gui.style.TextStyle">
+                <property name="height" class="ptolemy.data.expr.Parameter" value="height">
+                </property>
+                <property name="width" class="ptolemy.data.expr.Parameter" value="width">
+                </property>
+            </property>
+            <property name="showTitleInHTML" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="include" class="ptolemy.data.expr.StringParameter" value="Entities">
+            </property>
+            <property name="instancesOf" class="ptolemy.data.expr.StringParameter" value="">
+            </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>$Id: DefaultTitle.java 63960 2012-07-13 22:59:42Z cxh $</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;A parameter specifying default title to associate&#10; with a model and with components in the model.&#10; By default, this attribute uses the model name&#10; and component names as the title.</configure></property>
+<property name="prop:include" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specification of whether to provide the title for  Attributes, Entities, or both. This is either &quot;Entities&quot; (the  default), &quot;Attributes&quot;, &quot;All&quot;, or &quot;None&quot;.</configure></property>
+<property name="prop:showTitleInHTML" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If set to true, then the title given by this parameter  will be shown in the HTML prior to the image of the model  (as well as in the image of the model, if it is visible  when the export to web occurs). This is a boolean that  defaults to true.</configure></property>
+<property name="prop:height" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the height of the editing box.  This is an int that defaults to 20.</configure></property>
+<property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
+<property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
+<property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
+</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:62:5">
+            </property>
+            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
+                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="null">
+                </property>
+            </property>
+            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowWebExport">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[475.0, 120.0]">
+            </property>
+            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1">
+            </property>
+        </property>
+        <property name="DefaultTitle3" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
+            <property name="displayText" class="ptolemy.data.expr.StringParameter" value="iter | 5 | 2067 | 999">
+            </property>
+            <property name="height" class="ptolemy.data.expr.Parameter" value="20">
+            </property>
+            <property name="width" class="ptolemy.data.expr.Parameter" value="60">
+            </property>
+            <property name="style" class="ptolemy.actor.gui.style.TextStyle">
+                <property name="height" class="ptolemy.data.expr.Parameter" value="height">
+                </property>
+                <property name="width" class="ptolemy.data.expr.Parameter" value="width">
+                </property>
+            </property>
+            <property name="showTitleInHTML" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="include" class="ptolemy.data.expr.StringParameter" value="Entities">
+            </property>
+            <property name="instancesOf" class="ptolemy.data.expr.StringParameter" value="">
+            </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>$Id: DefaultTitle.java 63960 2012-07-13 22:59:42Z cxh $</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;A parameter specifying default title to associate&#10; with a model and with components in the model.&#10; By default, this attribute uses the model name&#10; and component names as the title.</configure></property>
+<property name="prop:include" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specification of whether to provide the title for  Attributes, Entities, or both. This is either &quot;Entities&quot; (the  default), &quot;Attributes&quot;, &quot;All&quot;, or &quot;None&quot;.</configure></property>
+<property name="prop:showTitleInHTML" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If set to true, then the title given by this parameter  will be shown in the HTML prior to the image of the model  (as well as in the image of the model, if it is visible  when the export to web occurs). This is a boolean that  defaults to true.</configure></property>
+<property name="prop:height" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the height of the editing box.  This is an int that defaults to 20.</configure></property>
+<property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
+<property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
+<property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
+</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:62:4">
+            </property>
+            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
+                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="null">
+                </property>
+            </property>
+            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowWebExport">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[475.0, 90.0]">
+            </property>
+            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1">
+            </property>
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -803,7 +932,7 @@
             </port>
         </entity>
         <entity name="run number" class="ptolemy.actor.lib.Const">
-            <property name="value" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="value" class="ptolemy.data.expr.Parameter" value="2067">
             </property>
             <property name="firingCountLimit" class="ptolemy.data.expr.Parameter" value="1">
             </property>
@@ -818,7 +947,7 @@
 <property name="port:trigger" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that has no declared type (in other words, the port can accept any data type: double, int, array, etc.) If the port is connected, the actor will not fire until the trigger port receives an input token. Connecting the port is optional, but useful when scheduling the actor to perform at a certain time.</configure></property>
 <property name="prop:firingCountLimit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The limit on the number of times the actor will fire. The default value is 'NONE', meaning there is no limit on the number of time the constant will be provided to the output port. Any integer can be provided as a value for this parameter.</configure></property>
 <property name="prop:value" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The value produced by the Constant actor. By default, the value is the integer token 1. The value can be set to another type, e.g., a string (such as &quot;Hello&quot;) or a double (such as 1.2). The  output type matches the type of the value specified here.</configure></property>
-</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:19:46">
+</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:19:48">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Const">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:877:1">
@@ -951,7 +1080,10 @@
         </relation>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="output" relation="relation7"/>
+        <link port="ualinit.machine" relation="relation9"/>
         <link port="ualinit.shot" relation="relation"/>
         <link port="ualinit.run" relation="relation2"/>
         <link port="ualinit.runwork" relation="relation3"/>
@@ -967,6 +1099,7 @@
         <link port="shot number.output" relation="relation"/>
         <link port="run number.output" relation="relation2"/>
         <link port="runwork number.output" relation="relation3"/>
+        <link port="machine name (string).output" relation="relation9"/>
     </entity>
     <entity name="Is Present" class="ptolemy.actor.lib.logic.IsPresent">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -1004,7 +1137,7 @@
     <entity name="electric-field-tester" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:30:94">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:30:99">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1331,6 +1464,44 @@
                 </property>
             </port>
         </entity>
+        <entity name="EFIELD OUT" class="ptolemy.actor.lib.gui.Display">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={733, 427, 451, 207}, maximized=false}">
+            </property>
+            <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[443, 153]">
+            </property>
+            <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
+            </property>
+            <property name="columnsDisplayed" class="ptolemy.data.expr.Parameter" value="40">
+            </property>
+            <property name="suppressBlankLines" class="ptolemy.data.expr.Parameter" value="false">
+            </property>
+            <property name="title" class="ptolemy.data.expr.StringParameter" value="">
+            </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong, Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Display actor reads tokens of any type via its input multiport, and displays each token on a separate line in a text display window.&lt;/p&gt;&#10;&#10;&lt;p&gt;Specify the size of the text display window with the rowsDisplayed and columnsDisplayed parameters. Simply resizing the window onscreen does not persistently change the size when the workflow is saved, closed, and then re-opened. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the input is a string token, then the actor strips the surrounding quotation marks before displaying the value.&lt;/p&gt; &#10;&#10;&lt;p&gt;Select the suppressBlankLines parameter to specify that the actor not add blank lines to the display. By default, the actor will add blank lines.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: this actor can consume large amounts of memory. It is not advisable to use it to display large output streams.&lt;/p&gt;</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts tokens of any type.</configure></property>
+<property name="prop:suppressBlankLines" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether the actor should display blank lines (the default) or suppress them.</configure></property>
+<property name="prop:rowsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The vertical size of the display, in rows. The value is an integer that defaults to 10.</configure></property>
+<property name="prop:columnsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The horizontal size of the display, in columns. The value is an integer that defaults to 40.</configure></property>
+<property name="prop:title" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The title of the text display window. If specified, the value will appear in the title bar of the text display window.</configure></property>
+</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:112:1">
+            </property>
+            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.Display">
+                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:883:1">
+                </property>
+            </property>
+            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#TextualOutputActor">
+            </property>
+            <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#TextualOutput">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{960, 635}">
+            </property>
+            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:7:1">
+            </property>
+        </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation3" class="ptolemy.actor.TypedIORelation">
@@ -1351,12 +1522,15 @@
         </relation>
         <relation name="relation8" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="input" relation="relation7"/>
         <link port="output" relation="relation2"/>
         <link port="runafluid_efieldedit.coreprof0_in" relation="relation6"/>
         <link port="runafluid_efieldedit.coreprof0_out" relation="relation8"/>
         <link port="runafluid_efieldedit.electric_field_test1_in" relation="relation5"/>
         <link port="runafluid_efieldedit.electric_field_switch2_in" relation="relation4"/>
+        <link port="runafluid_efieldedit.output3_out" relation="relation9"/>
         <link port="runafluid_efieldedit.time_in" relation="relation3"/>
         <link port="runafluid_efieldedit.iter_in" relation="relation"/>
         <link port="Unpack time.output" relation="relation3"/>
@@ -1372,6 +1546,7 @@
         <link port="Pass input bundle.output" relation="relation2"/>
         <link port="Pass input bundle.input" relation="relation7"/>
         <link port="Pass input bundle.coreprof" relation="relation8"/>
+        <link port="EFIELD OUT.input" relation="relation9"/>
     </entity>
     <entity name="Display end" class="ptolemy.actor.lib.gui.Display">
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1428, 156, 416, 200}, maximized=false}">
@@ -1754,7 +1929,7 @@
 <plot>
 <title>Array Plotter</title>
 <xRange min="0.0" max="299.0"/>
-<yRange min="-2.9573987535419435" max="8.099996981832572"/>
+<yRange min="-2.624452032587423" max="8.124994404404124"/>
 </plot>?>
         </configure>
     </entity>
@@ -1930,7 +2105,7 @@
 <plot>
 <title>Array Plotter</title>
 <xRange min="0.0" max="99.0"/>
-<yRange min="500.00000000000006" max="5912.966581168585"/>
+<yRange min="500.0" max="1010.8207096876595"/>
 </plot>?>
         </configure>
     </entity>
@@ -2023,7 +2198,7 @@
 <plot>
 <title>Array Plotter</title>
 <xRange min="0.0" max="99.0"/>
-<yRange min="4.971302687729879E19" max="1.0084535046708173E20"/>
+<yRange min="5.0E19" max="1.0084572775006411E20"/>
 </plot>?>
         </configure>
     </entity>
@@ -2258,9 +2433,9 @@
         </property>
         <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="eparallel_before,eparallel_after">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={241, 543, 508, 354}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={261, 471, 508, 469}, maximized=false}">
         </property>
-        <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 300]">
+        <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 415]">
         </property>
         <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
         </property>
@@ -2304,7 +2479,7 @@
 <plot>
 <title>Array Plotter</title>
 <xRange min="0.0" max="99.0"/>
-<yRange min="6.287346862445979E-4" max="0.002977442686316667"/>
+<yRange min="0.0" max="0.03"/>
 </plot>?>
         </configure>
     </entity>
@@ -2419,63 +2594,6 @@
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
         </port>
-    </entity>
-    <entity name="eparallel2" class="ptolemy.actor.lib.gui.ArrayPlotter">
-        <property name="fillOnWrapup" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-        <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
-        </property>
-        <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="eparallel_before,eparallel_after">
-        </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={807, 486, 508, 354}, maximized=false}">
-        </property>
-        <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 300]">
-        </property>
-        <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
-        </property>
-        <property name="iterationsPerUpdate" class="ptolemy.data.expr.Parameter" value="1">
-        </property>
-        <property name="xInit" class="ptolemy.data.expr.Parameter" value="0.0">
-        </property>
-        <property name="xUnit" class="ptolemy.data.expr.Parameter" value="1.0">
-        </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The ArrayPlotter reads arrays of doubles via its input multiport and plots each received array as a separate data set. The actor displays a plot graph on the screen. By default, the actor updates the display each time it iterates.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: updating the display can be costly in terms of system resources. Specify the number of actor iterations that should pass between display updates with the iterationsPerUpdate parameter. For example, if iterationsPerUpdate = 2, then every second time the actor fires, it will update the display (i.e., the actor will update its display on the first firing, the third, the fifth, etc.) The actor will consume its inputs on every firing, regardless of the value of the iterationsPerUpdate parameter.&lt;/p&gt;</configure></property>
-<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that receives arrays of doubles.</configure></property>
-<property name="prop:xInit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The starting point of the X-axis.</configure></property>
-<property name="prop:fillOnWrapup" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether to rescale the plot so that all data is visible. By default, the actor scales the plot to fill the display area.</configure></property>
-<property name="prop:startingDataset" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of the dataset that should be plotted first. The value must be a non-negative integer. The default is 0.</configure></property>
-<property name="prop:legend" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Annotations that will be displayed with the plot graph. Specify a comma-separated list of values that correspond to the input data sets (e.g., rainfall, temperature, elevation).</configure></property>
-<property name="prop:iterationsPerUpdate" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of actor iterations that should pass between display updates. The value must be a non-negative integer. The default value is 1.</configure></property>
-<property name="prop:xUnit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The increment along the X-axis.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:81:39">
-        </property>
-        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.ArrayPlotter">
-            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:891:1">
-            </property>
-        </property>
-        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#Plotter">
-        </property>
-        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GraphicalOutput">
-        </property>
-        <property name="semanticType22" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:5:1#ScatterPlot">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[1180.0, 940.0]">
-        </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:15:1">
-        </property>
-        <configure>
-<?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
-"http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
-<plot>
-<title>Array Plotter</title>
-<xRange min="0.0" max="99.0"/>
-<yRange min="7.420936087720395E-5" max="1.7147130978634257E-4"/>
-</plot>?>
-        </configure>
     </entity>
     <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         <property name="width" class="ptolemy.data.expr.Parameter" value="1">
@@ -2626,6 +2744,7 @@
     <link port="Unpack coreprofile for plotting3.output" relation="relation24"/>
     <link port="Unpack coreprofile for plotting3.input" relation="relation12"/>
     <link port="eparallel.input" relation="relation26"/>
+    <link port="eparallel.input" relation="relation15"/>
     <link port="ualdemux5.inputCpo" relation="relation27"/>
     <link port="ualdemux5.inTime" relation="relation28"/>
     <link port="ualdemux5.profiles1d/eparallel/value" relation="relation26"/>
@@ -2633,7 +2752,6 @@
     <link port="Unpack time5.input" relation="relation6"/>
     <link port="Unpack coreprofile for plotting4.output" relation="relation27"/>
     <link port="Unpack coreprofile for plotting4.input" relation="relation6"/>
-    <link port="eparallel2.input" relation="relation15"/>
     <link relation1="relation6" relation2="relation8"/>
     <link relation1="relation8" relation2="relation23"/>
 </entity>
