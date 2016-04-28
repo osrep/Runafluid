@@ -42,15 +42,15 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		
 		std::cerr << "resized " << std::endl;
 		
-		distribution_out.distri_vec(0).source_id(0).type.id = "runaway";
+		distribution_out.distri_vec(0).source_id(0).type.id.value = "runaway";
 		distribution_out.distri_vec(0).source_id(0).type.flag = 7;
-		distribution_out.distri_vec(0).source_id(0).type.description = "Source from runaway processes";
+		distribution_out.distri_vec(0).source_id(0).type.description.value = "Source from runaway processes";
 		
 		std::cerr << "source_id0" << std::endl;
 		
-		distribution_out.distri_vec(0).species.type.id = "electron";
+		distribution_out.distri_vec(0).species.type.id.value = "electron";
 		distribution_out.distri_vec(0).species.type.flag = 1;
-		distribution_out.distri_vec(0).species.type.description = "Electron";
+		distribution_out.distri_vec(0).species.type.description.value = "Electron";
 		
 		std::cerr << "species" << std::endl;
 		distribution_out.distri_vec(0).gyro_type = 1;
