@@ -23,7 +23,7 @@ void fire(ItmNs::Itm::distribution &dist_in, ItmNs::Itm::distribution &dist_out,
 	std::cerr << "Length of distri_vec: \t"<< N_dist << std::endl << std::endl;
 	
 	for (int i=0;i<N_dist;i++){
-		std::cerr << "\t"<< i << ": \t" << dist_in.distri_vec.rows(i).source_id.type.flag.value() << std::endl;
+		std::cerr << "\t"<< i << ": \t" << dist_in.distri_vec(i).source_id.type.flag.value() << std::endl;
 	}
 	
 	dist_initialised = 1;
