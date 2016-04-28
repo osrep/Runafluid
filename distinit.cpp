@@ -30,7 +30,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	*/
 	
 	try {
-		distribution_out.distri_vec.resize(0);
+		distribution_out.distri_vec.resize(1);
 		distribution_out.distri_vec(0).profiles_1d.state.dens/*.value*/ = 0;
 		distribution_out.distri_vec(0).profiles_1d.state.current/*.value*/ = 0;
 		
