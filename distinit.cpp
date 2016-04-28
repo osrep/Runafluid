@@ -31,8 +31,8 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	
 	try {
 		distribution_out.distri_vec.resize(0);
-		distribution_out.distri_vec(0).profiles_1D.state.dens = 0;
-		distribution_out.distri_vec(0).profiles_1D.state.current = 0;
+		distribution_out.distri_vec(0).profiles_1D.state.dens.value = 0;
+		distribution_out.distri_vec(0).profiles_1D.state.current.value = 0;
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during distri_vec resize" << std::endl;
