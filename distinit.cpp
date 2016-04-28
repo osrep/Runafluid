@@ -34,6 +34,18 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		distribution_out.distri_vec(0).profiles_1d.state.dens/*.value*/ = 0;
 		distribution_out.distri_vec(0).profiles_1d.state.current/*.value*/ = 0;
 		
+		
+		distribution_out.distri_vec(0).source_id[0].type.id = "runaway";
+		distribution_out.distri_vec(0).source_id[0].type.flag = 7;
+		distribution_out.distri_vec(0).source_id[0].type.description = "Source from runaway processes";
+		distribution_out.distri_vec(0).species.type.id = "electron";
+		distribution_out.distri_vec(0).species.type.flag = 1;
+		distribution_out.distri_vec(0).species.type.description = "Electron";
+		distribution_out.distri_vec(0).gyro_type = 1;
+		
+		
+		
+		
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during distri_vec resize" << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
