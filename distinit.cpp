@@ -11,7 +11,7 @@
 #include "init.h"*/
 
 
-void fire(ItmNs::Itm::distribution &dist_in, ItmNs::Itm::distribution &dist_out, ItmNs::Itm::coreprof &coreprof, int &dist_initialised) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, int &dist_initialised) {
 
 
 //std::cerr << "Number of elements:"<< std::endl;
@@ -30,9 +30,9 @@ void fire(ItmNs::Itm::distribution &dist_in, ItmNs::Itm::distribution &dist_out,
 	*/
 	
 	try {
-		distr_out.distri_vec.resize(0);
-		distr_out.distri_vec(0).profiles_1D.state.dens = 0;
-		distr_out.distri_vec(0).profiles_1D.state.current = 0;
+		distribution_out.distri_vec.resize(0);
+		distribution_out.distri_vec(0).profiles_1D.state.dens = 0;
+		distribution_out.distri_vec(0).profiles_1D.state.current = 0;
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during distri_vec resize" << std::endl;
