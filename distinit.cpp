@@ -36,9 +36,14 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		int N = coreprof.ne.value.rows();
 				
 		std::cerr << "N: " << N << std::endl;
+		try {
+			std::cerr << "prev" << distribution_out.distri_vec(0).source_id(0).type.flag << std::endl;
 		
-		std::cerr << "prev" << distribution_out.distri_vec(0).source_id(0).type.flag << std::endl;
+		} catch (const std::exception& ex) {
+			throw std::invalid_argument("distribution non-readable");
 		
+		{	
+				
 		distribution_out.distri_vec.resize(1);			
 		std::cerr << "resize dv" << std::endl;
 		
