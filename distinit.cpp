@@ -42,7 +42,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		} catch (const std::exception& ex) {
 			throw std::invalid_argument("distribution non-readable");
 		
-		{	
+		}	
 				
 		distribution_out.distri_vec.resize(1);			
 		std::cerr << "resize dv" << std::endl;
