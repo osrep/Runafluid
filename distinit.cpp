@@ -11,6 +11,8 @@
 #include "init.h"*/
 
 
+
+
 void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, int &dist_initialised) {
 
 
@@ -31,8 +33,11 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	
 	try {
 		//! number of geometry elements
-		int N = coreprof.ne.value.rows();		
+		int N = coreprof.ne.value.rows();
+				
 		std::cerr << "N: " << N << std::endl;
+		
+		std::cerr << "prev" << distribution_out.distri_vec(0).source_id(0).type.flag << std::endl;
 		
 		distribution_out.distri_vec.resize(1);			
 		std::cerr << "resize dv" << std::endl;
