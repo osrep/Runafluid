@@ -37,7 +37,17 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 				
 		std::cerr << "N: " << N << std::endl;
 		try {
-			std::cerr << "prev" << distribution_in.distri_vec(0).source_id(0).type.flag << std::endl;
+			//std::cerr << "prev" << distribution_in.distri_vec(0).source_id(0).type.flag << std::endl;
+			
+			if(distribution_in.distri_vec(0).source_id(0).type.flag == 7){
+				std::cerr << "Runaway distribution\t YES \n\tPrevious distribution was a runaway (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;
+			
+			}else{
+			
+				std::cerr << "Runaway distribution\t NO \n\tPrevious distribution was other (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;
+			}
+			
+			
 		
 		} catch (const std::exception& ex) {
 			throw std::invalid_argument("distribution non-readable");
