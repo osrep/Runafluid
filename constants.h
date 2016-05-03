@@ -27,5 +27,6 @@
 
 //! ERROR CODE
 #define ITM_ILLEGAL_INT	-999999999
+#define ITM_ILLEGAL_FLOAT -9.D40
 
 #endif /* CONSTANTS_H_ */
