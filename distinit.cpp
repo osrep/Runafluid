@@ -95,9 +95,9 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	}
 	dist_initialised = 1;
 	
-/*	
+	
 	try {
-		std::cerr << "TIME:\t"<< getTime("distribution_in",times)	 << std::endl;
+		std::cerr << "TIME:\t"<< getShot()	 << std::endl;
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR sECOND TRY	" << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
@@ -105,7 +105,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	
 		//! internal error in distribution
 	
-	}*/
+	}
 }
 
 
