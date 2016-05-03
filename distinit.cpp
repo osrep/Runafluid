@@ -95,7 +95,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	}
 	dist_initialised = 1;
 	
-	
+/*	
 	try {
 		std::cerr << "TIME:\t"<< getTime("distribution_in",times)	 << std::endl;
 	} catch (const std::exception& ex) {
@@ -105,7 +105,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	
 		//! internal error in distribution
 	
-	}
+	}*/
 }
 
 
