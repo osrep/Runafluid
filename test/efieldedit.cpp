@@ -32,20 +32,20 @@ ABC
 */
 
 //! N: number of elements in bools
-int int_switch(int electric_field_switch, bool *bools, int N){
+int int_switch(int switch_number, bool *bools, int N){
 	
 	
 	for (int i=0; i<N; i++){
-		if (electric_field_switch%10==1){
+		if (switch_number%10==1){
 			bools[i]=true;
 		}else{		
 			bools[i]=false;
 		}
 		
 		
-		std::cerr << "BOOL " <<i<< "/" << N-1 << "set as: " << bools[i] << " > switch value " << electric_field_switch << std::endl;
+		std::cerr << "BOOL " <<i<< "/" << N-1 << "set as: " << bools[i] << " > switch value " << switch_number << std::endl;
 		
-		electric_field_switch /= 10;
+		switch_number /= 10;
 	}
 	
 	return N;
