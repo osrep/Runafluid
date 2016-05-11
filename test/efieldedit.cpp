@@ -31,7 +31,10 @@ AB
 int int_switch(int electric_field_switch, bool *bools){
 
 	//! number of elements in bools
-	int N = bools.end();//size();//sizeof(bools)/sizeof(bools[0]);
+	int N = sizeof(bools)/sizeof(bools[0]);
+	std::cerr << "BOOLS SIZE: " << sizeof(bools) << std::endl;
+	std::cerr << "BOOL2 SIZE: " << sizeof(bools[0]) << std::endl;
+	std::cerr << "BOOL SIZE: " << sizeof(bool) << std::endl;
 	
 	for (int i=0; i<N-1; i++){
 		if (electric_field_switch==1){
@@ -120,6 +123,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		*/
 		
 		bool bools[2];// = {$relefield, $dreicer};
+		
+		
+		std::cerr
 		
 		int swint = int_switch(electric_field_switch,bools);
 				
