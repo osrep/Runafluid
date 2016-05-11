@@ -31,8 +31,6 @@ ABC
 
 */
 
-//! N: number of elements in bools
-
 
 
 /*!

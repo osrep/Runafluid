@@ -28,23 +28,6 @@ AB
 */
 
 
-int int_switch(int temp_switch, bool *bools){
-
-	//! number of elements in bools
-	int N = sizeof(bools)/sizeof(bool);
-	
-	for (int i=0; i<N-1; i++){
-		if (temp_switch==1){
-			bools[i]=true;
-		}
-		temp_switch /= 10;
-	}
-	
-	return N;
-
-}
-
-
 /*!
 
 read_coreprof
@@ -113,9 +96,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &temp_test, int &temp_switch, d
 		
 		*/
 		
-		bool bools[2];// = {$relefield, $dreicer};
+		bool bools[1];// = {$relefield, $dreicer};
 		
-		int swint = int_switch(temp_switch,bools);
+		int swint = int_switch(temp_switch,bools,sizeof(bools)/sizeof(bool));
 		
 		/*bool $relefield = false;
 		bool $dreicer = false;*/
