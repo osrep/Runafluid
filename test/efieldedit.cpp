@@ -32,25 +32,7 @@ ABC
 */
 
 //! N: number of elements in bools
-int int_switch(int switch_number, bool *bools, int N){
-	
-	
-	for (int i=0; i<N; i++){
-		if (switch_number%10==1){
-			bools[i]=true;
-		}else{		
-			bools[i]=false;
-		}
-		
-		
-		std::cerr << "BOOL " <<i<< "/" << N-1 << "set as: " << bools[i] << " > switch value " << switch_number << std::endl;
-		
-		switch_number /= 10;
-	}
-	
-	return N;
 
-}
 
 
 /*!
