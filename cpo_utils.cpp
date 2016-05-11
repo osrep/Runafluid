@@ -67,6 +67,31 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 	return y(index) + (y(index + 1) - y(index)) / (x(index + 1) - x(index)) * (xa - x(index));
 }
 
+/*!
+
+switch handling
+
+*/
+
+int int_switch(int switch_number, bool *bools, int N){
+	
+	
+	for (int i=0; i<N; i++){
+		if (switch_number%10==1){
+			bools[i]=true;
+		}else{		
+			bools[i]=false;
+		}
+		
+		
+		std::cerr << "BOOL " <<i<< "/" << N-1 << "set as: " << bools[i] << " > switch value " << switch_number << std::endl;
+		
+		switch_number /= 10;
+	}
+	
+	return N;
+
+}
 
 /*!
 
