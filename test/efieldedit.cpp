@@ -14,13 +14,17 @@ Parallel electric field editor
 
 electric_field_switch:
 
-AB
+ABC
 
  A
+   0: non-increasing field 
+   1: increasing field
+
+ B
    0: relative field
    1: absolute field 
 
- B  
+ C  
    0: related to Dreicer field
    1: related to critical field
 
@@ -141,7 +145,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 //		double loop_multiplier = 1;
 //		output = 0;
 		
-
+		double electric_field_test_value;
+		
+		
 		
 		
 					
@@ -151,17 +157,23 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
+			if(bools[2]){
+				electric_field_test_value = electric_field_test;
+			}else{
+				electric_field_test_value = (double)rho/(coreprof.ne.value.rows()-1.0)*electric_field_test;
+			}
+			
 			//if (bools[0]){
-			if(bools[0]){
+			if(bools[1]){
 				//output = 98765.4321;				
 				//if (bools[1]){				
-				if(bools[1]){
+				if(bools[0]){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field*loop_multiplier;		
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;		
 				output = .90119;			
 				} else {
 					dreicer_field = calculate_dreicer_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field*loop_multiplier;	
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field;	
 					
 				output = .90109;				
 				}
