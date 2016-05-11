@@ -35,7 +35,7 @@ ABC
 int int_switch(int electric_field_switch, bool *bools, int N){
 	
 	
-	for (int i=0; i<N-1; i++){
+	for (int i=0; i<N; i++){
 		if (electric_field_switch%10==1){
 			bools[i]=true;
 		}else{		
