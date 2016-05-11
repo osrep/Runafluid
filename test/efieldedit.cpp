@@ -182,7 +182,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 			
 			//! absolut electric field
 				//output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
-				coreprof.profiles1d.eparallel.value(rho) = electric_field_test*loop_multiplier;
+				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
 				output = .90009;
 			}
 			
