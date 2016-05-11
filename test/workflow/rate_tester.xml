@@ -76,7 +76,7 @@
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1084">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:bfe2e902-0dfa-4fb6-bc8b-26d618201f08:27:45">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:bfe2e902-0dfa-4fb6-bc8b-26d618201f08:27:47">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -365,7 +365,7 @@
         </property>
     </property>
     <property name="DefaultTitle" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
-        <property name="displayText" class="ptolemy.data.expr.StringParameter" value="Electric field editor | test workflow |">
+        <property name="displayText" class="ptolemy.data.expr.StringParameter" value="Manual editor | test workflow |">
         </property>
         <property name="height" class="ptolemy.data.expr.Parameter" value="20">
         </property>
@@ -394,7 +394,7 @@
 <property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
 <property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
 <property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:60:2">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:bfe2e902-0dfa-4fb6-bc8b-26d618201f08:37:1">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="null">
@@ -404,7 +404,7 @@
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-50.0, 30.0]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:60:2">
         </property>
     </property>
     <property name="temp_test" class="ptolemy.data.expr.Parameter" value="3e-2">
