@@ -10,7 +10,7 @@
 timetest
 
 */
-void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::distributionArray &distarray, double &out) {
+void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::distributionArray &distarray, double &output) {
 
 	int slices = distarray.array.rows();
 	
