@@ -140,9 +140,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 			if(bools[2]){
-				electric_field_test_value = electric_field_test;
-			}else{
 				electric_field_test_value = (double)rho/(coreprof.ne.value.rows()-1.0)*electric_field_test;
+			}else{
+				electric_field_test_value = electric_field_test;
 			}
 			
 			//if (bools[0]){
