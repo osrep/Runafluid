@@ -195,8 +195,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		std::cerr << std::endl << "BOOL 0 : " << bools[0] << std::endl;
 		std::cerr << "BOOL 1 : " << bools[1] << std::endl << std::endl;
 		
-		bool[0]=true;
-		bool[1]=false;
+		bools[0]=true;
+		bools[1]=false;
 		
 		std::cerr << std::endl << "BOOL 0 : " << bools[0] << std::endl;
 		std::cerr << "BOOL 1 : " << bools[1] << std::endl << std::endl;
