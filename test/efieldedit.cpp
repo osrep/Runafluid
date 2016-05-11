@@ -116,7 +116,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		bool bools[2];// = {$relefield, $dreicer};
 		
 		int swint = int_switch(electric_field_switch,bools);
-		
+				
 		/*bool $relefield = false;
 		bool $dreicer = false;*/
 		/*if (electric_field_switch % 10 == 0){
@@ -190,6 +190,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		if(electric_field_switch==4){
 			output = (double)4;
 		}*/	
+		
+		std::cerr << std::endl << "BOOL 0 : " << bools[0] << std::endl;
+		std::cerr << "BOOL 1 : " << bools[1] << std::endl << std::endl;
 	
 
 	} catch (const std::exception& ex) {
