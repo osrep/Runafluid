@@ -118,7 +118,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &temp_test, int &temp_switch, d
 //		output = 0;
 		
 
-		
+		double temp_test_value;
 		
 					
 		//! reading profile from CPO inputs
@@ -149,7 +149,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &temp_test, int &temp_switch, d
 				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
 				output = .90009;
 			}*/
-			coreprof.te.value(rho) = temp_test;
+			if(bools[0]){
+				temp_test_value = (double)rho/(coreprof.ne.value.rows()-1.0)*temp_test;
+			}else{
+				temp_test_value = temp_test;
+			}
+			coreprof.te.value(rho) = temp_test_value;
 			
 			rho++;
 		
