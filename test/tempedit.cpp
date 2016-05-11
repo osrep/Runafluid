@@ -12,7 +12,7 @@
 
 Parallel electric field editor
 
-electric_field_switch:
+temp_switch:
 
 AB
 
@@ -28,16 +28,16 @@ AB
 */
 
 
-int int_switch(int electric_field_switch, bool *bools){
+int int_switch(int temp_switch, bool *bools){
 
 	//! number of elements in bools
 	int N = sizeof(bools)/sizeof(bool);
 	
 	for (int i=0; i<N-1; i++){
-		if (electric_field_switch==1){
+		if (temp_switch==1){
 			bools[i]=true;
 		}
-		electric_field_switch /= 10;
+		temp_switch /= 10;
 	}
 	
 	return N;
@@ -115,11 +115,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &temp_test, int &temp_switch, d
 		
 		bool bools[2];// = {$relefield, $dreicer};
 		
-		int swint = int_switch(electric_field_switch,bools);
+		int swint = int_switch(temp_switch,bools);
 		
 		/*bool $relefield = false;
 		bool $dreicer = false;*/
-		/*if (electric_field_switch % 10 == 0){
+		/*if (temp_switch % 10 == 0){
 			$relefield = true;			
 			output = 9.87654321;
 		}else{				
@@ -145,10 +145,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &temp_test, int &temp_switch, d
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 			//if (bools[0]){
-			/*if(electric_field_switch>=10){
+			/*if(temp_switch>=10){
 				//output = 98765.4321;				
 				//if (bools[1]){				
-				if(electric_field_switch>=11){
+				if(temp_switch>=11){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;		
 				output = .90119;			
@@ -179,16 +179,16 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &temp_test, int &temp_switch, d
 		//! successful running: return 0
 		//output = 0;
 		
-		/*if(electric_field_switch==2){
+		/*if(temp_switch==2){
 			output = (double)pro.size();
 		}
 		
-		if(electric_field_switch==3){
+		if(temp_switch==3){
 			output = (double)coreprof.ne.value.rows();
 		}
 			
 			
-		if(electric_field_switch==4){
+		if(temp_switch==4){
 			output = (double)4;
 		}*/	
 	
