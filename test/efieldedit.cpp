@@ -132,6 +132,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		int rho = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
+		double loop_multiplier = 1;
 //		output = 0;
 		
 
@@ -150,11 +151,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 				//if (bools[1]){				
 				if(electric_field_switch>=11){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;		
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field*loop_multiplier;		
 				output = .90119;			
 				} else {
 					dreicer_field = calculate_dreicer_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field;	
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field*loop_multiplier;	
 					
 				output = .90109;				
 				}
@@ -163,7 +164,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 			
 			//! absolut electric field
 				//output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
-				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
+				coreprof.profiles1d.eparallel.value(rho) = electric_field_test*loop_multiplier;
 				output = .90009;
 			}
 			
@@ -190,6 +191,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		if(electric_field_switch==4){
 			output = (double)4;
 		}*/	
+		
+		std::cerr << std::endl << "BOOL 0 : " << bools[0] << std::endl;
+		std::cerr << "BOOL 1 : " << bools[1] << std::endl << std::endl;
+		
+		bool[0]=true;
+		bool[1]=false;
 		
 		std::cerr << std::endl << "BOOL 0 : " << bools[0] << std::endl;
 		std::cerr << "BOOL 1 : " << bools[1] << std::endl << std::endl;
