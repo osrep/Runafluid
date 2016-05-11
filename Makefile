@@ -27,7 +27,7 @@ test/libdistredit.a: test/distredit.o init.o cpo_utils.o
 test/libefieldedit.a: test/efieldedit.o cpo_utils.o 
 	ar -rvs $@ $^
 	
-test/libtempedit.a: test/tempedit.o
+test/libtempedit.a: test/tempedit.o cpo_utils.o 
 	ar -rvs $@ $^
 	
 test/libtimetest.a: test/timetest.o 
