@@ -31,7 +31,7 @@ AB
 int int_switch(int electric_field_switch, bool *bools){
 
 	//! number of elements in bools
-	int N = bools.size();//sizeof(bools)/sizeof(bools[0]);
+	int N = bools.end();//size();//sizeof(bools)/sizeof(bools[0]);
 	
 	for (int i=0; i<N-1; i++){
 		if (electric_field_switch==1){
