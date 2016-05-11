@@ -41,7 +41,7 @@ int int_switch(int electric_field_switch, bool *bools){
 		}
 		
 		
-		std::cerr << "BOOL " <<i<< "/" << N-1 << "set as: " << bools[i] << std::endl;
+		std::cerr << "BOOL " <<i<< "/" << N-1 << "set as: " << bools[i] << " > switch value " << electric_field_switch << std::endl;
 		
 		electric_field_switch /= 10;
 	}
