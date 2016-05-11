@@ -27,14 +27,9 @@ AB
 
 */
 
-
-int int_switch(int electric_field_switch, bool *bools){
-
-	//! number of elements in bools
-	int N = sizeof(bools)/sizeof(bools[0]);
-	std::cerr << "BOOLS SIZE: " << sizeof(bools) << std::endl;
-	std::cerr << "BOOL2 SIZE: " << sizeof(bools[0]) << std::endl;
-	std::cerr << "BOOL SIZE: " << sizeof(bool) << std::endl;
+//! N: number of elements in bools
+int int_switch(int electric_field_switch, bool *bools, int N){
+	
 	
 	for (int i=0; i<N-1; i++){
 		if (electric_field_switch%10==1){
@@ -122,13 +117,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		
 		*/
 		
-		bool bools[2];// = {$relefield, $dreicer};
+		bool bools[3];// = {$relefield, $dreicer};
 		
 		
-	std::cerr << "+++BOOLS SIZE: " << sizeof(bools) << std::endl;
-	std::cerr << "+++BOOL2 SIZE: " << sizeof(bools[0]) << std::endl;
 		
-		int swint = int_switch(electric_field_switch,bools);
+		int swint = int_switch(electric_field_switch,bools,sizeof(bools)/sizeof(bool));
 				
 		/*bool $relefield = false;
 		bool $dreicer = false;*/
@@ -145,7 +138,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		int rho = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
-		double loop_multiplier = 1;
+//		double loop_multiplier = 1;
 //		output = 0;
 		
 
@@ -159,10 +152,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 			//if (bools[0]){
-			if(electric_field_switch>=10){
+			if(bools[0]){
 				//output = 98765.4321;				
 				//if (bools[1]){				
-				if(electric_field_switch>=11){
+				if(bools[1]){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field*loop_multiplier;		
 				output = .90119;			
@@ -207,12 +200,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		
 		std::cerr << std::endl << "BOOL 0 : " << bools[0] << std::endl;
 		std::cerr << "BOOL 1 : " << bools[1] << std::endl << std::endl;
+		std::cerr << "BOOL 2 : " << bools[2] << std::endl << std::endl;
 		
-		bools[0]=true;
-		bools[1]=false;
-		
-		std::cerr << std::endl << "BOOL 0 : " << bools[0] << std::endl;
-		std::cerr << "BOOL 1 : " << bools[1] << std::endl << std::endl;
 	
 
 	} catch (const std::exception& ex) {
