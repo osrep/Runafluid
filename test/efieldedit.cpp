@@ -192,10 +192,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 			output = (double)4;
 		}*/	
 		
-		std::cerr << std::endl << "BOOL 0 : " << bools[0] << std::endl;
-		std::cerr << "BOOL 1 : " << bools[1] << std::endl << std::endl;
-		std::cerr << "BOOL 2 : " << bools[2] << std::endl << std::endl;
-		
 	
 
 	} catch (const std::exception& ex) {
