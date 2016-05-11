@@ -36,7 +36,13 @@ int int_switch(int electric_field_switch, bool *bools){
 	for (int i=0; i<N-1; i++){
 		if (electric_field_switch==1){
 			bools[i]=true;
+		}else{		
+			bools[i]=false;
 		}
+		
+		
+		std::cerr << "BOOL " <<i<< "set as: " << bools[i] << std::endl;
+		
 		electric_field_switch /= 10;
 	}
 	
