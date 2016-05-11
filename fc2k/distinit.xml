@@ -1,9 +1,11 @@
 <generactor.ActorGenerator>
-  <version>R2.2.6</version>
+  <version>branches/R2.2_r532</version>
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>librunafluid.a</fFile>
+  <fFile>libdistinit.a</fFile>
+  <mainLibraryOptim></mainLibraryOptim>
+  <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
@@ -268,10 +270,28 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/R2.2.6/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r532/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams>
           <vector>
+            <string>distribution</string>
+            <string>1</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>distribution_in</string>
+          </vector>
+          <vector>
+            <string>distribution</string>
+            <string>1</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>distribution_out</string>
+          </vector>
+          <vector>
             <string>coreprof</string>
             <string>1</string>
             <string>0</string>
@@ -281,40 +301,13 @@
             <string>coreprof</string>
           </vector>
           <vector>
-            <string>coreimpur</string>
-            <string>1</string>
+            <string>integer</string>
             <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>coreimpur</string>
-          </vector>
-          <vector>
-            <string>equilibrium</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>equilibrium</string>
-          </vector>
-          <vector>
-            <string>distribution</string>
-            <string>1</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>1</string>
-            <string>distribution</string>
-          </vector>
-          <vector>
-            <string>double</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>timestep</string>
+            <string>dist_initialised</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -350,10 +343,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runafluid</actor>
+  <actor>distinit</actor>
   <actorVersion></actorVersion>
-  <actorDoc></actorDoc>
-  <actorFolder>eu/itm/runafluid</actorFolder>
+  <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
+  <actorFolder>eu/itm/distinit</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
@@ -618,7 +611,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/R2.2.6/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r532/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams/>
         <uHash>
@@ -655,7 +648,7 @@
     </generactor.TupleP>
   </returnType>
   <semantic>Itm</semantic>
-  <keplerFolder>/u/maradi/kepler</keplerFolder>
+  <keplerFolder>/pfs/home/maradi/kepler</keplerFolder>
   <ptFolder>empty</ptFolder>
   <compiler>g++</compiler>
   <libraries/>
@@ -667,5 +660,6 @@
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
-  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/R2.2.6/bin/..</FC2Kpath>
+  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r532/bin/..</FC2Kpath>
+  <fDiagnosticInfo>false</fDiagnosticInfo>
 </generactor.ActorGenerator>

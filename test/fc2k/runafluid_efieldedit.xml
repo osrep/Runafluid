@@ -345,7 +345,7 @@
   </tupleParams>
   <actor>runafluid_efieldedit</actor>
   <actorVersion></actorVersion>
-  <actorDoc></actorDoc>
+  <actorDoc>PARALLEL ELECTRIC FIELD EDITOR&amp;#xA;&amp;#xA;electric_field_switch:&amp;#xA;&amp;#xA;AB&amp;#xA;&amp;#xA; A&amp;#xA;   0: relative field&amp;#xA;   1: absolute field &amp;#xA;&amp;#xA; B  &amp;#xA;   0: related to Dreicer field&amp;#xA;   1: related to critical field</actorDoc>
   <actorFolder>eu/itm/runafluid_efieldedit</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
