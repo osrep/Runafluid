@@ -31,7 +31,7 @@ AB
 int int_switch(int electric_field_switch, bool *bools){
 
 	//! number of elements in bools
-	int N = sizeof(bools)/sizeof(bool);
+	int N = sizeof(bools)/sizeof(bools[0]);
 	
 	for (int i=0; i<N-1; i++){
 		if (electric_field_switch==1){
@@ -41,7 +41,7 @@ int int_switch(int electric_field_switch, bool *bools){
 		}
 		
 		
-		std::cerr << "BOOL " <<i<< "set as: " << bools[i] << std::endl;
+		std::cerr << "BOOL " <<i<< "/" << N-1 << "set as: " << bools[i] << std::endl;
 		
 		electric_field_switch /= 10;
 	}
