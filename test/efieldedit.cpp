@@ -123,6 +123,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		
 		bool bools[3];// = {$relefield, $dreicer};
 		
+		std::cerr << "BOOLS size : " << sizeof(bools) << std::endl << std::endl;
+		std::cerr << "BOOLS size : " << sizeof(bools)/sizeof(bool) << std::endl << std::endl;
 		
 		
 		int swint = int_switch(electric_field_switch,bools,sizeof(bools)/sizeof(bool));
