@@ -37,7 +37,7 @@ int int_switch(int electric_field_switch, bool *bools){
 	std::cerr << "BOOL SIZE: " << sizeof(bool) << std::endl;
 	
 	for (int i=0; i<N-1; i++){
-		if (electric_field_switch==1){
+		if (electric_field_switch%10==1){
 			bools[i]=true;
 		}else{		
 			bools[i]=false;
