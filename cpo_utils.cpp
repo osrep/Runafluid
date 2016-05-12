@@ -93,6 +93,60 @@ int int_switch(int switch_number, bool *bools, int N){
 
 }
 
+
+/*!
+
+Copy data from coreprof CPO
+Other fields would be undefined!
+
+input: ItmNs::Itm::coreprof &coreprof
+output: profile
+
+*/
+
+profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
+
+	profile pro;
+
+	//! read electron density profile length of dataset: cells	
+	int cells = coreprof.ne.value.rows();
+	
+	//! read electron temperature profile length of dataset, comparing with cells
+	if (coreprof.te.value.rows() != cells)
+		throw std::invalid_argument("Number of values is different in coreprof ne and te.");
+
+	//! read eparallel profile length of dataset, comparing with cells
+	if (coreprof.profiles1d.eparallel.value.rows() != cells)
+		throw std::invalid_argument(
+				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
+
+    //! read data in every $\rho$ 
+
+	for (int rho = 0; rho < cells; rho++) {
+		cell celll;
+				
+		//! electron density
+		celll.electron_density = coreprof.ne.value(rho);
+		
+		//! electron temperature
+		celll.electron_temperature = coreprof.te.value(rho);
+		
+		/*! local electric field
+			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
+			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
+		*/
+		celll.electric_field = coreprof.profiles1d.eparallel.value(rho) /** coreprof.toroid_field.b0
+				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
+						coreprof.rho_tor(rho))*/;
+		
+
+		pro.push_back(celll);
+	}
+
+	return pro;
+}
+
+
 /*!
 
 Copy data from CPO inputs to profile structure

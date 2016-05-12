@@ -13,13 +13,14 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 
 int int_switch(int switch_number, bool *bools, int N);
 
+profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) ;	
+
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
 		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution);
 		
-		
-		
+/*		
 void cpo_to_profile(profile pro, const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution);
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution);*/
 		
 
 

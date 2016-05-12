@@ -42,6 +42,7 @@ Reading coreprof to a profile. Other fields would be undefined!
 input: ItmNs::Itm::coreprof &coreprof
 output: profile
 */
+/*
 profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 
 	profile pro;
@@ -69,14 +70,8 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 		//! electron temperature
 		celll.electron_temperature = coreprof.te.value(rho);
 		
-		/*! local electric field
-			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
-			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
-		*/
-		celll.electric_field = coreprof.profiles1d.eparallel.value(rho) /** coreprof.toroid_field.b0
-				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-						coreprof.rho_tor(rho))*/;
-
+	
+		celll.electric_field = coreprof.profiles1d.eparallel.value(rho); 
 
 		
 
@@ -84,7 +79,8 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 	}
 
 	return pro;
-}
+	
+}*/
 
 
 void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &electric_field_switch, double &output) {
