@@ -77,19 +77,19 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 }*/
 
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &Te_value, int &Te_switch, double &output) {		
+void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, double &output) {		
 		
 	try {
 		
 		bool bools[1];
 		
-		int swint = int_switch(Te_switch,bools,sizeof(bools)/sizeof(bool));		
+		int swint = int_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
 			
 		int rho = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
 
-		double Te_value2;
+		double te_value2;
 		
 					
 		//! reading profile from CPO inputs
@@ -99,11 +99,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &Te_value, int &Te_switch, doub
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 
 			if(bools[0]){
-				Te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*Te_value;
+				te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*te_value;
 			}else{
-				Te_value2 = Te_value;
+				te_value2 = te_value;
 			}
-			coreprof.te.value(rho) = Te_value2;
+			coreprof.te.value(rho) = te_value2;
 			
 			rho++;
 		
