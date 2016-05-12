@@ -283,15 +283,6 @@
             <string>coreprof</string>
           </vector>
           <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>ne_switch</string>
-          </vector>
-          <vector>
             <string>double</string>
             <string>0</string>
             <string>0</string>
@@ -299,6 +290,15 @@
             <string>1</string>
             <string>0</string>
             <string>ne_value</string>
+          </vector>
+          <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>ne_switch</string>
           </vector>
           <vector>
             <string>double</string>
