@@ -14,7 +14,7 @@ libRunafluid.a: runafluid.o  init.o  cpo_utils.o
 libDistInit.a: distinit.o
 	ar -rvs $@ $^				
 	
-test/libEfieldedit.a: test/efieldedit.o cpo_utils.o 
+test/libEfieldEdit.a: test/efieldedit.o cpo_utils.o 
 	ar -rvs $@ $^
 	
 test/libTeEdit.a: test/te_edit.o cpo_utils.o 
