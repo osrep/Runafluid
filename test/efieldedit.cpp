@@ -83,7 +83,7 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 }*/
 
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &electric_field_switch, double &output) {
+void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_value, int &electric_field_switch, double &output) {
 		
 		
 	try {
@@ -123,7 +123,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 //		double loop_multiplier = 1;
 //		output = 0;
 		
-		double electric_field_test_value;
+		double electric_field_value2;
 		
 		
 		
@@ -136,9 +136,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 			if(bools[2]){
-				electric_field_test_value = (double)rho/(coreprof.ne.value.rows()-1.0)*electric_field_test;
+				electric_field_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*electric_field_value;
 			}else{
-				electric_field_test_value = electric_field_test;
+				electric_field_value2 = electric_field_value;
 			}
 			
 			//if (bools[0]){
@@ -147,11 +147,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 				//if (bools[1]){				
 				if(bools[0]){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test_value*critical_field;		
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_value2*critical_field;		
 				output = .90119;			
 				} else {
 					dreicer_field = calculate_dreicer_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test_value*dreicer_field;	
+					coreprof.profiles1d.eparallel.value(rho) = electric_field_value2*dreicer_field;	
 					
 				output = .90109;				
 				}
@@ -160,7 +160,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_test, int &elec
 			
 			//! absolut electric field
 				//output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
-				coreprof.profiles1d.eparallel.value(rho) = electric_field_test_value;
+				coreprof.profiles1d.eparallel.value(rho) = electric_field_value2;
 				output = .90009;
 			}
 			
