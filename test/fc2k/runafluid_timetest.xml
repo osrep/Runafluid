@@ -334,10 +334,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runafluid_timetest</actor>
+  <actor>rftest_timetest</actor>
   <actorVersion></actorVersion>
   <actorDoc></actorDoc>
-  <actorFolder>eu/itm/runafluid_timetest</actorFolder>
+  <actorFolder>eu/itm/rftest_timetest</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
