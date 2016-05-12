@@ -5,7 +5,7 @@ CXXFLAGS+=$(shell eval-pkg-config --cflags ual-cpp-gnu)
 LDFLAGS=$(shell eval-pkg-config --libs ual-cpp-gnu)
 #CXXFLAGS += -I$(ITMLIBDIR)/itmconstants/include/
 
-all: libRunafluid.a libDistInit.a test/libEfieldedit.a test/libTeEdit.a test/libNeEdit.a test/libTeEdit.a test/libTimeback.a
+all: libRunafluid.a libDistInit.a test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libTeEdit.a test/libTimeback.a
 
 #dreicer.o avalanche.o
 libRunafluid.a: runafluid.o  init.o  cpo_utils.o 
