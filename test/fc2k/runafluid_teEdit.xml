@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>test/libtempedit.a</fFile>
+  <fFile>test/libTeEdit.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
@@ -289,7 +289,7 @@
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>temp_test</string>
+            <string>te_value</string>
           </vector>
           <vector>
             <string>integer</string>
@@ -298,7 +298,7 @@
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>temp_switch</string>
+            <string>te_switch</string>
           </vector>
           <vector>
             <string>double</string>
