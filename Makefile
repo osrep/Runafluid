@@ -5,32 +5,25 @@ CXXFLAGS+=$(shell eval-pkg-config --cflags ual-cpp-gnu)
 LDFLAGS=$(shell eval-pkg-config --libs ual-cpp-gnu)
 #CXXFLAGS += -I$(ITMLIBDIR)/itmconstants/include/
 
-all: librunafluid.a libdistinit.a test/libdistread.a test/libiotest.a test/libdistredit.a test/libefieldedit.a test/libtempedit.a test/libtimetest.a
+all: libRunafluid.a libDistinit.a test/libEfieldedit.a test/libTeEdit.a test/libNeEdit.a test/libTeEdit.a test/libTimeback.a
 
 #dreicer.o avalanche.o
-librunafluid.a: runafluid.o  init.o  cpo_utils.o 
+libRunafluid.a: runafluid.o  init.o  cpo_utils.o 
+	ar -rvs $@ $^	
+	
+libDistinit.a: distinit.o
+	ar -rvs $@ $^				
+	
+test/libEfieldedit.a: test/efieldedit.o cpo_utils.o 
 	ar -rvs $@ $^
 	
-	
-libdistinit.a: distinit.o
+test/libTeEdit.a: test/te_edit.o cpo_utils.o 
 	ar -rvs $@ $^
 	
-test/libdistread.a: test/distread.o cpo_utils.o 
+test/libNeEdit.a: test/ne_edit.o cpo_utils.o 
 	ar -rvs $@ $^
 	
-		
-test/libiotest.a: test/iotest.o
-
-test/libdistredit.a: test/distredit.o init.o cpo_utils.o 
-	ar -rvs $@ $^		
-	
-test/libefieldedit.a: test/efieldedit.o cpo_utils.o 
-	ar -rvs $@ $^
-	
-test/libtempedit.a: test/tempedit.o cpo_utils.o 
-	ar -rvs $@ $^
-	
-test/libtimetest.a: test/timetest.o 
+test/libTimeback.a: test/timeback.o 
 	ar -rvs $@ $^
 	
 #test/test.o: test/test.cpp
