@@ -82,43 +82,19 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 }
 
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &temp_test, int &temp_switch, double &output) {
-		
+void fire(ItmNs::Itm::coreprof &coreprof, double &Te_value, int &Te_switch, double &output) {		
 		
 	try {
-
-
 		
+		bool bools[1];
 		
-		/*! SWITCH
-		relative / absolute
-		dreicer / critical
-		
-		*/
-		
-		bool bools[1];// = {$relefield, $dreicer};
-		
-		int swint = int_switch(temp_switch,bools,sizeof(bools)/sizeof(bool));
-		
-		/*bool $relefield = false;
-		bool $dreicer = false;*/
-		/*if (temp_switch % 10 == 0){
-			$relefield = true;			
-			output = 9.87654321;
-		}else{				
-			output = 1.23456789;
-		}*/
-		
-		
-		
+		int swint = int_switch(Te_switch,bools,sizeof(bools)/sizeof(bool));		
 			
 		int rho = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
-//		output = 0;
-		
 
-		double temp_test_value;
+		double Te_value2;
 		
 					
 		//! reading profile from CPO inputs
@@ -126,60 +102,20 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &temp_test, int &temp_switch, d
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-			
-			//if (bools[0]){
-			/*if(temp_switch>=10){
-				//output = 98765.4321;				
-				//if (bools[1]){				
-				if(temp_switch>=11){
-					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*critical_field;		
-				output = .90119;			
-				} else {
-					dreicer_field = calculate_dreicer_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_test*dreicer_field;	
-					
-				output = .90109;				
-				}
-				
-			} else {
-			
-			//! absolut electric field
-				//output = 12345.6789;//coreprof.profiles1d.eparallel.value(rho);
-				coreprof.profiles1d.eparallel.value(rho) = electric_field_test;
-				output = .90009;
-			}*/
+
 			if(bools[0]){
-				temp_test_value = (double)rho/(coreprof.ne.value.rows()-1.0)*temp_test;
+				Te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*Te_value;
 			}else{
-				temp_test_value = temp_test;
+				Te_value2 = Te_value;
 			}
-			coreprof.te.value(rho) = temp_test_value;
+			coreprof.te.value(rho) = Te_value2;
 			
 			rho++;
 		
 		}	
 		
 		output += (double)swint;	
-		//rho = pro.size();
-		//output += (rho*10);
-		
-		//! successful running: return 0
-		//output = 0;
-		
-		/*if(temp_switch==2){
-			output = (double)pro.size();
-		}
-		
-		if(temp_switch==3){
-			output = (double)coreprof.ne.value.rows();
-		}
-			
-			
-		if(temp_switch==4){
-			output = (double)4;
-		}*/	
-	
+
 
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
