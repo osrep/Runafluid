@@ -12,14 +12,14 @@
     </property>
     <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{803.5, 414.5}">
     </property>
-    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:737:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:5:18">
+    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:737:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:5:18:urn:lsid:uuid:e7820095-f935-4334-a2ea-eb0deb6b9cc0:3:10">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:e7820095-f935-4334-a2ea-eb0deb6b9cc0:3:10">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:10:14">
     </property>
     <entity name="runaway-fluid" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:e7820095-f935-4334-a2ea-eb0deb6b9cc0:10:5">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:9:6">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -38,7 +38,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
 </property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[590.0, 390.0]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62827:65:61:urn:lsid:kepler-project.org/ns/:62444:212:90:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:203:280:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:4:7">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62827:65:61:urn:lsid:kepler-project.org/ns/:62444:212:90:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:203:280:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:4:7:urn:lsid:uuid:e7820095-f935-4334-a2ea-eb0deb6b9cc0:10:5">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 1374, 782}, maximized=true}">
         </property>
@@ -69,7 +69,7 @@
         <entity name="RUNAFLUID" class="ptolemy.actor.TypedCompositeActor">
             <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:10:1">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:8:14">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -88,7 +88,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
 </property>            <property name="_location" class="ptolemy.kernel.util.Location" value="[140.0, 575.0]">
             </property>
-            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:169:171:urn:lsid:kepler-project.org/ns/:62827:71:23:urn:lsid:kepler-project.org/ns/:62444:218:60:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:202:587:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:7:140:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:22:91">
+            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:169:171:urn:lsid:kepler-project.org/ns/:62827:71:23:urn:lsid:kepler-project.org/ns/:62444:218:60:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:202:587:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:7:140:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:22:91:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:10:1">
             </property>
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 1374, 782}, maximized=true}">
             </property>
@@ -426,66 +426,6 @@
                     </property>
                 </port>
             </entity>
-            <entity name="runafluid" class="eu.itm.runafluid.runafluid">
-                <property name="execution mode" class="ptolemy.data.expr.StringParameter" value="jni">
-                </property>
-                <property name="delete temporary directory" class="ptolemy.data.expr.Parameter" value="true">
-                </property>
-                <property name="enable JNI debugging" class="ptolemy.data.expr.Parameter" value="false">
-                </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>maradi</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;pre&gt;&lt;/pre&gt;</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:efda-itm.eu:actor:133:1">
-                </property>
-                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.runafluid.runafluid">
-                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:133:1">
-                    </property>
-                </property>
-                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ItmActor">
-                </property>
-                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#Itm">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="{545, 440}">
-                </property>
-                <port name="coreprof0_in" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#coreprof">
-                    </property>
-                </port>
-                <port name="coreimpur1_in" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#coreimpur">
-                    </property>
-                </port>
-                <port name="equilibrium2_in" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#equilibrium">
-                    </property>
-                </port>
-                <port name="distribution3_in" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#distribution">
-                    </property>
-                </port>
-                <port name="time_in" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#double">
-                    </property>
-                </port>
-                <port name="time_out" class="ptolemy.actor.TypedIOPort">
-                    <property name="output"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#double">
-                    </property>
-                </port>
-                <port name="iter_in" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#integer">
-                    </property>
-                </port>
-            </entity>
             <entity name="Runaway density" class="ptolemy.actor.lib.gui.Display">
                 <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={31, 384, 788, 207}, maximized=false}">
                 </property>
@@ -759,67 +699,126 @@
                     </property>
                 </port>
             </entity>
+            <entity name="runaway_fluid" class="eu.itm.runaway_fluid.runaway_fluid">
+                <property name="execution mode" class="ptolemy.data.expr.StringParameter" value="jni">
+                </property>
+                <property name="delete temporary directory" class="ptolemy.data.expr.Parameter" value="true">
+                </property>
+                <property name="enable JNI debugging" class="ptolemy.data.expr.Parameter" value="false">
+                </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>maradi</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;pre&gt;RUNAFLUID&#10;Runaway Fluid&lt;/pre&gt;</configure></property>
+</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:efda-itm.eu:actor:114:1">
+                </property>
+                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.runaway_fluid.runaway_fluid">
+                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:114:1">
+                    </property>
+                </property>
+                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ItmActor">
+                </property>
+                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#Itm">
+                </property>
+                <property name="_location" class="ptolemy.kernel.util.Location" value="[665.0, 430.0]">
+                </property>
+                <port name="coreprof0_in" class="ptolemy.actor.TypedIOPort">
+                    <property name="input"/>
+                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#coreprof">
+                    </property>
+                </port>
+                <port name="coreimpur1_in" class="ptolemy.actor.TypedIOPort">
+                    <property name="input"/>
+                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#coreimpur">
+                    </property>
+                </port>
+                <port name="equilibrium2_in" class="ptolemy.actor.TypedIOPort">
+                    <property name="input"/>
+                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#equilibrium">
+                    </property>
+                </port>
+                <port name="distribution3_in" class="ptolemy.actor.TypedIOPort">
+                    <property name="input"/>
+                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#distribution">
+                    </property>
+                </port>
+                <port name="distribution3_out" class="ptolemy.actor.TypedIOPort">
+                    <property name="output"/>
+                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#distribution">
+                    </property>
+                </port>
+                <port name="time_in" class="ptolemy.actor.TypedIOPort">
+                    <property name="input"/>
+                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#double">
+                    </property>
+                </port>
+                <port name="time_out" class="ptolemy.actor.TypedIOPort">
+                    <property name="output"/>
+                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#double">
+                    </property>
+                </port>
+                <port name="iter_in" class="ptolemy.actor.TypedIOPort">
+                    <property name="input"/>
+                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#integer">
+                    </property>
+                </port>
+            </entity>
             <relation name="relation10" class="ptolemy.actor.TypedIORelation">
                 <vertex name="vertex1" value="[35.0, 245.0]">
                 </vertex>
             </relation>
-            <relation name="relation8" class="ptolemy.actor.TypedIORelation">
-                <vertex name="vertex1" value="[660.0, 255.0]">
-                </vertex>
-            </relation>
-            <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-            </relation>
             <relation name="relation" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation4" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation14" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation13" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation15" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation16" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation12" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation17" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation18" class="ptolemy.actor.TypedIORelation">
+            </relation>
+            <relation name="relation19" class="ptolemy.actor.TypedIORelation">
             </relation>
             <link port="input_bundle" relation="relation10"/>
             <link port="output_bundle" relation="relation"/>
-            <link port="Unpack time.output" relation="relation12"/>
+            <link port="Unpack time.output" relation="relation13"/>
             <link port="Unpack time.input" relation="relation10"/>
-            <link port="Unpack coreimpur.output" relation="relation6"/>
+            <link port="Unpack coreimpur.output" relation="relation16"/>
             <link port="Unpack coreimpur.input" relation="relation10"/>
-            <link port="Iter.output" relation="relation2"/>
+            <link port="Iter.output" relation="relation15"/>
             <link port="Iter.input" relation="relation10"/>
-            <link port="Unpack equilibrium.output" relation="relation7"/>
+            <link port="Unpack equilibrium.output" relation="relation14"/>
             <link port="Unpack equilibrium.input" relation="relation10"/>
-            <link port="Unpack coreprof.output" relation="relation5"/>
+            <link port="Unpack coreprof.output" relation="relation17"/>
             <link port="Unpack coreprof.input" relation="relation10"/>
             <link port="Pass input bundle.output" relation="relation"/>
             <link port="Pass input bundle.input" relation="relation10"/>
-            <link port="Pass input bundle.trigger" relation="relation8"/>
-            <link port="Pass input bundle.distribution" relation="relation3"/>
-            <link port="Unpack distribution.output" relation="relation9"/>
+            <link port="Pass input bundle.distribution" relation="relation19"/>
+            <link port="Unpack distribution.output" relation="relation18"/>
             <link port="Unpack distribution.input" relation="relation10"/>
-            <link port="Unpack timestep.output" relation="relation11"/>
+            <link port="Unpack timestep.output" relation="relation4"/>
             <link port="Unpack timestep.input" relation="relation10"/>
-            <link port="runafluid.coreprof0_in" relation="relation5"/>
-            <link port="runafluid.coreimpur1_in" relation="relation6"/>
-            <link port="runafluid.equilibrium2_in" relation="relation7"/>
-            <link port="runafluid.distribution3_in" relation="relation9"/>
-            <link port="runafluid.distribution3_out" relation="relation3"/>
-            <link port="runafluid.timestep4_in" relation="relation11"/>
-            <link port="runafluid.time_in" relation="relation12"/>
-            <link port="runafluid.time_out" relation="relation8"/>
-            <link port="runafluid.iter_in" relation="relation2"/>
             <link port="Unpack TEST electric field switch.input" relation="relation10"/>
             <link port="Unpack TEST electric field.input" relation="relation10"/>
             <link port="Unpack TEST distribution switch.input" relation="relation10"/>
             <link port="Unpack distribution2.input" relation="relation10"/>
             <link port="Unpack time2.input" relation="relation10"/>
             <link port="Iter2.input" relation="relation10"/>
+            <link port="runaway_fluid.coreprof0_in" relation="relation17"/>
+            <link port="runaway_fluid.coreimpur1_in" relation="relation16"/>
+            <link port="runaway_fluid.equilibrium2_in" relation="relation14"/>
+            <link port="runaway_fluid.distribution3_in" relation="relation18"/>
+            <link port="runaway_fluid.distribution3_out" relation="relation19"/>
+            <link port="runaway_fluid.timestep4_in" relation="relation4"/>
+            <link port="runaway_fluid.time_in" relation="relation13"/>
+            <link port="runaway_fluid.iter_in" relation="relation15"/>
         </entity>
         <entity name="SWITCH" class="ptolemy.actor.TypedCompositeActor">
             <property name="_location" class="ptolemy.kernel.util.Location" value="[-30.0, 510.0]">
@@ -863,8 +862,8 @@
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Switch actor routes inputs to specified output channels. The actor has two input ports: the input port for data, and the control port, used to select which output channel to use. The actor outputs the input token on the channel most recently received via the control port.&lt;/p&gt;&#10;&#10;&lt;p&gt;Each time the actor iterates, it checks to see if a token is available on its control port. If so, the actor reads the value and uses it to determine which of its output channels to broadcast (0,1,2,3, etc.). If an input token is available on the input port, then that token is read and sent to the specified output channel. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the actor has never received a value on the control port, then the actor will output to channel zero. If the value of the most recently received control token is out of range (less than zero, or greater than or equal to the width of the output), then the actor will not fire and the input token will be lost. &lt;/p&gt;&#10;&#10;&lt;p&gt;The actor is similar to the TokenToSeparateChannelsTransmitter, except that the output channel of the Switch actor is specified via the control port. The TokenToSeparateChannelsTransmitter sends each input token to a different consecutive output channel.&lt;/p&gt;</configure></property>
-<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts tokens of any type.</configure></property>
 <property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts to the channel specified via the control port.</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts tokens of any type.</configure></property>
 <property name="port:control" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts integer tokens that indicate which output channel to broadcast (0, 1, 2, 3, etc).</configure></property>
 </property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:51:1">
                 </property>
