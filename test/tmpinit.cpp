@@ -5,5 +5,5 @@
 #include <UALClasses.h>
 
 void fire(ItmNs::Itm::temporary &tempData) {
-	tempData.timed.float2d.resize(1);
+//	tempData.timed.float2d.resize(1);
 }
