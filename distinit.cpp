@@ -57,6 +57,8 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		distribution_out.distri_vec.resize(1);			
 		std::cerr << "resize dv" << std::endl;
 		
+//		distribution_out.distri_vec(0).profiles_2d.state.dens.resize(N,N);
+		
 		distribution_out.distri_vec(0).profiles_1d.state.dens.resize(N);/*.value = 0;*/
 		distribution_out.distri_vec(0).profiles_1d.state.current.resize(N);/*.value = 0;*/
 		
