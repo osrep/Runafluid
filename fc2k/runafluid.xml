@@ -318,15 +318,6 @@
             <string>0</string>
             <string>timestep</string>
           </vector>
-          <vector>
-            <string>temporary</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>1</string>
-            <string>tempData</string>
-          </vector>
         </tupleParams>
         <uHash>
           <entry>

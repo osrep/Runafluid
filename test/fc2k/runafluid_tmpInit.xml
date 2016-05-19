@@ -274,7 +274,7 @@
         </tc>
         <tupleParams>
           <vector>
-            <string>temporary</string>
+            <string>double</string>
             <string>1</string>
             <string>0</string>
             <string>0</string>
