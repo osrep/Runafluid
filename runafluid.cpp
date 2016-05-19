@@ -59,7 +59,7 @@ fix time label
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, double &timestep) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, double &timestep, ItmNs::Itm::temporary &tempData) {
 
 
 	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
