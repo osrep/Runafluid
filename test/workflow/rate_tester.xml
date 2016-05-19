@@ -76,7 +76,7 @@
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1084:urn:lsid:uuid:bfe2e902-0dfa-4fb6-bc8b-26d618201f08:27:106:urn:lsid:uuid:e7820095-f935-4334-a2ea-eb0deb6b9cc0:19:18:urn:lsid:uuid:d762ec92-ed55-476e-a022-20d032c78fa6:8:35">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:15:351">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:15:353">
     </property>
     <property name="starting_time" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -371,7 +371,7 @@
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:60:2">
         </property>
     </property>
-    <property name="Te_value" class="ptolemy.data.expr.Parameter" value="100">
+    <property name="Te_value" class="ptolemy.data.expr.Parameter" value="10">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -1631,7 +1631,7 @@
             </port>
         </entity>
         <entity name="EFIELD OUT" class="ptolemy.actor.lib.gui.Display">
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1183, 468, 451, 207}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1306, 546, 451, 207}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[443, 153]">
             </property>
@@ -1919,7 +1919,7 @@
         </property>
         <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="eparallel_before,eparallel_after">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={625, 457, 508, 469}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1190, 372, 508, 469}, maximized=false}">
         </property>
         <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 415]">
         </property>
@@ -1965,7 +1965,7 @@
 <plot>
 <title>Array Plotter</title>
 <xRange min="0.0" max="99.0"/>
-<yRange min="0.0" max="34.49023940583272"/>
+<yRange min="0.0" max="466.2380099891741"/>
 </plot>?>
         </configure>
     </entity>
@@ -2690,7 +2690,7 @@
 <plot>
 <title>Array Plotter</title>
 <xRange min="0.0" max="99.0"/>
-<yRange min="100.0" max="100.0"/>
+<yRange min="10.0" max="10.0"/>
 </plot>?>
         </configure>
     </entity>
@@ -2895,7 +2895,7 @@
 <plot>
 <title>Array Plotter</title>
 <xRange min="0.0" max="99.0"/>
-<yRange min="0.0" max="34.49023940583272"/>
+<yRange min="0.0" max="466.2380099891741"/>
 </plot>?>
         </configure>
     </entity>
@@ -3742,8 +3742,10 @@
 "http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
 <plot>
 <title>Array Plotter</title>
+<xLabel></xLabel>
+<yLabel></yLabel>
 <xRange min="0.0" max="99.0"/>
-<yRange min="-Infinity" max="1.0084572775006411E20"/>
+<yRange min="-Infinity" max="1.0E21"/>
 </plot>?>
         </configure>
     </entity>
