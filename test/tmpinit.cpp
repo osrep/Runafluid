@@ -4,6 +4,6 @@
 #include <stdexcept>
 #include <UALClasses.h>
 
-void fire(ItmNs::Itm::temporary &tempData) {
+void fire(double &tempData) {
 //	tempData.timed.float2d.resize(1);
 }
