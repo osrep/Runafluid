@@ -274,40 +274,13 @@
         </tc>
         <tupleParams>
           <vector>
-            <string>distribution</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>distribution_in</string>
-          </vector>
-          <vector>
-            <string>distribution</string>
+            <string>temporary</string>
             <string>1</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>distribution_out</string>
-          </vector>
-          <vector>
-            <string>coreprof</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>coreprof</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>1</string>
-            <string>dist_initialised</string>
+            <string>tempData</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -343,10 +316,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runafluid_distInit</actor>
+  <actor>runafluid_tmpInit</actor>
   <actorVersion></actorVersion>
   <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
-  <actorFolder>eu/itm/runafluid_distInit</actorFolder>
+  <actorFolder>eu/itm/runafluid_tmpInit</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
