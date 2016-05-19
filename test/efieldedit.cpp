@@ -97,7 +97,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_value, int &ele
 		
 		*/
 		
-		bool bools[3];// = {$relefield, $dreicer};
+		bool bools[4];// = {$relefield, $dreicer};
 		
 		std::cerr << "BOOLS size : " << sizeof(bools) << std::endl << std::endl;
 		std::cerr << "BOOLS size : " << sizeof(bools)/sizeof(bool) << std::endl << std::endl;
@@ -135,8 +135,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_value, int &ele
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
-			if(bools[2]){
-				electric_field_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*electric_field_value;
+			if(bools[3]){
+			
+				if(bools[2]){
+					electric_field_value2 = pow((double)rho/(coreprof.ne.value.rows()-1.0)*log10(electric_field_value),10);
+				}else{
+					electric_field_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*electric_field_value;
+				}	
 			}else{
 				electric_field_value2 = electric_field_value;
 			}
