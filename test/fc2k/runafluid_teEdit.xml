@@ -345,7 +345,7 @@
   </tupleParams>
   <actor>runafluid_teEdit</actor>
   <actorVersion></actorVersion>
-  <actorDoc></actorDoc>
+  <actorDoc>te_switch:&amp;#xA;&amp;#xA;AB&amp;#xA;&amp;#xA; A&amp;#xA;   0: non-increasing temperature&amp;#xA;   1: increasing temperature   &amp;#xA; &amp;#xA; B  &amp;#xA;   0: linear&amp;#xA;   1: logarithmic</actorDoc>
   <actorFolder>eu/itm/runafluid_teEdit</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
