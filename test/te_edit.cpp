@@ -11,7 +11,7 @@
 
 Parallel electric field editor
 
-temp_switch:
+te_switch:
 
 AB
 
