@@ -16,12 +16,12 @@ temp_switch:
 AB
 
  A
-   0: relative field
-   1: absolute field 
-
+   0: non-increasing temperature
+   1: increasing temperature   
+ 
  B  
-   0: related to Dreicer field
-   1: related to critical field
+   0: linear
+   1: logarithmic
 
 
 */
@@ -81,7 +81,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		
 	try {
 		
-		bool bools[1];
+		bool bools[2];
 		
 		int swint = int_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
 			
@@ -96,13 +96,18 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		profile pro = read_coreprof(coreprof);
 		
 		//! stepping iterator in profile		
-		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
+		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
 
-			if(bools[0]){
-				te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*te_value;
+			if(bools[1]){			
+				if(bools[0]){
+					te_value2 = pow((double)rho/(coreprof.ne.value.rows()-1.0)*log10(te_value),10);
+				}else{
+					te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*te_value;
+				}					
 			}else{
 				te_value2 = te_value;
 			}
+			
 			coreprof.te.value(rho) = te_value2;
 			
 			rho++;

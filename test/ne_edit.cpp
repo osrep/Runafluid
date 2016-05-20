@@ -11,17 +11,17 @@
 
 Parallel electric field editor
 
-temp_switch:
+ne_switch:
 
 AB
 
  A
-   0: relative field
-   1: absolute field 
-
+   0: non-increasing density
+   1: increasing density   
+ 
  B  
-   0: related to Dreicer field
-   1: related to critical field
+   0: linear
+   1: logarithmic
 
 
 */
@@ -82,7 +82,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, doub
 		
 	try {
 		
-		bool bools[1];
+		bool bools[2];
 		
 		int swint = int_switch(ne_switch,bools,sizeof(bools)/sizeof(bool));
 		
@@ -99,11 +99,16 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, doub
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
-			if(bools[0]){
-				ne_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*ne_value;
+			if(bools[1]){			
+				if(bools[0]){
+					ne_value2 = pow((double)rho/(coreprof.ne.value.rows()-1.0)*log10(ne_value),10);
+				}else{
+					ne_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*ne_value;
+				}					
 			}else{
 				ne_value2 = ne_value;
 			}
+			
 			coreprof.ne.value(rho) = ne_value2;
 			
 			rho++;
