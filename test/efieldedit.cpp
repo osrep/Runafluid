@@ -87,7 +87,7 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 }*/
 
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_value, int &electric_field_switch, double &output) {
+void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, double &electric_field_value, int &electric_field_switch, double &output) {
 		
 		
 	try {
@@ -134,7 +134,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &electric_field_value, int &ele
 		
 					
 		//! reading profile from CPO inputs
-		profile pro = read_coreprof(coreprof);
+		profile pro = read_coreprof_equilibrium(coreprof, equilibrium);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
