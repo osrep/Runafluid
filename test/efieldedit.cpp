@@ -161,11 +161,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 	std::cerr << critical_field;
 					critical_field/= (coreprof.toroid_field.b0 / interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av, coreprof.rho_tor(rho)));
 
-	std::cerr << critical_field;
+	std::cerr << "\t" << critical_field;
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_value2*critical_field;		
 					
 					
-	std::cerr << electric_field_value2*critical_field << std::endl;
+	std::cerr << "\t" << electric_field_value2*critical_field << std::endl;
 					
 					
 				output = .90119;			
