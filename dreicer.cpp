@@ -109,7 +109,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/	
 		
-	double alpha = calculate_critical_field(electron_density, electron_temperature);
+	double alpha = electric_field / calculate_critical_field(electron_density, electron_temperature);
 	double alpha_2 = alpha*alpha;	
 	
 	//cout << "alpha: " << alpha << "\n";
