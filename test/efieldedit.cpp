@@ -134,7 +134,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 		
 					
 		//! reading profile from CPO inputs
-		profile pro = read_coreprof_equilibrium(coreprof, equilibrium);
+		profile pro = read_coreprof(coreprof);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
@@ -156,6 +156,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 				//if (bools[1]){				
 				if(bools[0]){
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);
+					critical_field/= (coreprof.toroid_field.b0 / interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av, coreprof.rho_tor(rho)));
+
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_value2*critical_field;		
 				output = .90119;			
 				} else {
