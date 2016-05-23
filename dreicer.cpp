@@ -109,7 +109,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/	
 		
-	double alpha = Edn * me_c2/tej;
+	double alpha = calculate_critical_field(electron_density, electron_temperature);
 	double alpha_2 = alpha*alpha;	
 	
 	//cout << "alpha: " << alpha << "\n";
@@ -187,9 +187,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/		
 		
-	double dgr = Cr*electron_density/tao * pow(Edn,h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); // -h -> h
+	double dgr = Cr*electron_density/tao * pow(Edn,-h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); // -h -> h
 	
-	std::cerr << "DGR:\t" << alpha << " E/EC \tRATE = " << dgr << std::endl;
+	std::cerr << "DGR:\t" << alpha << " in E/EC \tRATE = " << dgr << std::endl;
 	//Dreicer generation rate
 	return dgr;
 	
