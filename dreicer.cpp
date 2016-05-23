@@ -1,6 +1,6 @@
 #include <cmath>
 //#include "products.h"
-//#include "critical_field.h"
+#include "critical_field.h"
 //#include "critical_field.cpp"
 #include "dreicer.h"
 //#include "init.h"
@@ -92,7 +92,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}~\mathrm{[J]}}		
 	\f]
 	*/
-	double Ed = me2_c3__e / (tao * tej);
+//	double Ed = me2_c3__e / (tao * tej);
+
+	Ed = calculate_dreicer_field(electron_density, electron_temperature)
 	double Edn = electric_field/Ed;
 
 	//cout << "Dreicer field: " << Ed << " V/m\n";
