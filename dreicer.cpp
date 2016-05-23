@@ -94,7 +94,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 //	double Ed = me2_c3__e / (tao * tej);
 
-	Ed = calculate_dreicer_field(electron_density, electron_temperature)
+	double Ed = calculate_dreicer_field(electron_density, electron_temperature);
 	double Edn = electric_field/Ed;
 
 	//cout << "Dreicer field: " << Ed << " V/m\n";
