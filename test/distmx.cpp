@@ -33,31 +33,10 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	
 	try {
 		//! number of geometry elements
-		int N = coreprof.ne.value.rows();
-				
-		std::cerr << "N: " << N << std::endl;
-		try {
-			//std::cerr << "prev" << distribution_in.distri_vec(0).source_id(0).type.flag << std::endl;
-			
-			if(distribution_in.distri_vec(0).source_id(0).type.flag == 7){
-				std::cerr << "Runaway distribution\t YES \n\tPrevious distribution was a runaway (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;
-			
-			}else{
-			
-				std::cerr << "Runaway distribution\t NO \n\tPrevious distribution was other (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;
-			}
-			
-			
+		int N = distribution_out.distri_vec(0).profiles_1d.state.dens.rows();
+
 		
-		} catch (const std::exception& ex) {
-			throw std::invalid_argument("distribution non-readable");
-		
-		}	
-				
-		distribution_out.distri_vec.resize(1);			
-		std::cerr << "resize dv" << std::endl;
-		
-		distribution_out.distri_vec(0).profiles_1d.state.dens.resize(N);/*.value = 0;*/
+		;/*.value = 0;*/
 		distribution_out.distri_vec(0).profiles_1d.state.current.resize(N);/*.value = 0;*/
 		
 		std::cerr << "resized dv" << std::endl;

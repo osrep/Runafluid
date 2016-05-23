@@ -125,10 +125,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			if (rho<distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows()){
 				if(rundensity > it->electron_density || isnan(rundensity)){
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = it->electron_density;
+			   		std::cerr << rho<<"\tMAX\t" << rundensity << std::endl;
 		   		}else if (rundensity < 0){
-			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;		   		
+			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;					   		
+			   		std::cerr << rho<<"\tZERO\t" << rundensity << std::endl;   		
 		   		}else{
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity;
+			   		std::cerr << rho<<"\tVALUE\t" << rundensity << std::endl;
 		   		}
 		   	}
 		    rho++;
