@@ -184,7 +184,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/		
 		
-	double dgr = Cr*electron_density/tao * pow(Edn,-h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma);
+	double dgr = Cr*electron_density/tao * pow(Edn,h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); // -h -> h
 	
 	//Dreicer generation rate
 	return dgr;
