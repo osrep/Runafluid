@@ -15,7 +15,7 @@ Runafluid actor
 */
 
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
-		double effective_charge, double electric_field, double timestep){
+		double effective_charge, double electric_field, double timestep, int runafluid_switch){
 	
 	//double rundensity_before = 0.0;
 	double rundensity_after = 0.0;
@@ -37,7 +37,21 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		n_R = (R_DR+R_A)*dt
 		*/
 		
-		rundensity_after = rundensity_before + (rate_dreicer + rate_avalanche) * timestep;					
+		rundensity_after = rundensity_before + (rate_dreicer + rate_avalanche) * timestep;		
+		
+		if (runafluid_switch==1){
+			rundensity_after = rundensity_before;		
+		}
+		
+		if (runafluid_switch==2){
+			rundensity_after = rate_dreicer ;		
+		}
+		if (runafluid_switch==3){
+			rundensity_after = rate_avalanche;		
+		}
+	
+	
+		
 
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during runing runafluid_control." << std::endl;
