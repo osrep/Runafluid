@@ -68,10 +68,13 @@ double calculate_dreicer_field(double electron_density, double electron_temperat
 		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}}		
 	\f]
 	*/
-	//return me2_c3__e / (tao * electron_temperature * ITM_EV);
-	double critical_field = calculate_critical_field(electron_density, electron_temperature);
+	double return1= me2_c3__e / (tao * electron_temperature * ITM_EV);
+	//double critical_field = calculate_critical_field(electron_density, electron_temperature);
 	
-	return me_c2 * critical_field / electron_temperature / ITM_EV;
+	double return2= me_c2 * critical_field / electron_temperature / ITM_EV;
+	std::cerr << "CDF:\tDREICER =" << return1 << "\tDREICER2 =" << return2 << std::endl;
+	
+	return return1;
 	
 	
 }
