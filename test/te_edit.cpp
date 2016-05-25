@@ -100,7 +100,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 
 			if(bools[1]){			
 				if(bools[0]){
-					te_value2 = pow((double)rho/(coreprof.ne.value.rows()-1.0)*log10(te_value),10);
+					te_value2 = pow(10,(double)rho/(coreprof.ne.value.rows()-1.0)*log10(te_value));
 				}else{
 					te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*te_value;
 				}					

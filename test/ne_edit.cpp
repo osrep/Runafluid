@@ -101,7 +101,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, doub
 			
 			if(bools[1]){			
 				if(bools[0]){
-					ne_value2 = pow((double)rho/(coreprof.ne.value.rows()-1.0)*log10(ne_value),10);
+					ne_value2 = pow(10,(double)rho/(coreprof.ne.value.rows()-1.0)*log10(ne_value));
 				}else{
 					ne_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*ne_value;
 				}					
