@@ -143,7 +143,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 			if(bools[3]){
 			
 				if(bools[2]){
-					electric_field_value2 = pow((double)rho/(coreprof.ne.value.rows()-1.0)*log10(electric_field_value),10);
+					electric_field_value2 = pow(10,(double)rho/(coreprof.ne.value.rows()-1.0)*log10(electric_field_value));
 				}else{
 					electric_field_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*electric_field_value;
 				}	
