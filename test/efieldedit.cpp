@@ -164,7 +164,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 					coreprof.profiles1d.eparallel.value(rho) = electric_field_value2*critical_field;		
 					
 					
-	std::cerr << "critical field: "<< critical_field << "\tEFV" << electric_field_value2 << "\tEPAR" << electric_field_value2*critical_field << std::endl;
+	std::cerr <<rho <<"/"<< coreprof.ne.value.rows() << "\tcritical field: "<< critical_field << "\tEFV: " << electric_field_value2 << "\tEPAR: " << electric_field_value2*critical_field << std::endl;
 					
 					
 				output = .90119;			
