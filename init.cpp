@@ -43,16 +43,16 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 		
 		int_switch(runafluid_switch,runafluid_bools,runafluid_booln);
-		if (runafluid_bool[2]){
+		if (runafluid_bools[2]){
 			rundensity_after = rundensity_before;			
 			std::cerr << "RUNDENSITY BEFORE: "  << std::endl;	
 		}
 		
-		if (runafluid_bool[1]){
+		if (runafluid_bools[1]){
 			rundensity_after = rate_dreicer ;	
 			std::cerr << "DREICER: "  << std::endl;		
 		}
-		if (runafluid_bool[0]){
+		if (runafluid_bools[0]){
 			rundensity_after = rate_avalanche;	
 			std::cerr << "AVALANCHE: "  << std::endl;		
 		}
