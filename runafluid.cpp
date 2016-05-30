@@ -126,12 +126,14 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			
 		double rundensity = 0.0;
 		
+		
+		//! set distribution CPO with default data
+		distInit(distribution_prev, distribution, coreprof);
+		
 		//! reading profile from CPO inputs (cpo_utils.h)
 		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 		
 		
-		//! set distribution CPO with default data
-		distInit(distribution_prev, distribution, coreprof);
 		
 		
 		
