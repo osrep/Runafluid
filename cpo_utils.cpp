@@ -313,7 +313,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 
 
 void distributionInit(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof) {
-	try {
+	/*try {
 		//! number of geometry elements
 		int N = coreprof.ne.value.rows();
 				
@@ -341,8 +341,8 @@ void distributionInit(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::dis
 		
 //		distribution_out.distri_vec(0).profiles_2d.state.dens.resize(N,N);
 		
-		distribution_out.distri_vec(0).profiles_1d.state.dens.resize(N);/*.value = 0;*/
-		distribution_out.distri_vec(0).profiles_1d.state.current.resize(N);/*.value = 0;*/
+		distribution_out.distri_vec(0).profiles_1d.state.dens.resize(N);
+		distribution_out.distri_vec(0).profiles_1d.state.current.resize(N);
 		
 		std::cerr << "resized dv" << std::endl;
 		
@@ -376,5 +376,5 @@ void distributionInit(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::dis
 	
 		//! internal error in distribution
 	
-	}
+	}*/
 }
