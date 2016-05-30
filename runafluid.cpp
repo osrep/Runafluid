@@ -105,7 +105,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	}*/
 		
 		
-	try {
+	/*try {
 		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.resize(coreprof.ne.value.rows());
 		std::cerr << "distribution array resized" << std::endl;
 		
@@ -121,7 +121,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
 
-
+*/
 	try {
 			
 		double rundensity = 0.0;
