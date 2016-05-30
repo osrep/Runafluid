@@ -9,7 +9,7 @@
 //#include "avalanche.h"
 #include "avalanche.cpp"
 
-#include "cpo_utils.h"
+#include "cpo_utils.cpp"
 
 /*!
 Runafluid actor
