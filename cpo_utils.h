@@ -20,7 +20,7 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof, const It
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
 		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution);
 		
-void distInit(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof);
+void distributionInit(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof);
 		
 /*		
 void cpo_to_profile(profile pro, const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
