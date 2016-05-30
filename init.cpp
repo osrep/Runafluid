@@ -36,7 +36,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		*/
 		
 		int runafluid_booln=3;
-		bool runafluid_bool[runafluid_booln];
+		bool runafluid_bools[runafluid_booln];
 		rundensity_after = rundensity_before + (electron_density*rate_dreicer + rundensity_before*rate_avalanche) * timestep;		
 		
 		
