@@ -193,7 +193,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	std::cerr << "DGR:\tDREICER =" << Ed << "\t" << alpha << " in E/EC \tRATE = " << dgr << std::endl;
 	
 	
-	double dgr = Cr/tao * pow(Edn,h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); // -h -> h
+	dgr = Cr/tao * pow(Edn,h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); // -h -> h
 	
 	std::cerr << "DGR:\tDREICER =" << Ed << "\t" << alpha << " in E/EC \tRATE = " << dgr << std::endl;
 	//Dreicer generation rate
