@@ -49,7 +49,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 		
 		if (runafluid_bools[2]){
-			rundensity_after = rundensity_before;			
+			rundensity_after = 1;//rundensity_before;			
 			std::cerr << "RUNDENSITY BEFORE: "  << rundensity_after << std::endl;			
 		
 			if (runafluid_bools[1]){
