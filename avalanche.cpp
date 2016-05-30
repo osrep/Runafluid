@@ -57,15 +57,17 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	//cout << "Electron collision time: " << tao << " s\n";
 	
 
-	//! \return Avalanche generation rate
+	//! \return Avalanche generation rate	
+	//\Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right)   ~~~~~~~ \mathrm{(if~}	E \ge E_\mathrm{a}	\mathrm{)}	
 	/*!
 	\f[
-		\Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right)   ~~~~~~~ \mathrm{(if~}	E \ge E_\mathrm{a}	\mathrm{)}		
+		R_\mathrm{a} \approx \frac{1}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right)   ~~~~~~~ \mathrm{(if~}	E \ge E_\mathrm{a}	\mathrm{)}		
 		
 	\f]
 	*/
+		
 	
-	double agr = electron_density*(electric_field/Ec - 1) / (2*tao*coulomb_log);
+	double agr = (electric_field/Ec - 1) / (2*tao*coulomb_log);
 	
 	
 	/*! 

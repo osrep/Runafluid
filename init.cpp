@@ -25,19 +25,17 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	try {
 	
 		//! Calculate Dreicer generation rate
-		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature,
-		effective_charge, electric_field);
+		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field);
 		
 		//! Calculate Dreicer generation rate
-		rate_avalanche = avalanche_generation_rate(rundensity_before, electron_temperature,
-		effective_charge, electric_field, 0);
+		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 0);
 		
 		/* runaway electron density	
 		
 		n_R = (R_DR+R_A)*dt
 		*/
 		
-		rundensity_after = rundensity_before + (rate_dreicer + rate_avalanche) * timestep;		
+		rundensity_after = rundensity_before + (electron_density*rate_dreicer + rundensity_before*rate_avalanche) * timestep;		
 		
 		if (runafluid_switch==1){
 			rundensity_after = rundensity_before;		
