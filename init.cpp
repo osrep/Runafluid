@@ -24,8 +24,16 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	double rate_dreicer = 0.0;
 	double rate_avalanche = 0.0;
 		
+		
+	int runafluid_booln=4;
+	bool runafluid_bools[runafluid_booln];
+	int_switch(runafluid_switch,runafluid_bools,runafluid_booln);
+		
 	try {
 	
+		if (runafluid_bools[3]){
+		electric_field=1;
+		}
 		//! Calculate Dreicer generation rate
 		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field);
 		
@@ -37,12 +45,9 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		n_R = (R_DR+R_A)*dt
 		*/
 		
-		int runafluid_booln=3;
-		bool runafluid_bools[runafluid_booln];
 		rundensity_after = rundensity_before + (electron_density*rate_dreicer + rundensity_before*rate_avalanche) * timestep;		
 		
 		
-		int_switch(runafluid_switch,runafluid_bools,runafluid_booln);
 		if (runafluid_bools[2]){
 			rundensity_after = rundensity_before;			
 			std::cerr << "RUNDENSITY BEFORE: "  << std::endl;	
