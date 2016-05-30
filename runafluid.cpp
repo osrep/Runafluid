@@ -57,6 +57,29 @@ main function
 
 fix time label
 
+runafluid_switch:
+
+ABCD
+
+ A
+   0: Electric field from input
+   1: Electric field set to 1000  
+   
+ B
+   0: Calculate density
+   1: Previous density
+   
+ 
+ C  
+   0: Dreicer  OFF
+   1: Dreicer  ON
+
+ D
+   0: Avalanche  OFF
+   1: Avalanche  ON
+
+
+
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch/*, ItmNs::Itm::temporary &tempData*/) {

@@ -50,18 +50,17 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 		if (runafluid_bools[2]){
 			rundensity_after = rundensity_before;			
-			std::cerr << "RUNDENSITY BEFORE: "  << std::endl;	
-		}
+			std::cerr << "RUNDENSITY BEFORE: "  << rundensity_after << std::endl;			
 		
-		if (runafluid_bools[1]){
-			rundensity_after = rate_dreicer ;	
-			std::cerr << "DREICER: "  << std::endl;		
+			if (runafluid_bools[1]){
+				rundensity_after = rate_dreicer ;	
+				std::cerr << "DREICER: "  << rundensity_after << std::endl;		
+			}
+			if (runafluid_bools[0]){
+				rundensity_after = rate_avalanche;	
+				std::cerr << "AVALANCHE: "  << rundensity_after << std::endl;		
+			}
 		}
-		if (runafluid_bools[0]){
-			rundensity_after = rate_avalanche;	
-			std::cerr << "AVALANCHE: "  << std::endl;		
-		}
-	
 	
 		
 
