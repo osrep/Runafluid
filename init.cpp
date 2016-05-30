@@ -32,7 +32,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	try {
 	
 		if (runafluid_bools[3]){
-		electric_field=1;
+		electric_field=1000;
 		}
 		//! Calculate Dreicer generation rate
 		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field);
