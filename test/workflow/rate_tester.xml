@@ -42,7 +42,7 @@
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1084:urn:lsid:uuid:bfe2e902-0dfa-4fb6-bc8b-26d618201f08:27:106:urn:lsid:uuid:e7820095-f935-4334-a2ea-eb0deb6b9cc0:19:18:urn:lsid:uuid:d762ec92-ed55-476e-a022-20d032c78fa6:8:35">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:15:1109">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:15:1114">
     </property>
     <property name="starting_time" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -651,7 +651,7 @@
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
-</property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[-9.31640625, 88.9453125]">
+</property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[-5.0, 80.0]">
         </property>
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:73:73:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:215:92">
         </property>
@@ -2282,7 +2282,7 @@
     <entity name="runaway-fluid" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:11:141">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:11:143">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -2464,7 +2464,7 @@
         <entity name="RUNAFLUID" class="ptolemy.actor.TypedCompositeActor">
             <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:8:306">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:8:311">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -3258,9 +3258,9 @@
                 </property>
             </entity>
             <entity name="Critical field warning display" class="ptolemy.actor.lib.gui.Display">
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={733, 427, 451, 207}, maximized=false}">
                 </property>
-                <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+                <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[443, 153]">
                 </property>
                 <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
                 </property>
@@ -3296,9 +3296,9 @@
                 </property>
             </entity>
             <entity name="Growth rate limit warning display" class="ptolemy.actor.lib.gui.Display">
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={733, 427, 856, 207}, maximized=false}">
                 </property>
-                <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+                <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[848, 153]">
                 </property>
                 <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
                 </property>
@@ -3375,11 +3375,11 @@
             </relation>
             <relation name="relation17" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation18" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation20" class="ptolemy.actor.TypedIORelation">
             </relation>
             <relation name="relation19" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation20" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation22" class="ptolemy.actor.TypedIORelation">
             </relation>
             <link port="input_bundle" relation="relation11"/>
             <link port="output_bundle" relation="relation"/>
@@ -3410,7 +3410,7 @@
             <link port="runaway_fluid.runafluid_switch6_in" relation="relation9"/>
             <link port="runaway_fluid.critical_field_warming7_out" relation="relation19"/>
             <link port="runaway_fluid.growth_rate_warming8_out" relation="relation20"/>
-            <link port="runaway_fluid.tempData9_out" relation="relation18"/>
+            <link port="runaway_fluid.runaway_rates9_out" relation="relation22"/>
             <link port="runaway_fluid.time_in" relation="relation8"/>
             <link port="runaway_fluid.iter_in" relation="relation3"/>
             <link port="Unpack distribution2.output" relation="relation7"/>
@@ -3432,7 +3432,7 @@
             <link port="dist_initialised.output" relation="relation16"/>
             <link port="dist_initialised.input" relation="relation10"/>
             <link port="Unpack distribution.input" relation="relation10"/>
-            <link port="cpocontent.cpo" relation="relation18"/>
+            <link port="cpocontent.cpo" relation="relation22"/>
             <link port="Critical field warning display.input" relation="relation19"/>
             <link port="Growth rate limit warning display.input" relation="relation20"/>
             <link relation1="relation10" relation2="relation11"/>
@@ -4239,7 +4239,7 @@
         </property>
         <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={768, 623, 703, 391}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={502, 305, 703, 391}, maximized=false}">
         </property>
         <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[695, 337]">
         </property>
@@ -4316,7 +4316,7 @@
     <relation name="relation26" class="ptolemy.actor.TypedIORelation">
         <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
         </property>
-        <vertex name="vertex1" value="[115.68359375, 113.9453125]">
+        <vertex name="vertex1" value="[120.0, 105.0]">
         </vertex>
     </relation>
     <relation name="relation27" class="ptolemy.actor.TypedIORelation">
