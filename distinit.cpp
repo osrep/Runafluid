@@ -35,53 +35,53 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		//! number of geometry elements
 		int N = coreprof.ne.value.rows();
 				
-		std::cerr << "N: " << N << std::endl;
-		try {
-			//std::cerr << "prev" << distribution_in.distri_vec(0).source_id(0).type.flag << std::endl;
+		try {			
 			
 			if(distribution_in.distri_vec(0).source_id(0).type.flag == 7){
-				std::cerr << "Runaway distribution\t YES \n\tPrevious distribution was a runaway (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;
-			
-			}else{
-			
+				std::cerr << "Runaway distribution\t YES \n\tPrevious distribution was a runaway (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;			
+			}else{			
 				std::cerr << "Runaway distribution\t NO \n\tPrevious distribution was other (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;
 			}
-			
-			
 		
 		} catch (const std::exception& ex) {
 			throw std::invalid_argument("distribution non-readable");
 		
 		}	
 				
-		distribution_out.distri_vec.resize(1);			
-		std::cerr << "resize dv" << std::endl;
+		//! New distribution data set
+		distribution_out.distri_vec.resize(1);	
 		
-//		distribution_out.distri_vec(0).profiles_2d.state.dens.resize(N,N);
-		
-		distribution_out.distri_vec(0).profiles_1d.state.dens.resize(N);/*.value = 0;*/
-		distribution_out.distri_vec(0).profiles_1d.state.current.resize(N);/*.value = 0;*/
-		
-		std::cerr << "resized dv" << std::endl;
+		//! Initialisation of runaway density
+		distribution_out.distri_vec(0).profiles_1d.state.dens.resize(N);
 		
 		
+		//! Initialisation of runaway current
+		distribution_out.distri_vec(0).profiles_1d.state.current.resize(N);
+		
+		
+		//! Filling up runaway density and current with zeroes
+		for (int i=0, i<N, ++i){
+			distribution_out.distri_vec(0).profiles_1d.state.dens.value(i) = 0;
+			distribution_out.distri_vec(0).profiles_1d.state.current.value(i) = 0;
+		}
+		
+		//! New distribution source
 		distribution_out.distri_vec(0).source_id.resize(1);	
-		std::cerr << "resized sid" << std::endl;
 		
+		
+		//! Filling up distribution source
 		distribution_out.distri_vec(0).source_id(0).type.id = "runaway";
 		distribution_out.distri_vec(0).source_id(0).type.flag = 7;
 		distribution_out.distri_vec(0).source_id(0).type.description = "Source from runaway processes";
 		
-		std::cerr << "source_id0" << std::endl;
 		
-		
-	//	std::cerr << "resized spec" << std::endl;
-		
+		//! Filling up distribution species
 		distribution_out.distri_vec(0).species.type.id = "electron";
 		distribution_out.distri_vec(0).species.type.flag = 1;
 		distribution_out.distri_vec(0).species.type.description = "Electron";
 		
-		std::cerr << "species" << std::endl;
+		
+		//! Filling up distribution gyro type
 		distribution_out.distri_vec(0).gyro_type = 1;
 		
 		
