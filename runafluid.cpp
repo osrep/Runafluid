@@ -84,8 +84,9 @@ ABCD
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &critical_field_warning, int &growth_rate_warning ,ItmNs::Itm::temporary &runaway_rates) {
 
-
-	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
+	//! Number of elements in runaway electron distribution
+	int N_rho = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
+	std::cerr << "Number of elements:" << N_rho << "|" << coreprof.ne.value.rows() << std::endl;
 
 	//ItmNs::Itm::distribution &distribution2 = distribution.getSlice();
 
@@ -125,8 +126,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	try {
 			
 		double rundensity = 0.0;
-		double rate_values[2];
 		
+		//! Number of rate calculations (Dreicer, Avalanche etc.)
+		int N_rates = 2;
+		double rate_values[N_rates];
 		
 		//! set distribution CPO with default data
 //		distributionInit(distribution_prev, distribution, coreprof);
@@ -140,26 +143,35 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		
 		//! runaway_rates for generation rates
-		runaway_rates.timed.float1d.resize(2);
+		//! Dreicer generation rate initialisation
+		runaway_rates.timed.float1d.resize(N_rates);
 		runaway_rates.timed.float1d(0).identifier.id = "dreicer";
 		runaway_rates.timed.float1d(0).identifier.flag = 0;
 		runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
+		runaway_rates.timed.float1d(0).identifier.value.resize(N_rho);
+		
+		//! Avalanche generation rate initialisation
 		runaway_rates.timed.float1d(1).identifier.id = "avalanche";
 		runaway_rates.timed.float1d(1).identifier.flag = 1;
 		runaway_rates.timed.float1d(1).identifier.description = "Avalanche generation rate";
+		runaway_rates.timed.float1d(1).identifier.value.resize(N_rho);
 
 		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, runafluid_switch, rate_values);
-			
-			if(rho==0){
-			std::cerr << "DISTSOURCE_IDENTIFIER : " << DISTSOURCE_IDENTIFIER << std::endl;
-			}
-			
-			
-			std::cerr << "OUT : " << rundensity << std::endl;
-
+		
+			//! Length of the runaway distribution is correct
 			if (rho<distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows()){
+			
+				//! calculating runaway density
+				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, runafluid_switch, rate_values);
+			   	
+			   	//! CPO output
+			   	distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity;
+			   	
+			   	for(int rates_i=0;rates_i<N_rates;++rates_i){
+			   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
+				}
+				
 				if(rundensity > it->electron_density){
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = it->electron_density;
 			   		std::cerr << rho<<"\tMAX\t" << rundensity << std::endl;
@@ -167,9 +179,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;					   		
 			   		std::cerr << rho<<"\tZERO\t" << rundensity << std::endl;   		
 		   		}else{
-			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity;
 			   		std::cerr << rho<<"\tVALUE\t" << rundensity << std::endl;
 		   		}
+		   	}else{		   	
+				std::cerr << "ERROR The length of runaway distribution array is incorrect" << std::endl;
 		   	}
 		    rho++;
 		
