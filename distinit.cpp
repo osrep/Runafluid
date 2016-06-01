@@ -38,10 +38,10 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	std::cerr << "Length of distri_vec: \t"<< N << std::endl << std::endl;
 		int N_rho_tor = coreprof.rho_tor.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_N_rho_tor << std::endl << std::endl;
+	std::cerr << "Length of distri_vec: \t"<< N_rho_tor << std::endl << std::endl;
 		int N_rho_tor_norm = coreprof.rho_tor_norm.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_N_rho_tor_norm << std::endl << std::endl;
+	std::cerr << "Length of distri_vec: \t"<< N_rho_tor_norm << std::endl << std::endl;
 		int N_psi = coreprof.psi.value.rows();
 		
 	std::cerr << "Length of distri_vec: \t"<< N_psi << std::endl << std::endl;
