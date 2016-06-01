@@ -34,6 +34,17 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	try {
 		//! number of geometry elements
 		int N = coreprof.ne.value.rows();
+		
+	std::cerr << "Length of distri_vec: \t"<< N << std::endl << std::endl;
+		int N_rho_tor = coreprof.rho_tor.rows();
+		
+	std::cerr << "Length of distri_vec: \t"<< N_N_rho_tor << std::endl << std::endl;
+		int N_rho_tor_norm = coreprof.rho_tor_norm.rows();
+		
+	std::cerr << "Length of distri_vec: \t"<< N_N_rho_tor_norm << std::endl << std::endl;
+		int N_psi = coreprof.psi.value.rows();
+		
+	std::cerr << "Length of distri_vec: \t"<< N_psi << std::endl << std::endl;
 				
 		try {			
 			
@@ -91,9 +102,17 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		
 		//! Filling up runaway geometry data from coreprof
 		for (int i = 0; i < N; ++i){
-			distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
-			/*distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
-			distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);*/
+			if (i < N_rho_tor){
+				distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
+			}
+			
+			if (i < N_rho_tor_norm){
+				distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
+			}
+
+			if (i < N_rho_psi){
+				distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
+			}
 		}
 		
 		
