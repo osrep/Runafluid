@@ -301,6 +301,15 @@
             <string>coreprof</string>
           </vector>
           <vector>
+            <string>coreimpur</string>
+            <string>1</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>coreimpur</string>
+          </vector>
+          <vector>
             <string>integer</string>
             <string>0</string>
             <string>0</string>
