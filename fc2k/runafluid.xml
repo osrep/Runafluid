@@ -320,7 +320,7 @@
           </vector>
           <vector>
             <string>double</string>
-            <string>1</string>
+            <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
@@ -335,6 +335,24 @@
             <string>1</string>
             <string>0</string>
             <string>runafluid_switch</string>
+          </vector>
+          <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>critical_field_warming</string>
+          </vector>
+          <vector>
+            <string>equilibrium</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>growth_rate_warming</string>
           </vector>
         </tupleParams>
         <uHash>
