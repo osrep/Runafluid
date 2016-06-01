@@ -84,7 +84,17 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		//! Filling up distribution gyro type
 		distribution_out.distri_vec(0).gyro_type = 1;
 		
+		//! Initialisation of geometry data		
+		distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor.resize(N);
+		distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N);
+		distribution_out.distri_vec(0).profiles_1d.geometry.psi(N);
 		
+		//! Filling up runaway geometry data from coreprof
+		for (int i = 0; i < N; ++i){
+			distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
+			distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
+			distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
+		}
 		
 		
 	} catch (const std::exception& ex) {
