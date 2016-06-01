@@ -91,8 +91,8 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		
 		//! Filling up runaway geometry data from coreprof
 		for (int i = 0; i < N; ++i){
-			/*distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
-			distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
+			distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
+			/*distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
 			distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);*/
 		}
 		
@@ -107,17 +107,6 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	}
 	dist_initialised = 1;
 	
-	
-	/*try {
-		std::cerr << "TIME:\t"<< getShot()	 << std::endl;
-	} catch (const std::exception& ex) {
-		std::cerr << "ERROR sECOND TRY	" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
-
-	
-		//! internal error in distribution
-	
-	}*/
 }
 
 
