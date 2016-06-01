@@ -82,7 +82,7 @@ ABCD
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &critical_field_warning, int &growth_rate_warning ,ItmNs::Itm::temporary &tempData) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &critical_field_warning, int &growth_rate_warning ,ItmNs::Itm::temporary &runaway_rates) {
 
 
 	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
@@ -125,6 +125,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	try {
 			
 		double rundensity = 0.0;
+		double rate_values[2];
 		
 		
 		//! set distribution CPO with default data
@@ -133,18 +134,21 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//! reading profile from CPO inputs (cpo_utils.h)
 		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 		
-		
-		
-		
-		
+			
 		//! stepping iterator in profile	
 		int rho = 0;	
 		
 		
+		//! runaway_rates for generation rates
+		runaway_rates.timed.float1d.resize(2);
+		runaway_rates.timed.float1d(0).id = "dreicer";
+		runaway_rates.timed.float1d(0).description = "Dreicer generation rate";
+		runaway_rates.timed.float1d(1).id = "avalanche";
+		runaway_rates.timed.float1d(1).description = "Avalanche generation rate";
 
 		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, runafluid_switch);
+			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, runafluid_switch, rate_values);
 			
 			if(rho==0){
 			std::cerr << "DISTSOURCE_IDENTIFIER : " << DISTSOURCE_IDENTIFIER << std::endl;
@@ -167,10 +171,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	}
 		    rho++;
 		
-		}		
-		
-		tempData.timed.float1d.resize(1);
-	
+		}					
 
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
