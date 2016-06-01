@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include <iostream>
-#include "init.h"
+#include "control.h"
 //#include "products.h"
 //#include "critical_field.h"
 #include "critical_field.cpp"

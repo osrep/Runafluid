@@ -7,7 +7,7 @@
 #include "constants.h"
 #include "cpo_utils.h"
 #include "runafluid.h"
-#include "init.h"
+#include "control.h"
 
 // double growth_rate_limit = 1e12;
 
