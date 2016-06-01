@@ -2,7 +2,20 @@
 #define CPO_UTILS_H_
 
 #include <UALClasses.h>
+#include <vector>
 #include "constants.h"
+
+
+//! cell structure		
+struct cell {
+	double electron_density;
+	double electron_temperature;
+	double effective_charge;
+	double electric_field;
+	double runaway_density; 
+};
+
+typedef std::vector<cell> profile;
 
 bool equal(double a, double b, double tolerance);
 
