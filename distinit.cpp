@@ -61,8 +61,8 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		
 		//! Filling up runaway density and current with zeroes
 		for (int i = 0; i < N; ++i){
-			distribution_out.distri_vec(0).profiles_1d.state.dens.value(i) = 0;
-			distribution_out.distri_vec(0).profiles_1d.state.current.value(i) = 0;
+			distribution_out.distri_vec(0).profiles_1d.state.dens(i) = 0;
+			distribution_out.distri_vec(0).profiles_1d.state.current(i) = 0;
 		}
 		
 		//! New distribution source
