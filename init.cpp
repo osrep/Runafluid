@@ -25,54 +25,43 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	double rate_avalanche = 0.0;
 		
 		
-	int runafluid_booln=4;
+	int runafluid_booln=2;
 	bool runafluid_bools[runafluid_booln];
 	int_switch(runafluid_switch,runafluid_bools,runafluid_booln);
 		
-	try {
-	
-		if (runafluid_bools[3]){
-		electric_field=1000;
-		}
+	try {	
+		
 		//! Calculate Dreicer generation rate
 		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field);
-		rate_values[0] = 5678;//rate_dreicer;
+		rate_values[0] = rate_dreicer;
 		std::cerr << "DREICER RATE: "  << rate_dreicer << std::endl;		
 		
 		//! Calculate Avalanche generation rate
 		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 0);
-		rate_values[1] = 1234;//rate_avalanche;
-		std::cerr << "AVALANCHE RATE: "  << rate_avalanche << std::endl;		
+		rate_values[1] = rate_avalanche;
+		std::cerr << "AVALANCHE RATE: "  << rate_avalanche << std::endl;			
 		
-		/* runaway electron density	
+		// Dreicer off
+		if (runafluid_bools[1]){
+			rate_dreicer = 0;		
+		}
 		
+		// avalanche off
+		if (runafluid_bools[0]){
+			rate_avalanche = 0;		
+		}	
+			
+		/*! runaway electron density			
 		n_R = (R_DR+R_A)*dt
 		*/
-		
 		rundensity_after = rundensity_before + (electron_density*rate_dreicer + rundensity_before*rate_avalanche) * timestep;		
-		
-		/*
-		if (runafluid_bools[2]){
-			rundensity_after = 1;//rundensity_before;			
-			std::cerr << "RUNDENSITY BEFORE: "  << rundensity_after << std::endl;			
-		
-			if (runafluid_bools[1]){
-				rundensity_after = rate_dreicer ;	
-				std::cerr << "DREICER: "  << rundensity_after << std::endl;		
-			}
-			if (runafluid_bools[0]){
-				rundensity_after = rate_avalanche;	
-				std::cerr << "AVALANCHE: "  << rundensity_after << std::endl;		
-			}
-		}*/
-	
-		
+
 
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during runing runafluid_control." << std::endl;
+		//! internal error in runaway distribution calculation
+		std::cerr << "ERROR An error occurred during runaway distribution calculation." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 		rundensity_after = ITM_ILLEGAL_INT;
-		//! internal error in distribution
 		
 	}
 	return rundensity_after;
