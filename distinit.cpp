@@ -111,7 +111,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 			}
 
 			if (i < N_psi){
-				distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
+				distribution_out.distri_vec(0).profiles_1d.geometry.psi.value(i) = coreprof.psi.value(i);
 			}
 		}
 		
