@@ -169,7 +169,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		}		
 		
-				
+		ItmNs::Itm::temporary &tempData.timed.float1d.resize(1);
 	
 
 	} catch (const std::exception& ex) {
