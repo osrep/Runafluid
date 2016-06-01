@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, int &dist_initialised) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised) {
 
 
 //std::cerr << "Number of elements:"<< std::endl;
@@ -45,6 +45,12 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		int N_psi = coreprof.psi.value.rows();
 		
 	std::cerr << "Length of distri_vec: \t"<< N_psi << std::endl << std::endl;
+		int N_area = coreimpur.area.rows();		
+		
+	std::cerr << "Length of distri_vec: \t"<< N_area << std::endl << std::endl;
+		int N_volume = coreimpur.volume.rows();
+		
+	std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;
 				
 		try {			
 			
@@ -111,7 +117,15 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 			}
 
 			if (i < N_psi){
-				distribution_out.distri_vec(0).profiles_1d.geometry.psi.value(i) = coreprof.psi.value(i);
+//				distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
+			}
+			
+			if (i < N_area){
+//				distribution_out.distri_vec(0).profiles_1d.geometry.area(i) = coreimpur.area(i);
+			}
+			
+			if (i < N_volume){
+//				distribution_out.distri_vec(0).profiles_1d.geometry.volume(i) = coreimpur.volume(i);
 			}
 		}
 		
