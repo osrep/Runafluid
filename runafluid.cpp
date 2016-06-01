@@ -141,10 +141,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		//! runaway_rates for generation rates
 		runaway_rates.timed.float1d.resize(2);
-		runaway_rates.timed.float1d(0).id = "dreicer";
-		runaway_rates.timed.float1d(0).description = "Dreicer generation rate";
-		runaway_rates.timed.float1d(1).id = "avalanche";
-		runaway_rates.timed.float1d(1).description = "Avalanche generation rate";
+		runaway_rates.timed.float1d(0).identifier.id = "dreicer";
+		runaway_rates.timed.float1d(0).identifier.flag = 0;
+		runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
+		runaway_rates.timed.float1d(1).identifier.id = "avalanche";
+		runaway_rates.timed.float1d(1).identifier.flag = 1;
+		runaway_rates.timed.float1d(1).identifier.description = "Avalanche generation rate";
 
 		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
