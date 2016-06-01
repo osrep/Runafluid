@@ -121,7 +121,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 			}
 			
 			if (i < N_area){
-//				distribution_out.distri_vec(0).profiles_1d.geometry.area(i) = coreimpur.area(i);
+				distribution_out.distri_vec(0).profiles_1d.geometry.area(i) = coreimpur.area(i);
 			}
 			
 			if (i < N_volume){
