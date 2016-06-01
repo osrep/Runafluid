@@ -2,7 +2,6 @@
 #define CPO_UTILS_H_
 
 #include <UALClasses.h>
-#include "init.h"
 #include "constants.h"
 
 bool equal(double a, double b, double tolerance);
