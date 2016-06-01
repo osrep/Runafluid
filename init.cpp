@@ -41,7 +41,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 		//! Calculate Avalanche generation rate
 		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 0);
-		rate_values[1] = avalanche_dreicer;
+		rate_values[1] = rate_avalanche;
 		std::cerr << "AVALANCHE RATE: "  << rate_avalanche << std::endl;		
 		
 		/* runaway electron density	
