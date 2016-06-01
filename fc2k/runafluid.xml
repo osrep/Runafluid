@@ -346,13 +346,22 @@
             <string>critical_field_warming</string>
           </vector>
           <vector>
-            <string>equilibrium</string>
+            <string>integer</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>growth_rate_warming</string>
+          </vector>
+          <vector>
+            <string>temporary</string>
+            <string>1</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>tempData</string>
           </vector>
         </tupleParams>
         <uHash>
