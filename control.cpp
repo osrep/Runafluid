@@ -14,6 +14,8 @@
 /*!
 Runafluid actor
 
+timestep: in s
+
 */
 
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
@@ -52,7 +54,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		}	
 			
 		/*! runaway electron density			
-		n_R = (R_DR+R_A)*dt
+		n_R = n_R0 + (R_DR+R_A)*dt
 		*/
 		rundensity_after = rundensity_before + (electron_density*rate_dreicer + rundensity_before*rate_avalanche) * timestep;		
 
