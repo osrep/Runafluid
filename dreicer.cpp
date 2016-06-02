@@ -23,7 +23,7 @@ using namespace std;
 */
 
 
-
+/*
 int stepCounter(profile pro) {
 
 	int it2=0;
@@ -32,9 +32,9 @@ int stepCounter(profile pro) {
 	}
 
 	return it2;
-}
+}*/
 
-
+/*
 int init_dreicer(profile pro) {
 
 	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
@@ -43,7 +43,7 @@ int init_dreicer(profile pro) {
 	}
 
 	return 0;
-}
+}*/
 
 
 
