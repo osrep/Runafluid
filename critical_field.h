@@ -1,7 +1,7 @@
 #ifndef CRITICAL_FIELD_H_
 #define CRITICAL_FIELD_H_
 
-#include "init.h"
+#include "control.h"
 
 int is_field_critical(profile pro);
 
