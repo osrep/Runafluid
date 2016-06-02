@@ -3,7 +3,9 @@
 
 //#include "cpo_utils.h"
 
-//! cell structure		
+//! cell structure	
+
+#include <vector>	
 struct cell {
 	double electron_density;
 	double electron_temperature;

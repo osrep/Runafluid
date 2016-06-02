@@ -2,7 +2,6 @@
 #define CPO_UTILS_H_
 
 #include <UALClasses.h>
-#include <vector>
 #include "constants.h"
 #include "control.h"
 
