@@ -5,18 +5,6 @@
 #include <vector>
 #include "constants.h"
 
-
-//! cell structure		
-struct cell {
-	double electron_density;
-	double electron_temperature;
-	double effective_charge;
-	double electric_field;
-	double runaway_density; 
-};
-
-typedef std::vector<cell> profile;
-
 bool equal(double a, double b, double tolerance);
 
 int binary_search(const Array<double, 1> &array, double search_key);
