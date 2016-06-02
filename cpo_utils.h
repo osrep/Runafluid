@@ -4,6 +4,7 @@
 #include <UALClasses.h>
 #include <vector>
 #include "constants.h"
+#include "control.h"
 
 bool equal(double a, double b, double tolerance);
 
