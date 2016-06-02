@@ -72,9 +72,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 			+ log(electron_temperature * 1e-3);
 
 
-	//cout << "Coulomb logarithm: " << coulomb_log << "\n";
-
-
 	//! \a REQ-2: electron collision time
 	/*! 
 	\f[
@@ -82,9 +79,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);		
-	//cout << "Electron collision time: " << tao << " s\n";
-
+	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
 
 	//! \a REQ-1: Dreicer field
 		/*!
@@ -92,14 +87,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}~\mathrm{[J]}}		
 	\f]
 	*/
-//	double Ed = me2_c3__e / (tao * tej);
 
 	double Ed = calculate_dreicer_field(electron_density, electron_temperature);
 	double Edn = electric_field/Ed;
-
-	//cout << "Dreicer field: " << Ed << " V/m\n";
-	//cout << "normalised electric field (E/E_D): " << Edn << "\n";
-	//cout << "normalised electric field (Kulsrud1973, E/2E_D): " << Edn/2 << "\n";
 	
 
 	//! \a REQ-7: alpha
@@ -111,9 +101,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		
 	double alpha = electric_field / calculate_critical_field(electron_density, electron_temperature);
 	double alpha_2 = alpha*alpha;	
-	
-	//cout << "alpha: " << alpha << "\n";
-	//cout << "alpha^2: " << alpha_2 << "\n";
 	
 	
 	//! \a REQ-6: lambda
@@ -159,11 +146,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double Er;
-	Er = /*Ed*tej/me_c2;	
-	cout << "ER: " << Er << "\n";
-	double Er2;
-	Er2 =*/ calculate_critical_field(electron_density, electron_temperature);	
-	//cout << "ER" << Er << "\n";
+	Er = calculate_critical_field(electron_density, electron_temperature);	
 		
 	
 	//! non-relativistic (67)
@@ -176,8 +159,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Cr=1.0;	
 	double snr = Cr*electron_density/tao * pow(Edn,-3/16*(effective_charge+1)) * exp(-1/4/Edn - sqrt((effective_charge+1)/Edn));		
 
-	//cout << "SNR: " << snr << "\n";
-	
 
 	//! \return Dreicer generation rate (64)
 	//		\gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
@@ -188,15 +169,9 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/		
 		
-	double dgr = Cr/tao * pow(Edn,-h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); 
+	double dgr = Cr/tao * pow(Edn,-h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); 	
 	
-	std::cerr << "DGR:\tDREICER =" << Ed << "\t" << alpha << " in E/EC \tRATE = " << dgr << std::endl;
-	
-	
-	dgr = Cr/tao * pow(Edn,h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); // -h -> h
-	
-	std::cerr << "DGR:\tDREICER =" << Ed << "\t" << alpha << " in E/EC \tRATE = " << dgr << std::endl;
-	//Dreicer generation rate
+	//! output: Dreicer generation rate
 	return dgr;
 	
 	
