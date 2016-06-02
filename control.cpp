@@ -21,20 +21,31 @@ timestep: in s
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
 		double effective_charge, double electric_field, double timestep, int runafluid_switch, double *rate_values){
 	
-	//double rundensity_before = 0.0;
 	double rundensity_after = 0.0;
 	double rate_dreicer = 0.0;
-	double rate_avalanche = 0.0;
+	double rate_avalanche = 0.0;	
+	int dreicer_formula_id = 63;;	
 		
-		
-	int runafluid_booln=2;
+	int runafluid_booln = 4;
 	bool runafluid_bools[runafluid_booln];
 	int_switch(runafluid_switch,runafluid_bools,runafluid_booln);
 		
 	try {	
 		
+		//! Dreicer rate formula		 
+		if (runafluid_bools[1]){
+			dreicer_formula_id = 63;
+		}else{				
+			if (runafluid_bools[2]){				
+				 dreicer_formula_id = 66;
+			}else{
+				 dreicer_formula_id = 67;
+			}
+		}
+		
+		
 		//! Calculate Dreicer generation rate
-		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field);
+		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, dreicer_formula_id);
 		rate_values[0] = rate_dreicer;
 		std::cerr << "DREICER RATE: "  << rate_dreicer << std::endl;		
 		
@@ -43,19 +54,25 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_values[1] = rate_avalanche;
 		std::cerr << "AVALANCHE RATE: "  << rate_avalanche << std::endl;			
 		
-		// Dreicer off
-		if (runafluid_bools[1]){
+		// Dreicer on
+		if !(runafluid_bools[0]){
 			rate_dreicer = 0;		
 		}
 		
-		// avalanche off
-		if (runafluid_bools[0]){
+		// avalanche on
+		if !(runafluid_bools[3]){
 			rate_avalanche = 0;		
 		}	
 			
 		/*! runaway electron density			
 		n_R = n_R0 + (R_DR+R_A)*dt
-		*/
+		
+		\f[
+			n_\mathrm{R} (t) = n_\mathrm{R} (t-\Delta t) + \left( n_\mathrm{e} (t) * \gamma_\mathrm{D} (t) + n_\mathrm{R} (t-\Delta t) * \gamma_\mathrm{A} (t) \right) \cdot \Delta t
+		
+		\f]
+		*/	
+		
 		rundensity_after = rundensity_before + (electron_density*rate_dreicer + rundensity_before*rate_avalanche) * timestep;		
 
 

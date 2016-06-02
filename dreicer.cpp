@@ -50,7 +50,7 @@ int init_dreicer(profile pro) {
 
 
 double dreicer_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field) {
+		double effective_charge, double electric_field, int formula_id) {
 		
 		
 	//! electron temperature: electronvolt to joule
@@ -89,7 +89,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 
 	double Ed = calculate_dreicer_field(electron_density, electron_temperature);
-	double Edn = electric_field/Ed;
+	double Ed__E = Ed/electric_field;
 	
 
 	//! \a REQ-7: alpha
@@ -144,32 +144,38 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2}
 	\f]
 	*/
+			
 	
-	double Er;
-	Er = calculate_critical_field(electron_density, electron_temperature);	
-		
-	
-	//! non-relativistic (67)
-	/*!
-	\f[
-		\gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} }  \right)
-	\f]
-	*/	
 	
 	double Cr=1.0;	
-	double snr = Cr*electron_density/tao * pow(Edn,-3/16*(effective_charge+1)) * exp(-1/4/Edn - sqrt((effective_charge+1)/Edn));		
-
-
-	//! \return Dreicer generation rate (64)
-	//		\gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
-	/*!
-	\f[
-		R_\mathrm{D} = \frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
+	double dgr;
+	
+	if ((formula_id == 67)|| (formula_id == 66)){	
+		//!  \return non-relativistic Dreicer generation rate (67)
+		/*!
+		\f[
+			\gamma_\mathrm{NR} = \frac{1}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} }  \right)
+		\f]
+		*/	
 		
-	\f]
-	*/		
+		dgr = Cr/tao * pow(Ed__E,-3/16*(effective_charge+1)) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
+	
+	
+		if (formula_id == 66){
+		}
+	
+	}else{
+	
+		//! \return Dreicer generation rate (63)
+		/*!
+		\f[
+			R_\mathrm{D} = \frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
 		
-	double dgr = Cr/tao * pow(Edn,-h) * exp(-lambda/4/Edn - sqrt(2/Edn)*gamma); 	
+		\f]
+		*/	
+	
+		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt(2*Ed__e)*gamma); 
+	}	
 	
 	//! output: Dreicer generation rate
 	return dgr;
