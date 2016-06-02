@@ -55,12 +55,12 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		std::cerr << "AVALANCHE RATE: "  << rate_avalanche << std::endl;			
 		
 		// Dreicer on
-		if !(runafluid_bools[0]){
+		if (runafluid_bools[0]==false){
 			rate_dreicer = 0;		
 		}
 		
 		// avalanche on
-		if !(runafluid_bools[3]){
+		if (runafluid_bools[3]==false){
 			rate_avalanche = 0;		
 		}	
 			
