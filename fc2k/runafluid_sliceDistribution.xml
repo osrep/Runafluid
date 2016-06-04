@@ -352,10 +352,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runafluid_distInit</actor>
+  <actor>runafluid_sliceDistribution</actor>
   <actorVersion></actorVersion>
   <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
-  <actorFolder>eu/itm/runafluid_distInit</actorFolder>
+  <actorFolder>eu/itm/runafluid_sliceDistribution</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
