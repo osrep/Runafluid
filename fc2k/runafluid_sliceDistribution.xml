@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>libDistInit.a</fFile>
+  <fFile>libSliceDist.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
