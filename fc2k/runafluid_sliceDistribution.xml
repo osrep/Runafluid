@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>test/libTimeback.a</fFile>
+  <fFile>libDistInit.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
@@ -280,25 +280,43 @@
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>distribution</string>
+            <string>distribution_in</string>
           </vector>
           <vector>
             <string>distribution</string>
+            <string>1</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>0</string>
-            <string>distrarray</string>
+            <string>distribution_out</string>
           </vector>
           <vector>
-            <string>double</string>
+            <string>coreprof</string>
+            <string>1</string>
             <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>coreprof</string>
+          </vector>
+          <vector>
+            <string>coreimpur</string>
+            <string>1</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>coreimpur</string>
+          </vector>
+          <vector>
+            <string>integer</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>output</string>
+            <string>1</string>
+            <string>dist_initialised</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -334,10 +352,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runafluid_distTimeback</actor>
+  <actor>runafluid_distInit</actor>
   <actorVersion></actorVersion>
-  <actorDoc></actorDoc>
-  <actorFolder>eu/itm/runafluid_distTimeback</actorFolder>
+  <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
+  <actorFolder>eu/itm/runafluid_distInit</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
