@@ -36,7 +36,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		int N = coreprof.ne.value.rows();
 		
 	std::cerr << "Length of distri_vec: \t"<< N << std::endl << std::endl;
-		int N_rho_tor = coreprof.rho_tor.rows();
+	/*	int N_rho_tor = coreprof.rho_tor.rows();
 		
 	std::cerr << "Length of distri_vec: \t"<< N_rho_tor << std::endl << std::endl;
 		int N_rho_tor_norm = coreprof.rho_tor_norm.rows();
@@ -50,9 +50,9 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	std::cerr << "Length of distri_vec: \t"<< N_area << std::endl << std::endl;
 		int N_volume = coreimpur.volume.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;
+	std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;*/
 				
-		try {			
+		/*try {			
 			
 			if(distribution_in.distri_vec(0).source_id(0).type.flag == 7){
 				std::cerr << "Runaway distribution\t YES \n\tPrevious distribution was a runaway (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;			
@@ -63,57 +63,61 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		} catch (const std::exception& ex) {
 			throw std::invalid_argument("distribution non-readable");
 		
-		}	
+		}	*/
+				
+				
+		//! New distribution array
+		distribution_out.array.resize(1);
 				
 		//! New distribution data set
-		distribution_out.distri_vec.resize(1);	
+		distribution_out[0].distri_vec.resize(1);	
 		
 		//! Initialisation of runaway density
-		distribution_out.distri_vec(0).profiles_1d.state.dens.resize(N);
+		distribution_out[0].distri_vec(0).profiles_1d.state.dens.resize(N);
 		
 		
 		//! Initialisation of runaway current
-		distribution_out.distri_vec(0).profiles_1d.state.current.resize(N);
+		distribution_out[0].distri_vec(0).profiles_1d.state.current.resize(N);
 		
 		
 		//! Filling up runaway density and current with zeroes
 		for (int i = 0; i < N; ++i){
-			distribution_out.distri_vec(0).profiles_1d.state.dens(i) = 0;
-			distribution_out.distri_vec(0).profiles_1d.state.current(i) = 0;
+			distribution_out[0].distri_vec(0).profiles_1d.state.dens(i) = 0;
+			distribution_out[0].distri_vec(0).profiles_1d.state.current(i) = 0;
 		}
 		
 		//! New distribution source
-		distribution_out.distri_vec(0).source_id.resize(1);	
+		/*distribution_out[0].distri_vec(0).source_id.resize(1);	
 		
 		
 		//! Filling up distribution source
-		distribution_out.distri_vec(0).source_id(0).type.id = "runaway";
-		distribution_out.distri_vec(0).source_id(0).type.flag = 7;
-		distribution_out.distri_vec(0).source_id(0).type.description = "Source from runaway processes";
+		distribution_out[0].distri_vec(0).source_id(0).type.id = "runaway";
+		distribution_out[0].distri_vec(0).source_id(0).type.flag = 7;
+		distribution_out[0].distri_vec(0).source_id(0).type.description = "Source from runaway processes";
 		
 		
 		//! Filling up distribution species
-		distribution_out.distri_vec(0).species.type.id = "electron";
-		distribution_out.distri_vec(0).species.type.flag = 1;
-		distribution_out.distri_vec(0).species.type.description = "Electron";
+		distribution_out[0].distri_vec(0).species.type.id = "electron";
+		distribution_out[0].distri_vec(0).species.type.flag = 1;
+		distribution_out[0].distri_vec(0).species.type.description = "Electron";
 		
 		
 		//! Filling up distribution gyro type
-		distribution_out.distri_vec(0).gyro_type = 1;
+		distribution_out[0].distri_vec(0).gyro_type = 1;
 		
 		//! Initialisation of geometry data		
-		distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor.resize(N);
-		distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N);
-		distribution_out.distri_vec(0).profiles_1d.geometry.psi(N);
+		distribution_out[0].distri_vec(0).profiles_1d.geometry.rho_tor.resize(N);
+		distribution_out[0].distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N);
+		distribution_out[0].distri_vec(0).profiles_1d.geometry.psi(N);
 		
 		//! Filling up runaway geometry data from coreprof
 		for (int i = 0; i < N; ++i){
 			if (i < N_rho_tor){
-				distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
+				distribution_out[0].distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
 			}
 			
 			if (i < N_rho_tor_norm){
-				distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
+				distribution_out[0].distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
 			}
 
 			if (i < N_psi){
@@ -127,7 +131,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 			if (i < N_volume){
 //				distribution_out.distri_vec(0).profiles_1d.geometry.volume(i) = coreimpur.volume(i);
 			}
-		}
+		}*/
 		
 		
 	} catch (const std::exception& ex) {
