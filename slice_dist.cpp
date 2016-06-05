@@ -35,6 +35,9 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 		//! number of geometry elements
 		int N = coreprof.ne.value.rows();
 		
+		//! number of density elements
+		int N2 = distribution_out.distri_vec(0).profiles_1d.state.dens.rows();
+		
 	std::cerr << "SLICE: Length of distri_vec: \t"<< N << std::endl << std::endl;
 	
 	
@@ -42,11 +45,20 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 	tempDistribution.non_timed.float1d.resize(1);	
 	tempDistribution.non_timed.float1d(0).value.resize(N);
 	
-		//! Filling up runaway density with zeroes
 	for (int i = 0; i < N; ++i){
-		tempDistribution.non_timed.float1d(0).value = 0;	
+		if(distribution_in.distri_vec(0).source_id(0).type.flag == 7){
+				if (i<N2) {
+					tempDistribution.non_timed.float1d(0).value(i) = distribution_out.distri_vec(0).profiles_1d.state.dens(i);		
+		
+				}else{
+					tempDistribution.non_timed.float1d(0).value(i) = 0;					
+				}
+		}else{		
+				//! Filling up runaway density with zeroes
+				tempDistribution.non_timed.float1d(0).value(i) = 0;	
+			
+		}
 	}
-	
 	/*	int N_rho_tor = coreprof.rho_tor.rows();
 		
 	std::cerr << "Length of distri_vec: \t"<< N_rho_tor << std::endl << std::endl;
