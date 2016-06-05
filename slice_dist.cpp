@@ -35,7 +35,18 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 		//! number of geometry elements
 		int N = coreprof.ne.value.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N << std::endl << std::endl;
+	std::cerr << "SLICE: Length of distri_vec: \t"<< N << std::endl << std::endl;
+	
+	
+	
+	tempDistribution.non_timed.float1d.resize(1);	
+	tempDistribution.non_timed.float1d(0).value.resize(N);
+	
+		//! Filling up runaway density with zeroes
+	for (int i = 0; i < N; ++i){
+		tempDistribution.non_timed.float1d(0).value = 0;	
+	}
+	
 	/*	int N_rho_tor = coreprof.rho_tor.rows();
 		
 	std::cerr << "Length of distri_vec: \t"<< N_rho_tor << std::endl << std::endl;
