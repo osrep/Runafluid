@@ -46,9 +46,9 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 	tempDistribution.non_timed.float1d(0).value.resize(N);
 	
 	for (int i = 0; i < N; ++i){
-		if(distribution_in.distri_vec(0).source_id(0).type.flag == 7){
+		if(distribution.distri_vec(0).source_id(0).type.flag == 7){
 				if (i<N2) {
-					tempDistribution.non_timed.float1d(0).value(i) = distribution_out.distri_vec(0).profiles_1d.state.dens(i);		
+					tempDistribution.non_timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);		
 		
 				}else{
 					tempDistribution.non_timed.float1d(0).value(i) = 0;					
