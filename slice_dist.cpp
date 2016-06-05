@@ -67,7 +67,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distributionArr
 				
 				
 		//! New distribution array
-		distribution_out.array.resize(1);
+		//distribution_out.array.resize(1);
 				
 		//! New distribution data set
 		distribution_out[0].distri_vec.resize(1);	
