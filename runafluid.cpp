@@ -135,7 +135,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 //		distributionInit(distribution_prev, distribution, coreprof);
 		
 		//! reading profile from CPO inputs (cpo_utils.h)
-		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
+		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, tempDistribution);
 		
 			
 		//! stepping iterator in profile	
