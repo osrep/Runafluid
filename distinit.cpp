@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distributionArray &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised) {
 
 
 //std::cerr << "Number of elements:"<< std::endl;
@@ -117,7 +117,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 			}
 
 			if (i < N_psi){
-//				distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
+				distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
 			}
 			
 			if (i < N_area){
