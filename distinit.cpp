@@ -116,7 +116,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 				distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
 			}
 
-			if (i < N_psi){
+			/*if (i < N_psi){
 				distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
 			}
 			
@@ -126,7 +126,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 			
 			if (i < N_volume){
 				distribution_out.distri_vec(0).profiles_1d.geometry.volume(i) = coreimpur.volume(i);
-			}
+			}*/
 		}
 		
 		
