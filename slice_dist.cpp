@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distributionArray &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution/*Array*/ &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised) {
 
 
 //std::cerr << "Number of elements:"<< std::endl;
@@ -70,7 +70,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distributionArr
 		//distribution_out.array.resize(1);
 				
 		//! New distribution data set
-		distribution_out[0].distri_vec.resize(1);	
+		/*distribution_out[0].distri_vec.resize(1);	
 		
 		//! Initialisation of runaway density
 		distribution_out[0].distri_vec(0).profiles_1d.state.dens.resize(N);
