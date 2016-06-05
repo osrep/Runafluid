@@ -310,13 +310,13 @@
             <string>distribution</string>
           </vector>
           <vector>
-            <string>distribution</string>
+            <string>temporary</string>
             <string>1</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>distribution_prev</string>
+            <string>tempDistribution</string>
           </vector>
           <vector>
             <string>double</string>
