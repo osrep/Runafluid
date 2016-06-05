@@ -36,7 +36,7 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 		int N = coreprof.ne.value.rows();
 		
 		//! number of density elements
-		int N2 = distribution_out.distri_vec(0).profiles_1d.state.dens.rows();
+		int N2 = distribution.distri_vec(0).profiles_1d.state.dens.rows();
 		
 	std::cerr << "SLICE: Length of distri_vec: \t"<< N << std::endl << std::endl;
 	
