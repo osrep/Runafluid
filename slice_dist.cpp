@@ -45,7 +45,7 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 	tempDistribution.non_timed.float1d.resize(1);	
 	tempDistribution.non_timed.float1d(0).value.resize(N);
 	tempDistribution.non_timed.float1d(0).identifier.id = "prev_runaway";
-	tempDistribution.non_timed.float1d(0).identifier.descriptiod = "Previous runaway density";
+	tempDistribution.non_timed.float1d(0).identifier.description = "Previous runaway density";
 	tempDistribution.non_timed.float1d(0).identifier.flag = 7;
 	
 	for (int i = 0; i < N; ++i){
