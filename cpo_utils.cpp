@@ -227,7 +227,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 
 
     //! read data in every $\rho$ 
-
+std::cerr << "Temprnaway PREVIOUS\tflag: "<< tempDistribution.non_timed.float1d(0).identifier.flag << "\tid: "<< tempDistribution.non_timed.float1d(0).identifier.id << "\tdescr: " << tempDistribution.non_timed.float1d(0).identifier.description << std::endl; 
 
 
 	for (int rho = 0; rho < cells; rho++) {
