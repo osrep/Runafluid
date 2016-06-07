@@ -56,11 +56,11 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	//! electron temperature: electronvolt to joule
 	/*!
 	\f[
-		T_\mathrm{e}~\mathrm{[J]} = e \cdot t_\mathrm{e}~\mathrm{[eV]}
+		T_\mathrm{e}~\mathrm{[J]} = e \cdot t_\mathrm{e}~\mathrm{[eV]} (= k_\mathrm{B} \cdot T_\mathrm{e}~\mathrm{[K]})
 	\f]
 	*/	
 		
-	double tej = electron_temperature* ITM_EV;
+	double kB_T = electron_temperature* ITM_EV;
 
 	//! \a REQ-3: Coulomb logarithm
 	/*!
@@ -170,7 +170,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\f]
 		*/
 		
-		dgr = dgr * exp(-tej/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
+		dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
 		
 		}
 	
