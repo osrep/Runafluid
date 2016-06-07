@@ -154,7 +154,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		//!  \return non-relativistic Dreicer generation rate (67)
 		/*!
 		\f[
-			\gamma_\mathrm{NR} = \frac{1}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} }  \right)
+			R_\mathrm{NR} = \frac{1}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} }  \right)
 		\f]
 		*/	
 		
@@ -162,6 +162,16 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	
 	
 		if (formula_id == 66){
+		
+		//!  \return Dreicer generation rate with relativistic correction (66)
+		/*!
+		\f[
+			R_\mathrm{R} = R_\mathrm{NR} \cdot \exp \left( - frac{T_\mahtrm{e}}{m c^2} \left( \frac{1}{8} \left( \frac{E_\mathrm{D}}{E}\right)^2 + \frac{2}{3} \left( \frac{E_\mathrm{D}}{E}\right)^{3/2}  \cdot \sqrt{1+Z} \right) \right) 
+		\f]
+		*/
+		
+		dgr = dgr * exp(-tej/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
+		
 		}
 	
 	}else{
