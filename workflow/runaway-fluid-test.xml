@@ -36,13 +36,13 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1612, 861]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.588558274945775">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="2.2287446302797704">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{224.8045478548322, 774.9284195218768}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{336.3951451941139, 125.80020644176582}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:500">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:503">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="0.01">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -318,7 +318,7 @@
             </property>
         </property>
     </property>
-    <property name="actuator_tester" class="ptolemy.data.expr.Parameter" value="&quot;OFF&quot;">
+    <property name="actuator_tester" class="ptolemy.data.expr.Parameter" value="&quot;ON&quot;">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -2283,7 +2283,7 @@
                 </property>
                 <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="Avalanche rate">
                 </property>
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1159, 184, 703, 391}, maximized=false}">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1159, 184, 703, 370}, maximized=false}">
                 </property>
                 <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[695, 337]">
                 </property>
@@ -2331,7 +2331,7 @@
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>n_A/n_r</yLabel>
 <xRange min="0.0" max="99.0"/>
-<yRange min="-1.5084178395867198" max="-0.747883858464079"/>
+<yRange min="0.0" max="0.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -2797,7 +2797,7 @@
             </property>
             <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1159, 575, 703, 391}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1159, 575, 703, 370}, maximized=false}">
             </property>
             <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[695, 337]">
             </property>
@@ -2968,7 +2968,7 @@
             </property>
             <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="eparallel_before,eparallel_after">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={323, 341, 701, 383}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={458, 575, 701, 362}, maximized=false}">
             </property>
             <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[693, 329]">
             </property>
@@ -3016,7 +3016,7 @@
 <xLabel>data index</xLabel>
 <yLabel>E (V/m)</yLabel>
 <xRange min="0.0" max="99.0"/>
-<yRange min="0.0" max="8.987536746769553"/>
+<yRange min="0.0" max="0.0"/>
 </plot>?>
             </configure>
         </entity>
