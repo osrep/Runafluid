@@ -110,7 +110,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double lambda = 8*alpha*(alpha-1/2*sqrt(alpha*(alpha-1)));
+	double lambda = 8*alpha*(alpha-1/2-sqrt(alpha*(alpha-1)));
 	//cout << "lambda: " << lambda << "\n";
 	
 	
@@ -158,7 +158,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\f]
 		*/	
 		
-		dgr = Cr/tao * pow(Ed__E,-3/16*(effective_charge+1)) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
+		dgr = Cr/tao * pow(Ed__E,3/16*(effective_charge+1)) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
 	
 	
 		if (formula_id == 66){

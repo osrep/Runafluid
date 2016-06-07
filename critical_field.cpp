@@ -45,6 +45,7 @@ double calculate_critical_field(double electron_density, double electron_tempera
 	\f]
 	*/
 	return electron_density * e3 * coulomb_log / pi_e02_me_4_c2;
+	//return calculate_dreicer_field(electron_density,electron_temperature)
 }
 
 double calculate_dreicer_field(double electron_density, double electron_temperature){
