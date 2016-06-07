@@ -172,12 +172,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				
 				if(rundensity > it->electron_density){
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = it->electron_density;
-			   		std::cerr << rho<<"\tMAX\t" << rundensity << std::endl;
+//			   		std::cerr << rho<<"\tMAX\t" << rundensity << std::endl;
 		   		}else if (rundensity < 0  || isnan(rundensity)){
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;					   		
-			   		std::cerr << rho<<"\tZERO\t" << rundensity << std::endl;   		
+//			   		std::cerr << rho<<"\tZERO\t" << rundensity << std::endl;   		
 		   		}else{
-			   		std::cerr << rho<<"\tVALUE\t" << rundensity << std::endl;
+//			   		std::cerr << rho<<"\tVALUE\t" << rundensity << std::endl;
 		   		}
 		   	}else{		   	
 				std::cerr << "ERROR The length of runaway distribution array is incorrect" << std::endl;

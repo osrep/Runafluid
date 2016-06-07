@@ -76,15 +76,21 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	\f]
 	*/
 	
-	std::cerr << "AVALANCHE CALCULATION:\tE: "  <<electric_field << "\talpha: " <<electric_field/Ec<< "\tagr: " <<agr << std::endl;
+//	std::cerr << "AVALANCHE CALCULATION:\tE: "  <<electric_field << "\talpha: " <<electric_field/Ec<< "\tagr: " <<agr << std::endl;
 	
-	//! threshold field: Ea := Ec
-	Ea=Ec;
+/*	//! threshold field: Ea := Ec
+	Ea=Ec;*/
 	
 	if (electric_field < Ea){
 		agr = 0;
 	}
-	std::cerr << "AVALANCHE CALCULATION:\tEa: "  <<Ea << "\tagr: " <<agr << std::endl;
+//	std::cerr << "AVALANCHE CALCULATION:\tEa: "  <<Ea << "\tagr: " <<agr << std::endl;
+	
+	
+	//! Avalanche rate must be non-negative
+	if(isnan(agr)|| (agr<0)){
+		agr = 0;
+	}
 	
 	return agr;
 	
