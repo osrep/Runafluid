@@ -22,33 +22,6 @@ using namespace std;
 
 */
 
-
-/*
-int stepCounter(profile pro) {
-
-	int it2=0;
-	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-		++it2;	
-	}
-
-	return it2;
-}*/
-
-/*
-int init_dreicer(profile pro) {
-
-	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-		 dreicer_generation_rate(it->electron_density, it->electron_temperature, it->effective_charge, it->electric_field);
-			
-	}
-
-	return 0;
-}*/
-
-
-
-
-
 double dreicer_generation_rate(double electron_density, double electron_temperature,
 		double effective_charge, double electric_field, int formula_id) {
 		
@@ -171,7 +144,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		*/
 		
 		
-		std::cerr << "relativistic factor:\t" << -kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge) << std::endl;
+		std::cerr << "Dreicer field:\t" << Ed <<"\t\trelativistic factor:\t" << -kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge) << std::endl;
 		
 		dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
 		
