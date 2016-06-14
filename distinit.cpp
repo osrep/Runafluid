@@ -35,22 +35,22 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		//! number of geometry elements
 		int N = coreprof.ne.value.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N << std::endl << std::endl;
 		int N_rho_tor = coreprof.rho_tor.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_rho_tor << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_rho_tor << std::endl << std::endl;
 		int N_rho_tor_norm = coreprof.rho_tor_norm.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_rho_tor_norm << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_rho_tor_norm << std::endl << std::endl;
 		int N_psi = coreprof.psi.value.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_psi << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_psi << std::endl << std::endl;
 		int N_area = coreimpur.area.rows();		
 		
-	std::cerr << "Length of distri_vec: \t"<< N_area << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_area << std::endl << std::endl;
 		int N_volume = coreimpur.volume.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;
 				
 		try {			
 			
