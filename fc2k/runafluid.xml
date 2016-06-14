@@ -364,12 +364,12 @@
             <string>runaway_rates</string>
           </vector>
           <vector>
-            <string>equilibrium</string>
+            <string>distribution</string>
             <string>1</string>
             <string>0</string>
             <string>0</string>
-            <string>0</string>
             <string>1</string>
+            <string>0</string>
             <string>distribution_prevl</string>
           </vector>
         </tupleParams>
