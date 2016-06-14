@@ -2180,8 +2180,8 @@
 <title>Dreicer rate</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_D [1/s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.8571888250121859E21"/>
 </plot>?>
                 </configure>
             </entity>
@@ -2278,8 +2278,8 @@
 <title>Avalanche rate</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_A/n_r [1/s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1494.27194921123"/>
 </plot>?>
                 </configure>
             </entity>
@@ -2455,8 +2455,8 @@
 <title>Runaway density</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>Runaway density [m^-3]</yLabel>
-<xRange min="0.0" max="9.0"/>
-<yRange min="1.3770979457323645E14" max="6.7835430094385688E16"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.857188825012186E19"/>
 </plot>?>
                 </configure>
             </entity>
@@ -3081,8 +3081,8 @@
 <title>Runaway density</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>Runaway density [m^-3]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.857188825012186E19"/>
 </plot>?>
             </configure>
         </entity>
@@ -3252,8 +3252,8 @@
 <title>Electric field</title>
 <xLabel>data index</xLabel>
 <yLabel>E (V/m)</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="83.42898064996723"/>
 </plot>?>
             </configure>
         </entity>
@@ -3375,7 +3375,7 @@
             </property>
             <port name="trueInput" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="1">
+                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
                 </property>
             </port>
             <port name="falseInput" class="ptolemy.actor.TypedIOPort">
@@ -3385,7 +3385,7 @@
             </port>
             <port name="control" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
+                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="1">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
                 </property>
