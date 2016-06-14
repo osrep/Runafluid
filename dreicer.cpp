@@ -62,7 +62,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 
 	double Ed = calculate_dreicer_field(electron_density, electron_temperature);
-//	double Ed_alt = me2_c3/kB_T/IT
 	double Ed__E = Ed/electric_field;
 	
 
@@ -75,8 +74,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		
 	double alpha = electric_field / calculate_critical_field(electron_density, electron_temperature);
 	double alpha_2 = alpha*alpha;	
-	
-	
+		
 	//! \a REQ-6: lambda
 	/*!
 	\f[	
@@ -85,8 +83,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double lambda = 8*alpha*(alpha-1/2-sqrt(alpha*(alpha-1)));
-	//cout << "lambda: " << lambda << "\n";
-	
 	
 	//! \a REQ-5: multiplication factor
 	/*!
@@ -96,8 +92,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double gamma = sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
-	//cout << "gamma: " << gamma << "\n";
-
 
 	//! \a REQ-4: h factor
 	/*!	
@@ -132,7 +126,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\f]
 		*/	
 		
-		dgr = Cr/tao * pow(Ed__E,3/16*(effective_charge+1)) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
+			dgr = Cr/tao * pow(Ed__E,3/16*(effective_charge+1)) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
 	
 	
 		if (formula_id == 66){
@@ -145,9 +139,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		*/
 		
 		
-		//std::cerr << "Dreicer field:\t" << Ed <<"\t\trelativistic factor:\t" << -kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge) << std::endl;
-		
-		dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
+			dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
 		
 		}
 	

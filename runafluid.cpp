@@ -9,9 +9,6 @@
 #include "runafluid.h"
 #include "control.h"
 
-// double growth_rate_limit = 1e12;
-
-
 /*! \mainpage
 
 Purpose
@@ -87,42 +84,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! Number of elements in runaway electron distribution
 	int N_rho = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
 	std::cerr << "Number of elements:" << N_rho << "|" << coreprof.ne.value.rows() << std::endl;
-
-	//ItmNs::Itm::distribution &distribution2 = distribution.getSlice();
-
-//	distribution2.distri_vec(0).put(distribution.distri_vec(0).get());
-/*
-	try {
-		distribution.distri_vec.resize(1);
-		std::cerr << "distri_vec resized" << std::endl;
-		
-	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during distri_vec resize" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
-
 	
-		//! internal error in distribution
-	
-	}*/
-		
-		
-	/*try {
-		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.resize(coreprof.ne.value.rows());
-		std::cerr << "distribution array resized" << std::endl;
-		
-		
-	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during distribution array resize" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
-	
-		//! internal error in distribution
-	
-	}
-
-
-	std::cerr << "Number of elements:" << distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() << "|" << coreprof.ne.value.rows() << std::endl;
-
-*/
 	try {
 			
 		double rundensity = 0.0;
@@ -157,14 +119,15 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 		
-		if (rho==0){
-		rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1001, rate_values);	
-		std::cerr << "DREICER 67: " << rate_values[0];
-		rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1011, rate_values);
-		std::cerr << "\tDREICER 66: " << rate_values[0];
-		rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1111, rate_values);
-		std::cerr << "\tDREICER 63: " << rate_values[0] << std::endl;
-		}
+			//! Dreicer 63 66 67 tester -- temporary
+			if (rho==0){
+				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1001, rate_values);	
+				std::cerr << "DREICER 67: " << rate_values[0];
+				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1011, rate_values);
+				std::cerr << "\tDREICER 66: " << rate_values[0];
+				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1111, rate_values);
+				std::cerr << "\tDREICER 63: " << rate_values[0] << std::endl;
+			}
 		
 		
 			//! Length of the runaway distribution is correct
@@ -182,12 +145,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				
 				if(rundensity > it->electron_density){
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = it->electron_density;
-//			   		std::cerr << rho<<"\tMAX\t" << rundensity << std::endl;
 		   		}else if (rundensity < 0  || isnan(rundensity)){
-			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;					   		
-//			   		std::cerr << rho<<"\tZERO\t" << rundensity << std::endl;   		
+			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;				
 		   		}else{
-//			   		std::cerr << rho<<"\tVALUE\t" << rundensity << std::endl;
 		   		}
 		   	}else{		   	
 				std::cerr << "ERROR The length of runaway distribution array is incorrect" << std::endl;
@@ -206,59 +166,3 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 
 }
-
-
-
-
-
-/*!
-main function
-
-arrays by time
-void fire(ItmNs::Itm::coreprofArray &coreprof, ItmNs::Itm::coreimpurArray &coreimpur,
-		ItmNs::Itm::equilibriumArray &equilibrium,	int &critical_field_warning, int &step_counter) {
-
-	critical_field_warning = 0;
-
-	try {
-		int slices = coreprof.array.rows();
-		if (coreimpur.array.rows() != slices)
-			throw std::invalid_argument(
-					"Number of cpo slices is different in coreprof and coreimpur.");
-		if (equilibrium.array.rows() != slices)
-			throw std::invalid_argument(
-					"Number of cpo slices is different in coreprof and equilibrium.");
-
-		int slice = 0;
-		for (slice = 0; slice < slices; slice++) {
-
-			if (!equal(coreprof[slice].time, coreimpur[slice].time, 0.01)
-					|| !equal(coreprof[slice].time, equilibrium[slice].time, 0.01))
-				throw std::invalid_argument("Time value differs in cpo slices of the same index.");
-
-			//! critical field: \sa is_field_critical
-			if (critical_field_warning == 0) {
-				critical_field_warning = is_field_critical(
-						cpo_to_profile(coreprof[slice], coreimpur[slice], equilibrium[slice]));
-					
-				step_counter = stepCounter(
-						cpo_to_profile(coreprof[slice], coreimpur[slice], equilibrium[slice]));
-						
-
-					
-			}
-
-	
-		}
-
-	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during firing actor Runaway Indicator." << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
-
-		//! internal error in critical_field
-		critical_field_warning = ITM_ILLEGAL_INT;
-		step_counter = ITM_ILLEGAL_INT;
-		
-	}
-}*/
-	

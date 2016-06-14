@@ -48,12 +48,10 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		//! Calculate Dreicer generation rate
 		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, dreicer_formula_id);
 		rate_values[0] = rate_dreicer*electron_density;
-//		std::cerr << "DREICER RATE: "  << rate_dreicer << std::endl;		
 		
 		//! Calculate Avalanche generation rate
 		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 0);
-		rate_values[1] = rate_avalanche;
-//		std::cerr << "AVALANCHE RATE: "  << rate_avalanche << std::endl;			
+		rate_values[1] = rate_avalanche;		
 		
 		// Dreicer on
 		if (runafluid_bools[0]==false){
