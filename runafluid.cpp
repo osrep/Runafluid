@@ -120,7 +120,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 		
 			//! Dreicer 63 66 67 tester -- temporary
-			if (rho==0){
+			if (rho==10){
 				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1001, rate_values);	
 				std::cerr << "DREICER 67: " << rate_values[0];
 				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1011, rate_values);
