@@ -310,13 +310,13 @@
             <string>distribution</string>
           </vector>
           <vector>
-            <string>temporary</string>
+            <string>distribution</string>
             <string>1</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>tempDistribution</string>
+            <string>distribution_prevl</string>
           </vector>
           <vector>
             <string>double</string>
@@ -362,15 +362,6 @@
             <string>0</string>
             <string>1</string>
             <string>runaway_rates</string>
-          </vector>
-          <vector>
-            <string>distribution</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>distribution_prevl</string>
           </vector>
         </tupleParams>
         <uHash>
