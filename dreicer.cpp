@@ -62,6 +62,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 
 	double Ed = calculate_dreicer_field(electron_density, electron_temperature);
+//	double Ed_alt = me2_c3/kB_T/IT
 	double Ed__E = Ed/electric_field;
 	
 
