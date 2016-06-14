@@ -1,9 +1,9 @@
 <generactor.ActorGenerator>
-  <version>branches/R2.2_r536</version>
+  <version>branches/R2.2_r553</version>
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>test/libTimeback.a</fFile>
+  <fFile>test/libNothing.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
@@ -270,7 +270,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r536/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams>
           <vector>
@@ -279,26 +279,8 @@
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>0</string>
-            <string>distribution</string>
-          </vector>
-          <vector>
-            <string>distribution</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
             <string>1</string>
-            <string>0</string>
-            <string>distrarray</string>
-          </vector>
-          <vector>
-            <string>double</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>output</string>
+            <string>distribution</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -602,7 +584,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r536/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams/>
         <uHash>
@@ -651,6 +633,6 @@
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
-  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r536/bin/..</FC2Kpath>
+  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/..</FC2Kpath>
   <fDiagnosticInfo>false</fDiagnosticInfo>
 </generactor.ActorGenerator>
