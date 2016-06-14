@@ -61,6 +61,8 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 				tempDistribution.non_timed.float1d(0).value(i) = 0;	
 			
 		}
+		
+		std::cerr << "DISTRIBUTION"<<i<<":\t"<< tempDistribution.non_timed.float1d(0).value(i) << std::endl;
 	}
 	/*	int N_rho_tor = coreprof.rho_tor.rows();
 		
