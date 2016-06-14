@@ -197,7 +197,7 @@ Copy data from CPO inputs to profile structure
 */
 
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, /*const ItmNs::Itm::distribution &distribution*/const ItmNs::Itm::temporary &tempDistribution) {
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution) {
 
 	profile pro;
 
@@ -214,8 +214,6 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
 								
     //! read data in every $\rho$ 
-/*std::cerr << "Temprnaway PREVIOUS\tflag: "<< tempDistribution.non_timed.float1d(0).identifier.flag << "\tid: "<< tempDistribution.non_timed.float1d(0).identifier.id << "\tdescr: " << tempDistribution.non_timed.float1d(0).identifier.description << std::endl; 
-*/
 
 	for (int rho = 0; rho < cells; rho++) {
 		cell celll;
@@ -240,8 +238,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		*/
 		
 		try{
-			celll.runaway_density = tempDistribution.non_timed.float1d(0).value(rho);
-			//celll.runaway_density = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
+			celll.runaway_density = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
 			
 			if (rho==10) std::cerr << "IN " << rho << ": " << celll.runaway_density << std::endl;
 

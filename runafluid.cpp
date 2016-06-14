@@ -83,7 +83,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 	//! Number of elements in runaway electron distribution
 	int N_rho = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
-	std::cerr << "Number of elements:" << N_rho << "|" << coreprof.ne.value.rows() << std::endl;
 	
 	try {
 			
@@ -95,7 +94,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		
 		//! reading profile from CPO inputs (cpo_utils.h)
-		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, /*distribution_prev*/tempDistribution);
+		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_prev);
 		
 			
 		//! stepping iterator in profile	
