@@ -37,7 +37,7 @@ test/libNeEdit.a: test/ne_edit.o cpo_utils.o
 #test/libDistMx.a: test/distmx.o
 #	ar -rvs $@ $^	
 	
-test/nothing.a: test/nothing.o
+test/libNothing.a: test/nothing.o
 	ar -rvs $@ $^	
 
 	
