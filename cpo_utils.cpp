@@ -87,7 +87,7 @@ int int_switch(int switch_number, bool *bools, int N){
 		}
 		
 		
-		std::cerr << "BOOL " <<i<< "/" << N-1 << " set as: " << bools[i] << " > switch value " << switch_number << std::endl;
+		//std::cerr << "BOOL " <<i<< "/" << N-1 << " set as: " << bools[i] << " > switch value " << switch_number << std::endl;
 		
 		switch_number /= 10;
 	}
