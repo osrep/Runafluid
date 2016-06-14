@@ -256,7 +256,7 @@ std::cerr << "Temprnaway PREVIOUS\tflag: "<< tempDistribution.non_timed.float1d(
 			celll.runaway_density = tempDistribution.non_timed.float1d(0).value(rho);
 			//distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
 			
-		//	std::cerr << "IN  : " << celll.runaway_density << std::endl;
+			std::cerr << "IN  : " << celll.runaway_density << std::endl;
 
 		//! internal error in distribution
 		} catch (const std::exception& ex) {
