@@ -62,7 +62,7 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 			
 		}
 		
-		std::cerr << "DISTRIBUTION"<<i<<":\t"<< tempDistribution.non_timed.float1d(0).value(i) << std::endl;
+		std::cerr << "DISTRIBUTION"<<i<<":\t"<<distribution.distri_vec(0).profiles_1d.state.dens(i)<<"\t"<< tempDistribution.non_timed.float1d(0).value(i) << std::endl;
 	}
 	/*	int N_rho_tor = coreprof.rho_tor.rows();
 		
