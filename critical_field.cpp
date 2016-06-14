@@ -69,7 +69,13 @@ double calculate_dreicer_field(double electron_density, double electron_temperat
 		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}}		
 	\f]
 	*/
-	return me2_c3__e / (tao * electron_temperature * ITM_EV);	
+	
+	double dreicer01 =  me2_c3__e / (tao * electron_temperature * ITM_EV);
+	double dreicer02 =  4*ITM_PI*pow(ITM_QE,3)*(electron_density * coulomb_log)/(electron_temperature*ITM_EV); //ITM_ME * pow(ITM_C, 2);
+	
+	std::cerr << "Dreicer field TESTER:\t" << dreicer01 << "\t" << dreicer02 << std::endl;
+	
+	return	dreicer01;
 	
 }
 	
