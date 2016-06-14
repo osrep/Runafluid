@@ -9,7 +9,8 @@
 //#include "avalanche.h"
 #include "avalanche.cpp"
 
-#include "cpo_utils.cpp"
+//#include "cpo_utils.cpp"
+#include "cpo_utils.h"
 
 /*!
 Runafluid actor
@@ -80,7 +81,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		//! internal error in runaway distribution calculation
 		std::cerr << "ERROR An error occurred during runaway distribution calculation." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
-		rundensity_after = ITM_ILLEGAL_INT;
+		rundensity_after = ITM_ILLEGAL_FLOAT;
 		
 	}
 	return rundensity_after;
