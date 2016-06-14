@@ -85,10 +85,7 @@ int int_switch(int switch_number, bool *bools, int N){
 		}else{		
 			bools[i]=false;
 		}
-		
-		
-		//std::cerr << "BOOL " <<i<< "/" << N-1 << " set as: " << bools[i] << " > switch value " << switch_number << std::endl;
-		
+				
 		switch_number /= 10;
 	}
 	
@@ -135,13 +132,10 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 		celll.electron_temperature = coreprof.te.value(rho);
 		
 		/*! local electric field
-			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
-			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
+			\f[ E = E_\parallel(\rho) 
+			where $\rho$ normalised minor radius
 		*/
-		celll.electric_field = coreprof.profiles1d.eparallel.value(rho); /** coreprof.toroid_field.b0
-				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-						coreprof.rho_tor(rho))*/;
-		
+		celll.electric_field = coreprof.profiles1d.eparallel.value(rho); 
 
 		pro.push_back(celll);
 	}
@@ -218,14 +212,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	if (coreprof.profiles1d.eparallel.value.rows() != cells)
 		throw std::invalid_argument(
 				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
-				
-				
-	//! read eparallel profile length of dataset, comparing with cells
-	/*if (distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows() != cells)
-		throw std::invalid_argument(
-				"Number of values is different in runaway distribution and coreprof.profiles1d.eparallel.");*/
-
-
+								
     //! read data in every $\rho$ 
 std::cerr << "Temprnaway PREVIOUS\tflag: "<< tempDistribution.non_timed.float1d(0).identifier.flag << "\tid: "<< tempDistribution.non_timed.float1d(0).identifier.id << "\tdescr: " << tempDistribution.non_timed.float1d(0).identifier.description << std::endl; 
 
@@ -256,20 +243,15 @@ std::cerr << "Temprnaway PREVIOUS\tflag: "<< tempDistribution.non_timed.float1d(
 			celll.runaway_density = tempDistribution.non_timed.float1d(0).value(rho);
 			//distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
 			
-			std::cerr << "IN  : " << celll.runaway_density << std::endl;
+			if (rho==10) std::cerr << "IN " << rho << ": " << celll.runaway_density << std::endl;
 
 		//! internal error in distribution
 		} catch (const std::exception& ex) {
-		//	std::cerr << "There is no runaway profile. Runaway profile" << std::endl;
-			//distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;
+
 			celll.runaway_density = 0;
 			
 			std::cerr << "ERROR : Cannot read runaway density" << std::endl;
 		}
-		
-		///!celll.runaway_density = 0;
-	
-
 
 
 		//! total sum of electric charge in \a rho cell for all ion population
@@ -305,14 +287,10 @@ std::cerr << "Temprnaway PREVIOUS\tflag: "<< tempDistribution.non_timed.float1d(
 		// rho_tor: toroidal flux coordinate
 
 		// Assume sum of n_i * Z_i equals electron density because of quasi-neutrality
-		celll.effective_charge /= celll.electron_density;
-		
-		
+		celll.effective_charge /= celll.electron_density;		
 
 		pro.push_back(celll);
 	}
 
 	return pro;
 }
-
-
