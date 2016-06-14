@@ -18,7 +18,7 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) ;
 profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::equilibrium &equilibrium) ;	
 
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::temporary &tempDistribution);
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution /*const ItmNs::Itm::temporary &tempDistribution*/);
 		
 		
 /*		
