@@ -145,7 +145,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		*/
 		
 		
-		std::cerr << "Dreicer field:\t" << Ed <<"\t\trelativistic factor:\t" << -kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge) << std::endl;
+		//std::cerr << "Dreicer field:\t" << Ed <<"\t\trelativistic factor:\t" << -kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge) << std::endl;
 		
 		dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
 		
