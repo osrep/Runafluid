@@ -48,7 +48,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		}	
 		
 		if (dist_initialised & flag==7){
-			std::cerr << " -----------  PREVIOS DISTRIBUTION: OK -----------t" << std::endl;
+			std::cerr << " -----------  PREVIOUS DISTRIBUTION: OK -----------t" << std::endl;
 			
 		}		
 			
@@ -70,6 +70,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 				distribution_out.distri_vec(0).profiles_1d.state.dens(i) = distribution_in.distri_vec(0).profiles_1d.state.dens(i);
 				distribution_out.distri_vec(0).profiles_1d.state.current(i) = distribution_in.distri_vec(0).profiles_1d.state.current(i);
 				
+				if(i==10) {std::cerr << "dens10prev: " << distribution_in.distri_vec(0).profiles_1d.state.dens(i) << std::endl;}
 			}else{	
 			//! Filling up runaway density and current with zeroes
 			
