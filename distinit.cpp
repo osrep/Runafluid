@@ -38,6 +38,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	//std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;
 	
 		int flag = 0;
+		std::cerr << "dens3prev: " << distribution_in.distri_vec(0).profiles_1d.state.dens(3) << std::endl;
 				
 		try {			
 			flag = distribution_in.distri_vec(0).source_id(0).type.flag;			
@@ -70,7 +71,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 				distribution_out.distri_vec(0).profiles_1d.state.dens(i) = distribution_in.distri_vec(0).profiles_1d.state.dens(i);
 				distribution_out.distri_vec(0).profiles_1d.state.current(i) = distribution_in.distri_vec(0).profiles_1d.state.current(i);
 				
-				if(i==10) {std::cerr << "dens10prev: " << distribution_in.distri_vec(0).profiles_1d.state.dens(i) << std::endl;}
+				if(i==10) {std::cerr << "dens10prev: " << distribution_in.distri_vec(0).profiles_1d.state.dens(10) << std::endl;}
 			}else{	
 			//! Filling up runaway density and current with zeroes
 			
