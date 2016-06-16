@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised, ItmNs::Itm::temporary &distribution_temp) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::temporaryArray &distribution_tempA) {
 
 	
 	try {
@@ -158,6 +158,17 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	distribution_temp.non_timed.float1d.resize(1);
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR temporary distribution" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+
+	
+		//! internal error in distribution
+	
+	}
+	
+		try{
+	distribution_tempA.non_timed.float1d.resize(1);
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR temporaryArray distribution" << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 
 	
