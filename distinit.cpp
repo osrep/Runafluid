@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::distributionArray &distributionA) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::temporaryArray &distribution_tempA) {
 
 	
 	try {
@@ -148,7 +148,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		
 		distribution_temp.non_timed.float1d.resize(1);
 		distribution_temp.non_timed.float1d(0).value.resize(N);
-		distributionA.array.resize(1);
+		distribution_tempA.array.resize(1);
 		/*distribution_tempA.array.resize(1);
 		distribution_tempA[0].timed.float1d.resize(1);
 		distribution_tempA[0].timed.float1d(0).value.resize(N);
