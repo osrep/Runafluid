@@ -89,7 +89,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		double rundensity = 0.0;
 		
 		//! Number of rate calculations (Dreicer, Avalanche etc.)
-		int N_rates = 4;
+		int N_rates = 5;
 		double rate_values[N_rates];
 		
 		
@@ -101,30 +101,31 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		int rho = 0;	
 		
 		
+		//!Length of previous distribution
+		int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();
+		
 		//! runaway_rates for generation rates
 		//! Dreicer generation rate initialisation
 		runaway_rates.timed.float1d.resize(N_rates);
 		runaway_rates.timed.float1d(0).identifier.id = "dreicer";
 		runaway_rates.timed.float1d(0).identifier.flag = 0;
 		runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
-		runaway_rates.timed.float1d(0).value.resize(N_rho);
+		runaway_rates.timed.float1d(0).value.resize(N_rho);		
 		
-		
-		int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();
-		
-		runaway_rates.timed.float1d.resize(N_rates);
 		runaway_rates.timed.float1d(2).identifier.id = "dreicerT";
 		runaway_rates.timed.float1d(2).identifier.flag = 0;
 		runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate TEMP";
-		runaway_rates.timed.float1d(2).value.resize(N_rho);
+		runaway_rates.timed.float1d(2).value.resize(N_rho);				
 		
-		
-		
-		runaway_rates.timed.float1d.resize(N_rates);
 		runaway_rates.timed.float1d(3).identifier.id = "dreicerTA";
 		runaway_rates.timed.float1d(3).identifier.flag = 0;
 		runaway_rates.timed.float1d(3).identifier.description = "Dreicer generation rate TEMPARRAY";
-		runaway_rates.timed.float1d(3).value.resize(N_rho);
+		runaway_rates.timed.float1d(3).value.resize(N_rho);		
+				
+		runaway_rates.timed.float1d(4).identifier.id = "dreicerP";
+		runaway_rates.timed.float1d(4).identifier.flag = 0;
+		runaway_rates.timed.float1d(4).identifier.description = "Dreicer generation rate PREV";
+		runaway_rates.timed.float1d(4).value.resize(N_rho);
 		
 		//! Avalanche generation rate initialisation
 		runaway_rates.timed.float1d(1).identifier.id = "avalanche";
@@ -155,6 +156,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			   	if(rho<Ntemp){
 				   	rate_values[2]=distribution_temp.non_timed.float1d(0).value(rho);
 				   	rate_values[3]=distribution_tempA[0].timed.float1d(0).value(rho);
+				   	rate_values[4]=it->runaway_density;
 			   	}
 			   	
 			   	//! CPO output
