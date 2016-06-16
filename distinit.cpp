@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised, ItmNs::Itm::temporary &distribution_temp) {
 
 	
 	try {
@@ -147,6 +147,17 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during distri_vec resize" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+
+	
+		//! internal error in distribution
+	
+	}
+	
+	try{
+	distribution_temp.non_timed.float1d.resize(1);
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR temporary distribution" << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 
 	
