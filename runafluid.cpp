@@ -113,17 +113,17 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		runaway_rates.timed.float1d(0).value.resize(N_rho);		
 		
 		runaway_rates.timed.float1d(2).identifier.id = "dreicerT";
-		runaway_rates.timed.float1d(2).identifier.flag = 0;
+		runaway_rates.timed.float1d(2).identifier.flag = 2;
 		runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate TEMP";
 		runaway_rates.timed.float1d(2).value.resize(N_rho);				
 		
 		runaway_rates.timed.float1d(3).identifier.id = "dreicerTA";
-		runaway_rates.timed.float1d(3).identifier.flag = 0;
+		runaway_rates.timed.float1d(3).identifier.flag = 3;
 		runaway_rates.timed.float1d(3).identifier.description = "Dreicer generation rate TEMPARRAY";
 		runaway_rates.timed.float1d(3).value.resize(N_rho);		
 				
 		runaway_rates.timed.float1d(4).identifier.id = "dreicerP";
-		runaway_rates.timed.float1d(4).identifier.flag = 0;
+		runaway_rates.timed.float1d(4).identifier.flag = 4;
 		runaway_rates.timed.float1d(4).identifier.description = "Dreicer generation rate PREV";
 		runaway_rates.timed.float1d(4).value.resize(N_rho);
 		
