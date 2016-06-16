@@ -166,7 +166,8 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	}
 	
 		try{
-	distribution_tempA.non_timed.float1d.resize(1);
+	distribution_tempA.array.resize(1);
+	distribution_tempA[0].timed.float1d.resize(10);
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR temporaryArray distribution" << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
