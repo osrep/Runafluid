@@ -89,7 +89,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		double rundensity = 0.0;
 		
 		//! Number of rate calculations (Dreicer, Avalanche etc.)
-		int N_rates = 5;
+		int N_rates = 2;//5;
 		double rate_values[N_rates];
 		
 		
@@ -153,11 +153,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				//! calculating runaway density
 				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, runafluid_switch, rate_values);
 			   	
-			   	if(rho<Ntemp){
+			   /*	if(rho<Ntemp){
 				   	rate_values[2]=distribution_temp.non_timed.float1d(0).value(rho);
 				   	rate_values[3]=distribution_tempA[0].timed.float1d(0).value(rho);
-				   	rate_values[4]=it->runaway_density;
-			   	}
+				   	rate_values[4]=distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
+			   	}*/
 			   	
 			   	//! CPO output
 			   	distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity;
