@@ -148,10 +148,10 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		
 		distribution_temp.non_timed.float1d.resize(1);
 		distribution_temp.non_timed.float1d(0).value.resize(N);
-		distribution_tempA.array.resize(1);
+		/*distribution_tempA.array.resize(1);
 		distribution_tempA[0].timed.float1d.resize(1);
 		distribution_tempA[0].timed.float1d(0).value.resize(N);
-	
+	*/
 	
 	
 		for (int i = 0; i < N; ++i){
@@ -159,7 +159,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 				if (dist_initialised & flag==7){
 				//! Filling up runaway density and current from the input distribution
 					distribution_temp.non_timed.float1d(0).value(i) = distribution_in.distri_vec(0).profiles_1d.state.dens(i);
-					distribution_tempA[0].timed.float1d(0).value(i) = distribution_in.distri_vec(0).profiles_1d.state.dens(i);
+					//distribution_tempA[0].timed.float1d(0).value(i) = distribution_in.distri_vec(0).profiles_1d.state.dens(i);
 				}
 			}
 	
