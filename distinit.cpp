@@ -148,7 +148,7 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 		
 		distribution_temp.non_timed.float1d.resize(1);
 		distribution_temp.non_timed.float1d(0).value.resize(N);
-		distribution_tempA.array.resize(1);
+		//distribution_tempA.array.resize(1);
 		/*distribution_tempA.array.resize(1);
 		distribution_tempA[0].timed.float1d.resize(1);
 		distribution_tempA[0].timed.float1d(0).value.resize(N);
