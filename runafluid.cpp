@@ -79,7 +79,7 @@ ABCD
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &critical_field_warning, int &growth_rate_warning, ItmNs::Itm::temporary &runaway_rates, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::temporaryArray &distribution_tempA) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &critical_field_warning, int &growth_rate_warning, ItmNs::Itm::temporary &runaway_rates, ItmNs::Itm::temporary &distribution_temp/*, ItmNs::Itm::temporaryArray &distribution_tempA*/) {
 
 	//! Number of elements in runaway electron distribution
 	int N_rho = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
@@ -112,7 +112,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
 		runaway_rates.timed.float1d(0).value.resize(N_rho);		
 		
-		runaway_rates.timed.float1d(2).identifier.id = "dreicerT";
+		/*runaway_rates.timed.float1d(2).identifier.id = "dreicerT";
 		runaway_rates.timed.float1d(2).identifier.flag = 2;
 		runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate TEMP";
 		runaway_rates.timed.float1d(2).value.resize(N_rho);				
@@ -125,7 +125,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		runaway_rates.timed.float1d(4).identifier.id = "dreicerP";
 		runaway_rates.timed.float1d(4).identifier.flag = 4;
 		runaway_rates.timed.float1d(4).identifier.description = "Dreicer generation rate PREV";
-		runaway_rates.timed.float1d(4).value.resize(N_rho);
+		runaway_rates.timed.float1d(4).value.resize(N_rho);*/
 		
 		//! Avalanche generation rate initialisation
 		runaway_rates.timed.float1d(1).identifier.id = "avalanche";
