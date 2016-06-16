@@ -316,7 +316,7 @@
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>distribution_prevl</string>
+            <string>distribution_prev</string>
           </vector>
           <vector>
             <string>double</string>
@@ -362,6 +362,24 @@
             <string>0</string>
             <string>1</string>
             <string>runaway_rates</string>
+          </vector>
+          <vector>
+            <string>temporary</string>
+            <string>1</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>distribution_temp</string>
+          </vector>
+          <vector>
+            <string>temporary</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>distribution_tempA</string>
           </vector>
         </tupleParams>
         <uHash>
