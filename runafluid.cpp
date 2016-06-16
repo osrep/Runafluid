@@ -89,7 +89,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		double rundensity = 0.0;
 		
 		//! Number of rate calculations (Dreicer, Avalanche etc.)
-		int N_rates = 2;
+		int N_rates = 4;
 		double rate_values[N_rates];
 		
 		
@@ -108,6 +108,23 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		runaway_rates.timed.float1d(0).identifier.flag = 0;
 		runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
 		runaway_rates.timed.float1d(0).value.resize(N_rho);
+		
+		
+		int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();
+		
+		runaway_rates.timed.float1d.resize(N_rates);
+		runaway_rates.timed.float1d(2).identifier.id = "dreicerT";
+		runaway_rates.timed.float1d(2).identifier.flag = 0;
+		runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate TEMP";
+		runaway_rates.timed.float1d(2).value.resize(N_rho);
+		
+		
+		
+		runaway_rates.timed.float1d.resize(N_rates);
+		runaway_rates.timed.float1d(3).identifier.id = "dreicerTA";
+		runaway_rates.timed.float1d(3).identifier.flag = 0;
+		runaway_rates.timed.float1d(3).identifier.description = "Dreicer generation rate TEMPARRAY";
+		runaway_rates.timed.float1d(3).value.resize(N_rho);
 		
 		//! Avalanche generation rate initialisation
 		runaway_rates.timed.float1d(1).identifier.id = "avalanche";
@@ -134,6 +151,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			
 				//! calculating runaway density
 				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, runafluid_switch, rate_values);
+			   	
+			   	if(rho<Ntemp){
+				   	rate_values[2]=distribution_temp.non_timed.float1d(0).value(rho);
+				   	rate_values[3]=distribution_tempA[0].timed.float1d(0).value(rho);
+			   	}
 			   	
 			   	//! CPO output
 			   	distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity;
