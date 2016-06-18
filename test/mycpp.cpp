@@ -13,7 +13,7 @@ void mycppfunction(
       ItmNs::Itm::antennas &ant,
       ItmNs::Itm::equilibriumArray &eq,
       int &x,
-      ItmNs::Itm::limiter &lim,
+     /* ItmNs::Itm::limiter &lim,*/
       ItmNs::Itm::coreimpur &cor,
       ItmNs::Itm::ironmodelArray &iron,
       double *y,
@@ -38,11 +38,11 @@ void mycppfunction(
            cout << endl;
       }
       /* fill limiter CPO */
-      lim.datainfo.dataprovider.assign("test_limiter");
+     /* lim.datainfo.dataprovider.assign("test_limiter");
       lim.position.r.resize(5);     // allocate vector
       for (int i=0; i<5; i++) {
             lim.position.r(i)=(i+1);
-      }
+      }*/
       /* fill coreimpur CPO */
       cor.datainfo.dataprovider.assign("test_coreimpur");
       cor.flag.resize(3);          // allocate vector
