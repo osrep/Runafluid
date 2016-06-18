@@ -3,7 +3,7 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>test/libNothing.a</fFile>
+  <fFile>test/libCPin.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
@@ -274,13 +274,13 @@
         </tc>
         <tupleParams>
           <vector>
-            <string>distribution</string>
+            <string>coreprof</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>da</string>
+            <string>cpa</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -316,10 +316,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>tester_nothing</actor>
+  <actor>tester_cpin</actor>
   <actorVersion></actorVersion>
   <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
-  <actorFolder>eu/itm/tester_nothing</actorFolder>
+  <actorFolder>eu/itm/tester_cpin</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
