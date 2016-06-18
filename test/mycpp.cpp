@@ -6,19 +6,19 @@ typedef struct {
       char **parameters;
       char **default_param;
       char **schema;
-} param;
+}param;
 
 void mycppfunction(
-      ItmNs::Itm::summary & sum,
-      ItmNs::Itm::antennas & ant,
-      ItmNs::Itm::equilibriumArray & eq,
-      int & x,
-      ItmNs::Itm::limiter & lim,
-      ItmNs::Itm::coreimpur & cor,
-      ItmNs::Itm::ironmodelArray & iron,
-      double * y,
-      char * str,
-param & codeparam)
+      ItmNs::Itm::summary &sum,
+      ItmNs::Itm::antennas &ant,
+      ItmNs::Itm::equilibriumArray &eq,
+      int &x,
+      ItmNs::Itm::limiter &lim,
+      ItmNs::Itm::coreimpur &cor,
+      ItmNs::Itm::ironmodelArray &iron,
+      double *y,
+      char *str,
+      param &codeparam)
 {
 
       /* display first line of parameters */
