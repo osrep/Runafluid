@@ -9,7 +9,7 @@ typedef struct {
 }param;
 
 void mycppfunction(
-     /* ItmNs::Itm::summary &sum,*/
+     /* ItmNs::Itm:: &sum,*/
       ItmNs::Itm::antennas &ant,
       ItmNs::Itm::equilibriumArray &eq,
       int &x,
@@ -27,8 +27,8 @@ void mycppfunction(
       cout << codeparam.schema[0] << endl;
       /* display content of inputs */
       cout << "x=" << x << endl;
-      cout << sum.time << endl;
-      cout << sum.datainfo.dataprovider << endl;
+    /*  cout << sum.time << endl;
+      cout << sum.datainfo.dataprovider << endl;*/
       cout << ant.datainfo.dataprovider << endl;
       cout << eq.array(0).datainfo.dataprovider << endl;
       for (int k=0; k<3; k++) {
