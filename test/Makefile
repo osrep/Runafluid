@@ -15,5 +15,4 @@ libMycpp.a: runafluid.o  control.o  cpo_utils.o
 mycpp.o: mycpp.cpp
 
 clean:
-      rm mycpp.o libMycpp.a
- 	
+	rm mycpp.o libMycpp.a 	
