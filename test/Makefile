@@ -9,7 +9,7 @@ LDFLAGS=-L$(UAL)/lib -lUALCPPInterface -lUALLowLevel -L/afs/efda-itm.eu/project/
 
 all: libMycpp.a 
 
-libMycpp.a: runafluid.o  control.o  cpo_utils.o
+libMycpp.a: mycpp.o
 	ar -rvs libMycpp.a mycpp.o 
 	
 mycpp.o: mycpp.cpp
