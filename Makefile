@@ -5,7 +5,7 @@ CXXFLAGS+=$(shell eval-pkg-config --cflags ual-cpp-gnu)
 LDFLAGS=$(shell eval-pkg-config --libs ual-cpp-gnu)
 #CXXFLAGS += -I$(ITMLIBDIR)/itmconstants/include/
 
-all: libRunafluid.a libDistInit.a  test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libDAin.a test/libDAout.a
+all: libRunafluid.a libDistInit.a  test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libDAin.a test/libDAout.a test/libCPin.a
  
 #dreicer.o avalanche.o
 libRunafluid.a: runafluid.o  control.o  cpo_utils.o
@@ -28,6 +28,11 @@ test/libDAin.a: test/dain.o
 	
 test/libDAout.a: test/daout.o 
 	ar -rvs $@ $^
+	
+	
+test/libCPin.a: test/cpin.o 
+	ar -rvs $@ $^
+	
 	
 #test/test.o: test/test.cpp
 #	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(ITMWORK)/gtest-1.7.0/include/ -c -o $@ $^
