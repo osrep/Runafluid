@@ -1,9 +1,9 @@
 <generactor.ActorGenerator>
-  <version>branches/R2.2_r536</version>
+  <version>branches/R2.2_r553</version>
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>test/libTmpInit.a</fFile>
+  <fFile>test/libNothing.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
@@ -270,17 +270,17 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r536/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams>
           <vector>
-            <string>double</string>
-            <string>1</string>
+            <string>distribution</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>tempData</string>
+            <string>0</string>
+            <string>da</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -316,10 +316,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runafluid_tmpInit</actor>
+  <actor>tester_nothing</actor>
   <actorVersion></actorVersion>
   <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
-  <actorFolder>eu/itm/runafluid_tmpInit</actorFolder>
+  <actorFolder>eu/itm/tester_nothing</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
@@ -584,7 +584,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r536/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams/>
         <uHash>
@@ -633,6 +633,6 @@
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
-  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r536/bin/..</FC2Kpath>
+  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/..</FC2Kpath>
   <fDiagnosticInfo>false</fDiagnosticInfo>
 </generactor.ActorGenerator>
