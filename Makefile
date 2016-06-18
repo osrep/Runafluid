@@ -7,7 +7,7 @@ LDFLAGS=$(shell eval-pkg-config --libs ual-cpp-gnu)
 
 all: libRunafluid.a libDistInit.a  
 
-test: libRunafluid.a libDistInit.a  test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libDAin.a test/libDAout.a test/libCPin.a test/libMycpp.a
+t: libRunafluid.a libDistInit.a  test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libDAin.a test/libDAout.a test/libCPin.a test/libMycpp.a
  
 #dreicer.o avalanche.o
 libRunafluid.a: runafluid.o  control.o  cpo_utils.o
