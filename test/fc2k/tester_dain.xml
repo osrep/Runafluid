@@ -316,10 +316,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>tester_nothing</actor>
+  <actor>tester_dain</actor>
   <actorVersion></actorVersion>
   <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
-  <actorFolder>eu/itm/tester_nothing</actorFolder>
+  <actorFolder>eu/itm/tester_dain</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
