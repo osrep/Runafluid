@@ -4,6 +4,6 @@
 #include <stdexcept>
 #include <UALClasses.h>
 
-void fire(ItmNs::Itm::distribution &distribution){
+void fire(ItmNs::Itm::distributionArray &da){
 
 }
