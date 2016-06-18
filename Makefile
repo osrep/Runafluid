@@ -36,7 +36,7 @@ test/libCPin.a: test/cpin.o
 	ar -rvs $@ $^
 	
 	
-test/libMycpp.a test/mycpp.o 
+test/libMycpp.a: test/mycpp.o 
 	ar -rvs $@ $^
 	
 #test/test.o: test/test.cpp
