@@ -319,6 +319,15 @@
             <string>dist_initialised</string>
           </vector>
           <vector>
+            <string>double</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>time_next</string>
+          </vector>
+          <vector>
             <string>temporary</string>
             <string>1</string>
             <string>0</string>
