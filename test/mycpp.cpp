@@ -9,7 +9,7 @@ typedef struct {
 }param;
 
 void mycppfunction(
-     /* ItmNs::Itm:: &sum,*/
+     /* ItmNs::Itm::summary &sum,*/
       ItmNs::Itm::antennas &ant,
       ItmNs::Itm::equilibriumArray &eq,
       int &x,
