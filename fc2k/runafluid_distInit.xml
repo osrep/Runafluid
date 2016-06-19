@@ -278,18 +278,9 @@
             <string>1</string>
             <string>0</string>
             <string>0</string>
-            <string>1</string>
             <string>0</string>
-            <string>distribution_in</string>
-          </vector>
-          <vector>
+            <string>1</string>
             <string>distribution</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>distribution_out</string>
           </vector>
           <vector>
             <string>coreprof</string>
@@ -308,15 +299,6 @@
             <string>1</string>
             <string>0</string>
             <string>coreimpur</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>dist_initialised</string>
           </vector>
           <vector>
             <string>temporary</string>
