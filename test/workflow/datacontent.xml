@@ -30,20 +30,20 @@
         </property>
         <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#Director">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, -30.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[345.0, 70.0]">
         </property>
     </property>
     <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, -4, 1288, 934}, maximized=true}">
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[972, 772]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2625130321008426">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2314846165586353">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{398.9663438764256, 250.06628176686132}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{486.615541841792, 350.4503629399442}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2335">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:271:54">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:271:100">
     </property>
     <property name="DefaultTitle" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
         <property name="displayText" class="ptolemy.data.expr.StringParameter" value="Datacontent">
@@ -85,140 +85,215 @@
         </property>
         <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowWebExport">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 35.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[345.0, 135.0]">
         </property>
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:60:1">
         </property>
     </property>
     <property name="enableBackwardTypeInference" class="ptolemy.data.expr.Parameter" value="false">
     </property>
-    <property name="DefaultTitle2" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
-        <property name="displayText" class="ptolemy.data.expr.StringParameter" value="iter | 5 | 8 | 999">
+    <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
         </property>
-        <property name="height" class="ptolemy.data.expr.Parameter" value="20">
+        <property name="_hideAllParameters" class="ptolemy.data.expr.Parameter" value="true">
         </property>
-        <property name="width" class="ptolemy.data.expr.Parameter" value="60">
+        <property name="textSize" class="ptolemy.data.expr.Parameter" value="14">
         </property>
-        <property name="style" class="ptolemy.actor.gui.style.TextStyle">
-            <property name="height" class="ptolemy.data.expr.Parameter" value="height">
+        <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+        </property>
+        <property name="fontFamily" class="ptolemy.data.expr.StringParameter" value="SansSerif">
+        </property>
+        <property name="bold" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="italic" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
+        </property>
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="coreprof&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999&#10;iter | 14 | 999 | 999&#10;iter | 77922 | 998 | 999">
+            <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
+                <property name="height" class="ptolemy.data.expr.Parameter" value="15">
+                </property>
+                <property name="width" class="ptolemy.data.expr.Parameter" value="40">
+                </property>
             </property>
-            <property name="width" class="ptolemy.data.expr.Parameter" value="width">
-            </property>
-        </property>
-        <property name="showTitleInHTML" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-        <property name="include" class="ptolemy.data.expr.StringParameter" value="Entities">
-        </property>
-        <property name="instancesOf" class="ptolemy.data.expr.StringParameter" value="">
         </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>$Id: DefaultTitle.java 63960 2012-07-13 22:59:42Z cxh $</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;A parameter specifying default title to associate&#10; with a model and with components in the model.&#10; By default, this attribute uses the model name&#10; and component names as the title.</configure></property>
-<property name="prop:height" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the height of the editing box.  This is an int that defaults to 20.</configure></property>
-<property name="prop:showTitleInHTML" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If set to true, then the title given by this parameter  will be shown in the HTML prior to the image of the model  (as well as in the image of the model, if it is visible  when the export to web occurs). This is a boolean that  defaults to true.</configure></property>
-<property name="prop:include" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specification of whether to provide the title for  Attributes, Entities, or both. This is either &quot;Entities&quot; (the  default), &quot;Attributes&quot;, &quot;All&quot;, or &quot;None&quot;.</configure></property>
-<property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
-<property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
-<property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:62:1">
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Use the Annotation attribute to annotate a workflow. Double-click the attribute to customize the content, font size, color, and basic formatting (bold and italics).</configure></property>
+<property name="prop:fontFamily" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font face. Select a font from the drop-down menu. The default is &quot;SansSerif&quot;.</configure></property>
+<property name="prop:italic" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be italics. By default, type will not be italicized.</configure></property>
+<property name="prop:bold" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be bold. By default, type will not be bold.</configure></property>
+<property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
+<property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
+<property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:7">
         </property>
-        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
-            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="null">
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
             </property>
         </property>
-        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowWebExport">
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#DocumentationActor">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[185.0, -35.0]">
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowDocumentation">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[45.0, 375.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1">
         </property>
     </property>
-    <property name="DefaultTitle3" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
-        <property name="displayText" class="ptolemy.data.expr.StringParameter" value="test | 5 | 2 | 999">
+    <property name="Annotation2" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
         </property>
-        <property name="height" class="ptolemy.data.expr.Parameter" value="20">
+        <property name="_hideAllParameters" class="ptolemy.data.expr.Parameter" value="true">
         </property>
-        <property name="width" class="ptolemy.data.expr.Parameter" value="60">
+        <property name="textSize" class="ptolemy.data.expr.Parameter" value="14">
         </property>
-        <property name="style" class="ptolemy.actor.gui.style.TextStyle">
-            <property name="height" class="ptolemy.data.expr.Parameter" value="height">
+        <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+        </property>
+        <property name="fontFamily" class="ptolemy.data.expr.StringParameter" value="SansSerif">
+        </property>
+        <property name="bold" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="italic" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
+        </property>
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="coreimpur&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999&#10;iter | 14 | 999 | 999&#10;iter | 77922 | 998 | 999">
+            <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
+                <property name="height" class="ptolemy.data.expr.Parameter" value="15">
+                </property>
+                <property name="width" class="ptolemy.data.expr.Parameter" value="40">
+                </property>
             </property>
-            <property name="width" class="ptolemy.data.expr.Parameter" value="width">
-            </property>
-        </property>
-        <property name="showTitleInHTML" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-        <property name="include" class="ptolemy.data.expr.StringParameter" value="Entities">
-        </property>
-        <property name="instancesOf" class="ptolemy.data.expr.StringParameter" value="">
         </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>$Id: DefaultTitle.java 63960 2012-07-13 22:59:42Z cxh $</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;A parameter specifying default title to associate&#10; with a model and with components in the model.&#10; By default, this attribute uses the model name&#10; and component names as the title.</configure></property>
-<property name="prop:include" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specification of whether to provide the title for  Attributes, Entities, or both. This is either &quot;Entities&quot; (the  default), &quot;Attributes&quot;, &quot;All&quot;, or &quot;None&quot;.</configure></property>
-<property name="prop:showTitleInHTML" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If set to true, then the title given by this parameter  will be shown in the HTML prior to the image of the model  (as well as in the image of the model, if it is visible  when the export to web occurs). This is a boolean that  defaults to true.</configure></property>
-<property name="prop:height" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the height of the editing box.  This is an int that defaults to 20.</configure></property>
-<property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
-<property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
-<property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:62:5">
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Use the Annotation attribute to annotate a workflow. Double-click the attribute to customize the content, font size, color, and basic formatting (bold and italics).</configure></property>
+<property name="prop:fontFamily" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font face. Select a font from the drop-down menu. The default is &quot;SansSerif&quot;.</configure></property>
+<property name="prop:italic" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be italics. By default, type will not be italicized.</configure></property>
+<property name="prop:bold" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be bold. By default, type will not be bold.</configure></property>
+<property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
+<property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
+<property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:8">
         </property>
-        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
-            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="null">
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
             </property>
         </property>
-        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowWebExport">
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#DocumentationActor">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[185.0, 15.0]">
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowDocumentation">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[260.0, 375.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1">
         </property>
     </property>
-    <property name="DefaultTitle4" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
-        <property name="displayText" class="ptolemy.data.expr.StringParameter" value="iter | 5 | 2067 | 999">
+    <property name="Annotation3" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
         </property>
-        <property name="height" class="ptolemy.data.expr.Parameter" value="20">
+        <property name="_hideAllParameters" class="ptolemy.data.expr.Parameter" value="true">
         </property>
-        <property name="width" class="ptolemy.data.expr.Parameter" value="60">
+        <property name="textSize" class="ptolemy.data.expr.Parameter" value="14">
         </property>
-        <property name="style" class="ptolemy.actor.gui.style.TextStyle">
-            <property name="height" class="ptolemy.data.expr.Parameter" value="height">
+        <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+        </property>
+        <property name="fontFamily" class="ptolemy.data.expr.StringParameter" value="SansSerif">
+        </property>
+        <property name="bold" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="italic" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
+        </property>
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="equilibrium&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999&#10;iter | 14 | 999 | 999&#10;iter | 77922 | 998 | 999">
+            <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
+                <property name="height" class="ptolemy.data.expr.Parameter" value="15">
+                </property>
+                <property name="width" class="ptolemy.data.expr.Parameter" value="40">
+                </property>
             </property>
-            <property name="width" class="ptolemy.data.expr.Parameter" value="width">
-            </property>
-        </property>
-        <property name="showTitleInHTML" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-        <property name="include" class="ptolemy.data.expr.StringParameter" value="Entities">
-        </property>
-        <property name="instancesOf" class="ptolemy.data.expr.StringParameter" value="">
         </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>$Id: DefaultTitle.java 63960 2012-07-13 22:59:42Z cxh $</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;A parameter specifying default title to associate&#10; with a model and with components in the model.&#10; By default, this attribute uses the model name&#10; and component names as the title.</configure></property>
-<property name="prop:include" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specification of whether to provide the title for  Attributes, Entities, or both. This is either &quot;Entities&quot; (the  default), &quot;Attributes&quot;, &quot;All&quot;, or &quot;None&quot;.</configure></property>
-<property name="prop:showTitleInHTML" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If set to true, then the title given by this parameter  will be shown in the HTML prior to the image of the model  (as well as in the image of the model, if it is visible  when the export to web occurs). This is a boolean that  defaults to true.</configure></property>
-<property name="prop:height" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the height of the editing box.  This is an int that defaults to 20.</configure></property>
-<property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
-<property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
-<property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:62:4">
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Use the Annotation attribute to annotate a workflow. Double-click the attribute to customize the content, font size, color, and basic formatting (bold and italics).</configure></property>
+<property name="prop:fontFamily" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font face. Select a font from the drop-down menu. The default is &quot;SansSerif&quot;.</configure></property>
+<property name="prop:italic" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be italics. By default, type will not be italicized.</configure></property>
+<property name="prop:bold" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be bold. By default, type will not be bold.</configure></property>
+<property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
+<property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
+<property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:9">
         </property>
-        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
-            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="null">
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
             </property>
         </property>
-        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowWebExport">
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#DocumentationActor">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[185.0, -15.0]">
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowDocumentation">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:695:1">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[455.0, 375.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1">
+        </property>
+    </property>
+    <property name="Annotation4" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <property name="_hideAllParameters" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+        <property name="textSize" class="ptolemy.data.expr.Parameter" value="14">
+        </property>
+        <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+        </property>
+        <property name="fontFamily" class="ptolemy.data.expr.StringParameter" value="SansSerif">
+        </property>
+        <property name="bold" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="italic" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
+        </property>
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="distribution&#10;iter | 5 | 8 | 999 (time)&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999&#10;iter | 14 | 999 | 999&#10;iter | 77922 | 998 | 999">
+            <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
+                <property name="height" class="ptolemy.data.expr.Parameter" value="15">
+                </property>
+                <property name="width" class="ptolemy.data.expr.Parameter" value="40">
+                </property>
+            </property>
+        </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Use the Annotation attribute to annotate a workflow. Double-click the attribute to customize the content, font size, color, and basic formatting (bold and italics).</configure></property>
+<property name="prop:fontFamily" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font face. Select a font from the drop-down menu. The default is &quot;SansSerif&quot;.</configure></property>
+<property name="prop:italic" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be italics. By default, type will not be italicized.</configure></property>
+<property name="prop:bold" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be bold. By default, type will not be bold.</configure></property>
+<property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
+<property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
+<property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:11">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#DocumentationActor">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowDocumentation">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[655.0, 375.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1">
         </property>
     </property>
     <entity name="ualinit" class="eu.itm.ualinit.ualInit">
@@ -328,7 +403,7 @@
         </port>
     </entity>
     <entity name="run number" class="ptolemy.actor.lib.Const">
-        <property name="value" class="ptolemy.data.expr.Parameter" value="2067">
+        <property name="value" class="ptolemy.data.expr.Parameter" value="998">
         </property>
         <property name="firingCountLimit" class="ptolemy.data.expr.Parameter" value="1">
         </property>
@@ -343,7 +418,7 @@
 <property name="port:trigger" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that has no declared type (in other words, the port can accept any data type: double, int, array, etc.) If the port is connected, the actor will not fire until the trigger port receives an input token. Connecting the port is optional, but useful when scheduling the actor to perform at a certain time.</configure></property>
 <property name="prop:firingCountLimit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The limit on the number of times the actor will fire. The default value is 'NONE', meaning there is no limit on the number of time the constant will be provided to the output port. Any integer can be provided as a value for this parameter.</configure></property>
 <property name="prop:value" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The value produced by the Constant actor. By default, the value is the integer token 1. The value can be set to another type, e.g., a string (such as &quot;Hello&quot;) or a double (such as 1.2). The  output type matches the type of the value specified here.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:19:47">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:284:2">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Const">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:877:1">
@@ -363,7 +438,7 @@
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[124.25, 242.0]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:1:1:urn:lsid:kepler-project.org/ns/:62444:139:3:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:225:1">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:1:1:urn:lsid:kepler-project.org/ns/:62444:139:3:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:225:1:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:19:47">
         </property>
         <port name="trigger" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -491,7 +566,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[525.0, 85.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[700.0, 70.0]">
         </property>
     </entity>
     <entity name="cpocontent2" class="eu.itm.cpocontent.cpocontent">
@@ -525,7 +600,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, 145.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[740.0, 130.0]">
         </property>
     </entity>
     <entity name="cpocontent3" class="eu.itm.cpocontent.cpocontent">
@@ -559,7 +634,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[480.0, 205.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[655.0, 190.0]">
         </property>
     </entity>
     <entity name="cpocontent4" class="eu.itm.cpocontent.cpocontent">
@@ -593,7 +668,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 250.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[750.0, 235.0]">
         </property>
     </entity>
     <entity name="cpocontent5" class="eu.itm.cpocontent.cpocontent">
@@ -627,7 +702,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[535.0, 330.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[710.0, 315.0]">
         </property>
     </entity>
     <relation name="relation9" class="ptolemy.actor.TypedIORelation">
