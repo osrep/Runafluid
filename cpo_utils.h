@@ -13,6 +13,8 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 
 int int_switch(int switch_number, bool *bools, int N);
 
+int bool_switch(bool *bools, int N);
+
 profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) ;	
 
 profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::equilibrium &equilibrium) ;	
