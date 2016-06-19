@@ -94,7 +94,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		double rundensity67 = 0.0;*/
 		
 		//! Number of rate calculations (Dreicer, Avalanche etc.)
-		int N_rates = 2;/*6;*/
+		int N_rates = 6;
 		double rate_values[N_rates];
 		
 			std::cerr << "RUNAFLUID TEST 002" << std::endl;
@@ -126,7 +126,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
 		runaway_rates.timed.float1d(0).value.resize(N_rho);		
 		
-		/*runaway_rates.timed.float1d(2).identifier.id = "dreicer63";
+		runaway_rates.timed.float1d(2).identifier.id = "dreicer63";
 		runaway_rates.timed.float1d(2).identifier.flag = 2;
 		runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate by Connor et al. (63)";
 		runaway_rates.timed.float1d(2).value.resize(N_rho);				
@@ -144,7 +144,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		runaway_rates.timed.float1d(5).identifier.id = "dreicer_prev";
 		runaway_rates.timed.float1d(5).identifier.flag = 5;
 		runaway_rates.timed.float1d(5).identifier.description = "Dreicer generation rate in the previous timestep";
-		runaway_rates.timed.float1d(5).value.resize(N_rho);*/
+		runaway_rates.timed.float1d(5).value.resize(N_rho);
 		
 		//! Avalanche generation rate initialisation
 		runaway_rates.timed.float1d(1).identifier.id = "avalanche";
@@ -188,7 +188,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				}
 				
 			std::cerr << "RUNAFLUID TEST 008" << std::endl;
-				/*
+				
 				//! runaway warning
 				if(rundensity > 1e-100){
 			   		warning_bools[0] = 1;
@@ -197,7 +197,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				//! 1\%{} n_e warning
 				if(rundensity > 0.01*it->electron_density){
 			   		warning_bools[1] = 1;
-		   		}*/
+		   		}
 				
 				
 			std::cerr << "RUNAFLUID TEST 009" << std::endl;
