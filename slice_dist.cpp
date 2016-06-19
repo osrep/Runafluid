@@ -150,13 +150,14 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 	
 		for (int i = 0; i < N; ++i){
 		
-			/*	if (dist_initialised & flag==7){*/
+				if (flag==7){
 				//! Filling up runaway density and current from the input distribution
 					distribution_temp.non_timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);
 				//	distribution_temp.timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);
 					//distribution_tempA.array(0).timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);
-				/*}*/
-			}
+				}else{				
+					distribution_temp.non_timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);
+				}
 	
 	
 	
