@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised, double &time_next, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::temporaryArray &da) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised, double &time_next, ItmNs::Itm::temporary &distribution_temp/*, ItmNs::Itm::temporaryArray &da*/) {
 
 
 	
@@ -173,10 +173,10 @@ void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &d
 	
 	
 	//Allocate room for 3 CPO instances
-	da.array.resize(1);
+	/*da.array.resize(1);
 	da[0].time = time_next;
 	da[0].timed.float1d.resize(1);	
-	da[0].timed.float1d(0).value.resize(N);
+	da[0].timed.float1d(0).value.resize(N);*/
 		
 		
 		
