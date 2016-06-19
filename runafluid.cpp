@@ -88,8 +88,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			
 		double rundensity = 0.0;
 		
+		//!!! temp
+		double rundensity63 = 0.0;
+		double rundensity66 = 0.0;
+		double rundensity67 = 0.0;
+		
 		//! Number of rate calculations (Dreicer, Avalanche etc.)
-		int N_rates = 5;
+		int N_rates = 6;
 		double rate_values[N_rates];
 		
 		
@@ -156,13 +161,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			//! Length of the runaway distribution is correct
 			if (rho<distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows()){
 			
+						
 				//! calculating runaway density
 				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, abs(it->effective_charge), it->electric_field, timestep, runafluid_switch, rate_values);
 			   	
 			   	if(rho<Ntemp){
-				   	rate_values[2]=distribution_temp.non_timed.float1d(0).value(rho);
-				   	rate_values[3]=0;//distribution_temp.timed.float1d(0).value(rho);
-				   	rate_values[4]=0;//distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
+				   	rate_values[5]=distribution_temp.non_timed.float1d(0).value(rho);
 			   	}
 			   	
 			   	//! CPO output
