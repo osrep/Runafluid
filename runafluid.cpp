@@ -156,16 +156,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			std::cerr << "RUNAFLUID TEST 005" << std::endl;
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 		
-			//! Dreicer 63 66 67 tester -- temporary
-			/*if (rho==10){
-				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1001, rate_values);	
-				std::cerr << "DREICER 67: " << rate_values[0];
-				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1011, rate_values);
-				std::cerr << "\tDREICER 66: " << rate_values[0];
-				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, it->electric_field, timestep, 1111, rate_values);
-				std::cerr << "\tDREICER 63: " << rate_values[0] << std::endl;
-			}*/
-		
 		
 			std::cerr << "RUNAFLUID TEST 006" << std::endl;
 			//! Length of the runaway distribution is correct
@@ -175,9 +165,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				//! calculating runaway density
 				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, abs(it->effective_charge), it->electric_field, timestep, runafluid_switch, rate_values);
 			   	
-			 /*  	if(rho<Ntemp){
+			   	if(rho<Ntemp){
 				   	rate_values[5]=distribution_temp.non_timed.float1d(0).value(rho);
-			   	}*/
+			   	}
 			   	
 			std::cerr << "RUNAFLUID TEST 007" << std::endl;
 			   	//! CPO output
