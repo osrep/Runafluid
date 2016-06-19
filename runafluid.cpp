@@ -85,7 +85,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	int N_rho = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
 	
 	try {
-			
+			std::cerr << "RUNAFLUID TEST 001" << std::endl;
 		double rundensity = 0.0;
 		
 		//!!! temp
@@ -97,6 +97,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		int N_rates = 6;
 		double rate_values[N_rates];
 		
+			std::cerr << "RUNAFLUID TEST 002" << std::endl;
 		
 		//! reading profile from CPO inputs (cpo_utils.h)
 		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_temp/*, distribution_prev*/);
@@ -105,12 +106,14 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//! stepping iterator in profile	
 		int rho = 0;	
 		
+			std::cerr << "RUNAFLUID TEST 003" << std::endl;
 		//! warning initialiser
-		runafluid_warnings = 0;
+		/*runafluid_warnings = 0;
 		int warning_n = 2;
 		bool warning_bools[warning_n];		
-		int_switch(runafluid_warnings,warning_bools,warning_n);
+		int_switch(runafluid_warnings,warning_bools,warning_n);*/
 		
+			std::cerr << "RUNAFLUID TEST 004" << std::endl;
 		
 		//! Length of previous distribution
 		/*int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();*/
@@ -150,6 +153,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		runaway_rates.timed.float1d(1).value.resize(N_rho);
 
 		
+			std::cerr << "RUNAFLUID TEST 005" << std::endl;
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 		
 			//! Dreicer 63 66 67 tester -- temporary
@@ -181,7 +185,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
 				}
 				
-				
+				/*
 				//! runaway warning
 				if(rundensity > 1e-100){
 			   		warning_bools[0] = 1;
@@ -190,7 +194,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				//! 1\%{} n_e warning
 				if(rundensity > 0.01*it->electron_density){
 			   		warning_bools[1] = 1;
-		   		}
+		   		}*/
 				
 				
 				if(rundensity > it->electron_density){
@@ -206,7 +210,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		}
 		
-		runafluid_warnings = bool_switch(warning_bools,warning_n);					
+		/*runafluid_warnings = bool_switch(warning_bools,warning_n);	*/				
 
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
