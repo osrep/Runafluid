@@ -155,7 +155,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			   	
 			   	if(rho<Ntemp){
 				   	rate_values[2]=distribution_temp.non_timed.float1d(0).value(rho);
-				   	rate_values[3]=0;//distribution_tempA[0].timed.float1d(0).value(rho);
+				   	rate_values[3]=distribution_temp.timed.float1d(0).value(rho);
 				   	rate_values[4]=distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
 			   	}
 			   	
