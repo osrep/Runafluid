@@ -301,11 +301,11 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 			}
 		}
 		
-			std::cerr << "IMPURITY length: " <<  coreimpur.impurity.rows() << std::endl;
+		std::cerr << "Zeff: " <<  celll.effective_charge << std::endl;
 		
-		if (coreimpur.impurity.rows()==0){
+		/*if (coreimpur.impurity.rows()==0){
 			celll.effective_charge =2.5;
-		}
+		}*/
 		
 		// rho_tor: toroidal flux coordinate
 
