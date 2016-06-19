@@ -79,7 +79,7 @@ ABCD
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &critical_field_warning, int &growth_rate_warning, ItmNs::Itm::temporary &runaway_rates, ItmNs::Itm::temporary &distribution_temp/*, ItmNs::Itm::temporaryArray &distribution_tempA*/) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &critical_field_warning, int &growth_rate_warning, ItmNs::Itm::temporary &runaway_rates, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::temporaryArray &da) {
 
 	//! Number of elements in runaway electron distribution
 	int N_rho = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
