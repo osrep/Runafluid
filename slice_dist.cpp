@@ -13,154 +13,166 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDistribution, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised) {
+void fire(ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, int &dist_initialised, double &time_next, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::temporaryArray &da) {
 
 
-//std::cerr << "Number of elements:"<< std::endl;
-//distri_vec[*]/source_id/type/flag == 7
-
-	//! length of distri_vec
-	
-	
-	/*int N_dist = dist_in.distri_vec.rows();
-	
-	std::cerr << "Length of distri_vec: \t"<< N_dist << std::endl << std::endl;
-	
-	for (int i=0;i<N_dist;i++){
-		std::cerr << "\t DISTRI_VEC["<< i << "]: \t" << dist_in.distri_vec(i).source_id(0).type.flag << dist_in.distri_vec(i).source_id(0).type.id << std::endl;
-	}
-	*/
 	
 	try {
 		//! number of geometry elements
 		int N = coreprof.ne.value.rows();
 		
-		//! number of density elements
-		int N2 = distribution.distri_vec(0).profiles_1d.state.dens.rows();
+	//std::cerr << "Length of distri_vec: \t"<< N << std::endl << std::endl;
+		int N_rho_tor = coreprof.rho_tor.rows();
 		
-	std::cerr << "SLICE: Length of distri_vec: \t"<< N << std::endl << std::endl;
-	
-	
-	
-	tempDistribution.non_timed.float1d.resize(1);	
-	tempDistribution.non_timed.float1d(0).value.resize(N);
-	tempDistribution.non_timed.float1d(0).identifier.id = "prev_runaway";
-	tempDistribution.non_timed.float1d(0).identifier.description = "Previous runaway density";
-	tempDistribution.non_timed.float1d(0).identifier.flag = 7;
-	
-	for (int i = 0; i < N; ++i){
-		if(distribution.distri_vec(0).source_id(0).type.flag == 7){
-				if (i<N2) {
-					tempDistribution.non_timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);		
-		
-				}else{
-					tempDistribution.non_timed.float1d(0).value(i) = 0;					
-				}
-		}else{		
-				//! Filling up runaway density with zeroes
-				tempDistribution.non_timed.float1d(0).value(i) = 0;	
-			
-		}
-		
-		//!test dump
-		if(i==10) std::cerr << "DISTRIBUTION"<<i<<":\t"<<distribution.distri_vec(0).profiles_1d.state.dens(i)<<"\t"<< tempDistribution.non_timed.float1d(0).value(i) << std::endl;
-	}
-	/*	int N_rho_tor = coreprof.rho_tor.rows();
-		
-	std::cerr << "Length of distri_vec: \t"<< N_rho_tor << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_rho_tor << std::endl << std::endl;
 		int N_rho_tor_norm = coreprof.rho_tor_norm.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_rho_tor_norm << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_rho_tor_norm << std::endl << std::endl;
 		int N_psi = coreprof.psi.value.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_psi << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_psi << std::endl << std::endl;
 		int N_area = coreimpur.area.rows();		
 		
-	std::cerr << "Length of distri_vec: \t"<< N_area << std::endl << std::endl;
+	//std::cerr << "Length of distri_vec: \t"<< N_area << std::endl << std::endl;
 		int N_volume = coreimpur.volume.rows();
 		
-	std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;*/
+	//std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;
+	
+		int flag = 0;
+		std::cerr << "dens3prev: " << distribution_in.distri_vec(0).profiles_1d.state.dens(3) << std::endl;
 				
-		/*try {			
-			
-			if(distribution_in.distri_vec(0).source_id(0).type.flag == 7){
-				std::cerr << "Runaway distribution\t YES \n\tPrevious distribution was a runaway (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;			
-			}else{			
-				std::cerr << "Runaway distribution\t NO \n\tPrevious distribution was other (" << distribution_in.distri_vec(0).source_id(0).type.flag << ") distribution" << std::endl;
-			}
+		try {			
+			flag = distribution_in.distri_vec(0).source_id(0).type.flag;			
 		
 		} catch (const std::exception& ex) {
 			throw std::invalid_argument("distribution non-readable");
 		
-		}	*/
-				
-				
-		//! New distribution array
-		//distribution_out.array.resize(1);
+		}	
+		
+		if (dist_initialised & flag==7){
+			std::cerr << " -----------  PREVIOUS DISTRIBUTION: OK -----------t" << std::endl;
+			
+		}		
+			
 				
 		//! New distribution data set
-		/*distribution_out[0].distri_vec.resize(1);	
-		
+		distribution_out.distri_vec.resize(1);	
+	
 		//! Initialisation of runaway density
-		distribution_out[0].distri_vec(0).profiles_1d.state.dens.resize(N);
-		
-		
+		distribution_out.distri_vec(0).profiles_1d.state.dens.resize(N);
+	
+	
 		//! Initialisation of runaway current
-		distribution_out[0].distri_vec(0).profiles_1d.state.current.resize(N);
-		
-		
-		//! Filling up runaway density and current with zeroes
+		distribution_out.distri_vec(0).profiles_1d.state.current.resize(N);
+	
 		for (int i = 0; i < N; ++i){
-			distribution_out[0].distri_vec(0).profiles_1d.state.dens(i) = 0;
-			distribution_out[0].distri_vec(0).profiles_1d.state.current(i) = 0;
+		
+			if (dist_initialised & flag==7){
+			//! Filling up runaway density and current from the input distribution
+				distribution_out.distri_vec(0).profiles_1d.state.dens(i) = distribution_in.distri_vec(0).profiles_1d.state.dens(i);
+				distribution_out.distri_vec(0).profiles_1d.state.current(i) = distribution_in.distri_vec(0).profiles_1d.state.current(i);
+				
+				if(i==10) {std::cerr << "dens10prev: " << distribution_in.distri_vec(0).profiles_1d.state.dens(10) << std::endl;}
+			}else{	
+			//! Filling up runaway density and current with zeroes
+			
+				distribution_out.distri_vec(0).profiles_1d.state.dens(i) = 0;
+				distribution_out.distri_vec(0).profiles_1d.state.current(i) = 0;
+			}	
 		}
 		
 		//! New distribution source
-		/*distribution_out[0].distri_vec(0).source_id.resize(1);	
-		
-		
+		distribution_out.distri_vec(0).source_id.resize(1);	
+	
+	
 		//! Filling up distribution source
-		distribution_out[0].distri_vec(0).source_id(0).type.id = "runaway";
-		distribution_out[0].distri_vec(0).source_id(0).type.flag = 7;
-		distribution_out[0].distri_vec(0).source_id(0).type.description = "Source from runaway processes";
-		
-		
+		distribution_out.distri_vec(0).source_id(0).type.id = "runaway";
+		distribution_out.distri_vec(0).source_id(0).type.flag = 7;
+		distribution_out.distri_vec(0).source_id(0).type.description = "Source from runaway processes";
+	
+	
 		//! Filling up distribution species
-		distribution_out[0].distri_vec(0).species.type.id = "electron";
-		distribution_out[0].distri_vec(0).species.type.flag = 1;
-		distribution_out[0].distri_vec(0).species.type.description = "Electron";
-		
-		
+		distribution_out.distri_vec(0).species.type.id = "electron";
+		distribution_out.distri_vec(0).species.type.flag = 1;
+		distribution_out.distri_vec(0).species.type.description = "Electron";
+	
+	
 		//! Filling up distribution gyro type
-		distribution_out[0].distri_vec(0).gyro_type = 1;
-		
+		distribution_out.distri_vec(0).gyro_type = 1;
+	
 		//! Initialisation of geometry data		
-		distribution_out[0].distri_vec(0).profiles_1d.geometry.rho_tor.resize(N);
-		distribution_out[0].distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N);
-		distribution_out[0].distri_vec(0).profiles_1d.geometry.psi(N);
+		distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor.resize(N);
+		distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N);
+		distribution_out.distri_vec(0).profiles_1d.geometry.psi(N);
+	
+	
+		//! Filling up runaway geometry data from the previous distribution
+		if (dist_initialised & flag==7){
+		
+			for (int i = 0; i < N; ++i){
+				if (i < N_rho_tor){
+					distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor(i) = distribution_in.distri_vec(0).profiles_1d.geometry.rho_tor(i);
+				}
+		
+				if (i < N_rho_tor_norm){
+					distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = distribution_in.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i);
+				}			
+			}
 		
 		//! Filling up runaway geometry data from coreprof
-		for (int i = 0; i < N; ++i){
-			if (i < N_rho_tor){
-				distribution_out[0].distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
-			}
+		}else{
 			
-			if (i < N_rho_tor_norm){
-				distribution_out[0].distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
-			}
+			for (int i = 0; i < N; ++i){
+				if (i < N_rho_tor){
+					distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
+				}
+		
+				if (i < N_rho_tor_norm){
+					distribution_out.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
+				}
 
-			if (i < N_psi){
-//				distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
+				/*if (i < N_psi){
+					distribution_out.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
+				}
+		
+				if (i < N_area){
+					distribution_out.distri_vec(0).profiles_1d.geometry.area(i) = coreimpur.area(i);
+				}
+		
+				if (i < N_volume){
+					distribution_out.distri_vec(0).profiles_1d.geometry.volume(i) = coreimpur.volume(i);
+				}*/
 			}
-			
-			if (i < N_area){
-//				distribution_out.distri_vec(0).profiles_1d.geometry.area(i) = coreimpur.area(i);
+		}
+		
+		
+		
+		distribution_temp.non_timed.float1d.resize(1);
+		distribution_temp.non_timed.float1d(0).value.resize(N);
+		//distribution_tempA.array.resize(1);
+		/*distribution_tempA.array.resize(1);
+		distribution_tempA.array(0).timed.float1d.resize(1);
+		distribution_tempA.array(0).timed.float1d(0).value.resize(N);
+	*/
+	
+	
+		for (int i = 0; i < N; ++i){
+		
+				if (dist_initialised & flag==7){
+				//! Filling up runaway density and current from the input distribution
+					distribution_temp.non_timed.float1d(0).value(i) = distribution_in.distri_vec(0).profiles_1d.state.dens(i);
+					//distribution_tempA.array(0).timed.float1d(0).value(i) = distribution_in.distri_vec(0).profiles_1d.state.dens(i);
+				}
 			}
-			
-			if (i < N_volume){
-//				distribution_out.distri_vec(0).profiles_1d.geometry.volume(i) = coreimpur.volume(i);
-			}
-		}*/
+	
+	
+	
+	
+	//Allocate room for 3 CPO instances
+	da.array.resize(1);
+		
+		
+		
 		
 		
 	} catch (const std::exception& ex) {
@@ -171,7 +183,9 @@ void fire(ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &tempDis
 		//! internal error in distribution
 	
 	}
-	dist_initialised = 1;
+	
+	
+	
 	
 }
 
