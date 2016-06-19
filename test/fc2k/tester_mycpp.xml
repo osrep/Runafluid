@@ -3,10 +3,10 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>test/libNothing.a</fFile>
+  <fFile>test/libMycpp.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
-  <subrt>fire</subrt>
+  <subrt>mycppfunction</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
     <vector>
@@ -274,13 +274,67 @@
         </tc>
         <tupleParams>
           <vector>
-            <string>distribution</string>
+            <string>antennas</string>
+            <string>1</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>ant</string>
+          </vector>
+          <vector>
+            <string>equilibrium</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>da</string>
+            <string>eq</string>
+          </vector>
+          <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>1</string>
+            <string>x</string>
+          </vector>
+          <vector>
+            <string>coreimpur</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>cor</string>
+          </vector>
+          <vector>
+            <string>ironmodel</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>iron</string>
+          </vector>
+          <vector>
+            <string>double</string>
+            <string>0</string>
+            <string>1</string>
+            <string>10</string>
+            <string>0</string>
+            <string>1</string>
+            <string>y</string>
+          </vector>
+          <vector>
+            <string>character</string>
+            <string>0</string>
+            <string>1</string>
+            <string>50</string>
+            <string>0</string>
+            <string>1</string>
+            <string>str</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -316,10 +370,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>tester_nothing</actor>
+  <actor>tester_mycpp</actor>
   <actorVersion></actorVersion>
   <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
-  <actorFolder>eu/itm/tester_nothing</actorFolder>
+  <actorFolder>eu/itm/tester_mycpp</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
