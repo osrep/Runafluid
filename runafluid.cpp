@@ -113,7 +113,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		
 		//! Length of previous distribution
-		int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();
+		/*int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();*/
 		
 		//! runaway_rates for generation rates
 		//! Dreicer generation rate initialisation
@@ -123,20 +123,25 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
 		runaway_rates.timed.float1d(0).value.resize(N_rho);		
 		
-		runaway_rates.timed.float1d(2).identifier.id = "dreicerT";
+		/*runaway_rates.timed.float1d(2).identifier.id = "dreicer63";
 		runaway_rates.timed.float1d(2).identifier.flag = 2;
-		runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate TEMP";
+		runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate by Connor et al. (63)";
 		runaway_rates.timed.float1d(2).value.resize(N_rho);				
 		
-		runaway_rates.timed.float1d(3).identifier.id = "dreicerTA";
+		runaway_rates.timed.float1d(3).identifier.id = "dreicer66";
 		runaway_rates.timed.float1d(3).identifier.flag = 3;
-		runaway_rates.timed.float1d(3).identifier.description = "Dreicer generation rate TEMPARRAY";
+		runaway_rates.timed.float1d(3).identifier.description = "Dreicer generation rate by Connor et al. (66)";
 		runaway_rates.timed.float1d(3).value.resize(N_rho);		
 				
-		runaway_rates.timed.float1d(4).identifier.id = "dreicerP";
+		runaway_rates.timed.float1d(4).identifier.id = "dreicer67";
 		runaway_rates.timed.float1d(4).identifier.flag = 4;
-		runaway_rates.timed.float1d(4).identifier.description = "Dreicer generation rate PREV";
+		runaway_rates.timed.float1d(4).identifier.description = "Dreicer generation rate by Connor et al. (67)";
 		runaway_rates.timed.float1d(4).value.resize(N_rho);
+		
+		runaway_rates.timed.float1d(5).identifier.id = "dreicer_prev";
+		runaway_rates.timed.float1d(5).identifier.flag = 5;
+		runaway_rates.timed.float1d(5).identifier.description = "Dreicer generation rate in the previous timestep";
+		runaway_rates.timed.float1d(5).value.resize(N_rho);*/
 		
 		//! Avalanche generation rate initialisation
 		runaway_rates.timed.float1d(1).identifier.id = "avalanche";
