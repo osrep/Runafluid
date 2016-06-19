@@ -159,7 +159,7 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 					distribution_temp.non_timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);
 				}
 	
-	
+		}
 	
 	
 	//Allocate room for 3 CPO instances
