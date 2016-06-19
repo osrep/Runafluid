@@ -190,14 +190,14 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			std::cerr << "RUNAFLUID TEST 008" << std::endl;
 				
 				//! runaway warning
-				if(rundensity > 1e-100){
+				/*if(rundensity > 1e-100){
 			   		warning_bools[0] = 1;
 		   		}
 				
 				//! 1\%{} n_e warning
 				if(rundensity > 0.01*it->electron_density){
 			   		warning_bools[1] = 1;
-		   		}
+		   		}*/
 				
 				
 			std::cerr << "RUNAFLUID TEST 009" << std::endl;
