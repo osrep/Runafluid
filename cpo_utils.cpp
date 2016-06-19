@@ -94,6 +94,22 @@ int int_switch(int switch_number, bool *bools, int N){
 }
 
 
+int bool_switch(bool *bools, int N){
+	
+	int switch_number = 0;
+	for (int i=0; i<N; i++){
+		switch_number *= 10;
+		if (bools[i]=true){			
+			switch_number += 1;
+		}
+	}
+	
+	return switch_number;
+
+}
+
+
+
 /*!
 
 Copy data from coreprof CPO

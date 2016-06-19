@@ -79,7 +79,7 @@ ABCD
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &distribution_temp, double &timestep, int &runafluid_switch, int &critical_field_warning, int &growth_rate_warning, ItmNs::Itm::temporary &runaway_rates/*, ItmNs::Itm::temporaryArray &da*/) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::temporary &distribution_temp, double &timestep, int &runafluid_switch, int &runafluid_warnings, ItmNs::Itm::temporary &runaway_rates/*, ItmNs::Itm::temporaryArray &da*/) {
 
 	//! Number of elements in runaway electron distribution
 	int N_rho = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
@@ -100,8 +100,14 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//! stepping iterator in profile	
 		int rho = 0;	
 		
+		//! warning initialiser
+		runafluid_warnings = 0;
+		int warning_n = 2;
+		bool warning_bools[warning_n];		
+		int_switch(runafluid_warnings,warning_bools,warning_n);
 		
-		//!Length of previous distribution
+		
+		//! Length of previous distribution
 		int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();
 		
 		//! runaway_rates for generation rates
@@ -166,6 +172,18 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
 				}
 				
+				
+				//! runaway warning
+				if(rundensity > 1e-100){
+			   		warning_bools[0] = 1;
+		   		}
+				
+				//! 10\%{} n_e warning
+				if(rundensity > 0.1*it->electron_density){
+			   		warning_bools[1] = 1;
+		   		}
+				
+				
 				if(rundensity > it->electron_density){
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = it->electron_density;
 		   		}else if (rundensity < 0  || isnan(rundensity)){
@@ -177,7 +195,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	}
 		    rho++;
 		
-		}					
+		}
+		
+		runafluid_warnings = bool_switch(warning_bools,warning_n);					
 
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
