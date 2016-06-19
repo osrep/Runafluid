@@ -301,6 +301,8 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 			}
 		}
 		
+			std::cerr << "IMPURITY length: " <<  coreimpur.impurity.rows() << std::endl;
+		
 		if (coreimpur.impurity.rows()==0){
 			celll.effective_charge =2.5;
 		}
