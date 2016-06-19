@@ -196,8 +196,12 @@ Copy data from CPO inputs to profile structure
 
 */
 
+
+/*profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution){*/
+		
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution) {
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::temporary &distribution){
 
 	profile pro;
 
@@ -238,7 +242,8 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		*/
 		
 		try{
-			celll.runaway_density = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
+			/*celll.runaway_density = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);*/
+			celll.runaway_density = distribution_temp.non_timed.float1d(0).value(rho);
 			
 			if (rho==10) std::cerr << "IN " << rho << ": " << celll.runaway_density << std::endl;
 
