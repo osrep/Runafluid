@@ -167,6 +167,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}*/
 		
 		
+			std::cerr << "RUNAFLUID TEST 006" << std::endl;
 			//! Length of the runaway distribution is correct
 			if (rho<distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows()){
 			
@@ -178,6 +179,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				   	rate_values[5]=distribution_temp.non_timed.float1d(0).value(rho);
 			   	}*/
 			   	
+			std::cerr << "RUNAFLUID TEST 007" << std::endl;
 			   	//! CPO output
 			   	distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = rundensity;
 			   	
@@ -185,6 +187,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
 				}
 				
+			std::cerr << "RUNAFLUID TEST 008" << std::endl;
 				/*
 				//! runaway warning
 				if(rundensity > 1e-100){
@@ -197,6 +200,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   		}*/
 				
 				
+			std::cerr << "RUNAFLUID TEST 009" << std::endl;
 				if(rundensity > it->electron_density){
 			   		distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = it->electron_density;
 		   		}else if (rundensity < 0  || isnan(rundensity)){
@@ -210,6 +214,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		}
 		
+			std::cerr << "RUNAFLUID TEST 010" << std::endl;
 		/*runafluid_warnings = bool_switch(warning_bools,warning_n);	*/				
 
 	} catch (const std::exception& ex) {
