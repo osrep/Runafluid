@@ -178,8 +178,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			   		warning_bools[0] = 1;
 		   		}
 				
-				//! 10\%{} n_e warning
-				if(rundensity > 0.1*it->electron_density){
+				//! 1\%{} n_e warning
+				if(rundensity > 0.01*it->electron_density){
 			   		warning_bools[1] = 1;
 		   		}
 				
