@@ -310,13 +310,13 @@
             <string>distribution</string>
           </vector>
           <vector>
-            <string>distribution</string>
+            <string>temporary</string>
             <string>1</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>distribution_prev</string>
+            <string>distribution_temp</string>
           </vector>
           <vector>
             <string>double</string>
@@ -343,16 +343,7 @@
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>critical_field_warming</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>growth_rate_warming</string>
+            <string>runafluid_warnings</string>
           </vector>
           <vector>
             <string>temporary</string>
@@ -362,15 +353,6 @@
             <string>0</string>
             <string>1</string>
             <string>runaway_rates</string>
-          </vector>
-          <vector>
-            <string>temporary</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>distribution_temp</string>
           </vector>
         </tupleParams>
         <uHash>
