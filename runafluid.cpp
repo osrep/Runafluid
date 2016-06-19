@@ -94,7 +94,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		double rundensity67 = 0.0;*/
 		
 		//! Number of rate calculations (Dreicer, Avalanche etc.)
-		int N_rates = 6;
+		int N_rates = 2;/*6;*/
 		double rate_values[N_rates];
 		
 			std::cerr << "RUNAFLUID TEST 002" << std::endl;
