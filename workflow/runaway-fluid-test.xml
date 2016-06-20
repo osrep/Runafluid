@@ -38,11 +38,11 @@
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.6400000000000001">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{483.5000000000001, 370.0}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{708.4687499999999, 370.1249999999999}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2733">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2768">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="0.0001">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -247,7 +247,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[190.0, 45.0]">
         </property>
     </property>
-    <property name="stop" class="ptolemy.data.expr.Parameter" value="1">
+    <property name="stop" class="ptolemy.data.expr.Parameter" value="2">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -927,7 +927,7 @@
     <entity name="runaway-fluid" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:8:975">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:8:988">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1164,7 +1164,7 @@
         <entity name="RUNAFLUID" class="ptolemy.actor.TypedCompositeActor">
             <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:7:859">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:7:877">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1796,8 +1796,8 @@
 <title>Dreicer rate</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_D [1/m³s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.8226251892084585E20"/>
 </plot>?>
                 </configure>
             </entity>
@@ -1894,8 +1894,8 @@
 <title>normalised Avalanche rate</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_A/n_r [1/s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="148.08100397588765"/>
 </plot>?>
                 </configure>
             </entity>
@@ -2748,7 +2748,7 @@
                 </property>
                 <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="(63),(66),(67)">
                 </property>
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 335, 554, 280}, maximized=false}">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={111, 336, 554, 280}, maximized=false}">
                 </property>
                 <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[546, 226]">
                 </property>
@@ -2795,8 +2795,8 @@
 <title>Dreicer rate at different models</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_D [1/m³s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.8226251892084585E20"/>
 </plot>?>
                 </configure>
             </entity>
@@ -3071,7 +3071,7 @@
                     </property>
                 </entity>
                 <entity name="error_message_display2" class="ptolemy.actor.lib.gui.Display">
-                    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 694, 451, 207}, maximized=false}">
+                    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 696, 115, 207}, maximized=false}">
                     </property>
                     <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[443, 153]">
                     </property>
@@ -3205,148 +3205,10 @@
 <title>Dreicer rate in the previous timestep</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_D [1/s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="0.0"/>
 </plot>?>
                 </configure>
-            </entity>
-            <entity name="ualdemux2" class="eu.itm.ualdemux.ualdemux">
-                <property name="timeSlice" class="ptolemy.data.expr.Parameter" value="true">
-                </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>ISIP</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>4.09a</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;&lt;p&gt;The ualdemux actor extracts single &#10;fields from a CPO given as input. Each exported field is defined by an output port added by the user, you can add as many output ports as &#10;you want. It is mandatory that the name of the port is the full path of the field to export, for example datainfo/whatref/machine is the &#10;path to machine field of a limiter CPO. The actor takes a time as input, which is propagated as output port if we manipulate a non-timed CPO, &#10;or a timed CPO in timeSlice mode. The timeSlice mode is a parameter of the actor, you can change its value by double clicking on it: if it is &#10;set at true, data are extracted for the slice corresponding at the input time, if it is set at false, data are extracted for each time slice &#10;(so a simple scalar data will become a 1D vector). If timeSlice is false, the output time becomes also a vector of times.&lt;/p&gt;&#10;&lt;p&gt;/!\ Note that at this time, ualdemux actor allows only 1D data export in kepler.&lt;/p&gt;&#10;&lt;p&gt;The last feature of this actor is the selection of subset to be extracted. You need to specify this selection in the name of the output &#10;port as follow: first you have to add a ; (semicolon) after the name of the field, then you have to specify the dimension in which you consider &#10;the data (1 is the first dim). After that, you can add as many ;index as you want (a semicolon followed by an index you want to extract). &#10;You can also replace the index by an expression index1:index2 (with a colon) to specify a set of indexes between both index1 and index2. &#10;For example, position/z;1;5;10;15:18 will export indexes [5,10,15,16,17,18] of the field z.&lt;/p&gt;&#10;</configure></property>
-<property name="port:inTime" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>time used for slice selection</configure></property>
-<property name="port:inputCpo" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>CPO whose fields are extracted</configure></property>
-<property name="port:distri_vec[0]/profiles_1d/state/dens" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
-<property name="port:outTime" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>same time as input or array of time</configure></property>
-<property name="prop:verboseRun" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
-<property name="prop:derivedFrom" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
-<property name="prop:timeSlice" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>enable or disable time slice mode</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:70:1">
-                </property>
-                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.ualdemux.ualdemux">
-                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:9:1">
-                    </property>
-                </property>
-                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ISIPActor">
-                </property>
-                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#ISIP">
-                </property>
-                <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[240.0, 540.0]">
-                </property>
-                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:efda-itm.eu:actor:9:1:urn:lsid:kepler-project.org/ns/:5182:17:1:urn:lsid:kepler-project.org/ns/:35226:58:10:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:79:7">
-                </property>
-                <port name="distri_vec[0]/profiles_1d/state/dens" class="ptolemy.actor.TypedIOPort">
-                    <property name="output"/>
-                    <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                    </property>
-                    <property name="_type" class="ptolemy.actor.TypeAttribute" value="arrayType(double)">
-                    </property>
-                </port>
-            </entity>
-            <entity name="Previous_dreicer_rate2" class="ptolemy.actor.lib.gui.ArrayPlotter">
-                <display name="Previous Dreicer rate"/>
-                <property name="fillOnWrapup" class="ptolemy.data.expr.Parameter" value="true">
-                </property>
-                <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
-                </property>
-                <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="before init, after init">
-                </property>
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={340, 462, 241, 326}, maximized=false}">
-                </property>
-                <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[233, 272]">
-                </property>
-                <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
-                </property>
-                <property name="iterationsPerUpdate" class="ptolemy.data.expr.Parameter" value="1">
-                </property>
-                <property name="xInit" class="ptolemy.data.expr.Parameter" value="0.0">
-                </property>
-                <property name="xUnit" class="ptolemy.data.expr.Parameter" value="1.0">
-                </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The ArrayPlotter reads arrays of doubles via its input multiport and plots each received array as a separate data set. The actor displays a plot graph on the screen. By default, the actor updates the display each time it iterates.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: updating the display can be costly in terms of system resources. Specify the number of actor iterations that should pass between display updates with the iterationsPerUpdate parameter. For example, if iterationsPerUpdate = 2, then every second time the actor fires, it will update the display (i.e., the actor will update its display on the first firing, the third, the fifth, etc.) The actor will consume its inputs on every firing, regardless of the value of the iterationsPerUpdate parameter.&lt;/p&gt;</configure></property>
-<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that receives arrays of doubles.</configure></property>
-<property name="prop:xInit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The starting point of the X-axis.</configure></property>
-<property name="prop:fillOnWrapup" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether to rescale the plot so that all data is visible. By default, the actor scales the plot to fill the display area.</configure></property>
-<property name="prop:startingDataset" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of the dataset that should be plotted first. The value must be a non-negative integer. The default is 0.</configure></property>
-<property name="prop:legend" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Annotations that will be displayed with the plot graph. Specify a comma-separated list of values that correspond to the input data sets (e.g., rainfall, temperature, elevation).</configure></property>
-<property name="prop:iterationsPerUpdate" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of actor iterations that should pass between display updates. The value must be a non-negative integer. The default value is 1.</configure></property>
-<property name="prop:xUnit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The increment along the X-axis.</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:108:32">
-                </property>
-                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.ArrayPlotter">
-                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:891:1">
-                    </property>
-                </property>
-                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#Plotter">
-                </property>
-                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GraphicalOutput">
-                </property>
-                <property name="semanticType22" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:5:1#ScatterPlot">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[1141.0, 834.0]">
-                </property>
-                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:15:1:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:222:1">
-                </property>
-                <configure>
-<?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
-"http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
-<plot>
-<title>Dreicer rate in the previous timestep</title>
-<xLabel>data index ~ r/a</xLabel>
-<yLabel>R_D [1/m³s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-</plot>?>
-                </configure>
-            </entity>
-            <entity name="ualdemux3" class="eu.itm.ualdemux.ualdemux">
-                <property name="timeSlice" class="ptolemy.data.expr.Parameter" value="true">
-                </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>ISIP</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>4.09a</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;&lt;p&gt;The ualdemux actor extracts single &#10;fields from a CPO given as input. Each exported field is defined by an output port added by the user, you can add as many output ports as &#10;you want. It is mandatory that the name of the port is the full path of the field to export, for example datainfo/whatref/machine is the &#10;path to machine field of a limiter CPO. The actor takes a time as input, which is propagated as output port if we manipulate a non-timed CPO, &#10;or a timed CPO in timeSlice mode. The timeSlice mode is a parameter of the actor, you can change its value by double clicking on it: if it is &#10;set at true, data are extracted for the slice corresponding at the input time, if it is set at false, data are extracted for each time slice &#10;(so a simple scalar data will become a 1D vector). If timeSlice is false, the output time becomes also a vector of times.&lt;/p&gt;&#10;&lt;p&gt;/!\ Note that at this time, ualdemux actor allows only 1D data export in kepler.&lt;/p&gt;&#10;&lt;p&gt;The last feature of this actor is the selection of subset to be extracted. You need to specify this selection in the name of the output &#10;port as follow: first you have to add a ; (semicolon) after the name of the field, then you have to specify the dimension in which you consider &#10;the data (1 is the first dim). After that, you can add as many ;index as you want (a semicolon followed by an index you want to extract). &#10;You can also replace the index by an expression index1:index2 (with a colon) to specify a set of indexes between both index1 and index2. &#10;For example, position/z;1;5;10;15:18 will export indexes [5,10,15,16,17,18] of the field z.&lt;/p&gt;&#10;</configure></property>
-<property name="port:inTime" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>time used for slice selection</configure></property>
-<property name="port:distri_vec[0]/profiles_1d/state/dens" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
-<property name="port:inputCpo" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>CPO whose fields are extracted</configure></property>
-<property name="port:outTime" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>same time as input or array of time</configure></property>
-<property name="prop:verboseRun" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
-<property name="prop:derivedFrom" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
-<property name="prop:timeSlice" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>enable or disable time slice mode</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:70:1">
-                </property>
-                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.ualdemux.ualdemux">
-                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:9:1">
-                    </property>
-                </property>
-                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ISIPActor">
-                </property>
-                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#ISIP">
-                </property>
-                <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[550.0, 1175.0]">
-                </property>
-                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:efda-itm.eu:actor:9:1:urn:lsid:kepler-project.org/ns/:5182:17:1:urn:lsid:kepler-project.org/ns/:35226:58:10:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:79:7">
-                </property>
-                <port name="distri_vec[0]/profiles_1d/state/dens" class="ptolemy.actor.TypedIOPort">
-                    <property name="output"/>
-                    <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                    </property>
-                    <property name="_type" class="ptolemy.actor.TypeAttribute" value="arrayType(double)">
-                    </property>
-                </port>
             </entity>
             <relation name="relation2" class="ptolemy.actor.TypedIORelation">
             </relation>
@@ -3448,16 +3310,6 @@
                 <vertex name="vertex1" value="[10.0, 595.0]">
                 </vertex>
             </relation>
-            <relation name="relation13" class="ptolemy.actor.TypedIORelation">
-                <vertex name="vertex1" value="[685.0, 570.0]">
-                </vertex>
-            </relation>
-            <relation name="relation34" class="ptolemy.actor.TypedIORelation">
-                <vertex name="vertex1" value="[685.0, 735.0]">
-                </vertex>
-            </relation>
-            <relation name="relation37" class="ptolemy.actor.TypedIORelation">
-            </relation>
             <relation name="relation38" class="ptolemy.actor.TypedIORelation">
                 <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
                 </property>
@@ -3465,7 +3317,7 @@
                 </vertex>
             </relation>
             <relation name="relation19" class="ptolemy.actor.TypedIORelation">
-                <vertex name="vertex1" value="[270.0, 495.0]">
+                <vertex name="vertex1" value="[285.0, 490.0]">
                 </vertex>
             </relation>
             <relation name="relation39" class="ptolemy.actor.TypedIORelation">
@@ -3533,14 +3385,6 @@
             <link port="MessageComposer.runafluid_warnings" relation="relation17"/>
             <link port="MessageComposer.time" relation="relation18"/>
             <link port="Previous_dreicer_rate.input" relation="relation24"/>
-            <link port="ualdemux2.inputCpo" relation="relation29"/>
-            <link port="ualdemux2.inTime" relation="relation31"/>
-            <link port="ualdemux2.distri_vec[0]/profiles_1d/state/dens" relation="relation13"/>
-            <link port="Previous_dreicer_rate2.input" relation="relation34"/>
-            <link port="Previous_dreicer_rate2.input" relation="relation37"/>
-            <link port="ualdemux3.inputCpo" relation="relation29"/>
-            <link port="ualdemux3.inTime" relation="relation38"/>
-            <link port="ualdemux3.distri_vec[0]/profiles_1d/state/dens" relation="relation37"/>
             <link relation1="relation14" relation2="relation12"/>
             <link relation1="relation10" relation2="relation11"/>
             <link relation1="relation10" relation2="relation20"/>
@@ -3551,7 +3395,6 @@
             <link relation1="relation21" relation2="relation36"/>
             <link relation1="relation33" relation2="relation35"/>
             <link relation1="relation35" relation2="relation36"/>
-            <link relation1="relation13" relation2="relation34"/>
         </entity>
         <entity name="Unpack distribution" class="ptolemy.actor.lib.Expression">
             <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="input.cpos.hcd.distribution">
@@ -3931,8 +3774,8 @@
 <title>Runaway density</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>Runaway density [1/m³]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.8226251892084588E16"/>
 </plot>?>
             </configure>
         </entity>
@@ -4102,8 +3945,8 @@
 <title>Electric field</title>
 <xLabel>data index</xLabel>
 <yLabel>E (V/m)</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="8.342898064996723"/>
 </plot>?>
             </configure>
         </entity>
@@ -4338,7 +4181,7 @@
             </property>
             <port name="trueInput" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="1">
+                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
                 </property>
             </port>
             <port name="falseInput" class="ptolemy.actor.TypedIOPort">
@@ -4348,7 +4191,7 @@
             </port>
             <port name="control" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
+                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="1">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
                 </property>
