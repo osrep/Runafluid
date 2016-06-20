@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &distribution_out,*/ ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, /*int &dist_initialised,*/ double &time_next, ItmNs::Itm::temporary &distribution_temp/*, ItmNs::Itm::distributionArray &da*/) {
+void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &distribution_out,*/ ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, /*int &dist_initialised,*/ double &time_next, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::distributionArray &da) {
 
 
 	

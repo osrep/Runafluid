@@ -142,7 +142,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 			dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
 		double exponent=-kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge);
 		
-				//std::cerr << "\tkBT: " << kB_T << "\tmec2: " << me_c2 << "\tecponent: "<<exponent;
+				//	std::cerr << "\tkBT: " << kB_T << "\tmec2: " << me_c2 << "\tecponent: "<<exponent;
 		}
 	
 	}else{
