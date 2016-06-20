@@ -79,7 +79,7 @@ ABCD
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &runafluid_warnings, ItmNs::Itm::temporary &runaway_rates, ItmNs::Itm::temporary &distribution_temp/*, ItmNs::Itm::temporaryArray &da*/) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &runafluid_warnings, ItmNs::Itm::temporary &runaway_rates/*, ItmNs::Itm::temporary &distribution_temp*//*, ItmNs::Itm::temporaryArray &da*/) {
 
 	//! Number of elements in runaway electron distribution
 	int N_rho = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows();
@@ -116,7 +116,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//	std::cerr << "RUNAFLUID TEST 004" << std::endl;
 		
 		//! Length of previous distribution
-		int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();
+		//int Ntemp= distribution_temp.non_timed.float1d(0).value.rows();
 		
 		//! runaway_rates for generation rates
 		//! Dreicer generation rate initialisation
@@ -165,9 +165,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				//! calculating runaway density
 				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, abs(it->effective_charge), it->electric_field, timestep, runafluid_switch, rate_values);
 			   	
-			   	if(rho<Ntemp){
+			   	//if(rho<Ntemp){
 				   	rate_values[5]=distribution_prev.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
-			   	}
+			   	//}
 			   	
 		//	std::cerr << "RUNAFLUID TEST 007" << std::endl;
 			   	//! CPO output
