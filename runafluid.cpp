@@ -79,7 +79,7 @@ ABCD
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &runafluid_warnings, ItmNs::Itm::temporary &runaway_rates, ItmNs::Itm::temporaryArray &da) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &runafluid_warnings, ItmNs::Itm::temporary &runaway_rates, ItmNs::Itm::distributionArray &da) {
 /*, ItmNs::Itm::temporary &distribution_temp*/
 
 	//! Number of elements in runaway electron distribution
