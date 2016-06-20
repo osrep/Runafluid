@@ -60,7 +60,7 @@ test/libMycpp.a: test/mycpp.o
 fortran/libnewdist.a: fortran/newdist.o
 	ar -rvs $@ $^
 
-.o: .f90
+fortran/newdist.o: fortran/newdist.f90
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
 	
 ual:
