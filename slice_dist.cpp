@@ -13,7 +13,7 @@
 
 
 
-void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &distribution_out,*/ ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, /*int &dist_initialised,*/ double &time_next, ItmNs::Itm::temporary &distribution_temp, ItmNs::Itm::distributionArray &da) {
+void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &distribution_out,*/ ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur, /*int &dist_initialised,*/ double &time_next, /*ItmNs::Itm::temporary &distribution_temp,*/ ItmNs::Itm::distributionArray &da) {
 
 
 	
@@ -39,7 +39,6 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 	//std::cerr << "Length of distri_vec: \t"<< N_volume << std::endl << std::endl;
 	
 		int flag = 0;
-		std::cerr << "dens3prev: " << distribution.distri_vec(0).profiles_1d.state.dens(3) << std::endl;
 				
 		try {			
 			flag = distribution.distri_vec(0).source_id(0).type.flag;			
@@ -50,7 +49,7 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 		}	
 		
 		if (/*dist_initialised & */flag==7){
-			std::cerr << " -----------  PREVIOUS DISTRIBUTION: OK -----------t" << std::endl;
+			std::cerr << " -----------  Previous distribution:\trunaway: OK -----------t" << std::endl;
 			
 		}		
 			
@@ -136,8 +135,8 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 		
 		*/
 		
-		distribution_temp.non_timed.float1d.resize(1);
-		distribution_temp.non_timed.float1d(0).value.resize(N);
+		/*distribution_temp.non_timed.float1d.resize(1);
+		distribution_temp.non_timed.float1d(0).value.resize(N);*/
 		/*distribution_temp.timed.float1d.resize(1);
 		distribution_temp.timed.float1d(0).value.resize(N);
 		distribution_temp.time = time_next;*/
@@ -148,7 +147,7 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 	*/
 	
 	
-		for (int i = 0; i < N; ++i){
+		/*for (int i = 0; i < N; ++i){
 		
 				if (flag==7){
 				//! Filling up runaway density and current from the input distribution
@@ -159,7 +158,7 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 					distribution_temp.non_timed.float1d(0).value(i) = 0;
 				}
 	
-		}
+		}*/
 	
 	
 	//Allocate room for 3 CPO instances
