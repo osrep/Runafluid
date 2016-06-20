@@ -309,14 +309,17 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		
 		//std::cerr << "Zeff: " <<  celll.effective_charge << std::endl;
 		
-		/*if (coreimpur.impurity.rows()==0){
-			celll.effective_charge =2.5;
-		}*/
+	
 		
 		// rho_tor: toroidal flux coordinate
 
 		// Assume sum of n_i * Z_i equals electron density because of quasi-neutrality
-		//celll.effective_charge /= celll.electron_density;		
+		//celll.effective_charge /= celll.electron_density;	
+		
+		//!TESTING DT plasma	REMOVABLE!!!!
+		if (coreimpur.impurity.rows()==0){
+			celll.effective_charge = 2.5;
+		}
 
 		pro.push_back(celll);
 	}
