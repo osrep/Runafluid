@@ -119,7 +119,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//! Length of previous distribution
 		int Ntemp = da[0].distri_vec(0).profiles_1d.state.dens.rows();
 		
-		std::cerr << "Prev runaway: " <<da[0].distri_vec(0).profiles_1d.state.dens(10) <<"\t"distribution_prev.distri_vec(0).profiles_1d.state.dens(10) <<"\t"<< std::endl;
+		std::cerr << "Prev runaway: " <<da[0].distri_vec(0).profiles_1d.state.dens(10) <<"\t"<<distribution_prev.distri_vec(0).profiles_1d.state.dens(10) <<"\t"<< std::endl;
 		
 		//! runaway_rates for generation rates
 		//! Dreicer generation rate initialisation
