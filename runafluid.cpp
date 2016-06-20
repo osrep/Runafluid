@@ -79,7 +79,7 @@ ABCD
 
 */
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &runafluid_warnings, ItmNs::Itm::temporary &runaway_rates, ItmNs::Itm::distributionArray &da) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution, ItmNs::Itm::distribution &distribution_prev, double &timestep, int &runafluid_switch, int &runafluid_warnings, ItmNs::Itm::temporary &runaway_rates/*, ItmNs::Itm::distributionArray &da*/) {
 /*, ItmNs::Itm::temporary &distribution_temp*/
 
 	//! Number of elements in runaway electron distribution
@@ -101,7 +101,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//	std::cerr << "RUNAFLUID TEST 002" << std::endl;
 		
 		//! reading profile from CPO inputs (cpo_utils.h)
-		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium,  da[0]/*distribution_prev*/);/*distribution_temp,*/
+		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium,  /*da[0]*/distribution_prev);/*distribution_temp,*/
 		
 			
 		//! stepping iterator in profile	
