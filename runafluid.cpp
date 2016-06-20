@@ -117,7 +117,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//	std::cerr << "RUNAFLUID TEST 004" << std::endl;
 		
 		//! Length of previous distribution
-		int Ntemp = da[0].distri_vec(0).profiles_1d.state.dens.rows();
+		//int Ntemp = da[0].distri_vec(0).profiles_1d.state.dens.rows();
 		
 		
 		
