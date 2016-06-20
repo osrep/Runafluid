@@ -101,7 +101,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//	std::cerr << "RUNAFLUID TEST 002" << std::endl;
 		
 		//! reading profile from CPO inputs (cpo_utils.h)
-		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, /*distribution_temp,*/ distribution_prev);
+		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium,  distribution_prev);/*distribution_temp,*/
 		
 			
 		//! stepping iterator in profile	
@@ -163,7 +163,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//	std::cerr << "RUNAFLUID TEST 006" << std::endl;
 			//! Length of the runaway distribution is correct
 			if (rho<distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens.rows()){
-			std::cerr << "Prev runaway: "<<rho<<"\t" <<da[0].distri_vec(0).profiles_1d.state.dens(rho) <<"\t"<<distribution_prev.distri_vec(0).profiles_1d.state.dens(rho) <<"\t"<< std::endl;
+		//	std::cerr << "Prev runaway: "<<rho<<"\t" <<da[0].distri_vec(0).profiles_1d.state.dens(rho) <<"\t"<<distribution_prev.distri_vec(0).profiles_1d.state.dens(rho) <<"\t"<< std::endl;
 						
 				//! calculating runaway density
 				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, abs(it->effective_charge), it->electric_field, timestep, runafluid_switch, rate_values);
