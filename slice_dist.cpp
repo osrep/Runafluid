@@ -156,7 +156,7 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 				//	distribution_temp.timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);
 					//distribution_tempA.array(0).timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);
 				}else{				
-					distribution_temp.non_timed.float1d(0).value(i) = distribution.distri_vec(0).profiles_1d.state.dens(i);
+					distribution_temp.non_timed.float1d(0).value(i) = 0;
 				}
 	
 		}
