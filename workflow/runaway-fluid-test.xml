@@ -36,13 +36,13 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[972, 772]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000004">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.6400000000000001">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{218.49999999999977, 369.9999999999999}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{483.5000000000001, 370.0}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2896">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2913">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="0.0001">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -247,7 +247,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[190.0, 45.0]">
         </property>
     </property>
-    <property name="stop" class="ptolemy.data.expr.Parameter" value="3">
+    <property name="stop" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -964,7 +964,7 @@
     <entity name="runaway-fluid" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:8:1026">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:8:1030">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1201,7 +1201,7 @@
         <entity name="RUNAFLUID" class="ptolemy.actor.TypedCompositeActor">
             <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:7:953">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:7:960">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1834,7 +1834,7 @@
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_D [1/m³s]</yLabel>
 <xRange min="0.0" max="99.0"/>
-<yRange min="0.0" max="1.8226251892084585E20"/>
+<yRange min="0.0" max="1.8226251892084575E20"/>
 </plot>?>
                 </configure>
             </entity>
@@ -2774,7 +2774,7 @@
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_D [1/m³s]</yLabel>
 <xRange min="0.0" max="99.0"/>
-<yRange min="0.0" max="1.8226251892084585E20"/>
+<yRange min="0.0" max="1.8226251892084575E20"/>
 </plot>?>
                 </configure>
             </entity>
@@ -3134,7 +3134,7 @@
                 </property>
                 <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
                 </property>
-                <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="after init, before init, after2">
+                <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="after runafluid, before runafluid">
                 </property>
                 <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={479, 363, 618, 326}, maximized=false}">
                 </property>
@@ -3160,7 +3160,7 @@
 <property name="prop:startingDataset" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of the dataset that should be plotted first. The value must be a non-negative integer. The default is 0.</configure></property>
 <property name="prop:iterationsPerUpdate" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of actor iterations that should pass between display updates. The value must be a non-negative integer. The default value is 1.</configure></property>
 <property name="prop:xUnit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The increment along the X-axis.</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:108:36">
+</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:108:37">
                 </property>
                 <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.ArrayPlotter">
                     <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:891:1">
@@ -3184,7 +3184,7 @@
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>Runaway density [1/m³]</yLabel>
 <xRange min="0.0" max="99.0"/>
-<yRange min="0.0" max="0.0"/>
+<yRange min="0.0" max="1.8226251892084576E16"/>
 </plot>?>
                 </configure>
             </entity>
@@ -3226,6 +3226,76 @@
                     <property name="_type" class="ptolemy.actor.TypeAttribute" value="arrayType(double)">
                     </property>
                 </port>
+            </entity>
+            <entity name="cpocontent" class="eu.itm.cpocontent.cpocontent">
+                <property name="verbose" class="ptolemy.data.expr.Parameter" value="false">
+                    <display name="Verbose mode"/>
+                </property>
+                <property name="treeview" class="ptolemy.data.expr.Parameter" value="true">
+                    <display name="Treeview mode"/>
+                </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>ISIP</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>1.0</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;Displays all the fields that are not empty in the input CPO&lt;/p&gt;&#10;</configure></property>
+<property name="port:cpo" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>cpo to be explored</configure></property>
+</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:efda-itm.eu:actor:6:1">
+                </property>
+                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.cpocontent.cpocontent">
+                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:6:1">
+                    </property>
+                </property>
+                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ISIPActor">
+                </property>
+                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#ISIP">
+                </property>
+                <property name="prop:verbMode" class="ptolemy.kernel.util.ConfigurableAttribute">
+                    <configure>print also fields which do not contain stored data</configure>
+                </property>
+                <property name="prop:treeMode" class="ptolemy.kernel.util.ConfigurableAttribute">
+                    <configure>print fields hierarchy instead of full path</configure>
+                </property>
+                <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
+                </property>
+                <property name="_location" class="ptolemy.kernel.util.Location" value="{350, 565}">
+                </property>
+            </entity>
+            <entity name="Display" class="ptolemy.actor.lib.gui.Display">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={454, 416, 451, 207}, maximized=false}">
+                </property>
+                <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+                </property>
+                <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
+                </property>
+                <property name="columnsDisplayed" class="ptolemy.data.expr.Parameter" value="40">
+                </property>
+                <property name="suppressBlankLines" class="ptolemy.data.expr.Parameter" value="false">
+                </property>
+                <property name="title" class="ptolemy.data.expr.StringParameter" value="">
+                </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong, Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Display actor reads tokens of any type via its input multiport, and displays each token on a separate line in a text display window.&lt;/p&gt;&#10;&#10;&lt;p&gt;Specify the size of the text display window with the rowsDisplayed and columnsDisplayed parameters. Simply resizing the window onscreen does not persistently change the size when the workflow is saved, closed, and then re-opened. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the input is a string token, then the actor strips the surrounding quotation marks before displaying the value.&lt;/p&gt; &#10;&#10;&lt;p&gt;Select the suppressBlankLines parameter to specify that the actor not add blank lines to the display. By default, the actor will add blank lines.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: this actor can consume large amounts of memory. It is not advisable to use it to display large output streams.&lt;/p&gt;</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts tokens of any type.</configure></property>
+<property name="prop:suppressBlankLines" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether the actor should display blank lines (the default) or suppress them.</configure></property>
+<property name="prop:rowsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The vertical size of the display, in rows. The value is an integer that defaults to 10.</configure></property>
+<property name="prop:columnsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The horizontal size of the display, in columns. The value is an integer that defaults to 40.</configure></property>
+<property name="prop:title" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The title of the text display window. If specified, the value will appear in the title bar of the text display window.</configure></property>
+</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:7:1">
+                </property>
+                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.Display">
+                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:883:1">
+                    </property>
+                </property>
+                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#TextualOutputActor">
+                </property>
+                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#TextualOutput">
+                </property>
+                <property name="_location" class="ptolemy.kernel.util.Location" value="{670, 550}">
+                </property>
             </entity>
             <relation name="relation2" class="ptolemy.actor.TypedIORelation">
             </relation>
@@ -3405,6 +3475,8 @@
             <link port="ualdemux2.inputCpo" relation="relation19"/>
             <link port="ualdemux2.inTime" relation="relation38"/>
             <link port="ualdemux2.distri_vec[0]/profiles_1d/state/dens" relation="relation"/>
+            <link port="cpocontent.cpo" relation="relation19"/>
+            <link port="Display.input" relation="relation38"/>
             <link relation1="relation14" relation2="relation12"/>
             <link relation1="relation10" relation2="relation11"/>
             <link relation1="relation10" relation2="relation20"/>
@@ -3747,7 +3819,7 @@
             </property>
             <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={727, 643, 577, 326}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={703, 599, 577, 326}, maximized=false}">
             </property>
             <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[569, 272]">
             </property>
@@ -3795,7 +3867,7 @@
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>Runaway density [1/m³]</yLabel>
 <xRange min="0.0" max="99.0"/>
-<yRange min="0.0" max="0.0"/>
+<yRange min="8.162668E-317" max="1.8226251892084576E16"/>
 </plot>?>
             </configure>
         </entity>
@@ -3966,7 +4038,7 @@
 <xLabel>data index</xLabel>
 <yLabel>E (V/m)</yLabel>
 <xRange min="0.0" max="99.0"/>
-<yRange min="0.0" max="8.342898064996723"/>
+<yRange min="0.0" max="8.382866914644115"/>
 </plot>?>
             </configure>
         </entity>
