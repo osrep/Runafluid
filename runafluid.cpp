@@ -89,6 +89,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//	std::cerr << "RUNAFLUID TEST 001" << std::endl;
 		double rundensity = 0.0;
 		
+		//! reading profile from CPO inputs (cpo_utils.h)
+		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium,  /*da[0]*/distribution_prev);/*distribution_temp,*/
+		
 		//!!! temp
 		/*double rundensity63 = 0.0;
 		double rundensity66 = 0.0;
@@ -100,8 +103,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 		//	std::cerr << "RUNAFLUID TEST 002" << std::endl;
 		
-		//! reading profile from CPO inputs (cpo_utils.h)
-		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium,  /*da[0]*/distribution_prev);/*distribution_temp,*/
 		
 			
 		//! stepping iterator in profile	
