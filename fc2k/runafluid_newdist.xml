@@ -3,10 +3,10 @@
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>libRunafluid.a</fFile>
+  <fFile>fortran/libnewdist.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
-  <subrt>fire</subrt>
+  <subrt>equ2dist</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
     <vector>
@@ -275,102 +275,21 @@
         <tupleParams>
           <vector>
             <string>coreprof</string>
-            <string>1</string>
             <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>coreprof</string>
-          </vector>
-          <vector>
-            <string>coreimpur</string>
-            <string>1</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>coreimpur</string>
-          </vector>
-          <vector>
-            <string>equilibrium</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>equilibrium</string>
+            <string>coreprofin</string>
           </vector>
           <vector>
             <string>distribution</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>1</string>
-            <string>distribution</string>
-          </vector>
-          <vector>
-            <string>temporary</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>tempDistribution</string>
-          </vector>
-          <vector>
-            <string>double</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>timestep</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>runafluid_switch</string>
-          </vector>
-          <vector>
-            <string>integer</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>critical_field_warming</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>growth_rate_warming</string>
-          </vector>
-          <vector>
-            <string>temporary</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>runaway_rates</string>
-          </vector>
-          <vector>
-            <string>distribution</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>distribution_prevl</string>
+            <string>distributionout</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -406,10 +325,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runaway_fluid</actor>
+  <actor>runafluid_newdist</actor>
   <actorVersion></actorVersion>
-  <actorDoc>RUNAFLUID&amp;#xA;Runaway Fluid</actorDoc>
-  <actorFolder>eu/itm/runaway_fluid</actorFolder>
+  <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
+  <actorFolder>eu/itm/runafluid_newdist</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
