@@ -36,13 +36,13 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[972, 772]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.3187210679298094">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
     </property>
     <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{327.64311487722046, 291.57487591431556}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2813">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2821">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="0.0001">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -964,7 +964,7 @@
     <entity name="runaway-fluid" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:8:995">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:8:998">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1201,7 +1201,7 @@
         <entity name="RUNAFLUID" class="ptolemy.actor.TypedCompositeActor">
             <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:7:888">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:7:893">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1935,50 +1935,6 @@
 <yRange min="0.0" max="148.08100397588765"/>
 </plot>?>
                 </configure>
-            </entity>
-            <entity name="cpocontent" class="eu.itm.cpocontent.cpocontent">
-                <property name="verbose" class="ptolemy.data.expr.Parameter" value="false">
-                    <display name="Verbose mode"/>
-                </property>
-                <property name="treeview" class="ptolemy.data.expr.Parameter" value="true">
-                    <display name="Treeview mode"/>
-                </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>ISIP</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>1.0</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;Displays all the fields that are not empty in the input CPO&lt;/p&gt;&#10;</configure></property>
-<property name="port:cpo" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>cpo to be explored</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:efda-itm.eu:actor:6:1">
-                </property>
-                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.cpocontent.cpocontent">
-                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:6:1">
-                    </property>
-                </property>
-                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ISIPActor">
-                </property>
-                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#ISIP">
-                </property>
-                <property name="prop:verbMode" class="ptolemy.kernel.util.ConfigurableAttribute">
-                    <configure>print also fields which do not contain stored data</configure>
-                </property>
-                <property name="prop:treeMode" class="ptolemy.kernel.util.ConfigurableAttribute">
-                    <configure>print fields hierarchy instead of full path</configure>
-                </property>
-                <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[872.8218994140625, 535.22314453125]">
-                </property>
-                <property name="" class="ptolemy.vergil.basic.DocAttribute">
-                    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;Displays all the fields that are not empty in the input CPO&lt;/p&gt;&#10;">
-                    </property>
-                    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="ISIP">
-                    </property>
-                    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="1.0">
-                    </property>
-                    <property name="cpo (port)" class="ptolemy.kernel.util.StringAttribute" value="cpo to be explored">
-                    </property>
-                </property>
             </entity>
             <entity name="prevDistInit" class="ptolemy.actor.TypedCompositeActor">
                 <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
@@ -3429,7 +3385,6 @@
             <link port="Unpack time3.output" relation="relation38"/>
             <link port="Unpack time3.input" relation="relation33"/>
             <link port="Avalanche_rate.input" relation="relation30"/>
-            <link port="cpocontent.cpo" relation="relation32"/>
             <link port="prevDistInit.input_bundle" relation="relation15"/>
             <link port="prevDistInit.previous_distribution" relation="relation29"/>
             <link port="prevDistInit.previous_time" relation="relation31"/>
@@ -3568,7 +3523,7 @@
     <entity name="Postprocessor" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:34:90">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:34:92">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -4088,40 +4043,6 @@
                 </property>
             </port>
         </entity>
-        <entity name="cpocontent" class="eu.itm.cpocontent.cpocontent">
-            <property name="verbose" class="ptolemy.data.expr.Parameter" value="false">
-                <display name="Verbose mode"/>
-            </property>
-            <property name="treeview" class="ptolemy.data.expr.Parameter" value="true">
-                <display name="Treeview mode"/>
-            </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>ISIP</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>1.0</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;Displays all the fields that are not empty in the input CPO&lt;/p&gt;&#10;</configure></property>
-<property name="port:cpo" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>cpo to be explored</configure></property>
-</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:efda-itm.eu:actor:6:1">
-            </property>
-            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.cpocontent.cpocontent">
-                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:6:1">
-                </property>
-            </property>
-            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ISIPActor">
-            </property>
-            <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#ISIP">
-            </property>
-            <property name="prop:verbMode" class="ptolemy.kernel.util.ConfigurableAttribute">
-                <configure>print also fields which do not contain stored data</configure>
-            </property>
-            <property name="prop:treeMode" class="ptolemy.kernel.util.ConfigurableAttribute">
-                <configure>print fields hierarchy instead of full path</configure>
-            </property>
-            <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
-            </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="{415, 815}">
-            </property>
-        </entity>
         <relation name="relation4" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation5" class="ptolemy.actor.TypedIORelation">
@@ -4139,8 +4060,6 @@
         <relation name="relation3" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation9" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation" class="ptolemy.actor.TypedIORelation">
         </relation>
         <link port="input" relation="relation7"/>
         <link port="Unpack coreprofile for content.input" relation="relation7"/>
@@ -4161,10 +4080,8 @@
         <link port="Unpack coreprofile for plotting.output" relation="relation2"/>
         <link port="Unpack coreprofile for plotting.input" relation="relation7"/>
         <link port="eparallel.input" relation="relation9"/>
-        <link port="Unpack coreprofile .output" relation="relation"/>
         <link port="Unpack coreprofile .input" relation="relation7"/>
         <link port="Unpack coreimpur.input" relation="relation7"/>
-        <link port="cpocontent.cpo" relation="relation"/>
     </entity>
     <entity name="LoopOrganiser" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
