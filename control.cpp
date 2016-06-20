@@ -53,6 +53,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_values[2] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 63)*electron_density;
 		rate_values[3] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 66)*electron_density;
 		rate_values[4] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 67)*electron_density;
+		rate_values[5] = rundensity_before;
 		
 		//! Calculate Avalanche generation rate
 		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 0);
