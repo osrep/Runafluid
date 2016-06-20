@@ -202,7 +202,7 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 	da[0].distri_vec(0).profiles_1d.geometry.psi(N);
 	
 	//! Filling up runaway geometry data from the previous distribution
-	if (dist_initialised & flag==7){
+	if (flag==7){
 	
 		for (int i = 0; i < N; ++i){
 			if (i < N_rho_tor){
