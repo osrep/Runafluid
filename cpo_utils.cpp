@@ -214,10 +214,10 @@ Copy data from CPO inputs to profile structure
 
 
 /*profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution){*/
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::temporary &distribution){*/
 		
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::temporary &distribution){
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution){		
 
 	profile pro;
 	double number_of_parts;

@@ -100,7 +100,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//	std::cerr << "RUNAFLUID TEST 002" << std::endl;
 		
 		//! reading profile from CPO inputs (cpo_utils.h)
-		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_temp/*, distribution_prev*/);
+		profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, /*distribution_temp,*/ distribution_prev);
 		
 			
 		//! stepping iterator in profile	
