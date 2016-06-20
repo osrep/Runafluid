@@ -162,7 +162,7 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 	
 	
 	//Allocate room for 3 CPO instances
-	da.array.resize(1);
+	//da.array.resize(1);
 	da[0].time = time_next;
 	
 	//! New distribution data set
