@@ -354,15 +354,6 @@
             <string>1</string>
             <string>runaway_rates</string>
           </vector>
-          <vector>
-            <string>temporary</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>distribution_temp</string>
-          </vector>
         </tupleParams>
         <uHash>
           <entry>
