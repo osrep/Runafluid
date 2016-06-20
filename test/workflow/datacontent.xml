@@ -2,7 +2,6 @@
 <!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
     "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
 <entity name="datacontent" class="ptolemy.actor.TypedCompositeActor">
-    <display name="datacontent"/>
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
     </property>
     <property name="DDF Director" class="ptolemy.domains.ddf.kernel.DDFDirector">
@@ -17,8 +16,8 @@
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Gang Zhou</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;            &lt;p&gt; The dynamic dataflow (DDF) domain is a superset of the synchronous&#10;            dataflow(SDF) and Boolean dataflow(BDF) domains. In the SDF domain,&#10;            an actor consumes and produces a fixed number of tokens per firing.&#10;            This static information makes possible compile-time scheduling. In the&#10;            DDF domain, there are few constraints on the production and consumption&#10;            behavior of actors, and the schedulers make no attempt to construct a&#10;            compile-time schedule. Instead, each actor has a set of firing rules&#10;            (patterns) and can be fired if one of them is satisfied, i.e., one&#10;            particular firing pattern forms a prefix of sequences of unconsumed&#10;            tokens at input ports. The canonical actors in the DDF domain include&#10;            Select and Switch, which consume or produce tokens on different channels&#10;            based on the token received from the control port. (In practice, use&#10;            DDFSelect and DDFBooleanSelect in the DDF-specific library instead of&#10;            Select and BooleanSelect in the regular FlowControl library; however,&#10;            Switch and BooleanSwitch in the regular FlowControl library can be&#10;            used in DDF domain.)&lt;/p&gt;&#10;           &#10;            &lt;p&gt; The dynamic scheduler implemented in this director fires all enabled&#10;            and non-deferrable actors once in a basic iteration. A deferrable&#10;            actor is one that will not help one of the downstream actors become&#10;            enabled because that downstream actor either already has enough tokens on&#10;            the channel connecting those two actors or is waiting for tokens on&#10;            another channel. If no actor fires so far, which means there is no&#10;            enabled and non-deferrable actor, then among all enabled and deferrable&#10;            actors, this director fires those which have the smallest maximum number&#10;            of tokens on their output channels which satisfy the demand of destination&#10;            actors. If still no actor fires, then there is no enabled actor. A user&#10;            can treat several such basic iterations as a single iteration by adding&#10;            a parameter with name &lt;i&gt;requiredFiringsPerIteration&lt;/i&gt; to an actor&#10;            (which is often a sink actor or an actor directly connected to output port&#10;            of the composite actor) and specifying the number of times this actor must&#10;            be fired in a single iteration. If the value of the parameter&#10;            &lt;i&gt;runUntilDeadlockInOneIteration&lt;/i&gt; is a BooleanToken with value true,&#10;            one single iteration consists of repeating the basic iteration until&#10;            deadlock is reached (thus overriding the previous definition of one&#10;            iteration), which is the status of the model where all active&#10;            actors under the control of this director are unable to fire because&#10;            their firing rules are not satisfied. However, they may be able to fire&#10;            again during next iteration when tokens are transferred in from an outside&#10;            domain. Note &lt;i&gt;runUntilDeadlockInOneIteration&lt;/i&gt; can be set to true&#10;            only when this director is not on the top level.&lt;/p&gt;&#10;           &#10;            &lt;p&gt; The algorithm implementing one basic iteration goes like this:&#10;            &lt;pre&gt;&#10;            E = set of enabled actors&#10;            D = set of deferrable enabled actors&#10;            &lt;/pre&gt;&#10;            One basic(default) iteration consists of:&#10;            &lt;pre&gt;&#10;            if (E\D != empty set) {&#10;            fire (E\D)&#10;            } else if (D != empty set) {&#10;            fire minimax(D)&#10;            } else {&#10;            declare deadlock&#10;            }&#10;            &lt;/pre&gt;&#10;            The function &quot;minimax(D)&quot; returns a subset of D with the smallest&#10;            maximum number of tokens on their output channels which satisfy the&#10;            demand of destination actors.&lt;/p&gt;&#10;           &#10;            &lt;p&gt; Note that any SDF model can be run with a DDF Director. However, the&#10;            notion of iteration is different. One could try to imitate the SDF&#10;            iteration in the DDF domain by controlling the number of firings in one&#10;            iteration for some actors, such as requiring a plotter to plot a fixed&#10;            number of points in each iteration.&lt;/p&gt;&#10;           &#10;            &lt;p&gt; In the DDF domain, the firing rule of any actor is specified by the token&#10;            consumption rates of its input ports. A general DDF actor could change&#10;            the consumption rates of its input ports after each firing of this actor.&#10;            For multiports, an array token could be used to specify different rates&#10;            for different channels connected to the same multiport. Note that in SDF,&#10;            all channels connected to the same multiport have the same rate.&lt;/p&gt;&#10;           &#10;            &lt;p&gt; Based on DDFSimpleSched in Ptolemy Classic, by Edward Lee.&#10;            See E. A. Lee et al., &quot;The Almagest,&quot; documentation for Ptolemy Classic,&#10;            Vol. 1, Chapter 7, 1997.&lt;/p&gt;&#10;           &#10;        </configure></property>
-<property name="prop:iterations" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify the number of times a workflow is iterated. By default, this parameter is set to &quot;0&quot;. Note that &quot;0&quot; does not mean &quot;no iterations.&quot; Rather, &quot;0&quot; means that the workflow will iterate forever. Values greater than zero specify the actual number of times the director should execute the entire workflow. </configure></property>
 <property name="prop:maximumReceiverCapacity" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A Parameter representing the maximum capacity of each receiver controlled by this director. This is an integer that defaults to 0, which means the queue in each receiver is unbounded. To specify bounded queues, set this to a positive integer. </configure></property>
+<property name="prop:iterations" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify the number of times a workflow is iterated. By default, this parameter is set to &quot;0&quot;. Note that &quot;0&quot; does not mean &quot;no iterations.&quot; Rather, &quot;0&quot; means that the workflow will iterate forever. Values greater than zero specify the actual number of times the director should execute the entire workflow. </configure></property>
 <property name="prop:runUntilDeadlockInOneIteration" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A parameter indicating whether one iteration consists of repeated basic iterations until deadlock. If this parameter is true, the model will be executed until deadlock in one iteration. The default value is a BooleanToken with the value false. It cannot be set to true if this director is at the top level.</configure></property>
 </property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:director:5:1">
         </property>
@@ -37,13 +36,13 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[972, 772]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2314846165586353">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2374731171989628">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{486.615541841792, 350.4503629399442}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{435.73580431392935, 367.9259680353431}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2335">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:271:100">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:271:178">
     </property>
     <property name="DefaultTitle" class="ptolemy.vergil.basic.export.web.DefaultTitle" value="">
         <property name="displayText" class="ptolemy.data.expr.StringParameter" value="Datacontent">
@@ -69,14 +68,14 @@
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>$Id: DefaultTitle.java 63960 2012-07-13 22:59:42Z cxh $</configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;A parameter specifying default title to associate&#10; with a model and with components in the model.&#10; By default, this attribute uses the model name&#10; and component names as the title.</configure></property>
-<property name="prop:height" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the height of the editing box.  This is an int that defaults to 20.</configure></property>
-<property name="prop:showTitleInHTML" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If set to true, then the title given by this parameter  will be shown in the HTML prior to the image of the model  (as well as in the image of the model, if it is visible  when the export to web occurs). This is a boolean that  defaults to true.</configure></property>
 <property name="prop:include" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specification of whether to provide the title for  Attributes, Entities, or both. This is either &quot;Entities&quot; (the  default), &quot;Attributes&quot;, &quot;All&quot;, or &quot;None&quot;.</configure></property>
-<property name="prop:style" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
+<property name="prop:showTitleInHTML" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If set to true, then the title given by this parameter  will be shown in the HTML prior to the image of the model  (as well as in the image of the model, if it is visible  when the export to web occurs). This is a boolean that  defaults to true.</configure></property>
+<property name="prop:height" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the height of the editing box.  This is an int that defaults to 20.</configure></property>
 <property name="prop:width" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter specifying the width of the editing box.  This is an int that defaults to 60.</configure></property>
+<property name="prop:style" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="prop:derivedFrom" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
-<property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
 <property name="prop:instancesOf" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If non-empty (the default), specifies a class name.  Only entities or attributes (depending on &lt;i&gt;include&lt;/i&gt;)  implementing the specified  class will be assigned the title defined by this  DefaultTitle parameter.</configure></property>
+<property name="prop:displayText" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Parameter giving the text to display in the Ptolemy model.  This defaults to &quot;Content for Export to Web&quot;.</configure></property>
 </property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:272:1">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.basic.export.web.DefaultTitle">
@@ -109,7 +108,7 @@
         </property>
         <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
         </property>
-        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="coreprof&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999&#10;iter | 14 | 999 | 999&#10;iter | 77922 | 998 | 999">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="coreprof&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999 (empty)&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999 (empty)&#10;iter | 14 | 999 | 999 (empty)&#10;iter | 77922 | 998 | 999 (empty)&#10;--------------------------- &#10;iter | 40 | 1 | 999&#10;iter | 40 | 999 | 999 (empty)&#10;iter | 40 | 3011 | 999&#10;iter | 40 | 3012 | 999&#10;iter | 40 | 3021 | 999&#10;iter | 40 | 3022 | 999">
             <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
                 <property name="height" class="ptolemy.data.expr.Parameter" value="15">
                 </property>
@@ -128,7 +127,7 @@
 <property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
 <property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
 <property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:7">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:46">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
@@ -160,7 +159,7 @@
         </property>
         <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
         </property>
-        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="coreimpur&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999&#10;iter | 14 | 999 | 999&#10;iter | 77922 | 998 | 999">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="coreimpur&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10; &#10;&#10;&#10;&#10;&#10;--------------&#10;&#10;">
             <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
                 <property name="height" class="ptolemy.data.expr.Parameter" value="15">
                 </property>
@@ -179,7 +178,7 @@
 <property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
 <property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
 <property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:8">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:36">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
@@ -189,7 +188,7 @@
         </property>
         <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowDocumentation">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[260.0, 375.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 375.0]">
         </property>
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1">
         </property>
@@ -211,7 +210,7 @@
         </property>
         <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
         </property>
-        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="equilibrium&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999&#10;iter | 14 | 999 | 999&#10;iter | 77922 | 998 | 999">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="equilibrium&#10;iter | 5 | 8 | 999&#10;iter | 5 | 998 | 999&#10;&#10;iter | 5 | 2067 | 999&#10;&#10;&#10; &#10;--------------&#10;iter | 40 | 1 | 999&#10;&#10;iter | 40 | 3011 | 999&#10;?&#10;iter | 40 | 3021 | 999&#10;iter | 40 | 3022 | 999">
             <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
                 <property name="height" class="ptolemy.data.expr.Parameter" value="15">
                 </property>
@@ -230,7 +229,7 @@
 <property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
 <property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
 <property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:9">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:48">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
@@ -262,7 +261,7 @@
         </property>
         <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
         </property>
-        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="distribution&#10;iter | 5 | 8 | 999 (time)&#10;iter | 5 | 998 | 999&#10;iter | 5 | 999 | 999&#10;iter | 5 | 2067 | 999&#10;iter | 12 | 999 | 999&#10;iter | 14 | 999 | 999&#10;iter | 77922 | 998 | 999">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="distribution&#10;iter | 5 | 8 | 999 (time)&#10;iter | 5 | 998 | 999 (time)&#10;&#10;iter | 5 | 2067 | 999&#10;&#10;&#10;&#10;--------------">
             <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
                 <property name="height" class="ptolemy.data.expr.Parameter" value="15">
                 </property>
@@ -281,7 +280,7 @@
 <property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
 <property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
 <property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:11">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:280:44">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
@@ -291,7 +290,7 @@
         </property>
         <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowDocumentation">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[655.0, 375.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[615.0, 375.0]">
         </property>
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1">
         </property>
@@ -313,8 +312,8 @@
 <property name="port:run" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>input the run number&#10;which will be duplicated to the work run number</configure></property>
 <property name="port:runwork" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>input the working run number</configure></property>
 <property name="prop:enableISE" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>You must not modify this parameter</configure></property>
-<property name="prop:euitmCreate" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If your shot is not defined in the database, you can create it by activing this option</configure></property>
 <property name="prop:enableMemCache" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>all cpo are stored in memory. The ualcollector, ualslicecollector and ualclose actors enable to flush the cpo from the memory to the disk.</configure></property>
+<property name="prop:euitmCreate" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If your shot is not defined in the database, you can create it by activing this option</configure></property>
 </property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:278:1">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.ualinit.ualInit">
@@ -358,9 +357,9 @@
         </port>
     </entity>
     <entity name="shot number" class="ptolemy.actor.lib.Const">
-        <property name="value" class="ptolemy.data.expr.Parameter" value="5">
+        <property name="value" class="ptolemy.data.expr.Parameter" value="40">
         </property>
-        <property name="firingCountLimit" class="ptolemy.data.expr.Parameter" value="1">
+        <property name="firingCountLimit" class="ptolemy.data.expr.Parameter" value="999">
         </property>
         <property name="NONE" class="ptolemy.data.expr.Parameter" value="0">
         </property>
@@ -373,7 +372,7 @@
 <property name="port:trigger" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that has no declared type (in other words, the port can accept any data type: double, int, array, etc.) If the port is connected, the actor will not fire until the trigger port receives an input token. Connecting the port is optional, but useful when scheduling the actor to perform at a certain time.</configure></property>
 <property name="prop:firingCountLimit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The limit on the number of times the actor will fire. The default value is 'NONE', meaning there is no limit on the number of time the constant will be provided to the output port. Any integer can be provided as a value for this parameter.</configure></property>
 <property name="prop:value" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The value produced by the Constant actor. By default, the value is the integer token 1. The value can be set to another type, e.g., a string (such as &quot;Hello&quot;) or a double (such as 1.2). The  output type matches the type of the value specified here.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:18:38">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:286:6">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Const">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:877:1">
@@ -393,7 +392,7 @@
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[124.25, 187.0]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:1:1:urn:lsid:kepler-project.org/ns/:62444:139:2:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:224:1">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:1:1:urn:lsid:kepler-project.org/ns/:62444:139:2:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:224:1:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:18:38">
         </property>
         <port name="trigger" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -403,7 +402,7 @@
         </port>
     </entity>
     <entity name="run number" class="ptolemy.actor.lib.Const">
-        <property name="value" class="ptolemy.data.expr.Parameter" value="998">
+        <property name="value" class="ptolemy.data.expr.Parameter" value="3012">
         </property>
         <property name="firingCountLimit" class="ptolemy.data.expr.Parameter" value="1">
         </property>
@@ -418,7 +417,7 @@
 <property name="port:trigger" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that has no declared type (in other words, the port can accept any data type: double, int, array, etc.) If the port is connected, the actor will not fire until the trigger port receives an input token. Connecting the port is optional, but useful when scheduling the actor to perform at a certain time.</configure></property>
 <property name="prop:firingCountLimit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The limit on the number of times the actor will fire. The default value is 'NONE', meaning there is no limit on the number of time the constant will be provided to the output port. Any integer can be provided as a value for this parameter.</configure></property>
 <property name="prop:value" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The value produced by the Constant actor. By default, the value is the integer token 1. The value can be set to another type, e.g., a string (such as &quot;Hello&quot;) or a double (such as 1.2). The  output type matches the type of the value specified here.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:284:2">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:284:17">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Const">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:877:1">
@@ -463,7 +462,7 @@
 <property name="port:trigger" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that has no declared type (in other words, the port can accept any data type: double, int, array, etc.) If the port is connected, the actor will not fire until the trigger port receives an input token. Connecting the port is optional, but useful when scheduling the actor to perform at a certain time.</configure></property>
 <property name="prop:firingCountLimit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The limit on the number of times the actor will fire. The default value is 'NONE', meaning there is no limit on the number of time the constant will be provided to the output port. Any integer can be provided as a value for this parameter.</configure></property>
 <property name="prop:value" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The value produced by the Constant actor. By default, the value is the integer token 1. The value can be set to another type, e.g., a string (such as &quot;Hello&quot;) or a double (such as 1.2). The  output type matches the type of the value specified here.</configure></property>
-</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:20:5">
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:287:2">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Const">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:877:1">
@@ -483,7 +482,7 @@
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[129.25, 297.0]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:1:1:urn:lsid:kepler-project.org/ns/:62444:139:4:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:226:1">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:1:1:urn:lsid:kepler-project.org/ns/:62444:139:4:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:226:1:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:20:5">
         </property>
         <port name="trigger" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -600,7 +599,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[740.0, 130.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[665.0, 195.0]">
         </property>
     </entity>
     <entity name="cpocontent3" class="eu.itm.cpocontent.cpocontent">
@@ -634,7 +633,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[655.0, 190.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 230.0]">
         </property>
     </entity>
     <entity name="cpocontent4" class="eu.itm.cpocontent.cpocontent">
@@ -668,7 +667,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[750.0, 235.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[485.0, 275.0]">
         </property>
     </entity>
     <entity name="cpocontent5" class="eu.itm.cpocontent.cpocontent">
@@ -702,7 +701,7 @@
         </property>
         <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[710.0, 315.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[400.0, 320.0]">
         </property>
     </entity>
     <relation name="relation9" class="ptolemy.actor.TypedIORelation">
@@ -713,8 +712,6 @@
     </relation>
     <relation name="relation13" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation2" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation3" class="ptolemy.actor.TypedIORelation">
@@ -723,11 +720,17 @@
     </relation>
     <relation name="relation5" class="ptolemy.actor.TypedIORelation">
     </relation>
+    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+        </property>
+        <vertex name="vertex1" value="[565.0, 90.0]">
+        </vertex>
+    </relation>
     <link port="ualinit.machine" relation="relation13"/>
     <link port="ualinit.shot" relation="relation12"/>
     <link port="ualinit.run" relation="relation9"/>
     <link port="ualinit.runwork" relation="relation10"/>
-    <link port="ualinit.coreprof" relation="relation"/>
+    <link port="ualinit.coreprof" relation="relation7"/>
     <link port="ualinit.coreimpur" relation="relation2"/>
     <link port="ualinit.equilibrium" relation="relation3"/>
     <link port="ualinit.distribution" relation="relation4"/>
@@ -736,7 +739,7 @@
     <link port="run number.output" relation="relation9"/>
     <link port="runwork number.output" relation="relation10"/>
     <link port="machine name (string).output" relation="relation13"/>
-    <link port="cpocontent.cpo" relation="relation"/>
+    <link port="cpocontent.cpo" relation="relation7"/>
     <link port="cpocontent2.cpo" relation="relation2"/>
     <link port="cpocontent3.cpo" relation="relation3"/>
     <link port="cpocontent4.cpo" relation="relation4"/>
