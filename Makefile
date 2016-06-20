@@ -11,9 +11,9 @@ F90COPTS = -g -O0 -assume no2underscore -fPIC -shared-intel
 F90LIBS =   -L$(UAL)/lib  -lUALFORTRANInterface_ifort
 F90INCLUDES = -I$(UAL)/include/amd64_ifort
 
-all: libRunafluid.a libDistInit.a libSliceDist.a fortran/newdist.o fortran/libnewdist
+all: libRunafluid.a libDistInit.a libSliceDist.a fortran/libnewdist.a
 
-t: libRunafluid.a libDistInit.a  libSliceDist.a  fortran/newdist.o fortran/libnewdist test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libDAin.a test/libDAout.a test/libCPin.a test/libMycpp.a
+t: libRunafluid.a libDistInit.a  libSliceDist.a  fortran/libnewdist.a test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libDAin.a test/libDAout.a test/libCPin.a test/libMycpp.a
  
 #dreicer.o avalanche.o
 libRunafluid.a: runafluid.o  control.o  cpo_utils.o
@@ -57,10 +57,10 @@ test/libMycpp.a: test/mycpp.o
 .o: .cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $^
 	
-fortran/libnewdist: fortran/newdist.o
-	ar -rvs fortran/libnewdist.a fortran/newdist.o
+fortran/libnewdist.a: fortran/newdist.o
+	ar -rvs $@ $^
 
-newdist.o: newdist.f90
+.o: .f90
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
 	
 ual:
