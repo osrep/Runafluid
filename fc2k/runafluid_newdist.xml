@@ -632,10 +632,10 @@
   <semantic>Itm</semantic>
   <keplerFolder>/pfs/home/maradi/kepler</keplerFolder>
   <ptFolder>empty</ptFolder>
-  <compiler>g++</compiler>
+  <compiler>ifort</compiler>
   <libraries/>
   <systemLibraries/>
-  <lang>c</lang>
+  <lang>fortran</lang>
   <HasTimeSlice>false</HasTimeSlice>
   <HasCodeParam>false</HasCodeParam>
   <MPI>false</MPI>
