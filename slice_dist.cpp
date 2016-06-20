@@ -163,12 +163,28 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 	
 	
 	//Allocate room for 3 CPO instances
-	/*da.array.resize(1);
+	da.array.resize(1);
 	da[0].time = time_next;
-	da[0].timed.float1d.resize(1);	
-	da[0].timed.float1d(0).value.resize(N);*/
+	
+	//! New distribution data set
+	da[0].distri_vec.resize(1);	
+
+	//! Initialisation of runaway density
+	da[0].distri_vec(0).profiles_1d.state.dens.resize(N);
+
+
+	//! Initialisation of runaway current
+	da[0].distri_vec(0).profiles_1d.state.current.resize(N);
 		
 		
+	//! New distribution source
+	da[0].distri_vec(0).source_id.resize(1);	
+
+
+	//! Filling up distribution source
+	da[0].distri_vec(0).source_id(0).type.id = "runaway";
+	da[0].distri_vec(0).source_id(0).type.flag = 7;
+	da[0].distri_vec(0).source_id(0).type.description = "Source from runaway processes";
 		
 		
 	} catch (const std::exception& ex) {
