@@ -67,4 +67,4 @@ ual:
 	$(CXX) $(CXXFLAGS) $(UAL)/include/UALClasses.h -o $(ITMWORK)/runatester/UALClasses.h.gch
 	
 clean:
-	rm *.a *.o test/*.o test/*.a #test/*.bin
+	rm *.a *.o test/*.a test/*.o fortran/*.a fortran/*.o  #test/*.bin
