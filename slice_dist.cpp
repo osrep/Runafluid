@@ -162,8 +162,9 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 	
 	
 	//Allocate room for 3 CPO instances
-	da.array.resize(3);
-	for (int  time_i=0;time_i<3;time_i++){
+	/*da.array.resize(3);
+	for (int  time_i=0;time_i<3;time_i++){*/
+	int time_i=0;
 	da[time_i].time = time_next;
 	
 	//! New distribution data set
@@ -228,7 +229,7 @@ void fire(ItmNs::Itm::distribution &distribution, /*ItmNs::Itm::distribution &di
 	
 		}
 	}
-	}	
+	//}	
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during distri_vec resize" << std::endl;

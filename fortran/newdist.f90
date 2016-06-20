@@ -25,7 +25,7 @@ write(0,*) 'size of input CPO = ',size(coreprofin)
 allocate(distributionout(size(coreprofin)))
 
 ! Fill in the output CPO (Physical data)
-do i=1,3
+do i=1,1
    ! Time : copy from input CPO
    write(0,*) 'Received input time from Coreprof : ', coreprofin(i)%time
    distributionout(i)%time = coreprofin(i)%time  ! THE TIME FIELD MUST BE FILLED (MANDATORY) in case of multiple time slice mode for the CPO; NB this information is overwritten by the wrapper in case of single slice mode for the CPO
