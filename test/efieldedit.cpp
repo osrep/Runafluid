@@ -14,7 +14,7 @@ Parallel electric field editor
 
 electric_field_switch:
 
-ABCD
+ABCD (Do not write strating 0s!)
 
  A
    0: non-increasing field 
@@ -25,8 +25,8 @@ ABCD
    1: logarithmic
 
  C
-   0: relative field
-   1: absolute field 
+   0: absolute field
+   1: relative field 
 
  D  
    0: related to Dreicer field
