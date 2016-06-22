@@ -167,7 +167,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		//	std::cerr << "Prev runaway: "<<rho<<"\t" <<da[0].distri_vec(0).profiles_1d.state.dens(rho) <<"\t"<<distribution_prev.distri_vec(0).profiles_1d.state.dens(rho) <<"\t"<< std::endl;
 						
 				//! calculating runaway density
-				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, abs(it->effective_charge), it->electric_field, timestep, runafluid_switch, rate_values);
+				rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), timestep, runafluid_switch, rate_values);
 			   	
 			   /*	if(rho<Ntemp){
 				   	rate_values[5]=distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);//it->runaway_density;//distribution_prev.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
