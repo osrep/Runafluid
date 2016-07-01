@@ -272,16 +272,8 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		}
 
 
-		//! total sum of electric charge in \a rho cell for all ion population @ Murty 1965
-		celll.effective_charge = 0.0;
-		number_of_parts = 0.0;
-		for (int ion = 0; ion < coreprof.compositions.ions.rows(); ion++) {
-			celll.effective_charge += coreprof.ni.value(rho, ion)
-					* pow(coreprof.compositions.ions(ion).zion,2.94);
-			number_of_parts += coreprof.ni.value(rho, ion);
-		}
-		celll.effective_charge /= number_of_parts;
-		celll.effective_charge = pow(celll.effective_charge,1/2.94);
+		//! total sum of electric charge from coreprof CPO
+		celll.effective_charge = coreprof.profiles1d.zeff.value(rho);
 		
 
 
