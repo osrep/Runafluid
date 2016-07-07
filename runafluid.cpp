@@ -82,11 +82,15 @@ ABCD
 
 
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch, int &runafluid_warnings, ItmNs::Itm::temporary &runaway_rates) {
+		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch, double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning, ItmNs::Itm::temporary &runaway_rates) {
 
 	
-	//UNUSED!!!
-	int flag = 0;
+	//!output initialisation
+	runaway_warning = 0;
+	not_suitable_warning = 0;
+	critical_fraction_warning = 0;
+	
+	double zero_threshold=1e-20;
 	
 	//! empty distribution initialiser (integrated distinit)
 	distinit(distribution_out, coreprof, coreimpur);
@@ -176,6 +180,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
 			}
 			
+			if (rundensity > zero_threshold){
+				runaway_warning = 1;
+			}
 					
 			//if(rundensity > it->electron_density){
 		   	//	distribution_out.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = it->electron_density;
