@@ -23,7 +23,7 @@
 #define ITM_EPS0	1.0 / (ITM_MU0 * ITM_C * ITM_C)
 
 //! distsource_identifier for runaways (7)
-#define DISTSOURCE_IDENTIFIER 7
+#define DISTSOURCE_IDENTIFIER 0
 
 //! ERROR CODE
 #define ITM_ILLEGAL_INT	-999999999
