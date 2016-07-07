@@ -337,13 +337,40 @@
             <string>runafluid_switch</string>
           </vector>
           <vector>
+            <string>double</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>critical_fraction</string>
+          </vector>
+          <vector>
             <string>integer</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>runafluid_warnings</string>
+            <string>runaway_warning</string>
+          </vector>
+          <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>not_suitable_warning</string>
+          </vector>
+          <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>critical_fraction_warning</string>
           </vector>
           <vector>
             <string>temporary</string>
