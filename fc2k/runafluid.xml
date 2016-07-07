@@ -1,5 +1,5 @@
 <generactor.ActorGenerator>
-  <version>branches/R2.2_r553</version>
+  <version>branches/R2.2_r586</version>
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
@@ -270,7 +270,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r586/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams>
           <vector>
@@ -307,8 +307,7 @@
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>1</string>
-            <string>distribution</string>
+            <string>distribution_in</string>
           </vector>
           <vector>
             <string>distribution</string>
@@ -657,7 +656,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r586/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams/>
         <uHash>
@@ -706,6 +705,6 @@
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
-  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/..</FC2Kpath>
+  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r586/bin/..</FC2Kpath>
   <fDiagnosticInfo>false</fDiagnosticInfo>
 </generactor.ActorGenerator>
