@@ -11,16 +11,16 @@ F90COPTS = -g -O0 -assume no2underscore -fPIC -shared-intel
 F90LIBS =   -L$(UAL)/lib  -lUALFORTRANInterface_ifort
 F90INCLUDES = -I$(UAL)/include/amd64_ifort
 
-all: libRunafluid.a libDistInit.a libSliceDist.a fortran/libnewdist.a
+all: libRunafluid.a fortran/libnewdist.a fortran/libNewDistSlice.a
 
-t: libRunafluid.a libDistInit.a  libSliceDist.a  fortran/libnewdist.a test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libDAin.a test/libDAout.a test/libCPin.a test/libMycpp.a
+t: libRunafluid.a  libSliceDist.a  fortran/libnewdist.a test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a test/libDAin.a test/libDAout.a test/libCPin.a test/libMycpp.a
  
 #dreicer.o avalanche.o
-libRunafluid.a: runafluid.o  control.o  cpo_utils.o
+libRunafluid.a: runafluid.o distinit.o  control.o  cpo_utils.o
 	ar -rvs $@ $^	
  	
-libDistInit.a: distinit.o
-	ar -rvs $@ $^	
+#libDistInit.a: distinit.o
+#	ar -rvs $@ $^	
 	
 libSliceDist.a: slice_dist.o
 	ar -rvs $@ $^		
@@ -61,6 +61,14 @@ fortran/libnewdist.a: fortran/newdist.o
 	ar -rvs $@ $^
 
 fortran/newdist.o: fortran/newdist.f90
+	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
+	
+	
+	
+fortran/libNewDistSlice.a: fortran/newdist_slice.o
+	ar -rvs $@ $^
+
+fortran/newdist_slice.o: fortran/newdist_slice.f90
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
 	
 ual:

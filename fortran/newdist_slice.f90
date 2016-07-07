@@ -1,4 +1,5 @@
-subroutine equ2dist(coreprofin,distributionout)
+!subroutine fire(distribution,time)
+subroutine fire(coreprof,distribution,time)
 
 use euITM_schemas
 !use euITM_routines ! Needed only if using euitm_deallocate and euitm_copy functions
@@ -10,8 +11,9 @@ integer,parameter :: DP=kind(1.0D0)
 ! Always describe cpo as array 
 ! In case of time slice, the size of the input cpo is 1
 !
-type (type_coreprof),pointer :: coreprofin(:)
-type (type_distribution),pointer :: distributionout(:)
+type (type_coreprof),pointer :: coreprof(:)
+type (type_distribution),pointer :: distribution(:)
+real(DP),pointer :: time(:)
 
 type type_distri_vec  !    
   type (type_enum_instance),pointer :: wave_id(:) => null()  ! /distribution/distri_vec(i)/wave_id(i) - List all waves affecting the distribution, as specified in waves/coherentwave/wave_id (see waves_typ
@@ -35,32 +37,23 @@ integer :: i,j,k,l
 
 ! The output CPO must be allocated with its number of time slices (1 for a single time slice physics module)
 ! Here we allocate the output CPO to the same size as the input CPO (but this is not a general rule)
-allocate(distributionout(size(coreprofin)))
+allocate(distribution(1))
 
-! Fill in the output CPO (Physical data)
-do i=1,1
-   ! Time : copy from input CPO
-!   write(0,*) 'Received input time from Coreprof : ', coreprofin(i)%time
-   distributionout(i)%time = coreprofin(i)%time  ! THE TIME FIELD MUST BE FILLED (MANDATORY) in case of multiple time slice mode for the CPO; NB this information is overwritten by the wrapper in case of single slice mode for the CPO
-   !allocate(distributionout(i)%distri_vec(1))
-   allocate(distributionout(i)%distri_vec(1))
-   distributionout(i)%distri_vec(1)%gyro_type=1;
+distribution(1)%time = time(1)  ! THE TIME FIELD MUST BE FILLED (MANDATORY) in case of multiple time slice mode for the CPO; NB this information is overwritten by the wrapper in case of single 
+allocate(distribution(i)%distri_vec(1))
    
-   allocate(distributionout(i)%distri_vec(1))
-   
-enddo
 
-!allocate(distributionout(1)%codeparam%datainfo(1))   ! For a string of 132 characters max.
-!distributionout(1)%codeparam%datainfo(1)   = 'Runaway_distribution'
-allocate(distributionout(1)%codeparam%codename(1))   ! For a string of 132 characters max.
-distributionout(1)%codeparam%codename(1)   = 'Runaway_fluid'
-allocate(distributionout(1)%codeparam%codeversion(1))   ! For a string of 132 characters max.
-distributionout(1)%codeparam%codeversion(1)   = '0.1'
-!allocate(distributionout(1)%codeparam%parameters(1))   ! For a string of 132 characters max.
-!distributionout(1)%codeparam%parameters(1) = 'my_code_specific_parameters'
-allocate(distributionout(1)%codeparam%output_diag(1))   ! For a string of 132 characters max.
-distributionout(1)%codeparam%output_diag(1) = 'my_output_diag'
-distributionout(1)%codeparam%output_flag = 0   ! Integer output flag, 0 means the run was successful and can be used in the rest of the workflow, <0 means failure
+!allocate(distribution(1)%codeparam%datainfo(1))   ! For a string of 132 characters max.
+!distribution(1)%codeparam%datainfo(1)   = 'Runaway_distribution'
+allocate(distribution(1)%codeparam%codename(1))   ! For a string of 132 characters max.
+distribution(1)%codeparam%codename(1)   = 'Runaway_fluid'
+allocate(distribution(1)%codeparam%codeversion(1))   ! For a string of 132 characters max.
+distribution(1)%codeparam%codeversion(1)   = '0.1'
+!allocate(distribution(1)%codeparam%parameters(1))   ! For a string of 132 characters max.
+!distribution(1)%codeparam%parameters(1) = 'my_code_specific_parameters'
+allocate(distribution(1)%codeparam%output_diag(1))   ! For a string of 132 characters max.
+distribution(1)%codeparam%output_diag(1) = 'my_output_diag'
+distribution(1)%codeparam%output_flag = 0   ! Integer output flag, 0 means the run was successful and can be used in the rest of the workflow, <0 means failure
 
 !write(0,*) 'End Subroutine'
 

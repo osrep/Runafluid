@@ -1,7 +1,11 @@
 #include <stdexcept>
 //#include "cpo_utils.h"
 #include <UALClasses.h>
+#include <cmath>
+#include <iostream>
+#include <stdexcept>
 #include "constants.h"
+#include "distinit.h"
 #include "control.h"
 
 /*!
@@ -110,6 +114,57 @@ int bool_switch(bool *bools, int N){
 
 
 
+
+/*! This code is looking for
+which element of distri_vec is 
+the runaway distribution
+
+runaway: distri_vec index
+no runaway: -1
+
+*/
+
+
+int whereRunaway(const ItmNs::Itm::distribution &distribution){
+	int N_distr = 0;
+	
+	int runaway_index = -1;
+	
+	try {
+		//if(distribution.distri_vec()){
+			N_distr = distribution.distri_vec.rows();
+		std::cerr << "N_distr : " << N_distr << std::endl;
+			for (int i=0; (i<N_distr && runaway_index<0); i++){
+
+				//! Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
+				if (distribution.distri_vec(i).source_id.rows()>0){
+		//std::cerr << "distribution.distri_vec(i).source_id.rows : " << distribution.distri_vec(i).source_id.rows << std::endl;
+					if (distribution.distri_vec(i).source_id(0).type.flag == DISTSOURCE_IDENTIFIER){
+						runaway_index = i;
+					}
+				}
+
+			//}
+		}
+		
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR : An error occurred during geometry vectors allocation" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+	}
+	
+	if (runaway_index == -1){
+		std::cerr << "WARNING: There is no previous runaway distribution. New distribution initialised." << std::endl;
+	}else{	
+		std::cerr << "Distri_vec identifier: " << runaway_index << std::endl;
+	}
+	
+	return runaway_index;
+
+}
+
+
+
+
 /*!
 
 Copy data from coreprof CPO
@@ -212,12 +267,9 @@ Copy data from CPO inputs to profile structure
 
 */
 
-
-/*profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::temporary &distribution){*/
 		
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution){		
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution/*, int distsource_index*/){		
 
 	profile pro;
 	double number_of_parts;
@@ -233,6 +285,12 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	if (coreprof.profiles1d.eparallel.value.rows() != cells)
 		throw std::invalid_argument(
 				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
+							
+							
+	//! read distribution source index for runaways from distribution CPO						
+	int distsource_index = whereRunaway(distribution);
+	
+	
 								
     //! read data in every $\rho$ 
 
@@ -253,15 +311,15 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
 						coreprof.rho_tor(rho));
 
-
-		/*! runaway density before (in m^-3) 
-		distsource_identifier = 7
-		*/
 		
-		try{
-			celll.runaway_density = distribution.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho);
-			/*celll.runaway_density = distribution.non_timed.float1d(0).value(rho);*/
-
+		try{		
+			//! No runaway in previous distribution CPO
+			if (distsource_index<0){
+				celll.runaway_density = 0;
+			//! Runaway in previous distribution CPO
+			}else{
+				celll.runaway_density = distribution.distri_vec(distsource_index).profiles_1d.state.dens(rho);
+			}
 
 		//! internal error in distribution
 		} catch (const std::exception& ex) {
@@ -272,54 +330,9 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		}
 
 
-		//! total sum of electric charge in \a rho cell for all ion population @ Murty 1965
-		celll.effective_charge = 0.0;
-		number_of_parts = 0.0;
-		for (int ion = 0; ion < coreprof.compositions.ions.rows(); ion++) {
-			celll.effective_charge += coreprof.ni.value(rho, ion)
-					* pow(coreprof.compositions.ions(ion).zion,2.94);
-			number_of_parts += coreprof.ni.value(rho, ion);
-		}
-		celll.effective_charge /= number_of_parts;
-		celll.effective_charge = pow(celll.effective_charge,1/2.94);
-		
+		//! total sum of electric charge from coreprof CPO
+		celll.effective_charge = coreprof.profiles1d.zeff.value(rho);		
 
-
-		//! total sum of electric charge in \a rho cell for all impurity population
-	/*	for (int impurity = 0; impurity < coreimpur.impurity.rows(); impurity++) {
-
-			for (int ionization_degree = 0;
-					ionization_degree < coreimpur.impurity(impurity).z.extent(1);
-					ionization_degree++) {
-
-				Array<double, 1> density_profile = coreimpur.impurity(impurity).nz(Range::all(),
-						ionization_degree);
-				Array<double, 1> charge_profile = coreimpur.impurity(impurity).z(Range::all(),
-						ionization_degree);
-
-				//! number of impurities by species
-				double nz = interpolate(coreimpur.rho_tor, density_profile, coreprof.rho_tor(rho));
-				
-				//! charge of impurity
-				double z = interpolate(coreimpur.rho_tor, charge_profile, coreprof.rho_tor(rho));
-
-				celll.effective_charge += nz * z * z;
-			}
-		}*/
-		
-		//std::cerr << "Zeff: " <<  celll.effective_charge << std::endl;
-		
-	
-		
-		// rho_tor: toroidal flux coordinate
-
-		// Assume sum of n_i * Z_i equals electron density because of quasi-neutrality
-		//celll.effective_charge /= celll.electron_density;	
-		
-		//!TESTING DT plasma	REMOVABLE!!!!
-		if (coreimpur.impurity.rows()==0){
-			celll.effective_charge = 2.5;
-		}
 
 		pro.push_back(celll);
 	}

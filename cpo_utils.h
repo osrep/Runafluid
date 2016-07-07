@@ -15,6 +15,8 @@ int int_switch(int switch_number, bool *bools, int N);
 
 int bool_switch(bool *bools, int N);
 
+int whereRunaway(ItmNs::Itm::distribution &distribution);
+
 profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) ;	
 
 profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::equilibrium &equilibrium) ;	
@@ -23,7 +25,7 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof, const It
 		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::temporary &distribution);*/
 
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution);
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution/*, int distsource_index*/);
 		
 
 #endif /* CPO_UTILS_H_ */

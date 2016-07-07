@@ -1,9 +1,9 @@
 <generactor.ActorGenerator>
-  <version>branches/R2.2_r553</version>
+  <version>branches/R2.2_r586</version>
   <paramFile>empty</paramFile>
   <defaultparamFile>empty</defaultparamFile>
   <paramXsdFile>empty</paramXsdFile>
-  <fFile>libRunafluid.a</fFile>
+  <fFile>fortran/libNewDistSlice.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>
@@ -270,12 +270,12 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r586/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams>
           <vector>
             <string>coreprof</string>
-            <string>1</string>
+            <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
@@ -283,41 +283,13 @@
             <string>coreprof</string>
           </vector>
           <vector>
-            <string>coreimpur</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>coreimpur</string>
-          </vector>
-          <vector>
-            <string>equilibrium</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>equilibrium</string>
-          </vector>
-          <vector>
             <string>distribution</string>
-            <string>1</string>
             <string>0</string>
             <string>0</string>
-            <string>1</string>
+            <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>distribution</string>
-          </vector>
-          <vector>
-            <string>distribution</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>distribution_out</string>
           </vector>
           <vector>
             <string>double</string>
@@ -326,34 +298,7 @@
             <string>0</string>
             <string>1</string>
             <string>0</string>
-            <string>timestep</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>runafluid_switch</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>runafluid_warnings</string>
-          </vector>
-          <vector>
-            <string>temporary</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>runaway_rates</string>
+            <string>time</string>
           </vector>
         </tupleParams>
         <uHash>
@@ -389,10 +334,10 @@
       </default>
     </generactor.TupleP>
   </tupleParams>
-  <actor>runaway_fluid</actor>
+  <actor>runafluid_newdistSlice</actor>
   <actorVersion></actorVersion>
-  <actorDoc>RUNAFLUID&amp;#xA;Runaway Fluid</actorDoc>
-  <actorFolder>eu/itm/runaway_fluid</actorFolder>
+  <actorDoc>Distinit&amp;#xA;&amp;#xA;Distribution I/O initialiser</actorDoc>
+  <actorFolder>eu/itm/runafluid_newdistSlice</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
   <returnType serialization="custom">
     <unserializable-parents/>
@@ -657,7 +602,7 @@
           </entry>
         </tHash>
         <tc>
-          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/../scripts/TC_Types.py</ffile>
+          <ffile>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r586/bin/../scripts/TC_Types.py</ffile>
         </tc>
         <tupleParams/>
         <uHash>
@@ -696,16 +641,16 @@
   <semantic>Itm</semantic>
   <keplerFolder>/pfs/home/maradi/kepler</keplerFolder>
   <ptFolder>empty</ptFolder>
-  <compiler>g++</compiler>
+  <compiler>ifort</compiler>
   <libraries/>
   <systemLibraries/>
-  <lang>c</lang>
+  <lang>fortran</lang>
   <HasTimeSlice>false</HasTimeSlice>
   <HasCodeParam>false</HasCodeParam>
   <MPI>false</MPI>
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
-  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r553/bin/..</FC2Kpath>
+  <FC2Kpath>/afs/ipp/itm/switm/ihm/fc2k/RCs/R2.2_r586/bin/..</FC2Kpath>
   <fDiagnosticInfo>false</fDiagnosticInfo>
 </generactor.ActorGenerator>

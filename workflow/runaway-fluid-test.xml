@@ -32,17 +32,17 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, -30.0]">
         </property>
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, -4, 1608, 813}, maximized=true}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, -4, 1928, 1023}, maximized=true}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1292, 651]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1612, 861]">
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{366.5, 309.5}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{803.5, 414.5}">
     </property>
-    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2913:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:4:8:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:24:34">
+    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2913:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:4:8:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:24:34:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:27:478:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:48:383">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:27:297">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:21:155">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="0.01">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -247,7 +247,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[190.0, 45.0]">
         </property>
     </property>
-    <property name="stop" class="ptolemy.data.expr.Parameter" value="4">
+    <property name="stop" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -281,7 +281,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[190.0, 15.0]">
         </property>
     </property>
-    <property name="runafluid_switch" class="ptolemy.data.expr.Parameter" value="1000">
+    <property name="runafluid_switch" class="ptolemy.data.expr.Parameter" value="1101">
         <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:132:6">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.data.expr.Parameter">
@@ -424,7 +424,7 @@
     <entity name="Initialize" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:28:1">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:55:14">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -443,7 +443,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
 </property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[-15.0, 280.0]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:73:73:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:215:92:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:16:163:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:299:21">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:73:73:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:215:92:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:16:163:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:299:21:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:28:1:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:55:4">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={250, 116, 916, 623}, maximized=false}">
         </property>
@@ -882,7 +882,7 @@
                 </property>
             </port>
         </entity>
-        <entity name="runafluid_newdist" class="eu.itm.runafluid_newdist.runafluid_newdist">
+        <entity name="runafluid_newdistSlice" class="eu.itm.runafluid_newdistSlice.runafluid_newdistSlice">
             <property name="execution mode" class="ptolemy.data.expr.StringParameter" value="jni">
             </property>
             <property name="delete temporary directory" class="ptolemy.data.expr.Parameter" value="true">
@@ -891,31 +891,69 @@
             </property>
             <property name="distribution1_out_occurrence" class="ptolemy.data.expr.Parameter" value="0">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:efda-itm.eu:actor:254:1">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:efda-itm.eu:actor:251:1">
             </property>
-            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.runafluid_newdist.runafluid_newdist">
-                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:254:1">
+            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.runafluid_newdistSlice.runafluid_newdistSlice">
+                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:251:1">
                 </property>
             </property>
             <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ItmActor">
             </property>
             <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#Itm">
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[300.0, 250.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[320.0, 305.0]">
             </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>gerp</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>maradi</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;pre&gt;Distinit&#10;&#10;Distribution I/O initialiser&lt;/pre&gt;</configure></property>
-</property>            <port name="coreprofin0_in" class="ptolemy.actor.TypedIOPort">
+</property>            <port name="coreprof0_in" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
                 <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#coreprof">
                 </property>
             </port>
-            <port name="distributionout1_out" class="ptolemy.actor.TypedIOPort">
+            <port name="distribution1_out" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
                 <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#distribution">
+                </property>
+            </port>
+        </entity>
+        <entity name="time" class="ptolemy.actor.lib.Expression">
+            <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="starting_time">
+                <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
+                </property>
+            </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu, Edward A. Lee, Steve Neuendorffer</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
+<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
+<property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
+</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:62:2">
+            </property>
+            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
+                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
+                </property>
+            </property>
+            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#MathOperationActor">
+            </property>
+            <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
+                </property>
+                <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[195.0, 335.0]">
+            </property>
+            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:kepler-project.org/ns/:62444:97:27">
+            </property>
+            <port name="input" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
                 </property>
             </port>
         </entity>
@@ -941,6 +979,8 @@
         </relation>
         <relation name="relation4" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="output" relation="relation7"/>
         <link port="ualinit.machine" relation="relation9"/>
         <link port="ualinit.shot" relation="relation"/>
@@ -958,13 +998,15 @@
         <link port="run number.output" relation="relation2"/>
         <link port="runwork number.output" relation="relation3"/>
         <link port="machine name (string).output" relation="relation9"/>
-        <link port="runafluid_newdist.coreprofin0_in" relation="relation10"/>
-        <link port="runafluid_newdist.distributionout1_out" relation="relation4"/>
+        <link port="runafluid_newdistSlice.coreprof0_in" relation="relation10"/>
+        <link port="runafluid_newdistSlice.distribution1_out" relation="relation4"/>
+        <link port="runafluid_newdistSlice.time2_in" relation="relation8"/>
+        <link port="time.output" relation="relation8"/>
     </entity>
     <entity name="runaway-fluid" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:45:96">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:20:35">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -983,7 +1025,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
 </property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[165.0, 170.0]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62827:65:61:urn:lsid:kepler-project.org/ns/:62444:212:90:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:203:296:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:8:103:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:23:67:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:11:2:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:11:103:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:8:1030:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:27:5">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62444:71:589:urn:lsid:kepler-project.org/ns/:62827:65:61:urn:lsid:kepler-project.org/ns/:62444:212:90:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:203:296:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:8:103:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:23:67:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:11:2:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:11:103:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:8:1030:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:27:5:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:45:114:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:52:153">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 1374, 782}, maximized=true}">
         </property>
@@ -1201,7 +1243,7 @@
         <entity name="RUNAFLUID" class="ptolemy.actor.TypedCompositeActor">
             <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:44:48">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:19:53">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -1220,7 +1262,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
 </property>            <property name="_location" class="ptolemy.kernel.util.Location" value="[285.0, 450.0]">
             </property>
-            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:169:171:urn:lsid:kepler-project.org/ns/:62827:71:23:urn:lsid:kepler-project.org/ns/:62444:218:60:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:202:587:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:7:140:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:22:91:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:10:1:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:8:214:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:7:960">
+            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:kepler-project.org/ns/:62444:169:171:urn:lsid:kepler-project.org/ns/:62827:71:23:urn:lsid:kepler-project.org/ns/:62444:218:60:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:202:587:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:7:140:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:22:91:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:10:1:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:8:214:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:7:960:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:44:59:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:51:177">
             </property>
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 1280, 782}, maximized=true}">
             </property>
@@ -1283,6 +1325,57 @@
                 <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1">
                 </property>
             </property>
+            <property name="Annotation2" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+                <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+                </property>
+                <property name="_hideAllParameters" class="ptolemy.data.expr.Parameter" value="true">
+                </property>
+                <property name="textSize" class="ptolemy.data.expr.Parameter" value="10">
+                </property>
+                <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+                <property name="fontFamily" class="ptolemy.data.expr.StringParameter" value="SansSerif">
+                </property>
+                <property name="bold" class="ptolemy.data.expr.Parameter" value="false">
+                </property>
+                <property name="italic" class="ptolemy.data.expr.Parameter" value="false">
+                </property>
+                <property name="anchor" class="ptolemy.data.expr.StringParameter" value="northwest">
+                </property>
+                <property name="text" class="ptolemy.kernel.util.StringAttribute" value="{ time=input.time ,&#10;  cpos={&#10;     hcd={ distribution=distribution } ,&#10;     mhd={&#10;         equilibrium=input.cpos.mhd.equilibrium } ,&#10;     core={&#10;         coreprof=input.cpos.core.coreprof , &#10;         coreimpur=input.cpos.core.coreimpur}&#10;  } ,&#10;  iteration=input.iteration&#10;}">
+                    <property name="_style" class="ptolemy.actor.gui.style.TextStyle">
+                        <property name="height" class="ptolemy.data.expr.Parameter" value="15">
+                        </property>
+                        <property name="width" class="ptolemy.data.expr.Parameter" value="40">
+                        </property>
+                    </property>
+                </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Use the Annotation attribute to annotate a workflow. Double-click the attribute to customize the content, font size, color, and basic formatting (bold and italics).</configure></property>
+<property name="prop:fontFamily" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font face. Select a font from the drop-down menu. The default is &quot;SansSerif&quot;.</configure></property>
+<property name="prop:italic" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be italics. By default, type will not be italicized.</configure></property>
+<property name="prop:bold" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Select to indicate that the type should be bold. By default, type will not be bold.</configure></property>
+<property name="prop:textColor" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font color. Specify a string representing an array of four elements: red, green, blue, and alpha, where alpha is transparency. The default is an opaque black, {0.0, 0.0, 0.0, 1.0}</configure></property>
+<property name="prop:textSize" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The font size. Select an integer from the drop-down menu or specify a new size by typing it directly into the value field.  The default is 14.</configure></property>
+<property name="prop:text" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The text of the annotation.</configure></property>
+</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:63:2">
+                </property>
+                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.vergil.kernel.attributes.TextAttribute">
+                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:1199:1">
+                    </property>
+                </property>
+                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#DocumentationActor">
+                </property>
+                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowDocumentation">
+                </property>
+                <property name="_location" class="ptolemy.kernel.util.Location" value="[1010.0, 120.0]">
+                </property>
+                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:213:5">
+                </property>
+            </property>
             <port name="input_bundle" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
                 <property name="_location" class="ptolemy.kernel.util.Location" value="[-305.0, 255.0]">
@@ -1295,20 +1388,6 @@
                 <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
                 </property>
                 <property name="_location" class="ptolemy.kernel.util.Location" value="[1330.0, 265.0]">
-                </property>
-            </port>
-            <port name="prev_time" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[-155.0, 595.0]">
-                </property>
-                <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="prev_distribution" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[-185.0, 550.0]">
-                </property>
-                <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
                 </property>
             </port>
             <entity name="Pass input bundle" class="ptolemy.actor.lib.Expression">
@@ -1329,7 +1408,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
 <property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
 <property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:43:9">
+</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:22:2">
                 </property>
                 <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
                     <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
@@ -1347,7 +1426,7 @@
                 </property>
                 <property name="_location" class="ptolemy.kernel.util.Location" value="[885.0, 265.0]">
                 </property>
-                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:kepler-project.org/ns/:62444:144:110:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:282:1">
+                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:kepler-project.org/ns/:62444:144:110:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:282:1:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:43:13:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:65:3">
                 </property>
                 <port name="input" class="ptolemy.actor.TypedIOPort">
                     <property name="input"/>
@@ -1595,7 +1674,7 @@
                 </property>
                 <property name="enable JNI debugging" class="ptolemy.data.expr.Parameter" value="false">
                 </property>
-                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:52:2">
+                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:18:1">
                 </property>
                 <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.runaway_fluid.runaway_fluid">
                     <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:114:1">
@@ -1607,9 +1686,11 @@
                 </property>
                 <property name="_location" class="ptolemy.kernel.util.Location" value="[625.0, 430.0]">
                 </property>
+                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:efda-itm.eu:actor:114:1:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:52:3">
+                </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>gerp</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>maradi</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;pre&gt;RUNAFLUID&#10;Runaway Fluid&lt;/pre&gt;</configure></property>
 </property>                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:efda-itm.eu:actor:114:1">
@@ -1627,16 +1708,6 @@
                 <port name="equilibrium2_in" class="ptolemy.actor.TypedIOPort">
                     <property name="input"/>
                     <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#equilibrium">
-                    </property>
-                </port>
-                <port name="distribution3_in" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#distribution">
-                    </property>
-                </port>
-                <port name="distribution3_out" class="ptolemy.actor.TypedIOPort">
-                    <property name="output"/>
-                    <property name="semanticType41" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#distribution">
                     </property>
                 </port>
                 <port name="time_in" class="ptolemy.actor.TypedIOPort">
@@ -1772,9 +1843,9 @@
                 </property>
                 <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="Dreicer rate">
                 </property>
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={179, 440, 606, 326}, maximized=false}">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 631, 618, 326}, maximized=false}">
                 </property>
-                <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[598, 272]">
+                <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[610, 272]">
                 </property>
                 <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
                 </property>
@@ -1819,48 +1890,10 @@
 <title>Dreicer rate</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_D [1/m³s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.95095413468171674E18"/>
 </plot>?>
                 </configure>
-            </entity>
-            <entity name="Unpack time3" class="ptolemy.actor.lib.Expression">
-                <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="input.time">
-                    <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
-                    </property>
-                </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu, Edward A. Lee, Steve Neuendorffer</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
-<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
-<property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:62444:96:25">
-                </property>
-                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
-                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
-                    </property>
-                </property>
-                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#MathOperationActor">
-                </property>
-                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
-                </property>
-                <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
-                    <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
-                    </property>
-                    <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
-                    </property>
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[398.75, 796.25]">
-                </property>
-                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1">
-                </property>
-                <port name="input" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                    </property>
-                </port>
             </entity>
             <entity name="Avalanche_rate" class="ptolemy.actor.lib.gui.ArrayPlotter">
                 <display name="Avalanche rate"/>
@@ -1870,9 +1903,9 @@
                 </property>
                 <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="Avalanche rate">
                 </property>
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={677, 343, 603, 277}, maximized=false}">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1294, 356, 618, 277}, maximized=false}">
                 </property>
-                <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[595, 223]">
+                <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[610, 223]">
                 </property>
                 <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
                 </property>
@@ -1917,8 +1950,8 @@
 <title>normalised Avalanche rate</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_A/n_r [1/s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="14.808100397588765"/>
 </plot>?>
                 </configure>
             </entity>
@@ -2720,9 +2753,9 @@
                 </property>
                 <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="(63),(66),(67)">
                 </property>
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={111, 336, 554, 280}, maximized=false}">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={468, 0, 618, 280}, maximized=false}">
                 </property>
-                <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[546, 226]">
+                <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[610, 226]">
                 </property>
                 <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
                 </property>
@@ -2767,360 +2800,10 @@
 <title>Dreicer rate at different models</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>R_D [1/m³s]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.96345571238922522E18"/>
 </plot>?>
                 </configure>
-            </entity>
-            <entity name="MessageComposer" class="ptolemy.actor.TypedCompositeActor">
-                <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
-                </property>
-                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:252:102">
-                </property>
-                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
-                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
-                    </property>
-                </property>
-                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#Actor">
-                </property>
-                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
-                </property>
-                <property name="semanticType22" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#Workflow">
-                </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
-</property>                <property name="_location" class="ptolemy.kernel.util.Location" value="[900.0, 430.0]">
-                </property>
-                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1">
-                </property>
-                <port name="runafluid_warnings" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="_type" class="ptolemy.actor.TypeAttribute" value="[int]">
-                    </property>
-                    <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[110.0, 335.0]">
-                    </property>
-                </port>
-                <port name="time" class="ptolemy.actor.TypedIOPort">
-                    <property name="input"/>
-                    <property name="_type" class="ptolemy.actor.TypeAttribute" value="[double]">
-                    </property>
-                    <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[115.0, 250.0]">
-                    </property>
-                </port>
-                <entity name="no_runaway_message" class="ptolemy.actor.lib.Expression">
-                    <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="'No runaway electrons indicated.'">
-                        <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
-                        </property>
-                    </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu, Edward A. Lee, Steve Neuendorffer</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
-<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
-<property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
-</property>                    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:255:1">
-                    </property>
-                    <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
-                        <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
-                        </property>
-                    </property>
-                    <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#MathOperationActor">
-                    </property>
-                    <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
-                    </property>
-                    <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
-                        <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
-                        </property>
-                        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
-                        </property>
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[510.0, 260.0]">
-                    </property>
-                    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:kepler-project.org/ns/:62444:176:122">
-                    </property>
-                    <port name="time_in" class="ptolemy.actor.TypedIOPort">
-                        <property name="input"/>
-                        <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                        </property>
-                    </port>
-                </entity>
-                <entity name="runaway_message" class="ptolemy.actor.lib.Expression">
-                    <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="'Population of runaway electrons indicated: '+time_in">
-                        <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
-                        </property>
-                    </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu, Edward A. Lee, Steve Neuendorffer</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
-<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
-<property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
-</property>                    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:255:7">
-                    </property>
-                    <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
-                        <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
-                        </property>
-                    </property>
-                    <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#MathOperationActor">
-                    </property>
-                    <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
-                    </property>
-                    <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
-                        <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
-                        </property>
-                        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
-                        </property>
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[535.0, 320.0]">
-                    </property>
-                    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:kepler-project.org/ns/:62444:176:122">
-                    </property>
-                    <port name="time_in" class="ptolemy.actor.TypedIOPort">
-                        <property name="input"/>
-                        <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                        </property>
-                    </port>
-                </entity>
-                <entity name="critical_fraction_message" class="ptolemy.actor.lib.Expression">
-                    <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="'Density of runaway electrons exceeds 1% of total electron density: '+time_in">
-                        <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
-                        </property>
-                    </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu, Edward A. Lee, Steve Neuendorffer</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
-<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
-<property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
-</property>                    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:255:6">
-                    </property>
-                    <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
-                        <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
-                        </property>
-                    </property>
-                    <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#MathOperationActor">
-                    </property>
-                    <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
-                    </property>
-                    <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
-                        <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
-                        </property>
-                        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
-                        </property>
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[535.0, 385.0]">
-                    </property>
-                    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:kepler-project.org/ns/:62444:176:122">
-                    </property>
-                    <port name="time_in" class="ptolemy.actor.TypedIOPort">
-                        <property name="input"/>
-                        <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                        </property>
-                    </port>
-                </entity>
-                <entity name="Switch" class="ptolemy.actor.lib.Switch">
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Switch actor routes inputs to specified output channels. The actor has two input ports: the input port for data, and the control port, used to select which output channel to use. The actor outputs the input token on the channel most recently received via the control port.&lt;/p&gt;&#10;&#10;&lt;p&gt;Each time the actor iterates, it checks to see if a token is available on its control port. If so, the actor reads the value and uses it to determine which of its output channels to broadcast (0,1,2,3, etc.). If an input token is available on the input port, then that token is read and sent to the specified output channel. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the actor has never received a value on the control port, then the actor will output to channel zero. If the value of the most recently received control token is out of range (less than zero, or greater than or equal to the width of the output), then the actor will not fire and the input token will be lost. &lt;/p&gt;&#10;&#10;&lt;p&gt;The actor is similar to the TokenToSeparateChannelsTransmitter, except that the output channel of the Switch actor is specified via the control port. The TokenToSeparateChannelsTransmitter sends each input token to a different consecutive output channel.&lt;/p&gt;</configure></property>
-<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts to the channel specified via the control port.</configure></property>
-<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts tokens of any type.</configure></property>
-<property name="port:control" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts integer tokens that indicate which output channel to broadcast (0, 1, 2, 3, etc).</configure></property>
-</property>                    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:51:1">
-                    </property>
-                    <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Switch">
-                        <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:927:1">
-                        </property>
-                    </property>
-                    <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ControlActor">
-                    </property>
-                    <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowControl">
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[240.0, 230.0]">
-                    </property>
-                    <port name="control" class="ptolemy.actor.TypedIOPort">
-                        <property name="input"/>
-                        <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
-                        </property>
-                    </port>
-                </entity>
-                <entity name="Find branch number in switch" class="ptolemy.actor.lib.Expression">
-                    <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="((runafluid_warnings==0)) ? 1 :&#10;((runafluid_warnings==10)) ? 2 : 3">
-                        <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
-                        </property>
-                        <property name="style" class="ptolemy.actor.gui.style.TextStyle">
-                            <property name="height" class="ptolemy.data.expr.Parameter" value="10">
-                            </property>
-                            <property name="width" class="ptolemy.data.expr.Parameter" value="30">
-                            </property>
-                        </property>
-                    </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu, Edward A. Lee, Steve Neuendorffer</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
-<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
-<property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
-</property>                    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:257:6">
-                    </property>
-                    <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
-                        <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
-                        </property>
-                    </property>
-                    <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#MathOperationActor">
-                    </property>
-                    <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
-                    </property>
-                    <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
-                        <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
-                        </property>
-                        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
-                        </property>
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 500.0]">
-                    </property>
-                    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:kepler-project.org/ns/:62444:174:112">
-                    </property>
-                    <port name="output" class="ptolemy.actor.TypedIOPort">
-                        <property name="output"/>
-                        <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
-                        </property>
-                    </port>
-                    <port name="runafluid_warnings" class="ptolemy.actor.TypedIOPort">
-                        <property name="input"/>
-                        <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                        </property>
-                    </port>
-                </entity>
-                <entity name="error_message_display" class="ptolemy.actor.lib.gui.Display">
-                    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
-                    </property>
-                    <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
-                    </property>
-                    <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
-                    </property>
-                    <property name="columnsDisplayed" class="ptolemy.data.expr.Parameter" value="40">
-                    </property>
-                    <property name="suppressBlankLines" class="ptolemy.data.expr.Parameter" value="false">
-                    </property>
-                    <property name="title" class="ptolemy.data.expr.StringParameter" value="Error message Display">
-                    </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong, Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Display actor reads tokens of any type via its input multiport, and displays each token on a separate line in a text display window.&lt;/p&gt;&#10;&#10;&lt;p&gt;Specify the size of the text display window with the rowsDisplayed and columnsDisplayed parameters. Simply resizing the window onscreen does not persistently change the size when the workflow is saved, closed, and then re-opened. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the input is a string token, then the actor strips the surrounding quotation marks before displaying the value.&lt;/p&gt; &#10;&#10;&lt;p&gt;Select the suppressBlankLines parameter to specify that the actor not add blank lines to the display. By default, the actor will add blank lines.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: this actor can consume large amounts of memory. It is not advisable to use it to display large output streams.&lt;/p&gt;</configure></property>
-<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts tokens of any type.</configure></property>
-<property name="prop:suppressBlankLines" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether the actor should display blank lines (the default) or suppress them.</configure></property>
-<property name="prop:rowsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The vertical size of the display, in rows. The value is an integer that defaults to 10.</configure></property>
-<property name="prop:columnsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The horizontal size of the display, in columns. The value is an integer that defaults to 40.</configure></property>
-<property name="prop:title" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The title of the text display window. If specified, the value will appear in the title bar of the text display window.</configure></property>
-</property>                    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:264:2">
-                    </property>
-                    <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.Display">
-                        <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:883:1">
-                        </property>
-                    </property>
-                    <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#TextualOutputActor">
-                    </property>
-                    <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#TextualOutput">
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[850.0, 295.0]">
-                    </property>
-                    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:7:1">
-                    </property>
-                </entity>
-                <entity name="error_message_display2" class="ptolemy.actor.lib.gui.Display">
-                    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 581, 451, 207}, maximized=false}">
-                    </property>
-                    <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[443, 153]">
-                    </property>
-                    <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
-                    </property>
-                    <property name="columnsDisplayed" class="ptolemy.data.expr.Parameter" value="40">
-                    </property>
-                    <property name="suppressBlankLines" class="ptolemy.data.expr.Parameter" value="false">
-                    </property>
-                    <property name="title" class="ptolemy.data.expr.StringParameter" value="Error message Display">
-                    </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong, Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Display actor reads tokens of any type via its input multiport, and displays each token on a separate line in a text display window.&lt;/p&gt;&#10;&#10;&lt;p&gt;Specify the size of the text display window with the rowsDisplayed and columnsDisplayed parameters. Simply resizing the window onscreen does not persistently change the size when the workflow is saved, closed, and then re-opened. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the input is a string token, then the actor strips the surrounding quotation marks before displaying the value.&lt;/p&gt; &#10;&#10;&lt;p&gt;Select the suppressBlankLines parameter to specify that the actor not add blank lines to the display. By default, the actor will add blank lines.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: this actor can consume large amounts of memory. It is not advisable to use it to display large output streams.&lt;/p&gt;</configure></property>
-<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts tokens of any type.</configure></property>
-<property name="prop:suppressBlankLines" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether the actor should display blank lines (the default) or suppress them.</configure></property>
-<property name="prop:rowsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The vertical size of the display, in rows. The value is an integer that defaults to 10.</configure></property>
-<property name="prop:columnsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The horizontal size of the display, in columns. The value is an integer that defaults to 40.</configure></property>
-<property name="prop:title" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The title of the text display window. If specified, the value will appear in the title bar of the text display window.</configure></property>
-</property>                    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:264:2">
-                    </property>
-                    <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.Display">
-                        <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:883:1">
-                        </property>
-                    </property>
-                    <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#TextualOutputActor">
-                    </property>
-                    <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#TextualOutput">
-                    </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[205.0, 630.0]">
-                    </property>
-                    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:7:1">
-                    </property>
-                </entity>
-                <relation name="relation6" class="ptolemy.actor.TypedIORelation">
-                </relation>
-                <relation name="relation7" class="ptolemy.actor.TypedIORelation">
-                </relation>
-                <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-                </relation>
-                <relation name="relation8" class="ptolemy.actor.TypedIORelation">
-                </relation>
-                <relation name="relation9" class="ptolemy.actor.TypedIORelation">
-                </relation>
-                <relation name="relation" class="ptolemy.actor.TypedIORelation">
-                </relation>
-                <relation name="relation2" class="ptolemy.actor.TypedIORelation">
-                </relation>
-                <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-                </relation>
-                <relation name="relation10" class="ptolemy.actor.TypedIORelation">
-                    <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
-                    </property>
-                    <vertex name="vertex1" value="[155.0, 510.0]">
-                    </vertex>
-                </relation>
-                <link port="runafluid_warnings" relation="relation10"/>
-                <link port="time" relation="relation7"/>
-                <link port="no_runaway_message.output" relation="relation"/>
-                <link port="no_runaway_message.time_in" relation="relation8"/>
-                <link port="runaway_message.output" relation="relation2"/>
-                <link port="runaway_message.time_in" relation="relation4"/>
-                <link port="critical_fraction_message.output" relation="relation3"/>
-                <link port="critical_fraction_message.time_in" relation="relation9"/>
-                <link port="Switch.input" relation="relation7"/>
-                <link port="Switch.output" relation="relation8"/>
-                <link port="Switch.output" relation="relation4"/>
-                <link port="Switch.output" relation="relation9"/>
-                <link port="Switch.control" relation="relation6"/>
-                <link port="Find branch number in switch.output" relation="relation6"/>
-                <link port="Find branch number in switch.runafluid_warnings" relation="relation10"/>
-                <link port="error_message_display.input" relation="relation"/>
-                <link port="error_message_display.input" relation="relation2"/>
-                <link port="error_message_display.input" relation="relation3"/>
-                <link port="error_message_display2.input" relation="relation10"/>
             </entity>
             <entity name="Previous_dreicer_rate" class="ptolemy.actor.lib.gui.ArrayPlotter">
                 <display name="Previous Dreicer rate"/>
@@ -3130,7 +2813,7 @@
                 </property>
                 <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="after runafluid, before runafluid">
                 </property>
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={479, 363, 618, 326}, maximized=false}">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={694, 307, 618, 326}, maximized=false}">
                 </property>
                 <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[610, 272]">
                 </property>
@@ -3177,10 +2860,48 @@
 <title>Runaway density in the previous timestep</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>Runaway density [1/m³]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="0.0"/>
 </plot>?>
                 </configure>
+            </entity>
+            <entity name="Unpack distribution" class="ptolemy.actor.lib.Expression">
+                <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="input.cpos.hcd.distribution">
+                    <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
+                    </property>
+                </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu, Edward A. Lee, Steve Neuendorffer</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
+<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
+<property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
+</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:58:25">
+                </property>
+                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
+                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
+                    </property>
+                </property>
+                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#MathOperationActor">
+                </property>
+                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
+                </property>
+                <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+                    <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
+                    </property>
+                    <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+                    </property>
+                </property>
+                <property name="_location" class="ptolemy.kernel.util.Location" value="[60.0, 440.0]">
+                </property>
+                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:212:6">
+                </property>
+                <port name="input" class="ptolemy.actor.TypedIOPort">
+                    <property name="input"/>
+                    <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+                    </property>
+                </port>
             </entity>
             <entity name="ualdemux2" class="eu.itm.ualdemux.ualdemux">
                 <property name="timeSlice" class="ptolemy.data.expr.Parameter" value="true">
@@ -3197,9 +2918,25 @@
                 </property>
                 <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
                 </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[860.0, 755.0]">
+                <property name="_location" class="ptolemy.kernel.util.Location" value="[890.0, 420.0]">
                 </property>
                 <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:efda-itm.eu:actor:9:1:urn:lsid:kepler-project.org/ns/:5182:17:1:urn:lsid:kepler-project.org/ns/:35226:58:10:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:79:7">
+                </property>
+                <property name="" class="ptolemy.vergil.basic.DocAttribute">
+                    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&#10;&lt;p&gt;The ualdemux actor extracts single &#10;fields from a CPO given as input. Each exported field is defined by an output port added by the user, you can add as many output ports as &#10;you want. It is mandatory that the name of the port is the full path of the field to export, for example datainfo/whatref/machine is the &#10;path to machine field of a limiter CPO. The actor takes a time as input, which is propagated as output port if we manipulate a non-timed CPO, &#10;or a timed CPO in timeSlice mode. The timeSlice mode is a parameter of the actor, you can change its value by double clicking on it: if it is &#10;set at true, data are extracted for the slice corresponding at the input time, if it is set at false, data are extracted for each time slice &#10;(so a simple scalar data will become a 1D vector). If timeSlice is false, the output time becomes also a vector of times.&lt;/p&gt;&#10;&lt;p&gt;/!\ Note that at this time, ualdemux actor allows only 1D data export in kepler.&lt;/p&gt;&#10;&lt;p&gt;The last feature of this actor is the selection of subset to be extracted. You need to specify this selection in the name of the output &#10;port as follow: first you have to add a ; (semicolon) after the name of the field, then you have to specify the dimension in which you consider &#10;the data (1 is the first dim). After that, you can add as many ;index as you want (a semicolon followed by an index you want to extract). &#10;You can also replace the index by an expression index1:index2 (with a colon) to specify a set of indexes between both index1 and index2. &#10;For example, position/z;1;5;10;15:18 will export indexes [5,10,15,16,17,18] of the field z.&lt;/p&gt;&#10;">
+                    </property>
+                    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="ISIP">
+                    </property>
+                    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="4.09a">
+                    </property>
+                    <property name="timeSlice (parameter)" class="ptolemy.data.expr.StringParameter" value="enable or disable time slice mode">
+                    </property>
+                    <property name="inputCpo (port)" class="ptolemy.kernel.util.StringAttribute" value="CPO whose fields are extracted">
+                    </property>
+                    <property name="inTime (port)" class="ptolemy.kernel.util.StringAttribute" value="time used for slice selection">
+                    </property>
+                    <property name="outTime (port)" class="ptolemy.kernel.util.StringAttribute" value="same time as input or array of time">
+                    </property>
                 </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -3217,6 +2954,63 @@
                     <property name="_type" class="ptolemy.actor.TypeAttribute" value="arrayType(double)">
                     </property>
                 </port>
+            </entity>
+            <entity name="Runaway" class="ptolemy.actor.lib.gui.ArrayPlotter">
+                <property name="fillOnWrapup" class="ptolemy.data.expr.Parameter" value="true">
+                </property>
+                <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
+                </property>
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1239, 633, 618, 326}, maximized=false}">
+                </property>
+                <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[610, 272]">
+                </property>
+                <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
+                </property>
+                <property name="iterationsPerUpdate" class="ptolemy.data.expr.Parameter" value="1">
+                </property>
+                <property name="xInit" class="ptolemy.data.expr.Parameter" value="0.0">
+                </property>
+                <property name="xUnit" class="ptolemy.data.expr.Parameter" value="1.0">
+                </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The ArrayPlotter reads arrays of doubles via its input multiport and plots each received array as a separate data set. The actor displays a plot graph on the screen. By default, the actor updates the display each time it iterates.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: updating the display can be costly in terms of system resources. Specify the number of actor iterations that should pass between display updates with the iterationsPerUpdate parameter. For example, if iterationsPerUpdate = 2, then every second time the actor fires, it will update the display (i.e., the actor will update its display on the first firing, the third, the fifth, etc.) The actor will consume its inputs on every firing, regardless of the value of the iterationsPerUpdate parameter.&lt;/p&gt;</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that receives arrays of doubles.</configure></property>
+<property name="prop:xInit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The starting point of the X-axis.</configure></property>
+<property name="prop:fillOnWrapup" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether to rescale the plot so that all data is visible. By default, the actor scales the plot to fill the display area.</configure></property>
+<property name="prop:legend" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Annotations that will be displayed with the plot graph. Specify a comma-separated list of values that correspond to the input data sets (e.g., rainfall, temperature, elevation).</configure></property>
+<property name="prop:startingDataset" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of the dataset that should be plotted first. The value must be a non-negative integer. The default is 0.</configure></property>
+<property name="prop:iterationsPerUpdate" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The number of actor iterations that should pass between display updates. The value must be a non-negative integer. The default value is 1.</configure></property>
+<property name="prop:xUnit" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The increment along the X-axis.</configure></property>
+</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:222:1">
+                </property>
+                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.ArrayPlotter">
+                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:891:1">
+                    </property>
+                </property>
+                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#Plotter">
+                </property>
+                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GraphicalOutput">
+                </property>
+                <property name="semanticType22" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:5:1#ScatterPlot">
+                </property>
+                <property name="_location" class="ptolemy.kernel.util.Location" value="[1120.0, 430.0]">
+                </property>
+                <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:15:1">
+                </property>
+                <configure>
+<?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
+"http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
+<plot>
+<title>Runaway density</title>
+<xLabel>data index ~ r/a</xLabel>
+<yLabel>Runaway density [1/m³]</yLabel>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.9509541346817168E16"/>
+</plot>?>
+                </configure>
             </entity>
             <entity name="cpocontent" class="eu.itm.cpocontent.cpocontent">
                 <property name="verbose" class="ptolemy.data.expr.Parameter" value="false">
@@ -3243,7 +3037,7 @@
                 </property>
                 <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
                 </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[350.0, 565.0]">
+                <property name="_location" class="ptolemy.kernel.util.Location" value="[320.0, 515.0]">
                 </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -3252,42 +3046,6 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;Displays all the fields that are not empty in the input CPO&lt;/p&gt;&#10;</configure></property>
 <property name="port:cpo" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>cpo to be explored</configure></property>
 </property>            </entity>
-            <entity name="Display" class="ptolemy.actor.lib.gui.Display">
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={454, 416, 451, 207}, maximized=false}">
-                </property>
-                <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[443, 153]">
-                </property>
-                <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
-                </property>
-                <property name="columnsDisplayed" class="ptolemy.data.expr.Parameter" value="40">
-                </property>
-                <property name="suppressBlankLines" class="ptolemy.data.expr.Parameter" value="false">
-                </property>
-                <property name="title" class="ptolemy.data.expr.StringParameter" value="">
-                </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong, Edward A. Lee</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Display actor reads tokens of any type via its input multiport, and displays each token on a separate line in a text display window.&lt;/p&gt;&#10;&#10;&lt;p&gt;Specify the size of the text display window with the rowsDisplayed and columnsDisplayed parameters. Simply resizing the window onscreen does not persistently change the size when the workflow is saved, closed, and then re-opened. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the input is a string token, then the actor strips the surrounding quotation marks before displaying the value.&lt;/p&gt; &#10;&#10;&lt;p&gt;Select the suppressBlankLines parameter to specify that the actor not add blank lines to the display. By default, the actor will add blank lines.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: this actor can consume large amounts of memory. It is not advisable to use it to display large output streams.&lt;/p&gt;</configure></property>
-<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts tokens of any type.</configure></property>
-<property name="prop:suppressBlankLines" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether the actor should display blank lines (the default) or suppress them.</configure></property>
-<property name="prop:rowsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The vertical size of the display, in rows. The value is an integer that defaults to 10.</configure></property>
-<property name="prop:columnsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The horizontal size of the display, in columns. The value is an integer that defaults to 40.</configure></property>
-<property name="prop:title" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The title of the text display window. If specified, the value will appear in the title bar of the text display window.</configure></property>
-</property>                <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:7:1">
-                </property>
-                <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.Display">
-                    <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:883:1">
-                    </property>
-                </property>
-                <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#TextualOutputActor">
-                </property>
-                <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#TextualOutput">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[650.0, 860.0]">
-                </property>
-            </entity>
             <relation name="relation2" class="ptolemy.actor.TypedIORelation">
             </relation>
             <relation name="relation3" class="ptolemy.actor.TypedIORelation">
@@ -3302,10 +3060,6 @@
                 <vertex name="vertex1" value="[-240.0, 255.0]">
                 </vertex>
             </relation>
-            <relation name="relation16" class="ptolemy.actor.TypedIORelation">
-            </relation>
-            <relation name="relation22" class="ptolemy.actor.TypedIORelation">
-            </relation>
             <relation name="relation7" class="ptolemy.actor.TypedIORelation">
             </relation>
             <relation name="relation30" class="ptolemy.actor.TypedIORelation">
@@ -3313,7 +3067,7 @@
             <relation name="relation32" class="ptolemy.actor.TypedIORelation">
                 <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
                 </property>
-                <vertex name="vertex1" value="[827.8218994140625, 555.22314453125]">
+                <vertex name="vertex1" value="[785.0, 460.0]">
                 </vertex>
             </relation>
             <relation name="relation10" class="ptolemy.actor.TypedIORelation">
@@ -3368,47 +3122,39 @@
             </relation>
             <relation name="relation28" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation17" class="ptolemy.actor.TypedIORelation">
-            </relation>
             <relation name="relation24" class="ptolemy.actor.TypedIORelation">
             </relation>
             <relation name="relation29" class="ptolemy.actor.TypedIORelation">
-                <vertex name="vertex1" value="[-25.0, 550.0]">
+                <vertex name="vertex1" value="[295.0, 440.0]">
                 </vertex>
-            </relation>
-            <relation name="relation31" class="ptolemy.actor.TypedIORelation">
-                <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
-                </property>
-                <vertex name="vertex1" value="[10.0, 595.0]">
-                </vertex>
-            </relation>
-            <relation name="relation38" class="ptolemy.actor.TypedIORelation">
-                <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
-                </property>
-                <vertex name="vertex1" value="[625.0, 795.0]">
-                </vertex>
-            </relation>
-            <relation name="relation19" class="ptolemy.actor.TypedIORelation">
-                <vertex name="vertex1" value="[270.0, 525.0]">
-                </vertex>
-            </relation>
-            <relation name="relation" class="ptolemy.actor.TypedIORelation">
             </relation>
             <relation name="relation8" class="ptolemy.actor.TypedIORelation">
             </relation>
             <relation name="relation34" class="ptolemy.actor.TypedIORelation">
             </relation>
-            <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+            <relation name="relation20" class="ptolemy.actor.TypedIORelation">
+                <vertex name="vertex1" value="[-240.0, 440.0]">
+                </vertex>
+            </relation>
+            <relation name="relation17" class="ptolemy.actor.TypedIORelation">
+            </relation>
+            <relation name="relation16" class="ptolemy.actor.TypedIORelation">
                 <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
                 </property>
-                <vertex name="vertex1" value="[785.0, 475.0]">
+                <vertex name="vertex1" value="[800.0, 430.0]">
+                </vertex>
+            </relation>
+            <relation name="relation" class="ptolemy.actor.TypedIORelation">
+            </relation>
+            <relation name="relation13" class="ptolemy.actor.TypedIORelation">
+                <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+                </property>
+                <vertex name="vertex1" value="[770.0, 470.0]">
                 </vertex>
             </relation>
             <link port="input_bundle" relation="relation14"/>
-            <link port="output_bundle" relation="relation22"/>
-            <link port="prev_time" relation="relation31"/>
-            <link port="prev_distribution" relation="relation29"/>
-            <link port="Pass input bundle.output" relation="relation22"/>
+            <link port="output_bundle" relation="relation17"/>
+            <link port="Pass input bundle.output" relation="relation17"/>
             <link port="Pass input bundle.input" relation="relation14"/>
             <link port="Pass input bundle.distribution" relation="relation16"/>
             <link port="Unpack time.output" relation="relation8"/>
@@ -3426,20 +3172,18 @@
             <link port="runaway_fluid.coreprof0_in" relation="relation5"/>
             <link port="runaway_fluid.coreimpur1_in" relation="relation4"/>
             <link port="runaway_fluid.equilibrium2_in" relation="relation2"/>
-            <link port="runaway_fluid.distribution3_in" relation="relation26"/>
-            <link port="runaway_fluid.distribution3_out" relation="relation16"/>
-            <link port="runaway_fluid.distribution_prev4_in" relation="relation19"/>
+            <link port="runaway_fluid.distribution_in3_in" relation="relation29"/>
+            <link port="runaway_fluid.distribution_out4_out" relation="relation16"/>
             <link port="runaway_fluid.timestep5_in" relation="relation34"/>
             <link port="runaway_fluid.runafluid_switch6_in" relation="relation9"/>
-            <link port="runaway_fluid.runafluid_warnings7_out" relation="relation17"/>
             <link port="runaway_fluid.runaway_rates8_out" relation="relation32"/>
             <link port="runaway_fluid.time_in" relation="relation8"/>
-            <link port="runaway_fluid.time_out" relation="relation6"/>
+            <link port="runaway_fluid.time_out" relation="relation13"/>
             <link port="runaway_fluid.iter_in" relation="relation3"/>
             <link port="Unpack runafluid_switch.output" relation="relation9"/>
             <link port="Unpack runafluid_switch.input" relation="relation21"/>
             <link port="ualdemux.inputCpo" relation="relation32"/>
-            <link port="ualdemux.inTime" relation="relation38"/>
+            <link port="ualdemux.inTime" relation="relation13"/>
             <link port="ualdemux.timed/float1d[0]/value" relation="relation7"/>
             <link port="ualdemux.timed/float1d[1]/value" relation="relation30"/>
             <link port="ualdemux.timed/float1d[2]/value" relation="relation23"/>
@@ -3447,8 +3191,6 @@
             <link port="ualdemux.timed/float1d[4]/value" relation="relation28"/>
             <link port="ualdemux.timed/float1d[5]/value" relation="relation24"/>
             <link port="Dreicer_rate.input" relation="relation7"/>
-            <link port="Unpack time3.output" relation="relation38"/>
-            <link port="Unpack time3.input" relation="relation33"/>
             <link port="Avalanche_rate.input" relation="relation30"/>
             <link port="prevDistInit.input_bundle" relation="relation15"/>
             <link port="prevDistInit.previous_distribution" relation="relation29"/>
@@ -3459,15 +3201,14 @@
             <link port="Dreicer_rate2.input" relation="relation23"/>
             <link port="Dreicer_rate2.input" relation="relation25"/>
             <link port="Dreicer_rate2.input" relation="relation28"/>
-            <link port="MessageComposer.runafluid_warnings" relation="relation17"/>
-            <link port="MessageComposer.time" relation="relation6"/>
             <link port="Previous_dreicer_rate.input" relation="relation24"/>
-            <link port="Previous_dreicer_rate.input" relation="relation"/>
-            <link port="ualdemux2.inputCpo" relation="relation19"/>
-            <link port="ualdemux2.inTime" relation="relation38"/>
+            <link port="Unpack distribution.output" relation="relation29"/>
+            <link port="Unpack distribution.input" relation="relation20"/>
+            <link port="ualdemux2.inputCpo" relation="relation16"/>
+            <link port="ualdemux2.inTime" relation="relation13"/>
             <link port="ualdemux2.distri_vec[0]/profiles_1d/state/dens" relation="relation"/>
-            <link port="cpocontent.cpo" relation="relation19"/>
-            <link port="Display.input" relation="relation38"/>
+            <link port="Runaway.input" relation="relation"/>
+            <link port="cpocontent.cpo" relation="relation29"/>
             <link relation1="relation14" relation2="relation12"/>
             <link relation1="relation10" relation2="relation11"/>
             <link relation1="relation10" relation2="relation20"/>
@@ -3478,44 +3219,6 @@
             <link relation1="relation21" relation2="relation36"/>
             <link relation1="relation33" relation2="relation35"/>
             <link relation1="relation35" relation2="relation36"/>
-        </entity>
-        <entity name="Unpack distribution" class="ptolemy.actor.lib.Expression">
-            <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="input.cpos.hcd.distribution">
-                <property name="_hide" class="ptolemy.data.expr.Parameter" value="true">
-                </property>
-            </property>
-<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
-<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu, Edward A. Lee, Steve Neuendorffer</configure></property>
-<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Expression actor evaluates a specified expression (e.g., an addition or multiplication operation), which may reference the values of user-specified input ports, the current time, or the actor's iteration count. The actor outputs the value of the evaluated expression. &lt;/p&gt;&#10;&#10;&lt;p&gt;Expressions are specified in the Ptolemy expression language via the expression parameter. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. &lt;/p&gt;&#10;&#10;&lt;p&gt;By default, the expression parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot; &lt;/p&gt;&#10;&#10;&lt;p&gt;Input ports are created by the user and correspond to variables used in the specified expression. Currently, the Expression actor does not support input multiports. The actor requires all of its inputs to be present. If inputs are not all present, then the actor will generate an error. &lt;/p&gt;&#10;&#10;&lt;p&gt;Note: the Expression actor can be used instead of many of the arithmetic actors, such as AddSubtract, MultiplyDivide, and TrigFunction. However, those actors will be usually be more efficient, and sometimes more convenient to use.&lt;/p&gt;</configure></property>
-<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the value of the evaluated expression. The actor automatically determines the type based on the type of the input.</configure></property>
-<property name="prop:expression" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An expression to evaluate. Expressions are specified in the Ptolemy expression language. For more information about the expression language, see http://ptolemy.eecs.berkeley.edu/papers/05/ptIIdesign1-intro/ptIIdesign1-intro.pdf. By default, the parameter is empty, and attempting to execute the actor without first specifying an expression generates an error. Expressions can refer to the values of inputs by the port name; to the current time by the identifier &quot;time&quot;; and to the current iteration count by the identifier &quot;iteration.&quot;</configure></property>
-</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:58:25">
-            </property>
-            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.Expression">
-                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:950:1">
-                </property>
-            </property>
-            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#MathOperationActor">
-            </property>
-            <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
-            </property>
-            <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
-                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
-                </property>
-                <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
-                </property>
-            </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[60.0, 545.0]">
-            </property>
-            <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:75:1:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:212:6">
-            </property>
-            <port name="input" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
         </entity>
         <entity name="Unpack time" class="ptolemy.actor.lib.Expression">
             <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="input.time">
@@ -3569,10 +3272,6 @@
         </relation>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-        </relation>
         <link port="output" relation="relation"/>
         <link port="input" relation="relation7"/>
         <link port="SWITCH.plasma_in" relation="relation7"/>
@@ -3580,17 +3279,13 @@
         <link port="SWITCH.plasma_YES" relation="relation2"/>
         <link port="RUNAFLUID.input_bundle" relation="relation2"/>
         <link port="RUNAFLUID.output_bundle" relation="relation"/>
-        <link port="RUNAFLUID.prev_time" relation="relation3"/>
-        <link port="RUNAFLUID.prev_distribution" relation="relation4"/>
-        <link port="Unpack distribution.output" relation="relation4"/>
-        <link port="Unpack distribution.input" relation="relation7"/>
         <link port="Unpack time.output" relation="relation3"/>
         <link port="Unpack time.input" relation="relation7"/>
     </entity>
     <entity name="Postprocessor" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:34:92">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:44:5">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -3609,7 +3304,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
 </property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[530.5, 281.75]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:34:92">
         </property>
         <port name="input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -3655,7 +3350,7 @@
             </port>
         </entity>
         <entity name="Display end" class="ptolemy.actor.lib.gui.Display">
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={690, 214, 452, 200}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={39, 362, 452, 200}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[444, 146]">
             </property>
@@ -3823,9 +3518,9 @@
             </property>
             <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={703, 462, 577, 326}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={621, 633, 618, 326}, maximized=false}">
             </property>
-            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[569, 272]">
+            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[610, 272]">
             </property>
             <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
             </property>
@@ -3870,8 +3565,8 @@
 <title>Runaway density</title>
 <xLabel>data index ~ r/a</xLabel>
 <yLabel>Runaway density [1/m³]</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="1.9509541346817168E16"/>
 </plot>?>
             </configure>
         </entity>
@@ -3994,9 +3689,9 @@
             </property>
             <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="eparallel_before,eparallel_after">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={729, 0, 551, 319}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1301, 37, 618, 319}, maximized=false}">
             </property>
-            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[543, 265]">
+            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[610, 265]">
             </property>
             <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
             </property>
@@ -4041,8 +3736,8 @@
 <title>Electric field</title>
 <xLabel>data index</xLabel>
 <yLabel>E (V/m)</yLabel>
-<xRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
-<yRange min="1.7976931348623157E308" max="-1.7976931348623157E308"/>
+<xRange min="0.0" max="99.0"/>
+<yRange min="0.0" max="0.8987536746769553"/>
 </plot>?>
             </configure>
         </entity>
@@ -4166,7 +3861,7 @@
     <entity name="LoopOrganiser" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:30:2">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:49:9">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -4185,7 +3880,7 @@
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;A Composite actor is an aggregation of actors. It may have a local director that is responsible for executing the contained actors. A Composite actor with a local director is called an opaque actor. Composite actors do not require a local director. Composite actors with no local director &quot;inherit&quot; the director from the containing workflow and are called non-opaque.&lt;/p&gt;&#10;&#10;&lt;p&gt;To create a composite actor, drag and drop the Composite actor onto the Workflow canvas. Right-click the actor and select Open Actor from the drop-down menu. A new Kepler application window will open for designing the composite.&lt;/p&gt;</configure></property>
 </property>        <property name="_location" class="ptolemy.kernel.util.Location" value="[230.0, 270.0]">
         </property>
-        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:44:27">
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:449:1:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:44:27:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:30:2:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:60:2">
         </property>
         <port name="loop_in" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -4239,7 +3934,7 @@
             </property>
             <port name="trueInput" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="1">
+                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
                 </property>
             </port>
             <port name="falseInput" class="ptolemy.actor.TypedIOPort">
@@ -4249,7 +3944,7 @@
             </port>
             <port name="control" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
+                <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="1">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
                 </property>
@@ -5320,7 +5015,7 @@
                     </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>gerp</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>maradi</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;pre&gt;PARALLEL ELECTRIC FIELD EDITOR&#10;&#10;electric_field_switch:&#10;&#10;ABCD&#10;&#10; A&#10;   0: non-increasing field &#10;   1: increasing field   &#10; &#10; B  &#10;   0: linear&#10;   1: logarithmic&#10;&#10; C&#10;   0: relative field&#10;   1: absolute field &#10;&#10; D  &#10;   0: related to Dreicer field&#10;   1: related to critical field&lt;/pre&gt;</configure></property>
 </property>                    <port name="coreprof0_in" class="ptolemy.actor.TypedIOPort">
@@ -5731,7 +5426,7 @@
                     </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>gerp</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>maradi</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;pre&gt;te_switch:&#10;&#10;AB&#10;&#10; A&#10;   0: non-increasing temperature&#10;   1: increasing temperature   &#10; &#10; B  &#10;   0: linear&#10;   1: logarithmic&lt;/pre&gt;</configure></property>
 </property>                    <port name="coreprof0_in" class="ptolemy.actor.TypedIOPort">
@@ -6099,7 +5794,7 @@
                     </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
-<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>gerp</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>maradi</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;pre&gt;ne_switch:&#10;&#10;AB&#10;&#10; A&#10;   0: non-increasing density&#10;   1: increasing density   &#10; &#10; B  &#10;   0: linear&#10;   1: logarithmic&lt;/pre&gt;</configure></property>
 </property>                    <port name="coreprof0_in" class="ptolemy.actor.TypedIOPort">
