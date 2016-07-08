@@ -65,7 +65,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Ed__E = Ed/electric_field;
 	
 
-	//! \a REQ-7: alpha
+	//! \a REQ-7: relative electric field
 	/*!
 	\f[	
 		\alpha = \frac{E}{E_\mathrm{D}} \cdot \frac{m_\mathrm{e} \cdot c^2}{T_\mathrm{e}~\mathrm{[J]}}
