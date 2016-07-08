@@ -1,6 +1,5 @@
 #include <cmath>
 //#include "products.h"
-#ifndef CRITICAL_FIELD_H_
 #include "critical_field.h"
 #include "critical_field.cpp"
 #include "avalanche.h"
