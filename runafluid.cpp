@@ -180,8 +180,17 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				rundensity = 0; // no runaway
 			}
 		   	
-		   	//! runaway density
+		   	//! runaway density n_R
 		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
+		   	
+		   	//! runaway current
+		   	/*!
+		   	
+		   	j = n_R q_e c \mathrm{sign}(E)
+		   	
+		   	*/
+		   			   	
+		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho) = rundensity * ITM_QE * ITM_C * sign(it->electric_field);
 		   	
 		   	//! runaway rates (Dreicer, Avalanche etc.)
 		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
