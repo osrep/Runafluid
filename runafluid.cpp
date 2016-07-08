@@ -179,6 +179,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}else{
 				rundensity = 0; // no runaway
 			}
+			
+			//!  not suitable warning
+	   		if (rundensity > critical_fraction/100.0*it->electron_density){
+				not_suitable_warning = 1;
+			}
 		   	
 		   	//! runaway density n_R
 		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
