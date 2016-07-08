@@ -173,23 +173,21 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			//! calculating runaway density
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), timestep, runafluid_switch, rate_values);
 					  
-		   	//! CPO output
+		   	//! CPO output -- runaway warning
+	   		if (rundensity > zero_threshold){
+				runaway_warning = 1;
+			}else{
+				rundensity = 0; // no runaway
+			}
+		   	
+		   	//! runaway density
 		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
 		   	
+		   	//! runaway rates (Dreicer, Avalanche etc.)
 		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
 		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
-			}
-			
-			if (rundensity > zero_threshold){
-				runaway_warning = 1;
-			}
-					
-			//if(rundensity > it->electron_density){
-		   	//	distribution_out.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = it->electron_density;
-	   		//}else if (rundensity < 0  || isnan(rundensity)){
-		   	//	distribution_out.distri_vec(DISTSOURCE_IDENTIFIER).profiles_1d.state.dens(rho) = 0;				
-	   		//}else{
-	   		//}
+			}			
+
 	   		
 	   	}else{		   	
 			std::cerr << "ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
