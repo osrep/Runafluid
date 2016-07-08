@@ -91,7 +91,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double gamma = sqrt((1+effective_charge);//sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
+	double gamma = sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
 
 	//! \a REQ-4: h factor
 	/*!	
@@ -103,6 +103,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 	double h = 1/(16*(alpha-1)) * (alpha*(effective_charge+1) - \
 		effective_charge + 7 + 2*sqrt(alpha/(alpha-1)) * (1+effective_charge)*(alpha-2));
+		
+		h = 3/16*(effective_charge+1);
 	//cout << "h: " << h << "\n";
 	
 		
