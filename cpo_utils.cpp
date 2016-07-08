@@ -8,6 +8,31 @@
 #include "distinit.h"
 #include "control.h"
 
+
+/*!
+\param a
+
+\details
+\f[
+	\mathrm{sign}(a) 
+\f]
+*/
+
+double sign(double a){
+
+	double b;
+	if(a>0){
+		b=1.0;
+	}else if (a==0){
+		b=0.0;
+	}else{
+		b=-1.0;
+	}
+	
+	return b;
+}
+
+
 /*!
 \param a
 \param b
