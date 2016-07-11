@@ -20,23 +20,20 @@ t:     libRunafluid.a  test/libnewdist.a test/libNewDistSlice.a test/libEfieldEd
 test:  libRunafluid.a  test/libnewdist.a test/libNewDistSlice.a test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a
  
 # Runafluid actor
-libRunafluid.a: runafluid.o distinit.o  control.o  cpo_utils.o  critical_field.o dreicer.o avalanche.o
+libRunafluid.a: runafluid.o distinit.o  control.o  cpo_utils.o  critical_field.o  dreicer.o  avalanche.o
 	ar -rvs $@ $^	
-	#dreicer.o avalanche.o
-
 
 # test C++ files 		
-test/libEfieldEdit.a: test/efieldedit.o cpo_utils.o 
+test/libEfieldEdit.a: test/efieldedit.o  cpo_utils.o  critical_field.o
 	ar -rvs $@ $^
 	
-test/libTeEdit.a: test/te_edit.o cpo_utils.o 
+test/libTeEdit.a: test/te_edit.o  cpo_utils.o 
 	ar -rvs $@ $^
 	
-test/libNeEdit.a: test/ne_edit.o cpo_utils.o 
+test/libNeEdit.a: test/ne_edit.o  cpo_utils.o 
 	ar -rvs $@ $^
 	
 # compile C++ files
-
 .o: .cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $^
 

@@ -6,7 +6,8 @@
 
 #include "../constants.h"
 #include "../cpo_utils.h"
-#include "../critical_field.cpp"
+//#include "../critical_field.cpp"
+#include "../critical_field.h"
 
 /*! 
 
