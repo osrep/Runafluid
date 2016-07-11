@@ -1,7 +1,7 @@
 #include <cmath>
 //#include "products.h"
 #include "critical_field.h"
-#include "critical_field.cpp"
+//#include "critical_field.cpp"
 #include "avalanche.h"
 #endif
 
