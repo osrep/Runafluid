@@ -86,8 +86,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double lambda = 8*alpha*(alpha-1/2-sqrt(alpha*(alpha-1)));
-	double lambda2 = 1;
+	double lambda = 8.0*alpha*(alpha-1.0/2.0-sqrt(alpha*(alpha-1.0)));
+	double lambda2 = 1.0;
 	
 	//! \a REQ-5: multiplication factor
 	/*!
@@ -96,8 +96,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double gamma = sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
-	double gamma2 = sqrt((1+effective_charge) /2);
+	double gamma = sqrt((1.0+effective_charge) * alpha_2/8.0/(alpha-1.0)) * (ITM_PI/2.0-asin(1.0-2.0/alpha));
+	double gamma2 = sqrt((1.0+effective_charge) /2.0);
 
 	//! \a REQ-4: h factor
 	/*!	
@@ -107,10 +107,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 
-	double h = 1/(16*(alpha-1)) * (alpha*(effective_charge+1) - \
-		effective_charge + 7 + 2*sqrt(alpha/(alpha-1)) * (1+effective_charge)*(alpha-2));
+	double h = 1.0/(16.0*(alpha-1.0)) * (alpha*(effective_charge+1.0) - \
+		effective_charge + 7.0 + 2.0*sqrt(alpha/(alpha-1.0)) * (1.0+effective_charge)*(alpha-2.0));
 		
-	double h2 = 3/16*(effective_charge+1);
+	double h2 = 3.0/16.0*(effective_charge+1.0);
 	
 		
 	//! runaway limit -- critical field (65)
@@ -133,7 +133,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\f]
 		*/	
 		
-			dgr = Cr/tao * pow(Ed__E,3/16*(effective_charge+1)) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
+			dgr = Cr/tao * pow(Ed__E,3.0/16.0*(effective_charge+1.0)) * exp(-1.0/4.0*Ed__E - sqrt((effective_charge+1.0)*Ed__E));	
 	
 	
 		if (formula_id == 66){
@@ -146,7 +146,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		*/
 		
 		
-			dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8 + 2/3*pow(Ed__E,1.5) *sqrt(1+effective_charge));
+			dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8.0 + 2.0/3.0*pow(Ed__E,1.5) *sqrt(1.0+effective_charge));
 		}
 	
 	}else{
