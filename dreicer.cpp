@@ -110,7 +110,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double h = 1/(16*(alpha-1)) * (alpha*(effective_charge+1) - \
 		effective_charge + 7 + 2*sqrt(alpha/(alpha-1)) * (1+effective_charge)*(alpha-2));
 		
-		//h = 3/16*(effective_charge+1);
+		h = 3/16*(effective_charge+1);
 	
 		
 	//! runaway limit -- critical field (65)
@@ -160,7 +160,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		*/	
 	
 //		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt(2*Ed__E)*gamma); 
-		dgr = Cr/tao * pow(Ed__E,h) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
+		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
 	}	
 	
 	//! Dreicer rate must be non-negative
