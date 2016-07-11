@@ -3,7 +3,9 @@
 #include "critical_field.h"
 //#include "critical_field.cpp"
 #include "avalanche.h"
-#endif
+#include "products.h"
+
+
 
 using namespace std;
 
