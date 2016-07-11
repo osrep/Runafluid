@@ -38,8 +38,7 @@ const int DISTSOURCE_IDENTIFIER = 7;
 //#define ITM_ILLEGAL_INT	-999999999
 const int ITM_ILLEGAL_INT = -999999999;
 
-
-#define ITM_ILLEGAL_FLOAT -9.E40
+//#define ITM_ILLEGAL_FLOAT -9.E40
 const double ITM_ILLEGAL_FLOAT = -9.E40;
 
 #endif /* CONSTANTS_H_ */
