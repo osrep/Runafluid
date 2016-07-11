@@ -97,7 +97,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double gamma = sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
-	gamma = sqrt((1+effective_charge) *2); // /2
+	gamma = sqrt((1+effective_charge) /2);
 
 	//! \a REQ-4: h factor
 	/*!	
@@ -159,7 +159,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\f]
 		*/	
 	
-		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt(2*Ed__E)*gamma); 
+//		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt(2*Ed__E)*gamma); 
+		dgr = Cr/tao * pow(Ed__E,3/16*(effective_charge+1)) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
 	}	
 	
 	//! Dreicer rate must be non-negative
