@@ -146,7 +146,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		*/
 		
 		
-			dgr = dgr * exp(-kB_T/me_c2 * Ed__E*Ed__E/8.0 + 2.0/3.0*pow(Ed__E,1.5) *sqrt(1.0+effective_charge));
+			dgr = dgr * exp(-kB_T/me_c2 * (Ed__E*Ed__E/8.0 + 2.0/3.0*pow(Ed__E,1.5) *sqrt(1.0+effective_charge)));
 		}
 	
 	}else{
@@ -159,7 +159,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\f]
 		*/	
 	
-		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt(2*Ed__E)*gamma); 
+		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4.0*Ed__E - sqrt(2.0*Ed__E)*gamma); 
 	}	
 	
 	std::cerr << "lambda: " << lambda << "\t" << lambda2 << "\t h: " << h  << "\t" << h2 << "\t gamma: " << gamma  << "\t" << gamma2 << std::endl;
