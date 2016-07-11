@@ -77,7 +77,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/	
 		
 	double alpha = electric_field / calculate_critical_field(electron_density, electron_temperature);
-	double alpha_2 = alpha*alpha;	
 		
 	//! \a REQ-6: lambda
 	/*!
@@ -87,7 +86,6 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double lambda = 8.0*alpha*(alpha-1.0/2.0-sqrt(alpha*(alpha-1.0)));
-	double lambda2 = 1.0;
 	
 	//! \a REQ-5: multiplication factor
 	/*!
@@ -96,8 +94,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double gamma = sqrt((1.0+effective_charge) * alpha_2/8.0/(alpha-1.0)) * (ITM_PI/2.0-asin(1.0-2.0/alpha));
-	double gamma2 = sqrt((1.0+effective_charge) /2.0);
+	double gamma = sqrt((1.0+effective_charge) * alpha*alpha/8.0/(alpha-1.0)) * (ITM_PI/2.0-asin(1.0-2.0/alpha));
 
 	//! \a REQ-4: h factor
 	/*!	
@@ -108,9 +105,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 
 	double h = 1.0/(16.0*(alpha-1.0)) * (alpha*(effective_charge+1.0) - \
-		effective_charge + 7.0 + 2.0*sqrt(alpha/(alpha-1.0)) * (1.0+effective_charge)*(alpha-2.0));
-		
-	double h2 = 3.0/16.0*(effective_charge+1.0);
+		effective_charge + 7.0 + 2.0*sqrt(alpha/(alpha-1.0)) * (1.0+effective_charge)*(alpha-2.0));		
 	
 		
 	//! runaway limit -- critical field (65)
@@ -161,8 +156,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	
 		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4.0*Ed__E - sqrt(2.0*Ed__E)*gamma); 
 	}	
-	
-	std::cerr << "lambda: " << lambda << "\t" << lambda2 << "\t h: " << h  << "\t" << h2 << "\t gamma: " << gamma  << "\t" << gamma2 << std::endl;
+		
 	//! Dreicer rate must be non-negative
 	if(isnan(dgr)|| (dgr<0)){
 		dgr = 0;
