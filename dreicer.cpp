@@ -160,7 +160,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		*/	
 	
 //		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt(2*Ed__E)*gamma); 
-		dgr = Cr/tao * pow(Ed__E,3/16*(effective_charge+1)) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
+		dgr = Cr/tao * pow(Ed__E,h) * exp(-1/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
 	}	
 	
 	//! Dreicer rate must be non-negative
