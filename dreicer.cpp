@@ -87,7 +87,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double lambda = 8*alpha*(alpha-1/2-sqrt(alpha*(alpha-1)));
-	//lambda = 1;
+	double lambda2 = 1;
 	
 	//! \a REQ-5: multiplication factor
 	/*!
@@ -97,7 +97,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double gamma = sqrt((1+effective_charge) * alpha_2/8/(alpha-1)) * (ITM_PI/2-asin(1-2/alpha));
-	gamma = sqrt((1+effective_charge) /2);
+	double gamma2 = sqrt((1+effective_charge) /2);
 
 	//! \a REQ-4: h factor
 	/*!	
@@ -110,7 +110,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double h = 1/(16*(alpha-1)) * (alpha*(effective_charge+1) - \
 		effective_charge + 7 + 2*sqrt(alpha/(alpha-1)) * (1+effective_charge)*(alpha-2));
 		
-		//h = 3/16*(effective_charge+1);
+	double h2 = 3/16*(effective_charge+1);
 	
 		
 	//! runaway limit -- critical field (65)
@@ -163,10 +163,12 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
 	}	
 	
+	std::cerr << "lambda: " << lambda << "\t" << lambda2 << "\t h: " << h  << "\t" << h2 << "\t gamma: " << gamma  << "\t" << gamma2 << std::endl;
 	//! Dreicer rate must be non-negative
 	if(isnan(dgr)|| (dgr<0)){
 		dgr = 0;
 		std::cerr << "ERROR: Dreicer generation rate is invalid. Set to zero." << std::endl;
+		
 	}
 
 	//! output: Dreicer generation rate	
