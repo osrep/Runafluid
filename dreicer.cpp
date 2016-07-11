@@ -159,8 +159,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\f]
 		*/	
 	
-//		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt(2*Ed__E)*gamma); 
-		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt((effective_charge+1)*Ed__E));	
+		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4*Ed__E - sqrt(2*Ed__E)*gamma); 
 	}	
 	
 	std::cerr << "lambda: " << lambda << "\t" << lambda2 << "\t h: " << h  << "\t" << h2 << "\t gamma: " << gamma  << "\t" << gamma2 << std::endl;
