@@ -87,7 +87,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	*/
 	
 	double lambda = 8*alpha*(alpha-1/2-sqrt(alpha*(alpha-1)));
-	lambda = 1;
+	//lambda = 1;
 	
 	//! \a REQ-5: multiplication factor
 	/*!
@@ -110,7 +110,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double h = 1/(16*(alpha-1)) * (alpha*(effective_charge+1) - \
 		effective_charge + 7 + 2*sqrt(alpha/(alpha-1)) * (1+effective_charge)*(alpha-2));
 		
-		h = 3/16*(effective_charge+1);
+		//h = 3/16*(effective_charge+1);
 	
 		
 	//! runaway limit -- critical field (65)
