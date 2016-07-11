@@ -1,4 +1,8 @@
 #include <cmath>
+
+#include <stdexcept>
+#include <iostream>
+
 #include "dreicer.h"
 #include "products.h"
 #include "critical_field.h"
