@@ -125,10 +125,10 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 				distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
 			}
 			
-		//	
-		//	if (i < N_psi){
-		//		distribution.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
-		//	}
+			
+			if (i < N_psi){
+				distribution.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
+			}
 			
 		}
 	} catch (const std::exception& ex) {
