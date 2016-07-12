@@ -6,8 +6,6 @@
 #include "dreicer.h"
 #include "products.h"
 #include "critical_field.h"
-//#include "critical_field.cpp"
-//#include "init.h"
 
 using namespace std;
 

@@ -85,45 +85,29 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch, double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning, ItmNs::Itm::temporary &runaway_rates) {
 
 	
-	//!output initialisation
+	//! output initialisation
 	runaway_warning = 0;
 	not_suitable_warning = 0;
 	critical_fraction_warning = 0;
 	
-	double zero_threshold=1e-20;
+	//! zero limit
+	double zero_threshold = 1e-20;
 	
 	//! empty distribution initialiser (integrated distinit)
-	distinit(distribution_out, coreprof, coreimpur);
-	
-	//! input and output distri_vec distrsource index
-	/*int distsource_index = whereRunaway(distribution_in), distsource_out_index = 0;
-	
-	if (distsource_index<0){	
-		distinit(distribution_in, coreprof, coreimpur);
-	}
-	
-	std::cerr << "DISTSOURCE_INDEX: " << distsource_index << std::endl;
-		
-	distsource_index = 0;*/
+	distinit(distribution_out, coreprof, coreimpur);	
 	
 	//! Number of elements in runaway electron distribution
 	int N_rho = coreprof.ne.value.rows();
-	
-	
-	//	std::cerr << "RUNAFLUID TEST 001" << std::endl;
+		
 	double rundensity = 0.0;
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
-	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in/*, distsource_index*/); // testing until previous distribution validating
+	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
 	
 		
 	//! Number of rate calculations (Dreicer, Avalanche etc.)
 	int N_rates = 6;
-	double rate_values[N_rates];
-	
-	//	std::cerr << "RUNAFLUID TEST 002" << std::endl;
-	
-	
+	double rate_values[N_rates];	
 		
 	//! stepping iterator in profile	
 	int rho = 0;	
@@ -180,9 +164,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				rundensity = 0; // no runaway
 			}
 			
-			//!  not suitable warning
+			//!  critical fraction warning
 	   		if (rundensity > critical_fraction/100.0*it->electron_density){
-				not_suitable_warning = 1;
+				critical_fraction_warning = 1;
 			}
 		   	
 		   	//! runaway density n_R

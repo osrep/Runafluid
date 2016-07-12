@@ -1,15 +1,9 @@
 #include <stdexcept>
 #include <iostream>
 #include "control.h"
-//#include "products.h"
 #include "critical_field.h"
-//#include "critical_field.cpp"
 #include "dreicer.h"
-//#include "dreicer.cpp"
 #include "avalanche.h"
-//#include "avalanche.cpp"
-
-//#include "cpo_utils.cpp"
 #include "cpo_utils.h"
 
 /*!

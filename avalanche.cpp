@@ -1,11 +1,7 @@
 #include <cmath>
-//#include "products.h"
 #include "avalanche.h"
 #include "products.h"
 #include "critical_field.h"
-//#include "critical_field.cpp"
-
-
 
 using namespace std;
 
@@ -22,12 +18,9 @@ using namespace std;
 
 */
 
-
-
 double avalanche_generation_rate(double electron_density, double electron_temperature,
 		double effective_charge, double electric_field, double Ea) {
-		
-		
+				
 	//! \a REQ-1: Coulomb logarithm
 	/*!
 	\f[
@@ -49,8 +42,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		\tau = 4 \pi \epsilon_0^2 \cdot \frac{m_\mathrm{e}^2 \cdot c^3 }{e^4} \cdot \frac{1}{n_\mathrm{e} \ln \Lambda}		
 	\f]
 	*/
-	
-	
+		
 	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
 	
 
@@ -61,8 +53,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		R_\mathrm{a} \approx \frac{1}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right)   ~~~~~~~ \mathrm{(if~}	E \ge E_\mathrm{a}	\mathrm{)}		
 		
 	\f]
-	*/
-		
+	*/		
 	
 	double agr = (electric_field/Ec - 1) / (2*tao*coulomb_log);
 	

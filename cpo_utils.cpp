@@ -138,8 +138,6 @@ int bool_switch(bool *bools, int N){
 }
 
 
-
-
 /*! This code is looking for
 which element of distri_vec is 
 the runaway distribution
@@ -156,20 +154,16 @@ int whereRunaway(const ItmNs::Itm::distribution &distribution){
 	int runaway_index = -1;
 	
 	try {
-		//if(distribution.distri_vec()){
-			N_distr = distribution.distri_vec.rows();
-		std::cerr << "N_distr : " << N_distr << std::endl;
-			for (int i=0; (i<N_distr && runaway_index<0); i++){
+		N_distr = distribution.distri_vec.rows();
+		
+		for (int i=0; (i<N_distr && runaway_index<0); i++){
 
-				//! Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
-				if (distribution.distri_vec(i).source_id.rows()>0){
-		//std::cerr << "distribution.distri_vec(i).source_id.rows : " << distribution.distri_vec(i).source_id.rows << std::endl;
-					if (distribution.distri_vec(i).source_id(0).type.flag == DISTSOURCE_IDENTIFIER){
-						runaway_index = i;
-					}
+			//! Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
+			if (distribution.distri_vec(i).source_id.rows()>0){
+				if (distribution.distri_vec(i).source_id(0).type.flag == DISTSOURCE_IDENTIFIER){
+					runaway_index = i;
 				}
-
-			//}
+			}
 		}
 		
 	} catch (const std::exception& ex) {
@@ -276,8 +270,6 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof,const Itm
 				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
 						coreprof.rho_tor(rho));
 
-		
-
 		pro.push_back(celll);
 	}
 
@@ -285,16 +277,14 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof,const Itm
 }
 
 
-
 /*!
 
 Copy data from CPO inputs to profile structure
 
 */
-
 		
 profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
-		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution/*, int distsource_index*/){		
+		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution){		
 
 	profile pro;
 	double number_of_parts;
@@ -309,13 +299,10 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	//! read eparallel profile length of dataset, comparing with cells
 	if (coreprof.profiles1d.eparallel.value.rows() != cells)
 		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
-							
-							
+				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");							
+						
 	//! read distribution source index for runaways from distribution CPO						
-	int distsource_index = whereRunaway(distribution);
-	
-	
+	int distsource_index = whereRunaway(distribution);	
 								
     //! read data in every $\rho$ 
 
@@ -335,7 +322,6 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		celll.electric_field = coreprof.profiles1d.eparallel.value(rho) * coreprof.toroid_field.b0
 				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
 						coreprof.rho_tor(rho));
-
 		
 		try{		
 			//! No runaway in previous distribution CPO
@@ -354,10 +340,8 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 			std::cerr << "ERROR : Cannot read runaway density" << std::endl;
 		}
 
-
 		//! total sum of electric charge from coreprof CPO
-		celll.effective_charge = coreprof.profiles1d.zeff.value(rho);		
-
+		celll.effective_charge = coreprof.profiles1d.zeff.value(rho);	
 
 		pro.push_back(celll);
 	}
