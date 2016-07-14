@@ -8,13 +8,13 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1612, 861]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0274582114081854">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.5710454942461807">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1280.4601279650437, 1516.9951427902622}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1416.034156523096, 1598.0213453885767}">
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:737:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:5:18:urn:lsid:uuid:e7820095-f935-4334-a2ea-eb0deb6b9cc0:3:10:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:10:14:urn:lsid:uuid:c2ccbcdc-13d3-463d-80bf-d80f2d648f1b:2:97">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:9b1b1470-87cd-417d-ba00-1b6c52839fb5:70:7">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:9b1b1470-87cd-417d-ba00-1b6c52839fb5:70:13">
     </property>
     <property name="runafluid_switch" class="ptolemy.data.expr.Parameter" value="1111">
         <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:132:6">
@@ -42,7 +42,7 @@
         </property>
         <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[1410.0, 1340.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[1595.0, 1370.0]">
         </property>
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:420:1:urn:lsid:kepler-project.org/ns/:62444:80:1:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:9:5:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:117:1">
         </property>
@@ -113,7 +113,7 @@
         </property>
         <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#WorkflowDocumentation">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[840.0, 1295.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[1025.0, 1325.0]">
         </property>
         <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:436:1">
         </property>
@@ -149,12 +149,12 @@
         </property>
         <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[1410.0, 1310.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[1595.0, 1340.0]">
         </property>
     </property>
     <port name="in" class="ptolemy.actor.TypedIOPort">
         <property name="input"/>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[640.0, 1400.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[920.0, 1640.0]">
         </property>
         <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
         </property>
@@ -560,10 +560,6 @@
             </property>
         </port>
     </entity>
-    <relation name="relation" class="ptolemy.actor.TypedIORelation">
-        <vertex name="vertex1" value="[1005.0, 1400.0]">
-        </vertex>
-    </relation>
     <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         <vertex name="vertex1" value="[1005.0, 1545.0]">
         </vertex>
@@ -638,7 +634,7 @@
     </relation>
     <relation name="relation19" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <link port="in" relation="relation"/>
+    <link port="in" relation="relation6"/>
     <link port="distribution" relation="relation19"/>
     <link port="Iter.output" relation="relation16"/>
     <link port="Iter.input" relation="relation7"/>
@@ -667,7 +663,6 @@
     <link port="runaway_fluid.critical_fraction7_in" relation="relation10"/>
     <link port="runaway_fluid.time_in" relation="relation17"/>
     <link port="runaway_fluid.iter_in" relation="relation16"/>
-    <link relation1="relation" relation2="relation4"/>
     <link relation1="relation2" relation2="relation3"/>
     <link relation1="relation2" relation2="relation9"/>
     <link relation1="relation3" relation2="relation4"/>
