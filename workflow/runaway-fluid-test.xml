@@ -42,7 +42,7 @@
     </property>
     <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2913:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:4:8:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:24:34:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:27:478:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:48:383:urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:21:223">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:9b1b1470-87cd-417d-ba00-1b6c52839fb5:3:1359">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:9b1b1470-87cd-417d-ba00-1b6c52839fb5:3:1361">
     </property>
     <property name="time_step" class="ptolemy.data.expr.Parameter" value="0.01">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -2229,7 +2229,7 @@
                     <property name="input"/>
                     <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
                     </property>
-                    <property name="_location" class="ptolemy.kernel.util.Location" value="[-115.0, 110.0]">
+                    <property name="_location" class="ptolemy.kernel.util.Location" value="[-105.0, -40.0]">
                     </property>
                 </port>
                 <port name="critical_fraction" class="ptolemy.actor.TypedIOPort">
