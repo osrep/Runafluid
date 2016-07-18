@@ -86,11 +86,15 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 	int rows = x.rows();
 	
 	
-	if (rows == 0)
+	if (rows == 0){
+		std::cerr << "ERROR: Number of rows is zero." << std::endl;
 		throw std::invalid_argument("Number of rows is zero.");
+	}
 	
-	if (rows != y.rows())
+	if (rows != y.rows()){
+		std::cerr << "ERROR: Number of rows is different in arrays to interpolate." << std::endl;
 		throw std::invalid_argument("Number of rows is different in arrays to interpolate.");
+	}
 
 	if (xa <= x(0))
 		return y(0);
@@ -98,9 +102,10 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 		return y(y.rows() - 1);
 
 	int index = binary_search(x, xa);
-	if (index < 0)
+	if (index < 0){
+		std::cerr << "ERROR: Binary search failed." << std::endl;
 		throw std::invalid_argument("Binary search failed.");
-
+	}
 	return y(index) + (y(index + 1) - y(index)) / (x(index + 1) - x(index)) * (xa - x(index));
 }
 
