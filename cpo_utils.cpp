@@ -304,28 +304,17 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	
 	//! read electron temperature profile length of dataset, comparing with cells
 	if (coreprof.te.value.rows() != cells){
-		std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Te: " << coreprof.te.value.rows() << std::endl;
+	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Te: " << coreprof.te.value.rows() << std::endl;
 		throw std::invalid_argument("Number of values is different in coreprof ne and Te.");		
 	}		
 	
 	//! read eparallel profile length of dataset, comparing with cells
 	if (coreprof.profiles1d.eparallel.value.rows() != cells){
-		std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Eparallel: " << coreprof.profiles1d.eparallel.value.rows() << std::endl;		
+	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Eparallel: " << coreprof.profiles1d.eparallel.value.rows() << std::endl;		
 		throw std::invalid_argument(
 				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");		
 	}			
-				
-	//! read equilibrium rho_tor profile length of dataset, comparing with cells
-	if (equilibrium.profiles_1d.rho_tor.rows() != cells){
-		std::cerr << "WARNING : Number of values is different in CPOPROFILE\tne: " << cells << " and equilibrium rho_tor:" << equilibrium.profiles_1d.rho_tor.rows() << std::endl;
-	}			
-	
-	//! read equilibrium B_av profile length of dataset, comparing with cells
-	if (equilibrium.profiles_1d.b_av.rows() != cells){
-		std::cerr << "WARNING : Number of values is different in CPOPROFILE\tne: " << cells << " and equilibrium B_av:" << equilibrium.profiles_1d.b_av.rows() << std::endl;	
-	}			
-						
-									
+													
 						
 	//! read distribution source index for runaways from distribution CPO						
 	int distsource_index = whereRunaway(distribution);	
@@ -363,7 +352,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 
 			celll.runaway_density = 0;
 			
-			std::cerr << "ERROR : Cannot read runaway density" << std::endl;
+			std::cerr << "WARNING : Cannot read runaway density, density set to zero." << std::endl;
 		}
 
 		//! total sum of electric charge from coreprof CPO
