@@ -298,27 +298,31 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	int cells = coreprof.ne.value.rows();
 	
 	//! read electron temperature profile length of dataset, comparing with cells
-	if (coreprof.te.value.rows() != cells)
-		throw std::invalid_argument("Number of values is different in coreprof ne and te.");
-			
+	if (coreprof.te.value.rows() != cells){
+		throw std::invalid_argument("Number of values is different in coreprof ne and Te.");		
+		std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Te: " << coreprof.te.value.rows() << std::endl;
+	}		
 	
 	//! read eparallel profile length of dataset, comparing with cells
-	if (coreprof.profiles1d.eparallel.value.rows() != cells)
+	if (coreprof.profiles1d.eparallel.value.rows() != cells){
 		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");				
-				
+				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");	
+		std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Eparallel: " << coreprof.profiles1d.eparallel.value.rows() << std::endl;			
+	}			
 				
 	//! read equilibrium rho_tor profile length of dataset, comparing with cells
-	if (equilibrium.profiles_1d.rho_tor.rows() != cells)
+	if (equilibrium.profiles_1d.rho_tor.rows() != cells){
 		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and equilibrium.profiles_1d.rho_tor.");		
-				
+				"Number of values is different in coreprof.ne and equilibrium.profiles_1d.rho_tor.");
+		std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and equilibrium rho_tor:" << equilibrium.profiles_1d.rho_tor.rows() << std::endl;		
+	}			
 	
 	//! read equilibrium B_av profile length of dataset, comparing with cells
-	if (equilibrium.profiles_1d.b_av.rows() != cells)
+	if (equilibrium.profiles_1d.b_av.rows() != cells){
 		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and equilibrium.profiles_1d.b_av.");					
-				
+				"Number of values is different in coreprof.ne and equilibrium.profiles_1d.b_av.");
+		std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and equilibrium B_av:" << equilibrium.profiles_1d.b_av.rows() << std::endl;					
+	}			
 						
 									
 						
