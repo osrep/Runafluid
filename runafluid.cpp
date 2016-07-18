@@ -98,8 +98,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! Number of elements in runaway electron distribution
 	int N_rho = coreprof.ne.value.rows();
 		
+	//! runaway density and current initialisation	
 	double rundensity = 0.0;
 	double runcurrent = 0.0;
+	
+	//! electron current initialisation
+	double ecurrent = 0.0;
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
@@ -182,7 +186,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);		   	
 		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho) = runcurrent;
 		   	
-		   	//! not suitable warning: j_R > j_e		   	
+		   	//! not suitable warning: j_R > j_e	
+		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
+		   	if (runcurrent >= ecurrent){		   	
+				not_suitable_warning = 1;
+		   	}	   	
 		   	
 		   	
 		   	//! runaway rates (Dreicer, Avalanche etc.)
