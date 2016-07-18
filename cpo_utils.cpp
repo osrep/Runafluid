@@ -317,16 +317,12 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 				
 	//! read equilibrium rho_tor profile length of dataset, comparing with cells
 	if (equilibrium.profiles_1d.rho_tor.rows() != cells){
-		std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and equilibrium rho_tor:" << equilibrium.profiles_1d.rho_tor.rows() << std::endl;
-		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and equilibrium.profiles_1d.rho_tor.");		
+		std::cerr << "WARNING : Number of values is different in CPOPROFILE\tne: " << cells << " and equilibrium rho_tor:" << equilibrium.profiles_1d.rho_tor.rows() << std::endl;
 	}			
 	
 	//! read equilibrium B_av profile length of dataset, comparing with cells
 	if (equilibrium.profiles_1d.b_av.rows() != cells){
-		std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and equilibrium B_av:" << equilibrium.profiles_1d.b_av.rows() << std::endl;	
-		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and equilibrium.profiles_1d.b_av.");				
+		std::cerr << "WARNING : Number of values is different in CPOPROFILE\tne: " << cells << " and equilibrium B_av:" << equilibrium.profiles_1d.b_av.rows() << std::endl;	
 	}			
 						
 									
