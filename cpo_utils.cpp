@@ -84,6 +84,11 @@ linear interpolation
 double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double xa) {
 
 	int rows = x.rows();
+	
+	
+	if (rows == 0)
+		throw std::invalid_argument("Number of rows is zero.");
+	
 	if (rows != y.rows())
 		throw std::invalid_argument("Number of rows is different in arrays to interpolate.");
 
