@@ -7,7 +7,6 @@
 #include "constants.h"
 #include "cpo_utils.h"
 #include "distinit.h"
-//#include "runafluid.h"
 #include "control.h"
 
 /*! \mainpage
@@ -100,6 +99,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	int N_rho = coreprof.ne.value.rows();
 		
 	double rundensity = 0.0;
+	double runcurrent = 0.0;
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
@@ -179,7 +179,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	
 		   	*/
 		   			   	
-		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho) = rundensity * ITM_QE * ITM_C * sign(it->electric_field);
+		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);		   	
+		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho) = runcurrent;
+		   	
+		   	//! not suitable warning: j_R > j_e		   	
+		   	
 		   	
 		   	//! runaway rates (Dreicer, Avalanche etc.)
 		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
