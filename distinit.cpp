@@ -27,14 +27,33 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	//! number of coreprof geometry elements
 	try {		
 		N = coreprof.ne.value.rows();		
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR An error occurred during coreprof elements" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+	}	
+	
+	try {		
 		N_rho_tor = coreprof.rho_tor.rows();
-		N_rho_tor_norm = coreprof.rho_tor_norm.rows();
-		N_psi = coreprof.psi.value.rows();
-		
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during coreprof elements" << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 	}
+	
+	
+	try {			
+		N_rho_tor_norm = coreprof.rho_tor_norm.rows();		
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR An error occurred during coreprof elements" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+	}
+	
+	try {			
+		N_psi = coreprof.psi.value.rows();		
+	} catch (const std::exception& ex) {
+		std::cerr << "ERROR An error occurred during coreprof elements" << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+	}
+	
 	/*
 	//! number of coreimpur geometry elements
 	try {
@@ -104,9 +123,9 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	
 	//! Initialisation of geometry data	
 	try {	
-		distribution.distri_vec(0).profiles_1d.geometry.rho_tor.resize(N);
-		distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N);
-		distribution.distri_vec(0).profiles_1d.geometry.psi(N);
+		distribution.distri_vec(0).profiles_1d.geometry.rho_tor.resize(N_rho_tor);
+		distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N_rho_tor_norm);
+		distribution.distri_vec(0).profiles_1d.geometry.psi(N_psi);
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "ERROR An error occurred during geometry vectors allocation" << std::endl;
