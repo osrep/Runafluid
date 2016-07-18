@@ -300,11 +300,27 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	//! read electron temperature profile length of dataset, comparing with cells
 	if (coreprof.te.value.rows() != cells)
 		throw std::invalid_argument("Number of values is different in coreprof ne and te.");
-
+			
+	
 	//! read eparallel profile length of dataset, comparing with cells
 	if (coreprof.profiles1d.eparallel.value.rows() != cells)
 		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");							
+				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");				
+				
+				
+	//! read equilibrium rho_tor profile length of dataset, comparing with cells
+	if (equilibrium.profiles_1d.rho_tor.rows() != cells)
+		throw std::invalid_argument(
+				"Number of values is different in coreprof.ne and equilibrium.profiles_1d.rho_tor.");		
+				
+	
+	//! read equilibrium B_av profile length of dataset, comparing with cells
+	if (equilibrium.profiles_1d.b_av.rows() != cells)
+		throw std::invalid_argument(
+				"Number of values is different in coreprof.ne and equilibrium.profiles_1d.b_av.");					
+				
+						
+									
 						
 	//! read distribution source index for runaways from distribution CPO						
 	int distsource_index = whereRunaway(distribution);	
