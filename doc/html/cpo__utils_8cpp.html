@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +88,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdexcept&gt;</code><br />
-<code>#include &quot;<a class="el" href="cpo__utils_8h_source.html">cpo_utils.h</a>&quot;</code><br />
+<code>#include &lt;UALClasses.h&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;<a class="el" href="constants_8h_source.html">constants.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="distinit_8h_source.html">distinit.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="control_8h_source.html">control.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for cpo_utils.cpp:</div>
 <div class="dyncontent">
@@ -101,6 +106,8 @@ Include dependency graph for cpo_utils.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a61e5145bbc7aa0f76c074b4e9e91e06b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#a61e5145bbc7aa0f76c074b4e9e91e06b">sign</a> (double a)</td></tr>
+<tr class="separator:a61e5145bbc7aa0f76c074b4e9e91e06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7afd2b89fd6b15943e05451c0564714d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#a7afd2b89fd6b15943e05451c0564714d">equal</a> (double a, double b, double tolerance)</td></tr>
 <tr class="separator:a7afd2b89fd6b15943e05451c0564714d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a384e0a318cb1c6dd7be5f67b34362412"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#a384e0a318cb1c6dd7be5f67b34362412">binary_search</a> (const Array&lt; double, 1 &gt; &amp;array, int first, int last, double search_key)</td></tr>
@@ -110,7 +117,15 @@ Functions</h2></td></tr>
 <tr class="separator:a50572137eb8210b5b8da231639e016b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b814648cece2c5758fb5d05031e2b7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#a60b814648cece2c5758fb5d05031e2b7">interpolate</a> (const Array&lt; double, 1 &gt; &amp;x, const Array&lt; double, 1 &gt; &amp;y, double xa)</td></tr>
 <tr class="separator:a60b814648cece2c5758fb5d05031e2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adae63f9764ade23dc7ebdd963984b0fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_to_profile</a> (const <a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;<a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">coreprof</a>, const <a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;<a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">coreimpur</a>, const <a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;<a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">equilibrium</a>, const ItmNs::Itm::distribution &amp;distribution)</td></tr>
+<tr class="memitem:ab04e06836babe2fe6195f5f741d9efdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#ab04e06836babe2fe6195f5f741d9efdc">int_switch</a> (int switch_number, bool *bools, int N)</td></tr>
+<tr class="separator:ab04e06836babe2fe6195f5f741d9efdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bf657fac10341d3dc0411607f54e432"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#a4bf657fac10341d3dc0411607f54e432">bool_switch</a> (bool *bools, int N)</td></tr>
+<tr class="separator:a4bf657fac10341d3dc0411607f54e432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463d8ebe504acf22f144690ab7d94c78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#a463d8ebe504acf22f144690ab7d94c78">whereRunaway</a> (const ItmNs::Itm::distribution &amp;distribution)</td></tr>
+<tr class="separator:a463d8ebe504acf22f144690ab7d94c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aa867753944321160098f7bc7c3bf6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="control_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#a4aa867753944321160098f7bc7c3bf6e">read_coreprof</a> (const ItmNs::Itm::coreprof &amp;coreprof)</td></tr>
+<tr class="separator:a4aa867753944321160098f7bc7c3bf6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae63f9764ade23dc7ebdd963984b0fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="control_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpo__utils_8cpp.html#adae63f9764ade23dc7ebdd963984b0fc">cpo_to_profile</a> (const ItmNs::Itm::coreprof &amp;coreprof, const ItmNs::Itm::coreimpur &amp;coreimpur, const ItmNs::Itm::equilibrium &amp;equilibrium, const ItmNs::Itm::distribution &amp;distribution)</td></tr>
 <tr class="separator:adae63f9764ade23dc7ebdd963984b0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -152,7 +167,7 @@ Functions</h2></td></tr>
 
 <p>Binary search. </p>
 
-<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00022">22</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00054">54</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -180,7 +195,35 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00039">39</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00071">71</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bf657fac10341d3dc0411607f54e432"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int bool_switch </td>
+          <td>(</td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>bools</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>N</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00136">136</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -189,21 +232,21 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="init_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> cpo_to_profile </td>
+          <td class="memname"><a class="el" href="control_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> cpo_to_profile </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;&#160;</td>
+          <td class="paramtype">const ItmNs::Itm::coreprof &amp;&#160;</td>
           <td class="paramname"><em>coreprof</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;&#160;</td>
+          <td class="paramtype">const ItmNs::Itm::coreimpur &amp;&#160;</td>
           <td class="paramname"><em>coreimpur</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;&#160;</td>
+          <td class="paramtype">const ItmNs::Itm::equilibrium &amp;&#160;</td>
           <td class="paramname"><em>equilibrium</em>, </td>
         </tr>
         <tr>
@@ -223,6 +266,7 @@ Functions</h2></td></tr>
 <p>read electron density profile length of dataset: cells</p>
 <p>read electron temperature profile length of dataset, comparing with cells</p>
 <p>read eparallel profile length of dataset, comparing with cells</p>
+<p>read distribution source index for runaways from distribution CPO</p>
 <p>read data in every $$</p>
 <p>electron density</p>
 <p>electron temperature</p>
@@ -230,13 +274,12 @@ Functions</h2></td></tr>
 <img class="formulaDsp" alt="\[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \]" src="form_6.png"/>
 </p>
 <p> where B_{av} is known on discreate <img class="formulaInl" alt="$R $" src="form_7.png"/> major radius and interpolated at $$ normalised minor radius</p>
-<p>runaway density before (in m^-3) distsource_identifier = 7</p>
-<p>total sum of electric charge in <em>rho</em> cell for all ion population</p>
-<p>total sum of electric charge in <em>rho</em> cell for all impurity population</p>
-<p>number of impurities by species</p>
-<p>charge of impurity </p>
+<p>No runaway in previous distribution CPO</p>
+<p>Runaway in previous distribution CPO</p>
+<p>internal error in distribution</p>
+<p>total sum of electric charge from coreprof CPO </p>
 
-<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00077">77</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00296">296</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +324,42 @@ Functions</h2></td></tr>
 <img class="formulaDsp" alt="\[ 2 \cdot \left| a-b\right| \le \left( |a| + |b| \right) \cdot tolerance \]" src="form_4.png"/>
 </p>
  
-<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00014">14</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00046">46</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab04e06836babe2fe6195f5f741d9efdc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int_switch </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>switch_number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>bools</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>N</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>switch handling </p>
+
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00118">118</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,14 +397,92 @@ Functions</h2></td></tr>
 <img class="formulaDsp" alt="\[ y_a = y_i + \frac{y_{i+1}-y_i}{x_{i+1}-x_i}\cdot(x_a -x_i) \]" src="form_5.png"/>
 </p>
  
-<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00052">52</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00084">84</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4aa867753944321160098f7bc7c3bf6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="control_8h.html#ad8c925a4173ed4678edea26a585358d7">profile</a> read_coreprof </td>
+          <td>(</td>
+          <td class="paramtype">const ItmNs::Itm::coreprof &amp;&#160;</td>
+          <td class="paramname"><em>coreprof</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Copy data from coreprof CPO Other fields would be undefined!</p>
+<p>input: ItmNs::Itm::coreprof &amp;coreprof output: profile </p>
+<p>read electron density profile length of dataset: cells</p>
+<p>read electron temperature profile length of dataset, comparing with cells</p>
+<p>read eparallel profile length of dataset, comparing with cells</p>
+<p>read data in every $$</p>
+<p>electron density</p>
+<p>electron temperature </p><pre class="fragment">        local electric field
+</pre> <p class="formulaDsp">
+<img class="formulaDsp" alt="\[ E = E_\parallel(\rho) where $\rho$ normalised minor radius */ celll.electric_field = coreprof.profiles1d.eparallel.value(rho); pro.push_back(celll); } return pro; } profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &amp;coreprof,const ItmNs::Itm::equilibrium &amp;equilibrium) { profile pro; //! read electron density profile length of dataset: cells int cells = coreprof.ne.value.rows(); //! read electron temperature profile length of dataset, comparing with cells if (coreprof.te.value.rows() != cells) throw std::invalid_argument(&quot;Number of values is different in coreprof ne and te.&quot;); //! read eparallel profile length of dataset, comparing with cells if (coreprof.profiles1d.eparallel.value.rows() != cells) throw std::invalid_argument( &quot;Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.&quot;); //! read data in every $\rho$ for (int rho = 0; rho < cells; rho++) { cell celll; //! electron density celll.electron_density = coreprof.ne.value(rho); //! electron temperature celll.electron_temperature = coreprof.te.value(rho); /*! local electric field \f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \]" src="form_83.png"/>
+</p>
+<p> where B_{av} is known on discreate <img class="formulaInl" alt="$R $" src="form_7.png"/> major radius and interpolated at $$ normalised minor radius</p>
+
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00207">207</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a61e5145bbc7aa0f76c074b4e9e91e06b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double sign </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \mathrm{sign}(a) \]" src="form_82.png"/>
+</p>
+ 
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00021">21</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a463d8ebe504acf22f144690ab7d94c78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int whereRunaway </td>
+          <td>(</td>
+          <td class="paramtype">const ItmNs::Itm::distribution &amp;&#160;</td>
+          <td class="paramname"><em>distribution</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This code is looking for which element of distri_vec is the runaway distribution</p>
+<p>runaway: distri_vec index no runaway: -1 </p>
+<p>Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)? </p>
+
+<p>Definition at line <a class="el" href="cpo__utils_8cpp_source.html#l00161">161</a> of file <a class="el" href="cpo__utils_8cpp_source.html">cpo_utils.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 15:40:08 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 27 2016 16:03:29 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">/home/matyi/svn/runafluid/trunk/dreicer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="init_8h_source.html">init.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="control_8h_source.html">control.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for dreicer.h:</div>
 <div class="dyncontent">
@@ -107,11 +107,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3075f4b38bed902b805ce89273a313e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dreicer_8h.html#a3075f4b38bed902b805ce89273a313e9">dreicer_generation_rate</a> (double electron_density, double electron_temperature, double effective_charge, double electric_field)</td></tr>
-<tr class="separator:a3075f4b38bed902b805ce89273a313e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97dbae02f349f7947c3e2267739f6d3c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dreicer_8h.html#a97dbae02f349f7947c3e2267739f6d3c">dreicer_generation_rate</a> (double electron_density, double electron_temperature, double effective_charge, double electric_field, int formula_id)</td></tr>
+<tr class="separator:a97dbae02f349f7947c3e2267739f6d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a3075f4b38bed902b805ce89273a313e9"></a>
+<a class="anchor" id="a97dbae02f349f7947c3e2267739f6d3c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -137,7 +137,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>electric_field</em>&#160;</td>
+          <td class="paramname"><em>electric_field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>formula_id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -146,9 +152,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Critical field warning</p>
+<p>The module outputs an integer value (0 or 1) which indicates, whether electric field is above the critical level, thus runaway generation is possible. When the electric field exceeds the critical level this warning raises, a value of 1 is outputted. However it does not mean that runaway electrons are present, the warning only signs the possibility.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pro</td><td>profile</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>4.1.3 Functional Requirements </p><dl class="section return"><dt>Returns</dt><dd><em>REQ-1</em>: If a radius exists where electric field is above critical, returns 1. </dd>
+<dd>
+<em>REQ-2</em>: If electric field is below critical across the whole profile, returns 0. </dd>
+<dd>
+<em>REQ-3</em>: Critical electric field </dd></dl>
 <p>electron temperature: electronvolt to joule</p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ T_\mathrm{e}~\mathrm{[J]} = e \cdot t_\mathrm{e}~\mathrm{[eV]} \]" src="form_32.png"/>
+<img class="formulaDsp" alt="\[ T_\mathrm{e}~\mathrm{[J]} = e \cdot t_\mathrm{e}~\mathrm{[eV]} (= k_\mathrm{B} \cdot T_\mathrm{e}~\mathrm{[K]}) \]" src="form_84.png"/>
 </p>
 <p><em>REQ-3</em>: Coulomb logarithm</p>
 <p class="formulaDsp">
@@ -162,7 +181,7 @@ Functions</h2></td></tr>
 <p class="formulaDsp">
 <img class="formulaDsp" alt="\[ E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}~\mathrm{[J]}} \]" src="form_33.png"/>
 </p>
-<p><em>REQ-7</em>: alpha</p>
+<p><em>REQ-7</em>: relative electric field</p>
 <p class="formulaDsp">
 <img class="formulaDsp" alt="\[ \alpha = \frac{E}{E_\mathrm{D}} \cdot \frac{m_\mathrm{e} \cdot c^2}{T_\mathrm{e}~\mathrm{[J]}} \]" src="form_31.png"/>
 </p>
@@ -182,23 +201,29 @@ Functions</h2></td></tr>
 <p class="formulaDsp">
 <img class="formulaDsp" alt="\[ E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2} \]" src="form_44.png"/>
 </p>
-<p>non-relativistic (67)</p>
+<dl class="section return"><dt>Returns</dt><dd>non-relativistic Dreicer generation rate (67)</dd></dl>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \gamma_\mathrm{NR} = \frac{C n_\mathrm{e}}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} } \right) \]" src="form_49.png"/>
+<img class="formulaDsp" alt="\[ R_\mathrm{NR} = \frac{1}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} } \right) \]" src="form_85.png"/>
 </p>
-<dl class="section return"><dt>Returns</dt><dd>Dreicer generation rate (64)</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Dreicer generation rate with relativistic correction (66)</dd></dl>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \gamma_\mathrm{D} = n_\mathrm{e} \cdot\frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2 \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)} \]" src="form_21.png"/>
+<img class="formulaDsp" alt="\[ R_\mathrm{R} = R_\mathrm{NR} \cdot \exp \left( - frac{T_\mahtrm{e}}{m c^2} \left( \frac{1}{8} \left( \frac{E_\mathrm{D}}{E}\right)^2 + \frac{2}{3} \left( \frac{E_\mathrm{D}}{E}\right)^{3/2} \cdot \sqrt{1+Z} \right) \right) \]" src="form_86.png"/>
 </p>
+<dl class="section return"><dt>Returns</dt><dd>Dreicer generation rate (63)</dd></dl>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ R_\mathrm{D} = \frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2 \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)} \]" src="form_87.png"/>
+</p>
+<p>Dreicer rate must be non-negative</p>
+<p>output: Dreicer generation rate </p>
 
-<p>Definition at line <a class="el" href="dreicer_8cpp_source.html#l00051">51</a> of file <a class="el" href="dreicer_8cpp_source.html">dreicer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="dreicer_8cpp_source.html#l00027">27</a> of file <a class="el" href="dreicer_8cpp_source.html">dreicer.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 15:40:08 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 27 2016 16:03:29 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,8 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;UALClasses.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="constants_8h_source.html">constants.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cpo__utils_8h_source.html">cpo_utils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="runafluid_8h_source.html">runafluid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="init_8h_source.html">init.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="distinit_8h_source.html">distinit.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="control_8h_source.html">control.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for runafluid.cpp:</div>
 <div class="dyncontent">
@@ -108,43 +108,85 @@ Include dependency graph for runafluid.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae0b0fb0084830eda9e9ca64881119c25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="runafluid_8cpp.html#ae0b0fb0084830eda9e9ca64881119c25">fire</a> (<a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;<a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">coreprof</a>, <a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;<a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">coreimpur</a>, <a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;<a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">equilibrium</a>, ItmNs::Itm::distribution &amp;distribution, double &amp;timestep)</td></tr>
-<tr class="separator:ae0b0fb0084830eda9e9ca64881119c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69f7f5a9de79893a4d46bf15f273b110"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="runafluid_8cpp.html#a69f7f5a9de79893a4d46bf15f273b110">fire</a> (ItmNs::Itm::coreprof &amp;coreprof, ItmNs::Itm::coreimpur &amp;coreimpur, ItmNs::Itm::equilibrium &amp;equilibrium, ItmNs::Itm::distribution &amp;distribution_in, ItmNs::Itm::distribution &amp;distribution_out, double &amp;timestep, int &amp;runafluid_switch, double &amp;critical_fraction, int &amp;runaway_warning, int &amp;not_suitable_warning, int &amp;critical_fraction_warning, ItmNs::Itm::temporary &amp;runaway_rates)</td></tr>
+<tr class="separator:a69f7f5a9de79893a4d46bf15f273b110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ae0b0fb0084830eda9e9ca64881119c25"></a>
+<a class="anchor" id="a69f7f5a9de79893a4d46bf15f273b110"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void fire </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="test_8cpp.html#a75b33ef1bbd9d54cf28d958a63ff7ccb">ItmNs::Itm::coreprof</a> &amp;&#160;</td>
+          <td class="paramtype">ItmNs::Itm::coreprof &amp;&#160;</td>
           <td class="paramname"><em>coreprof</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="test_8cpp.html#a11ae785e0360446650fdd47f4b1ee906">ItmNs::Itm::coreimpur</a> &amp;&#160;</td>
+          <td class="paramtype">ItmNs::Itm::coreimpur &amp;&#160;</td>
           <td class="paramname"><em>coreimpur</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="test_8cpp.html#a57baa2ecde7d11ab405822ccce7fdb21">ItmNs::Itm::equilibrium</a> &amp;&#160;</td>
+          <td class="paramtype">ItmNs::Itm::equilibrium &amp;&#160;</td>
           <td class="paramname"><em>equilibrium</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">ItmNs::Itm::distribution &amp;&#160;</td>
-          <td class="paramname"><em>distribution</em>, </td>
+          <td class="paramname"><em>distribution_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ItmNs::Itm::distribution &amp;&#160;</td>
+          <td class="paramname"><em>distribution_out</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double &amp;&#160;</td>
-          <td class="paramname"><em>timestep</em>&#160;</td>
+          <td class="paramname"><em>timestep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>runafluid_switch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>critical_fraction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>runaway_warning</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>not_suitable_warning</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>critical_fraction_warning</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ItmNs::Itm::temporary &amp;&#160;</td>
+          <td class="paramname"><em>runaway_rates</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -154,19 +196,43 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>main function</p>
-<p>fix time label </p>
+<p>fix time label</p>
+<p>runafluid_switch:</p>
+<p>ABCD</p>
+<p>A 0: Electric field from input 1: Electric field set to 1000</p>
+<p>B 0: Calculate density 1: Previous density</p>
+<p>C 0: Dreicer OFF 1: Dreicer ON</p>
+<p>D 0: Avalanche OFF 1: Avalanche ON </p>
+<p>output initialisation</p>
+<p>zero limit</p>
+<p>empty distribution initialiser (integrated distinit)</p>
+<p>Number of elements in runaway electron distribution</p>
+<p>runaway density and current initialisation</p>
+<p>electron current initialisation</p>
 <p>reading profile from CPO inputs (<a class="el" href="cpo__utils_8h.html">cpo_utils.h</a>)</p>
+<p>Number of rate calculations (Dreicer, Avalanche etc.)</p>
 <p>stepping iterator in profile</p>
-<p>internal error in distribution </p>
+<p>runaway_rates for generation rates Dreicer generation rate initialisation</p>
+<p>Avalanche generation rate initialisation</p>
+<p>Distribution source index for output</p>
+<p>Length of the runaway distribution is correct</p>
+<p>calculating runaway density</p>
+<p>CPO output &ndash; runaway warning</p>
+<p>critical fraction warning</p>
+<p>runaway density n_R</p>
+<p>runaway current</p>
+<p>j = n_R q_e c {sign}(E)</p>
+<p>not suitable warning: j_R &gt; j_e</p>
+<p>runaway rates (Dreicer, Avalanche etc.) </p>
 
-<p>Definition at line <a class="el" href="runafluid_8cpp_source.html#l00061">61</a> of file <a class="el" href="runafluid_8cpp_source.html">runafluid.cpp</a>.</p>
+<p>Definition at line <a class="el" href="runafluid_8cpp_source.html#l00083">83</a> of file <a class="el" href="runafluid_8cpp_source.html">runafluid.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 15:40:08 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 27 2016 16:03:29 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
