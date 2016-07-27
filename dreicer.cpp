@@ -76,7 +76,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		
 	double alpha = electric_field / calculate_critical_field(electron_density, electron_temperature);
 		
-	//! \a REQ-6: lambda
+	//! \a REQ-6: lambda: C&H (64)
 	/*!
 	\f[	
 		\lambda(\alpha)=8\alpha\left( \alpha-\frac{1}{2}-\sqrt{\alpha(\alpha-1}\right)
@@ -85,7 +85,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	
 	double lambda = 8.0*alpha*(alpha-1.0/2.0-sqrt(alpha*(alpha-1.0)));
 	
-	//! \a REQ-5: multiplication factor
+	//! \a REQ-5: multiplication factor: C&H (64)
 	/*!
 	\f[	
 		\gamma(\alpha,Z) = \sqrt{\frac{(1+Z)\alpha^2}{8(\alpha-1)}}\cdot \left( \frac{\pi}{2}-\sin^{-1}\left(1-\frac{2}{\alpha} \right) \right)
@@ -94,7 +94,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	
 	double gamma = sqrt((1.0+effective_charge) * alpha*alpha/8.0/(alpha-1.0)) * (ITM_PI/2.0-asin(1.0-2.0/alpha));
 
-	//! \a REQ-4: h factor
+	//! \a REQ-4: h factor: C&H (62)
 	/*!	
 	\f[	
 		h = \frac{1}{16(\alpha - 1)}\cdot \left( \alpha \cdot (Z+1)-Z+7+2\cdot\sqrt{\frac{\alpha}{\alpha -1}} \cdot (1+Z)\cdot(\alpha-2)
@@ -106,7 +106,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		effective_charge + 7.0 + 2.0*sqrt(alpha/(alpha-1.0)) * (1.0+effective_charge)*(alpha-2.0));		
 	
 		
-	//! runaway limit -- critical field (65)
+	//! runaway limit -- critical field: C&H  (65)
 	/*!
 	\f[
 		E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2}
@@ -119,10 +119,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double dgr;
 	
 	if ((formula_id == 67)|| (formula_id == 66)){	
-		//!  \return non-relativistic Dreicer generation rate (67)
+		//!  \return non-relativistic Dreicer generation rate: C&H (67)
 		/*!
 		\f[
-			R_\mathrm{NR} = \frac{1}{\tau} \left( \frac{E}{E_\mathrm{D}} \right) ^{-\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{E_\mathrm{D}}{4E} - \sqrt{(1+Z) \frac{E_\mathrm{D}}{E} }  \right)
+			S_\mathrm{D,67} = n_\mathrm{e}\cdot\frac{1}{\tau} \left(  \frac{E_\mathrm{D}}{E} \right) ^{\frac{3}{16}(Z+1)} \cdot \exp \left( - \frac{1}{4}\frac{E_\mathrm{D}}{E} - \sqrt{(1+Z) \cdot \frac{E_\mathrm{D}}{E} } \right)
 		\f]
 		*/	
 		
@@ -131,27 +131,28 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	
 		if (formula_id == 66){
 		
-		//!  \return Dreicer generation rate with relativistic correction (66)
+		//!  \return Dreicer generation rate with relativistic correction: C&H  (66)
 		/*!
 		\f[
-			R_\mathrm{R} = R_\mathrm{NR} \cdot \exp \left( - frac{T_\mahtrm{e}}{m c^2} \left( \frac{1}{8} \left( \frac{E_\mathrm{D}}{E}\right)^2 + \frac{2}{3} \left( \frac{E_\mathrm{D}}{E}\right)^{3/2}  \cdot \sqrt{1+Z} \right) \right) 
+			S_\mathrm{D,66} = S_\mathrm{D,67} \cdot \exp \left( - \frac{T_\mathrm{e}}{m c^2} \cdot \left( \frac{1}{8} \left( \frac{E_\mathrm{D}}{E}\right)^2  + \frac{2}{3} \left( \frac{E_\mathrm{D}}{E}\right)^{3/2} \cdot \sqrt{1+Z}  \right) \right) 
 		\f]
 		*/
 		
+//		   
 		
 			dgr = dgr * exp(-kB_T/me_c2 * (Ed__E*Ed__E/8.0 + 2.0/3.0*pow(Ed__E,1.5) *sqrt(1.0+effective_charge)));
 		}
 	
 	}else{
 	
-		//! \return Dreicer generation rate (63)
+		//! \return Dreicer generation rate: C&H  (63)
 		/*!
 		\f[
-			R_\mathrm{D} = \frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^h(\alpha,Z) \cdot \exp{-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z)}
-		
+			S_\mathrm{D} = n_\mathrm{e} \cdot \frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^{h(\alpha,Z)} \cdot \exp \left(-\frac{\lambda(\alpha)}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2  \frac{E_\mathrm{D}}{E}} \cdot \gamma(\alpha,Z) \right)
 		\f]
 		*/	
-	
+	// 
+		
 		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4.0*Ed__E - sqrt(2.0*Ed__E)*gamma); 
 	}	
 		
