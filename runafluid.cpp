@@ -174,7 +174,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			//!  critical fraction warning
 	   		if (rundensity > critical_fraction/100.0*it->electron_density){
 				critical_fraction_warning = 1;
-				std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "%% (" << rho << ")" << std::endl;
+				//std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "%% (" << rho << ")" << std::endl;
 			}
 		   	
 		   	//! runaway density n_R
@@ -194,7 +194,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
 		   	if (runcurrent >= ecurrent){		   	
 				not_suitable_warning = 1;	   	
-				std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current (" << rho << ")" << std::endl;
+				//std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current (" << rho << ")" << std::endl;
 		   	}	   	
 		   	
 		   	
@@ -208,7 +208,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}		
 			
 			if (critical_fraction_warning == 1){				
-				std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "%%  at " << time << " s" << std::endl;
+				std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
 			}	
 			
 			if (not_suitable_warning == 1){				
