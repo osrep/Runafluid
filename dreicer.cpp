@@ -159,7 +159,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	//! Dreicer rate must be non-negative
 	if(isnan(dgr)|| (dgr<0)){
 		dgr = 0;
-		std::cerr << "ERROR: Dreicer generation rate is invalid. Set to zero." << std::endl;
+		//std::cerr << "ERROR: Dreicer generation rate is invalid. Set to zero." << std::endl;
 		
 	}
 
