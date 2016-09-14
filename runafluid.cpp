@@ -84,6 +84,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch, double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning, ItmNs::Itm::temporary &runaway_rates) {
 
 	
+	//! get time
+	double time = coreprof.time;
+	
 	//! output initialisation
 	runaway_warning = 0;
 	not_suitable_warning = 0;
@@ -162,8 +165,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 					  
 		   	//! CPO output -- runaway warning
 	   		if (rundensity > zero_threshold){
-				runaway_warning = 1;
-				std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected (" << rho << ")" << std::endl;
+				runaway_warning = 1;				
+				//std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected (" << rho << ")" << std::endl;
 			}else{
 				rundensity = 0; // no runaway
 			}
@@ -171,7 +174,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			//!  critical fraction warning
 	   		if (rundensity > critical_fraction/100.0*it->electron_density){
 				critical_fraction_warning = 1;
-				std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "% (" << rho << ")" << std::endl;
+				std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "%% (" << rho << ")" << std::endl;
 			}
 		   	
 		   	//! runaway density n_R
@@ -198,7 +201,19 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	//! runaway rates (Dreicer, Avalanche etc.)
 		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
 		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
-			}			
+			}	
+			
+			if (runaway_warning == 1){				
+				std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
+			}		
+			
+			if (critical_fraction_warning == 1){				
+				std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "%%  at " << time << " s" << std::endl;
+			}	
+			
+			if (not_suitable_warning == 1){				
+				std::cerr << " Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
+			}	
 
 	   		
 	   	}else{		   	
