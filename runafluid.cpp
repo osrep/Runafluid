@@ -163,6 +163,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	//! CPO output -- runaway warning
 	   		if (rundensity > zero_threshold){
 				runaway_warning = 1;
+				std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected (" << rho << ")" << std::endl;
 			}else{
 				rundensity = 0; // no runaway
 			}
@@ -170,6 +171,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			//!  critical fraction warning
 	   		if (rundensity > critical_fraction/100.0*it->electron_density){
 				critical_fraction_warning = 1;
+				std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "% (" << rho << ")" << std::endl;
 			}
 		   	
 		   	//! runaway density n_R
@@ -188,7 +190,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	//! not suitable warning: j_R > j_e	
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
 		   	if (runcurrent >= ecurrent){		   	
-				not_suitable_warning = 1;
+				not_suitable_warning = 1;	   	
+				std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current (" << rho << ")" << std::endl;
 		   	}	   	
 		   	
 		   	
@@ -199,7 +202,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 	   		
 	   	}else{		   	
-			std::cerr << "ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
+			std::cerr << "[Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 	   	}
 	    rho++;
 	
