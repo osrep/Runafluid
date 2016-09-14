@@ -77,8 +77,8 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 
 	} catch (const std::exception& ex) {
 		//! internal error in runaway distribution calculation
-		std::cerr << "ERROR An error occurred during runaway distribution calculation." << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR: An error occurred during runaway distribution calculation." << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 		rundensity_after = ITM_ILLEGAL_FLOAT;
 		
 	}
