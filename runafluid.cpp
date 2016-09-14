@@ -103,15 +103,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	double runcurrent = 0.0;
 	
 	//! electron current initialisation
-	double ecurrent = 0.0;
-	
-	std::cerr << "Equilibrium1: " << equilibrium.profiles_1d.rho_tor.rows() << std::endl;
+	double ecurrent = 0.0;	
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
-	
-	std::cerr << "Equilibrium2: " << equilibrium.profiles_1d.rho_tor.rows() << std::endl;
-		
+			
 	//! Number of rate calculations (Dreicer, Avalanche etc.)
 	int N_rates = 6;
 	double rate_values[N_rates];	
@@ -155,9 +151,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 	//! Distribution source index for output
 	int distsource_out_index = 0;
-	
-	
-	std::cerr << "Equilibrium3: " << equilibrium.profiles_1d.rho_tor.rows() << std::endl;
 	
 	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
@@ -213,8 +206,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	}
 	
 	
-	std::cerr << "Equilibrium4: " << equilibrium.profiles_1d.rho_tor.rows() << std::endl;
 	distribution_out.time = distribution_in.time+timestep;
-		
 
 }
