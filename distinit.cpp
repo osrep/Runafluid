@@ -28,30 +28,30 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	try {		
 		N = coreprof.ne.value.rows();		
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during coreprof elements" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during coreprof elements" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}	
 	
 	try {		
 		N_rho_tor = coreprof.rho_tor.rows();
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during coreprof elements" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during coreprof elements" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	
 	try {			
 		N_rho_tor_norm = coreprof.rho_tor_norm.rows();		
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during coreprof elements" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during coreprof elements" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	try {			
 		N_psi = coreprof.psi.value.rows();		
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during coreprof elements" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during coreprof elements" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	/*
@@ -70,8 +70,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	try {	
 		distribution.distri_vec.resize(1);	
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during distri_vec allocation" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during distri_vec allocation" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	try {		
@@ -82,8 +82,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		distribution.distri_vec(0).profiles_1d.state.current.resize(N);
 		
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during density vector allocation" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during density vector allocation" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	//! Filling up distribution density and current
@@ -93,8 +93,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 			distribution.distri_vec(0).profiles_1d.state.current(i) = 0;
 		}
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during density vector filling" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during density vector filling" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	//! Filling up metadata
@@ -116,8 +116,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		distribution.distri_vec(0).gyro_type = 1;	
 			
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred metadata filling" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred metadata filling" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	
@@ -128,8 +128,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		distribution.distri_vec(0).profiles_1d.geometry.psi(N_psi);
 		
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during geometry vectors allocation" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during geometry vectors allocation" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	
@@ -151,15 +151,15 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 			
 		}
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during coreprof geometry vectors filling" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	//! Filling up coreimpur geometry data	
 	try {
 	
 		if(N_area==0){
-			std::cerr << "WARNING: coreimpur.area is empty" << std::endl;
+			//std::cerr << "WARNING: coreimpur.area is empty" << std::endl;
 		}
 		for (int i = 0; i < N; ++i){
 	
@@ -173,8 +173,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		}
 			
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during coreprof geometry vectors filling" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR An error occurred during coreprof geometry vectors filling" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 }

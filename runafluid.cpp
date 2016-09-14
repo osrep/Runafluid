@@ -202,23 +202,27 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
 		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
 			}	
-			
-			if (runaway_warning == 1){				
-				std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
-			}		
-			
-			if (critical_fraction_warning == 1){				
-				std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
-			}	
-			
-			if (not_suitable_warning == 1){				
-				std::cerr << " Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
-			}	
-
 	   		
 	   	}else{		   	
 			std::cerr << "[Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 	   	}
+	   	
+	   	//! error messages to dump
+	   	if (runaway_warning == 1){				
+				std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
+		}		
+		
+		if (critical_fraction_warning == 1){				
+			std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
+		}	
+		
+		if (not_suitable_warning == 1){				
+			std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
+		}	
+	   	
+	   	
+	   	
+	   
 	    rho++;
 	
 	}
