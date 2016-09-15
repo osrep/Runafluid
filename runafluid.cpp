@@ -198,7 +198,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	
 		   	//! not suitable warning: j_R > j_e	
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
-		   	if (runcurrent >= ecurrent){		   	
+		   	if (runcurrent/ecurrent >= 1){		   	
 				not_suitable_warning = 1;	   	
 				//std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current (" << rho << ")" << std::endl;
 		   	}	   	
