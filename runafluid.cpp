@@ -118,6 +118,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! stepping iterator in profile	
 	int rho = 0;	
 	
+	
+	//! start: runafluid
+	std::cerr << " START: runafluid" << std::endl;
+	
 	//! runaway_rates for generation rates
 	//! Dreicer generation rate initialisation
 	runaway_rates.timed.float1d.resize(N_rates);
@@ -225,7 +229,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
 	}	
 	
-	
+	//! end: runafluid
+	std::cerr << " END: runafluid" << std::endl;
 	distribution_out.time = distribution_in.time+timestep;
 
 }
