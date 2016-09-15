@@ -235,7 +235,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 	//! output flag to distribution CPO
 	try {
-		distribution.codeparam.output_flag = output_flag;
+		distribution_out.codeparam.output_flag = output_flag;
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
