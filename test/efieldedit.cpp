@@ -95,6 +95,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 
 
 		
+		//! start: runafluid_efieldEdit
+		std::cerr << " START: runafluid_efieldEdit" << std::endl;
 		
 		/*! SWITCH
 		relative / absolute
@@ -208,6 +210,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 			output = (double)4;
 		}*/	
 		
+	//! end: runafluid_efieldEdit
+	std::cerr << " END: runafluid_efieldEdit" << std::endl;
 	
 
 	} catch (const std::exception& ex) {

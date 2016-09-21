@@ -83,6 +83,9 @@ ABCD
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch, double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning, ItmNs::Itm::temporary &runaway_rates) {
 
+
+	//! start: runafluid
+	std::cerr << " START: runafluid" << std::endl;
 	
 	//! get time
 	double time = coreprof.time;
@@ -106,7 +109,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	double runcurrent = 0.0;
 	
 	//! electron current initialisation
-	double ecurrent = 0.0;	
+	double ecurrent = 0.0;		
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
@@ -120,9 +123,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 	//! output flag
 	int output_flag = 0;
-	
-	//! start: runafluid
-	std::cerr << " START: runafluid" << std::endl;
 	
 	//! runaway_rates for generation rates
 	//! Dreicer generation rate initialisation
@@ -241,8 +241,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
+	distribution_out.time = distribution_in.time+timestep;
+	
 	//! end: runafluid
 	std::cerr << " END: runafluid" << std::endl;
-	distribution_out.time = distribution_in.time+timestep;
 
 }
