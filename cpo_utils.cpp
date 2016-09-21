@@ -334,9 +334,16 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
 			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
 		*/
-		celll.electric_field = coreprof.profiles1d.eparallel.value(rho) * coreprof.toroid_field.b0
-				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-						coreprof.rho_tor(rho));
+		try{
+			celll.electric_field = coreprof.profiles1d.eparallel.value(rho) * coreprof.toroid_field.b0
+					/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
+							coreprof.rho_tor(rho));
+		
+		//! internal error in equilibrium
+		} catch (const std::exception& ex) {
+			celll.electric_field = 0;			
+			std::cerr << "ERROR : rho_tor is empty in equilibrium CPO, electric field set to zero. (" << rho << ")" << std::endl;
+		}
 		
 		try{		
 			//! No runaway in previous distribution CPO
@@ -362,4 +369,4 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	}
 
 	return pro;
-}
+}		
