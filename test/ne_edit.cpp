@@ -27,60 +27,13 @@ AB
 */
 
 
-/*!
-
-read_coreprof
-
-Reading coreprof to a profile. Other fields would be undefined!
-
-input: ItmNs::Itm::coreprof &coreprof
-output: profile
-*/
-
-/*
-profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
-
-	profile pro;
-
-	//! read electron density profile length of dataset: cells	
-	int cells = coreprof.ne.value.rows();
-	
-	//! read electron temperature profile length of dataset, comparing with cells
-	if (coreprof.te.value.rows() != cells)
-		throw std::invalid_argument("Number of values is different in coreprof ne and te.");
-
-	//! read eparallel profile length of dataset, comparing with cells
-	if (coreprof.profiles1d.eparallel.value.rows() != cells)
-		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
-
-    //! read data in every $\rho$ 
-
-	for (int rho = 0; rho < cells; rho++) {
-		cell celll;
-				
-		//! electron density
-		celll.electron_density = coreprof.ne.value(rho);
-		
-		//! electron temperature
-		celll.electron_temperature = coreprof.te.value(rho);
-		
-	
-		celll.electric_field = coreprof.profiles1d.eparallel.value(rho); 
-
-		
-
-		pro.push_back(celll);
-	}
-
-	return pro;
-	
-}*/
-
-
 void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, double &output) {		
 		
 	try {
+		
+		
+		//! start: runafluid_neEdit
+		std::cerr << " START: runafluid_neEdit" << std::endl;
 		
 		bool bools[2];
 		
@@ -115,14 +68,18 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, doub
 		
 		}	
 		
-		output += (double)swint;		
+		output = 0;		
+		
+		
+		//! end: runafluid_neEdit
+		std::cerr << " END: runafluid_neEdit" << std::endl;
 
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during firing actor Runafluid." << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
-		output = ITM_ILLEGAL_INT;
-		
+	
 		//! internal error in distribution
+		std::cerr << "ERROR An error occurred during firing actor runafluid_neEdit." << std::endl;
+		std::cerr << "ERROR : " << ex.what() << std::endl;
+		output = ITM_ILLEGAL_INT;		
 		
 	}
 
