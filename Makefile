@@ -13,7 +13,7 @@ F90LIBS =   -L$(UAL)/lib  -lUALFORTRANInterface_ifort
 F90INCLUDES = -I$(UAL)/include/amd64_ifort
 
 # all files
-all:   libRunafluid.a 
+all:   libRunafluid.a test/libEfieldEdit.a
 
 # test files
 t:     libRunafluid.a  test/libnewdist.a test/libNewDistSlice.a test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a
