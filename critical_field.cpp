@@ -81,7 +81,18 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 	
 }
 
+
 double calculate_dreicer_field(double electron_density, double electron_temperature){
+	
+
+	
+	return	me_c2 / electron_temperature / ITM_EV / calculate_critical_field(electron_density, electron_temperature);
+	//dreicer01;
+	
+}
+
+
+double calculate_dreicer_field3(double electron_density, double electron_temperature){
 
 
 	//! \a REQ-4: Coulomb logarithm
