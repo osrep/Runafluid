@@ -48,7 +48,7 @@ double calculate_critical_field(double electron_density, double electron_tempera
 	//return calculate_dreicer_field(electron_density,electron_temperature)
 }
 
-double calculate_dreicer_field(double electron_density, double electron_temperature){
+double calculate_dreicer_field2(double electron_density, double electron_temperature){
 	
 	
 	//! \a REQ-4: Coulomb logarithm
@@ -81,7 +81,7 @@ double calculate_dreicer_field(double electron_density, double electron_temperat
 	
 }
 
-double calculate_dreicer_field2(double electron_density, double electron_temperature){
+double calculate_dreicer_field(double electron_density, double electron_temperature){
 
 
 	//! \a REQ-4: Coulomb logarithm
