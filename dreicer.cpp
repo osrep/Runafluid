@@ -54,7 +54,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double thermal_electron_collision_time = calculate_thermal_electron_collision_time(double electron_density, double electron_temperature);
+	double thermal_electron_collision_time = calculate_thermal_electron_collision_time(electron_density, electron_temperature);
 
 	//! \a REQ-1: Dreicer field
 		/*!
