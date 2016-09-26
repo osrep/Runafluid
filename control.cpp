@@ -5,6 +5,7 @@
 #include "dreicer.h"
 #include "avalanche.h"
 #include "cpo_utils.h"
+#include "products.h"
 
 /*!
 Runafluid actor
