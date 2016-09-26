@@ -27,6 +27,6 @@ const double pi_4_e02_me_c2__e3 = ITM_PI * 4.0 * pow(ITM_EPS0, 2) * me_c2 / pow(
 const double pi_4_e02_me2_c3__e4 = ITM_PI * 4.0 * pow(ITM_EPS0, 2) * me2_c3 / pow(ITM_QE, 4);
 
 //! 	\f[	\frac{4\pi\epsilon_0^2\cdot m_\mathrm{e}^2 }{e^4} \f]
-const double pi_4_e02_me2__e4 = ITM_PI * 4.0 * pow(ITM_EPS0, 2) * me2_c3 / pow(ITM_QE, 4);
+const double pi_4_e02_me2__e4 = ITM_PI * 4.0 * pow(ITM_EPS0, 2) * ITM_ME * ITM_ME  / pow(ITM_QE, 4);
 
 #endif /* PRODUCTS_H_ */
