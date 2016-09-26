@@ -82,11 +82,17 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 }
 
 
-double calculate_dreicer_field(double electron_density, double electron_temperature){
-	
+double calculate_dreicer_field(double electron_density, double electron_temperature){	
 
+
+	//! \a REQ-3: Dreicer field
+		/*!
+	\f[
+		E_D = \frac{E_\mathrm{c} \cdot m_\mathrm{e} c }{T_\mathrm{e}}		
+	\f]
+	*/
 	
-	return	me_c2 / electron_temperature / ITM_EV / calculate_critical_field(electron_density, electron_temperature);
+	return  calculate_critical_field(electron_density, electron_temperature) * me_c2 / electron_temperature / ITM_EV ;
 	//dreicer01;
 	
 }
