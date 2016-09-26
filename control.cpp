@@ -58,7 +58,10 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_values[8] = calculate_critical_field(electron_density, electron_temperature);
 		
 		//! temporary for Coulomb log
-		rate_values[9] = calculate_coulomb_log(electron_density, electron_temperature);
+		rate_values[9] = calculate_coulomb_log(electron_density, electron_temperature);		
+		
+		//! temporary for Coulomb log
+		rate_values[10] = calculate_tau(electron_density, electron_temperature);
 				
 		//! Calculate Avalanche generation rate
 		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 0);

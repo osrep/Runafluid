@@ -116,7 +116,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			
 	//! Number of rate calculations (Dreicer, Avalanche etc.)
 	//int N_rates = 6;
-	int N_rates = 10;
+	int N_rates = 11;
 	double rate_values[N_rates];	
 		
 	//! stepping iterator in profile	
@@ -181,6 +181,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(9).identifier.flag = 9;
 	runaway_rates.timed.float1d(9).identifier.description = "Coulomb logarithm";
 	runaway_rates.timed.float1d(9).value.resize(N_rho);
+	
+		
+	//! electron collision time
+	runaway_rates.timed.float1d(10).identifier.id = "tau";
+	runaway_rates.timed.float1d(10).identifier.flag = 10;
+	runaway_rates.timed.float1d(10).identifier.description = "Electron collision time";
+	runaway_rates.timed.float1d(10).value.resize(N_rho);
 	
 
 	//! Distribution source index for output

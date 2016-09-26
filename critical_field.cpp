@@ -61,7 +61,7 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 			+ log(electron_temperature * 1e-3);
 
 
-	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
+	tau = calculate_dreicer_tau(electron_density, electron_temperature);
 
 	//! \a REQ-3: Dreicer field
 		/*!
@@ -69,14 +69,8 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}}		
 	\f]
 	*/
-	
-	/*double dreicer01 =  me2_c3__e / (tao * electron_temperature * ITM_EV);
-	double dreicer02 =  4*ITM_PI/ITM_EPS0*pow(ITM_QE,3)*(electron_density * coulomb_log)/(electron_temperature*ITM_EV); //ITM_ME * pow(ITM_C, 2);
-	
-	std::cerr << "Dreicer field TESTER:\t" << dreicer01 << "\t" << dreicer02 << std::endl;
-	std::cerr << "Coulomb logarithm:\t" << coulomb_log << std::endl;*/
-	
-	return	me2_c3__e / (tao * electron_temperature * ITM_EV);
+		
+	return	me2_c3__e / (tau * electron_temperature * ITM_EV);
 	//dreicer01;
 	
 }
@@ -109,3 +103,21 @@ double calculate_coulomb_log(double electron_density, double electron_temperatur
 	return 14.9 - 0.5 * log(electron_density * 1e-20)
 			+ log(electron_temperature * 1e-3);
 }	
+
+
+double calculate_dreicer_tau(double electron_density, double electron_temperature){
+
+	//! \a REQ-4: Coulomb logarithm
+	/*!
+	\f[
+		\ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) .
+	\f]
+	*/
+	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
+			+ log(electron_temperature * 1e-3);
+			
+	double therm_speed = sqrt(2*electron_temperature*ITM_EV/ITM_ME);		
+
+	return pi_4_e02_me2__e4 * pow(therm_speed,3) / (electron_density * coulomb_log);	
+	
+}
