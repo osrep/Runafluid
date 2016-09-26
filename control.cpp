@@ -52,9 +52,10 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		//! temporary for Dreicer field
 		rate_values[6] = calculate_dreicer_field(electron_density, electron_temperature);
 		rate_values[7] = calculate_dreicer_field2(electron_density, electron_temperature);
+		rate_values[8] = me_c2 / electron_temperature / ITM_EV / calculate_critical_field(electron_density, electron_temperature);
 		
 		//! temporary for critical field
-		rate_values[8] = calculate_critical_field(electron_density, electron_temperature);
+		//rate_values[8] = calculate_critical_field(electron_density, electron_temperature);
 		
 		//! temporary for Coulomb log
 		rate_values[9] = calculate_coulomb_log(electron_density, electron_temperature);

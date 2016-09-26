@@ -173,7 +173,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! critical field
 	runaway_rates.timed.float1d(8).identifier.id = "criticalf";
 	runaway_rates.timed.float1d(8).identifier.flag = 8;
-	runaway_rates.timed.float1d(8).identifier.description = "Critical field";
+	runaway_rates.timed.float1d(8).identifier.description = "Dreicer field by Critical field";
 	runaway_rates.timed.float1d(8).value.resize(N_rho);
 	
 	//! Coulomb logarithm
