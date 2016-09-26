@@ -61,7 +61,7 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 			+ log(electron_temperature * 1e-3);
 
 
-	tau = calculate_tau(electron_density, electron_temperature);
+	double tau = calculate_tau(electron_density, electron_temperature);
 
 	//! \a REQ-3: Dreicer field
 		/*!
