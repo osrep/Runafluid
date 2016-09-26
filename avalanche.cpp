@@ -43,7 +43,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	\f]
 	*/
 		
-	double runaway_collision_time = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
+	double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
 	
 
 	//! \return Avalanche generation rate	

@@ -13,7 +13,9 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 
 double calculate_coulomb_log(double electron_density, double electron_temperature);
 
-double calculate_thermal_electron_collision_time(double electron_density, double coulomb_log);
+double calculate_thermal_electron_collision_time(double electron_density, double electron_temperature);
+
+double calculate_runaway_collision_time(double electron_density, double electron_temperature);
 
 
 #endif /* CRITICAL_FIELD_H_ */

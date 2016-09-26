@@ -86,7 +86,7 @@ double calculate_dreicer_field(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	return  calculate_critical_field(electron_density, electron_temperature) * me_c2 / electron_temperature * ITM_EV ;
+	return  calculate_critical_field(electron_density, electron_temperature) * me_c2 / electron_temperature / ITM_EV ;
 	//dreicer01;
 	
 }
@@ -120,4 +120,8 @@ double calculate_thermal_electron_collision_time(double electron_density, double
 
 	return pi_4_e02_me2__e4 * pow(therm_speed,3) / (electron_density * coulomb_log);	
 	
+}
+
+double calculate_runaway_collision_time(double electron_density, double electron_temperature){
+	return pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
 }
