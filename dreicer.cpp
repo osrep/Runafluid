@@ -54,7 +54,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double tao = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);
+	double thermal_electron_collision_time = calculate_thermal_electron_collision_time(double electron_density, double electron_temperature);
 
 	//! \a REQ-1: Dreicer field
 		/*!
@@ -126,7 +126,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\f]
 		*/	
 		
-			dgr = Cr/tao * pow(Ed__E,3.0/16.0*(effective_charge+1.0)) * exp(-1.0/4.0*Ed__E - sqrt((effective_charge+1.0)*Ed__E));	
+			dgr = Cr/thermal_electron_collision_time * pow(Ed__E,3.0/16.0*(effective_charge+1.0)) * exp(-1.0/4.0*Ed__E - sqrt((effective_charge+1.0)*Ed__E));	
 	
 	
 		if (formula_id == 66){
@@ -153,7 +153,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		*/	
 	// 
 		
-		dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4.0*Ed__E - sqrt(2.0*Ed__E)*gamma); 
+		dgr = Cr/thermal_electron_collision_time * pow(Ed__E,h) * exp(-lambda/4.0*Ed__E - sqrt(2.0*Ed__E)*gamma); 
 	}	
 		
 	//! Dreicer rate must be non-negative

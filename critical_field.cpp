@@ -92,7 +92,7 @@ double calculate_thermal_electron_collision_time(double electron_density, double
 			
 	double therm_speed = sqrt(2*electron_temperature*ITM_EV/ITM_ME);		
 
-	return pi_4_e02_me2__e4 * pow(therm_speed,3) / (electron_density * coulomb_log);	
+	return pi_4_e02_me2__e4 * pow(therm_speed,3.0) / (electron_density * coulomb_log);	
 	
 }
 
