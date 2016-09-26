@@ -11,8 +11,6 @@ double calculate_dreicer_field(double electron_density, double electron_temperat
 
 double calculate_dreicer_field2(double electron_density, double electron_temperature);
 
-double calculate_dreicer_field3(double electron_density, double electron_temperature);
-
 double calculate_coulomb_log(double electron_density, double electron_temperature);
 
 
