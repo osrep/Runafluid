@@ -123,5 +123,8 @@ double calculate_thermal_electron_collision_time(double electron_density, double
 }
 
 double calculate_runaway_collision_time(double electron_density, double electron_temperature){
+
+	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
+			+ log(electron_temperature * 1e-3);
 	return pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
 }
