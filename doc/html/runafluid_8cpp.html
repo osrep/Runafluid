@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Runafluid specification: /home/matyi/svn/runafluid/trunk/runafluid.cpp File Reference</title>
+<title>Runafluid: /home/matyi/svn/runafluid/trunk/runafluid.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Runafluid specification
-   &#160;<span id="projectnumber">1.5</span>
+   <div id="projectname">Runafluid
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
+   <div id="projectbrief">Runafluid doxygen specification</div>
   </td>
  </tr>
  </tbody>
@@ -203,6 +204,8 @@ Functions</h2></td></tr>
 <p>B 0: Calculate density 1: Previous density</p>
 <p>C 0: Dreicer OFF 1: Dreicer ON</p>
 <p>D 0: Avalanche OFF 1: Avalanche ON </p>
+<p>start: runafluid</p>
+<p>get time</p>
 <p>output initialisation</p>
 <p>zero limit</p>
 <p>empty distribution initialiser (integrated distinit)</p>
@@ -212,8 +215,14 @@ Functions</h2></td></tr>
 <p>reading profile from CPO inputs (<a class="el" href="cpo__utils_8h.html">cpo_utils.h</a>)</p>
 <p>Number of rate calculations (Dreicer, Avalanche etc.)</p>
 <p>stepping iterator in profile</p>
+<p>output flag</p>
 <p>runaway_rates for generation rates Dreicer generation rate initialisation</p>
 <p>Avalanche generation rate initialisation</p>
+<p>Dreicer field</p>
+<p>critical field</p>
+<p>Coulomb logarithm</p>
+<p>electron collision time</p>
+<p>electron collision time</p>
 <p>Distribution source index for output</p>
 <p>Length of the runaway distribution is correct</p>
 <p>calculating runaway density</p>
@@ -223,7 +232,10 @@ Functions</h2></td></tr>
 <p>runaway current</p>
 <p>j = n_R q_e c {sign}(E)</p>
 <p>not suitable warning: j_R &gt; j_e</p>
-<p>runaway rates (Dreicer, Avalanche etc.) </p>
+<p>runaway rates (Dreicer, Avalanche etc.)</p>
+<p>error messages to dump</p>
+<p>output flag to distribution CPO</p>
+<p>end: runafluid </p>
 
 <p>Definition at line <a class="el" href="runafluid_8cpp_source.html#l00083">83</a> of file <a class="el" href="runafluid_8cpp_source.html">runafluid.cpp</a>.</p>
 
@@ -232,7 +244,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 27 2016 16:32:24 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 26 2016 15:55:05 for Runafluid by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

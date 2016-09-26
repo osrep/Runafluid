@@ -110,3 +110,5 @@
 \form#109:\[ S_\mathrm{D} = n_\mathrm{e} \cdot \frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^{h(\alpha,Z)} \cdot \exp \left(-\frac{\lambda}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2 \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z) \right) \]
 \form#110:\[ S_\mathrm{D} = n_\mathrm{e} \cdot \frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^{h(\alpha,Z)} \cdot \exp \left(-\frac{\lambda(\alpha)}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2 \frac{E_\mathrm{D}}{E}} \gamma(\alpha,Z) \right) \]
 \form#111:\[ S_\mathrm{D} = n_\mathrm{e} \cdot \frac{1}{\tau} \left(\frac{E_\mathrm{D}}{E} \right)^{h(\alpha,Z)} \cdot \exp \left(-\frac{\lambda(\alpha)}{4} \cdot \frac{E_\mathrm{D}}{E} - \sqrt{2 \frac{E_\mathrm{D}}{E}} \cdot \gamma(\alpha,Z) \right) \]
+\form#112:\[ E_D = \frac{E_\mathrm{c} \cdot m_\mathrm{e} c }{T_\mathrm{e}} \]
+\form#113:\[ \frac{4\pi\epsilon_0^2\cdot m_\mathrm{e}^2 }{e^4} \]

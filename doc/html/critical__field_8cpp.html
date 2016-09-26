@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Runafluid specification: /home/matyi/svn/runafluid/trunk/critical_field.cpp File Reference</title>
+<title>Runafluid: /home/matyi/svn/runafluid/trunk/critical_field.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Runafluid specification
-   &#160;<span id="projectnumber">1.5</span>
+   <div id="projectname">Runafluid
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
+   <div id="projectbrief">Runafluid doxygen specification</div>
   </td>
  </tr>
  </tbody>
@@ -108,8 +109,46 @@ Functions</h2></td></tr>
 <tr class="separator:ac2a76ff205da07cb646aa10ac6364196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55c690732e8ca4525aae2c4640b3b26f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#a55c690732e8ca4525aae2c4640b3b26f">calculate_dreicer_field</a> (double electron_density, double electron_temperature)</td></tr>
 <tr class="separator:a55c690732e8ca4525aae2c4640b3b26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa191f2faeb382deb3dd4b3861ed52f72"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#aa191f2faeb382deb3dd4b3861ed52f72">calculate_coulomb_log</a> (double electron_density, double electron_temperature)</td></tr>
+<tr class="separator:aa191f2faeb382deb3dd4b3861ed52f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998f63e6edfa39a2b7097bdbafbd047c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#a998f63e6edfa39a2b7097bdbafbd047c">calculate_thermal_electron_collision_time</a> (double electron_density, double electron_temperature)</td></tr>
+<tr class="separator:a998f63e6edfa39a2b7097bdbafbd047c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b7e06343788643a85eaca4a66ee791"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="critical__field_8cpp.html#a39b7e06343788643a85eaca4a66ee791">calculate_runaway_collision_time</a> (double electron_density, double electron_temperature)</td></tr>
+<tr class="separator:a39b7e06343788643a85eaca4a66ee791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="aa191f2faeb382deb3dd4b3861ed52f72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double calculate_coulomb_log </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>electron_density</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>electron_temperature</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><em>REQ-4</em>: Coulomb logarithm</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_10.png"/>
+</p>
+
+<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00069">69</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ac2a76ff205da07cb646aa10ac6364196"></a>
 <div class="memitem">
 <div class="memproto">
@@ -169,16 +208,72 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><em>REQ-3</em>: Dreicer field</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ E_D = \frac{E_\mathrm{c} \cdot m_\mathrm{e} c }{T_\mathrm{e}} \]" src="form_112.png"/>
+</p>
+
+<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00053">53</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39b7e06343788643a85eaca4a66ee791"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double calculate_runaway_collision_time </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>electron_density</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>electron_temperature</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00099">99</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a998f63e6edfa39a2b7097bdbafbd047c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double calculate_thermal_electron_collision_time </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>electron_density</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>electron_temperature</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 <p><em>REQ-4</em>: Coulomb logarithm</p>
 <p class="formulaDsp">
 <img class="formulaDsp" alt="\[ \ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) . \]" src="form_10.png"/>
 </p>
-<p><em>REQ-3</em>: Dreicer field</p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}} \]" src="form_18.png"/>
-</p>
 
-<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00051">51</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
+<p>Definition at line <a class="el" href="critical__field_8cpp_source.html#l00082">82</a> of file <a class="el" href="critical__field_8cpp_source.html">critical_field.cpp</a>.</p>
 
 </div>
 </div>
@@ -216,7 +311,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 27 2016 16:32:24 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 26 2016 15:55:05 for Runafluid by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Runafluid specification: /home/matyi/svn/runafluid/trunk/dreicer.cpp Source File</title>
+<title>Runafluid: /home/matyi/svn/runafluid/trunk/dreicer.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Runafluid specification
-   &#160;<span id="projectnumber">1.5</span>
+   <div id="projectname">Runafluid
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
+   <div id="projectbrief">Runafluid doxygen specification</div>
   </td>
  </tr>
  </tbody>
@@ -110,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">double</span> tao = <a class="code" href="products_8h.html#ab13e2b2350baf1eb0ed8892f54db7e2c">pi_4_e02_me2_c3__e4</a> / (electron_density * coulomb_log);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">double</span> thermal_electron_collision_time = <a class="code" href="critical__field_8cpp.html#a998f63e6edfa39a2b7097bdbafbd047c">calculate_thermal_electron_collision_time</a>(electron_density, electron_temperature);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">double</span> Ed = <a class="code" href="critical__field_8cpp.html#a55c690732e8ca4525aae2c4640b3b26f">calculate_dreicer_field</a>(electron_density, electron_temperature);</div>
@@ -137,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    </div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">if</span> ((formula_id == 67)|| (formula_id == 66)){   </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            dgr = Cr/tao * pow(Ed__E,3.0/16.0*(effective_charge+1.0)) * exp(-1.0/4.0*Ed__E - sqrt((effective_charge+1.0)*Ed__E));   </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            dgr = Cr/thermal_electron_collision_time * pow(Ed__E,3.0/16.0*(effective_charge+1.0)) * exp(-1.0/4.0*Ed__E - sqrt((effective_charge+1.0)*Ed__E));   </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    </div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">if</span> (formula_id == 66){</div>
@@ -153,12 +154,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">// </span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        dgr = Cr/tao * pow(Ed__E,h) * exp(-lambda/4.0*Ed__E - sqrt(2.0*Ed__E)*gamma); </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        dgr = Cr/thermal_electron_collision_time * pow(Ed__E,h) * exp(-lambda/4.0*Ed__E - sqrt(2.0*Ed__E)*gamma); </div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }   </div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        </div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">if</span>(isnan(dgr)|| (dgr&lt;0)){</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        dgr = 0;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: Dreicer generation rate is invalid. Set to zero.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="comment">//std::cerr &lt;&lt; &quot;ERROR: Dreicer generation rate is invalid. Set to zero.&quot; &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
@@ -174,15 +175,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
 <div class="ttc" id="constants_8h_html_a7ad2fd202c366fec24accd25bfcf890a"><div class="ttname"><a href="constants_8h.html#a7ad2fd202c366fec24accd25bfcf890a">ITM_PI</a></div><div class="ttdeci">const double ITM_PI</div><div class="ttdoc">value of  </div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00006">constants.h:6</a></div></div>
 <div class="ttc" id="constants_8h_html_a30f59c7df8133f144cfdf0edb1167ad6"><div class="ttname"><a href="constants_8h.html#a30f59c7df8133f144cfdf0edb1167ad6">ITM_EV</a></div><div class="ttdeci">const double ITM_EV</div><div class="ttdoc">electron volt [eV] </div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00014">constants.h:14</a></div></div>
-<div class="ttc" id="products_8h_html_ab13e2b2350baf1eb0ed8892f54db7e2c"><div class="ttname"><a href="products_8h.html#ab13e2b2350baf1eb0ed8892f54db7e2c">pi_4_e02_me2_c3__e4</a></div><div class="ttdeci">const double pi_4_e02_me2_c3__e4</div><div class="ttdoc"> </div><div class="ttdef"><b>Definition:</b> <a href="products_8h_source.html#l00027">products.h:27</a></div></div>
-<div class="ttc" id="critical__field_8cpp_html_a55c690732e8ca4525aae2c4640b3b26f"><div class="ttname"><a href="critical__field_8cpp.html#a55c690732e8ca4525aae2c4640b3b26f">calculate_dreicer_field</a></div><div class="ttdeci">double calculate_dreicer_field(double electron_density, double electron_temperature)</div><div class="ttdef"><b>Definition:</b> <a href="critical__field_8cpp_source.html#l00051">critical_field.cpp:51</a></div></div>
+<div class="ttc" id="critical__field_8cpp_html_a55c690732e8ca4525aae2c4640b3b26f"><div class="ttname"><a href="critical__field_8cpp.html#a55c690732e8ca4525aae2c4640b3b26f">calculate_dreicer_field</a></div><div class="ttdeci">double calculate_dreicer_field(double electron_density, double electron_temperature)</div><div class="ttdef"><b>Definition:</b> <a href="critical__field_8cpp_source.html#l00053">critical_field.cpp:53</a></div></div>
 <div class="ttc" id="critical__field_8h_html"><div class="ttname"><a href="critical__field_8h.html">critical_field.h</a></div></div>
+<div class="ttc" id="critical__field_8cpp_html_a998f63e6edfa39a2b7097bdbafbd047c"><div class="ttname"><a href="critical__field_8cpp.html#a998f63e6edfa39a2b7097bdbafbd047c">calculate_thermal_electron_collision_time</a></div><div class="ttdeci">double calculate_thermal_electron_collision_time(double electron_density, double electron_temperature)</div><div class="ttdef"><b>Definition:</b> <a href="critical__field_8cpp_source.html#l00082">critical_field.cpp:82</a></div></div>
 <div class="ttc" id="dreicer_8cpp_html_a97dbae02f349f7947c3e2267739f6d3c"><div class="ttname"><a href="dreicer_8cpp.html#a97dbae02f349f7947c3e2267739f6d3c">dreicer_generation_rate</a></div><div class="ttdeci">double dreicer_generation_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field, int formula_id)</div><div class="ttdef"><b>Definition:</b> <a href="dreicer_8cpp_source.html#l00027">dreicer.cpp:27</a></div></div>
 <div class="ttc" id="dreicer_8h_html"><div class="ttname"><a href="dreicer_8h.html">dreicer.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 27 2016 16:32:24 for Runafluid specification by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 26 2016 15:55:05 for Runafluid by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
