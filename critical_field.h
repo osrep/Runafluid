@@ -13,7 +13,7 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 
 double calculate_coulomb_log(double electron_density, double electron_temperature);
 
-double calculate_dreicer_tau(double electron_density, double coulomb_log);
+double calculate_tau(double electron_density, double coulomb_log);
 
 
 #endif /* CRITICAL_FIELD_H_ */

@@ -105,7 +105,7 @@ double calculate_coulomb_log(double electron_density, double electron_temperatur
 }	
 
 
-double calculate_dreicer_tau(double electron_density, double electron_temperature){
+double calculate_tau(double electron_density, double electron_temperature){
 
 	//! \a REQ-4: Coulomb logarithm
 	/*!
