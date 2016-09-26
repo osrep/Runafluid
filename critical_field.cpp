@@ -48,32 +48,6 @@ double calculate_critical_field(double electron_density, double electron_tempera
 	//return calculate_dreicer_field(electron_density,electron_temperature)
 }
 
-double calculate_dreicer_field2(double electron_density, double electron_temperature){
-	
-	
-	//! \a REQ-4: Coulomb logarithm
-	/*!
-	\f[
-		\ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) .
-	\f]
-	*/
-	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
-			+ log(electron_temperature * 1e-3);
-
-
-	double thermal_electron_collision_time = calculate_thermal_electron_collision_time(electron_density, electron_temperature);
-
-	//! \a REQ-3: Dreicer field
-		/*!
-	\f[
-		E_D = \frac{m_\mathrm{e}^2 c^3}{e\tau \cdot T_\mathrm{e}}		
-	\f]
-	*/
-		
-	return	me2_c3__e / (thermal_electron_collision_time * electron_temperature * ITM_EV);
-	//dreicer01;
-	
-}
 
 
 double calculate_dreicer_field(double electron_density, double electron_temperature){	

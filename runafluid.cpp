@@ -165,28 +165,29 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(6).identifier.description = "Dreicer field (formula 1)";
 	runaway_rates.timed.float1d(6).value.resize(N_rho);
 	
-	runaway_rates.timed.float1d(7).identifier.id = "dreicerf02";
-	runaway_rates.timed.float1d(7).identifier.flag = 7;
-	runaway_rates.timed.float1d(7).identifier.description = "Dreicer field (formula 2)";
-	runaway_rates.timed.float1d(7).value.resize(N_rho);
 	
 	//! critical field
-	runaway_rates.timed.float1d(8).identifier.id = "criticalf";
-	runaway_rates.timed.float1d(8).identifier.flag = 8;
-	runaway_rates.timed.float1d(8).identifier.description = "Critical field";
-	runaway_rates.timed.float1d(8).value.resize(N_rho);
+	runaway_rates.timed.float1d(7).identifier.id = "criticalf";
+	runaway_rates.timed.float1d(7).identifier.flag = 7;
+	runaway_rates.timed.float1d(7).identifier.description = "Critical field";
+	runaway_rates.timed.float1d(7).value.resize(N_rho);
 	
 	//! Coulomb logarithm
-	runaway_rates.timed.float1d(9).identifier.id = "coulomblog";
-	runaway_rates.timed.float1d(9).identifier.flag = 9;
-	runaway_rates.timed.float1d(9).identifier.description = "Coulomb logarithm";
-	runaway_rates.timed.float1d(9).value.resize(N_rho);
+	runaway_rates.timed.float1d(8).identifier.id = "coulomblog";
+	runaway_rates.timed.float1d(8).identifier.flag = 9;
+	runaway_rates.timed.float1d(8).identifier.description = "Coulomb logarithm";
+	runaway_rates.timed.float1d(8).value.resize(N_rho);
 	
+	//! electron collision time
+	runaway_rates.timed.float1d(9).identifier.id = "thermal_electron_collision_time";
+	runaway_rates.timed.float1d(9).identifier.flag = 9;
+	runaway_rates.timed.float1d(9).identifier.description = "Thermal electron collision time";
+	runaway_rates.timed.float1d(9).value.resize(N_rho);
 		
 	//! electron collision time
-	runaway_rates.timed.float1d(10).identifier.id = "tau";
+	runaway_rates.timed.float1d(10).identifier.id = "runaway_collision_time";
 	runaway_rates.timed.float1d(10).identifier.flag = 10;
-	runaway_rates.timed.float1d(10).identifier.description = "Electron collision time";
+	runaway_rates.timed.float1d(10).identifier.description = "Runaway electron collision time";
 	runaway_rates.timed.float1d(10).value.resize(N_rho);
 	
 
