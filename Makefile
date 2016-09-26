@@ -13,19 +13,21 @@ F90LIBS =   -L$(UAL)/lib  -lUALFORTRANInterface_ifort
 F90INCLUDES = -I$(UAL)/include/amd64_ifort
 
 # all files
-all:   libRunafluid.a test/libEfieldEdit.a
+all:   libRunafluid.a libEfieldEdit.a
 
 # test files
-t:     libRunafluid.a  test/libnewdist.a test/libNewDistSlice.a test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a
-test:  libRunafluid.a  test/libnewdist.a test/libNewDistSlice.a test/libEfieldEdit.a test/libTeEdit.a test/libNeEdit.a
+t:     libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
+test:  libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
  
 # Runafluid actor
 libRunafluid.a: runafluid.o distinit.o  control.o  cpo_utils.o  critical_field.o  dreicer.o  avalanche.o
 	ar -rvs $@ $^	
+	
+libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
+	ar -rvs $@ $^	
+	
 
 # test C++ files 		
-test/libEfieldEdit.a: test/efieldedit.o  cpo_utils.o  critical_field.o
-	ar -rvs $@ $^
 	
 test/libTeEdit.a: test/te_edit.o  cpo_utils.o 
 	ar -rvs $@ $^
