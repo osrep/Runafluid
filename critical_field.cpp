@@ -83,6 +83,16 @@ double calculate_dreicer_field(double electron_density, double electron_temperat
 
 double calculate_dreicer_field2(double electron_density, double electron_temperature){
 
+
+	//! \a REQ-4: Coulomb logarithm
+	/*!
+	\f[
+		\ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) .
+	\f]
+	*/
+	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
+			+ log(electron_temperature * 1e-3);
+
 	//! \a REQ-3: Dreicer field
 		/*!
 	\f[
