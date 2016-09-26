@@ -115,7 +115,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
 			
 	//! Number of rate calculations (Dreicer, Avalanche etc.)
-	int N_rates = 6;
+	//int N_rates = 6;
+	int N_rates = 10;
 	double rate_values[N_rates];	
 		
 	//! stepping iterator in profile	
@@ -157,6 +158,30 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(1).identifier.flag = 1;
 	runaway_rates.timed.float1d(1).identifier.description = "Avalanche generation rate";
 	runaway_rates.timed.float1d(1).value.resize(N_rho);
+	
+	//! Dreicer field
+	runaway_rates.timed.float1d(6).identifier.id = "dreicerf01";
+	runaway_rates.timed.float1d(6).identifier.flag = 6;
+	runaway_rates.timed.float1d(6).identifier.description = "Dreicer field (formula 1)";
+	runaway_rates.timed.float1d(6).value.resize(N_rho);
+	
+	runaway_rates.timed.float1d(7).identifier.id = "dreicerf02";
+	runaway_rates.timed.float1d(7).identifier.flag = 7;
+	runaway_rates.timed.float1d(7).identifier.description = "Dreicer field (formula 2)";
+	runaway_rates.timed.float1d(7).value.resize(N_rho);
+	
+	//! critical field
+	runaway_rates.timed.float1d(8).identifier.id = "criticalf";
+	runaway_rates.timed.float1d(8).identifier.flag = 8;
+	runaway_rates.timed.float1d(8).identifier.description = "Critical field";
+	runaway_rates.timed.float1d(8).value.resize(N_rho);
+	
+	//! Coulomb logarithm
+	runaway_rates.timed.float1d(9).identifier.id = "coulomblog";
+	runaway_rates.timed.float1d(9).identifier.flag = 9;
+	runaway_rates.timed.float1d(9).identifier.description = "Coulomb logarithm";
+	runaway_rates.timed.float1d(9).value.resize(N_rho);
+	
 
 	//! Distribution source index for output
 	int distsource_out_index = 0;
