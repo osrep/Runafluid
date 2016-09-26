@@ -61,7 +61,7 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 			+ log(electron_temperature * 1e-3);
 
 
-	double tau = calculate_tau(electron_density, electron_temperature);
+	double thermal_electron_collision_time = calculate_thermal_electron_collision_time(electron_density, electron_temperature);
 
 	//! \a REQ-3: Dreicer field
 		/*!
@@ -70,7 +70,7 @@ double calculate_dreicer_field2(double electron_density, double electron_tempera
 	\f]
 	*/
 		
-	return	me2_c3__e / (tau * electron_temperature * ITM_EV);
+	return	me2_c3__e / (thermal_electron_collision_time * electron_temperature * ITM_EV);
 	//dreicer01;
 	
 }
@@ -105,7 +105,7 @@ double calculate_coulomb_log(double electron_density, double electron_temperatur
 }	
 
 
-double calculate_tau(double electron_density, double electron_temperature){
+double calculate_thermal_electron_collision_time(double electron_density, double electron_temperature){
 
 	//! \a REQ-4: Coulomb logarithm
 	/*!

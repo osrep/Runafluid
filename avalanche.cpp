@@ -43,7 +43,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	\f]
 	*/
 		
-	double runaway_coltime = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
+	double runaway_collision_time = pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
 	
 
 	//! \return Avalanche generation rate	
@@ -55,7 +55,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	\f]
 	*/		
 	
-	double agr = (electric_field/Ec - 1) / (2*runaway_coltime*coulomb_log);
+	double agr = (electric_field/Ec - 1) / (2*runaway_collision_time*coulomb_log);
 	
 	
 	/*! 
