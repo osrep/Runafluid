@@ -148,7 +148,7 @@ int get_digit(int number, int digit){
 
 
 
-int runafluid_switch_message(int switch_number){
+int runafluid_switch_message(int runafluid_switch){
 	
 	int modulevar_dreicer = get_digit(runafluid_switch,1);
 	int	modulevar_avalanche = get_digit(runafluid_switch,2);	

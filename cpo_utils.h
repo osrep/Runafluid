@@ -19,7 +19,7 @@ int bool_switch(int switch_number, bool *bools, int N);
 /*int bool_switch(bool *bools, int N);*/
 int get_digit(int number, int digit);
 
-int runafluid_switch_message(int switch_number);
+int runafluid_switch_message(int runafluid_switch);
 
 int whereRunaway(ItmNs::Itm::distribution &distribution);
 
