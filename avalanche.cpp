@@ -19,7 +19,7 @@ using namespace std;
 */
 
 double avalanche_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field, double Ea) {
+		double effective_charge, double electric_field, int modulevar_avalanche) {
 				
 	//! \a REQ-1: Coulomb logarithm
 	/*!
@@ -66,6 +66,8 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	
 
 	//! threshold field: Ea := Ec
+	
+	double Ea=0;
 	
 	if (electric_field < Ea){
 		agr = 0;
