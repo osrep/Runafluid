@@ -85,7 +85,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 
 	//! start: runafluid
-	std::cerr << " START: runafluid" << std::endl;
+	std::cerr << " START: runaway_fluid" << std::endl;
 	
 	//! get time
 	double time = coreprof.time;
@@ -191,7 +191,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(10).value.resize(N_rho);
 	
 	//! Runaway fluid switch message
-	int runafluid_switch_message(int switch_number);
+	int runafluid_switch_message(int runafluid_switch);
 
 	//! Distribution source index for output
 	int distsource_out_index = 0;
@@ -279,6 +279,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	distribution_out.time = distribution_in.time+timestep;
 	
 	//! end: runafluid
-	std::cerr << " END: runafluid" << std::endl;
+	std::cerr << " END: runaway_fluid" << std::endl;
 
 }
