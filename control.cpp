@@ -23,22 +23,32 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	int dreicer_formula_id = 63;	
 	
 	//! set switches	
-	int runafluid_booln = 4;
+	/*int runafluid_booln = 4;
 	bool runafluid_bools[runafluid_booln];
-	int swint = bool_switch(runafluid_switch,runafluid_bools,runafluid_booln);
+	int swint = bool_switch(runafluid_switch,runafluid_bools,runafluid_booln);*/
+
+	int modulevar_dreicer = 1;
+	int modulevar_avalanche = 1;
+	
 		
 	try {	
 		
 		//! Dreicer rate formula		 
-		if (runafluid_bools[1]){
-			dreicer_formula_id = 63;
-		}else{				
-			if (runafluid_bools[2]){				
-				 dreicer_formula_id = 66;
-			}else{
-				 dreicer_formula_id = 67;
-			}
-		}
+		/*	 
+		if (runafluid_bools[1]){dreicer_formula_id = 63;}
+		else{				
+			if (runafluid_bools[2]){dreicer_formula_id = 66;}
+			else{dreicer_formula_id = 67;}
+		}*/
+		
+		//! get module variables
+		modulevar_dreicer = get_digit(runafluid_switch,1);
+		modulevar_avalanche = get_digit(runafluid_switch,2);
+		
+		//! choose Dreicer module scenario
+		if (modulevar_dreicer==1) {dreicer_formula_id = 63;}
+		if (modulevar_dreicer==2) {dreicer_formula_id = 66;}
+		if (modulevar_dreicer==3) {dreicer_formula_id = 67;}
 		
 		
 		//! Calculate Dreicer generation rate
@@ -66,16 +76,16 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_values[10] = calculate_runaway_collision_time(electron_density, electron_temperature);
 				
 		//! Calculate Avalanche generation rate
-		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 0);
+		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, modulevar_avalanche);
 		rate_values[1] = rate_avalanche;		
 		
 		// Dreicer on
-		if (runafluid_bools[0]==false){
+		if (modulevar_dreicer==0){
 			rate_dreicer = 0;		
 		}
 		
 		// avalanche on
-		if (runafluid_bools[3]==false){
+		if (modulevar_avalanche==0){
 			rate_avalanche = 0;		
 		}	
 			

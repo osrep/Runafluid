@@ -132,6 +132,60 @@ int bool_switch(int switch_number, bool *bools, int N){
 
 }
 
+
+
+int get_digit(int number, int digit){
+
+	double number2;
+	for (int i = 0; i < digit; i++){
+		number2 = (double)number/10.0;
+		number/=10; 	
+	}
+	return (int)((number2-number)*10.0);
+
+}
+
+
+
+
+int runafluid_switch_message(int switch_number){
+	
+	int modulevar_dreicer = get_digit(runafluid_switch,1);
+	int	modulevar_avalanche = get_digit(runafluid_switch,2);	
+	int	modulevar_3 = get_digit(runafluid_switch,3);	
+	int	modulevar_4 = get_digit(runafluid_switch,4);	
+	int	modulevar_5 = get_digit(runafluid_switch,5);
+	int dreicer_formula_id = 63;
+	
+	
+	if (modulevar_4 == 1){		
+		std::cerr << "\t[Runafluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about the new use of runafluid_switch!"<< std::endl;	
+	}
+	
+	//! choose Dreicer module scenario
+	if (modulevar_dreicer==1) {dreicer_formula_id = 63;}
+	if (modulevar_dreicer==2) {dreicer_formula_id = 66;}
+	if (modulevar_dreicer==3) {dreicer_formula_id = 67;}	
+	
+	if (modulevar_dreicer == 0){		
+		std::cerr << "\t[Runafluid]\tDreicer module OFF"<< std::endl;	
+	}else{
+		std::cerr << "\t[Runafluid]\tDreicer module ON"<< std::endl;	
+		std::cerr << "\t\t\twith H&C (" << dreicer_formula_id << ") formula"<< std::endl;	
+	}
+	if (modulevar_avalanche == 0){		
+		std::cerr << "\t[Runafluid]\tAvalanche OFF"<< std::endl;	
+	}else{
+		std::cerr << "\t[Runafluid]\tAvalanche module ON"<< std::endl;		
+	}
+	
+	
+	
+}
+
+
+
+
 /*
 int bool_switch(bool *bools, int N){
 	

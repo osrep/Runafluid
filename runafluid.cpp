@@ -190,6 +190,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(10).identifier.description = "Runaway electron collision time";
 	runaway_rates.timed.float1d(10).value.resize(N_rho);
 	
+	//! Runaway fluid switch message
+	int runafluid_switch_message(int switch_number);
 
 	//! Distribution source index for output
 	int distsource_out_index = 0;
