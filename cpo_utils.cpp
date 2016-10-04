@@ -87,12 +87,12 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 	
 	
 	if (rows == 0){
-		std::cerr << "ERROR: Number of rows is zero." << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: Number of rows is zero." << std::endl;
 		throw std::invalid_argument("Number of rows is zero.");
 	}
 	
 	if (rows != y.rows()){
-		std::cerr << "ERROR: Number of rows is different in arrays to interpolate." << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: Number of rows is different in arrays to interpolate." << std::endl;
 		throw std::invalid_argument("Number of rows is different in arrays to interpolate.");
 	}
 
@@ -103,7 +103,7 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 
 	int index = binary_search(x, xa);
 	if (index < 0){
-		std::cerr << "ERROR: Binary search failed." << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: Binary search failed." << std::endl;
 		throw std::invalid_argument("Binary search failed.");
 	}
 	return y(index) + (y(index + 1) - y(index)) / (x(index + 1) - x(index)) * (xa - x(index));
@@ -159,7 +159,7 @@ int runafluid_switch_message(int runafluid_switch){
 	
 	
 	if (modulevar_4 == 1){		
-		std::cerr << "\t[Runafluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about the new use of runafluid_switch!"<< std::endl;	
+		std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about the new use of runafluid_switch!"<< std::endl;	
 	}
 	
 	//! choose Dreicer module scenario
@@ -168,13 +168,13 @@ int runafluid_switch_message(int runafluid_switch){
 	if (modulevar_dreicer==3) {dreicer_formula_id = 67;}	
 	
 	if (modulevar_dreicer == 0){		
-		std::cerr << "\t[Runafluid]\tDreicer module OFF"<< std::endl;	
+		std::cerr << "  [Runaway Fluid] \tDreicer module OFF"<< std::endl;	
 	}else{
-		std::cerr << "\t[Runafluid]\tDreicer module ON"<< std::endl;	
+		std::cerr << "  [Runaway Fluid] \tDreicer module ON"<< std::endl;	
 		std::cerr << "\t\t\twith H&C (" << dreicer_formula_id << ") formula"<< std::endl;	
 	}
 	if (modulevar_avalanche == 0){		
-		std::cerr << "\t[Runafluid]\tAvalanche OFF"<< std::endl;	
+		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;	
 	}else{
 		std::cerr << "\t[Runafluid]\tAvalanche module ON"<< std::endl;		
 	}
@@ -232,14 +232,14 @@ int whereRunaway(const ItmNs::Itm::distribution &distribution){
 		}
 		
 	} catch (const std::exception& ex) {
-		std::cerr << "ERROR : An error occurred during geometry vectors allocation" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR : An error occurred during geometry vectors allocation" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
 	
 	if (runaway_index == -1){
-		std::cerr << "WARNING: There is no previous runaway distribution. New distribution initialised." << std::endl;
+		std::cerr << "  [Runaway Fluid] WARNING: There is no previous runaway distribution. New distribution initialised." << std::endl;
 	}else{	
-		std::cerr << "Distri_vec identifier: " << runaway_index << std::endl;
+		std::cerr << "  [Runaway Fluid] Distri_vec identifier: " << runaway_index << std::endl;
 	}
 	
 	return runaway_index;
@@ -268,12 +268,12 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 	
 	//! read electron temperature profile length of dataset, comparing with cells
 	if (coreprof.te.value.rows() != cells)
-		throw std::invalid_argument("Number of values is different in coreprof ne and te.");
+		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
 
 	//! read eparallel profile length of dataset, comparing with cells
 	if (coreprof.profiles1d.eparallel.value.rows() != cells)
 		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
+				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
 
     //! read data in every $\rho$ 
 
@@ -308,12 +308,12 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof,const Itm
 	
 	//! read electron temperature profile length of dataset, comparing with cells
 	if (coreprof.te.value.rows() != cells)
-		throw std::invalid_argument("Number of values is different in coreprof ne and te.");
+		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
 
 	//! read eparallel profile length of dataset, comparing with cells
 	if (coreprof.profiles1d.eparallel.value.rows() != cells)
 		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
+				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
 
     //! read data in every $\rho$ 
 
@@ -360,14 +360,14 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	//! read electron temperature profile length of dataset, comparing with cells
 	if (coreprof.te.value.rows() != cells){
 	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Te: " << coreprof.te.value.rows() << std::endl;
-		throw std::invalid_argument("Number of values is different in coreprof ne and Te.");		
+		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and Te.");		
 	}		
 	
 	//! read eparallel profile length of dataset, comparing with cells
 	if (coreprof.profiles1d.eparallel.value.rows() != cells){
 	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Eparallel: " << coreprof.profiles1d.eparallel.value.rows() << std::endl;		
 		throw std::invalid_argument(
-				"Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");		
+				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");		
 	}			
 													
 						
@@ -397,7 +397,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		//! internal error in equilibrium
 		} catch (const std::exception& ex) {
 			celll.electric_field = 0;			
-			std::cerr << "ERROR : rho_tor is empty in equilibrium CPO, electric field set to zero. (" << rho << ")" << std::endl;
+			std::cerr << "  [Runaway Fluid] ERROR : rho_tor is empty in equilibrium CPO, electric field set to zero. (" << rho << ")" << std::endl;
 		}
 		
 		try{		
@@ -414,7 +414,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 
 			celll.runaway_density = 0;
 			
-			std::cerr << "WARNING : Cannot read runaway density, density set to zero." << std::endl;
+			std::cerr << "  [Runaway Fluid] WARNING : Cannot read runaway density, density set to zero." << std::endl;
 		}
 
 		//! total sum of electric charge from coreprof CPO
