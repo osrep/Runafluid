@@ -13,9 +13,10 @@ int binary_search(const Array<double, 1> &array, double search_key);
 
 double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double xa);
 
-int int_switch(int switch_number, bool *bools, int N);
+int int_switch(int switch_number, int *ints, int N);
 
-int bool_switch(bool *bools, int N);
+int bool_switch(int switch_number, bool *bools, int N);
+/*int bool_switch(bool *bools, int N);*/
 
 int whereRunaway(ItmNs::Itm::distribution &distribution);
 

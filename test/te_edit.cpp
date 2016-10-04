@@ -35,7 +35,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		std::cerr << " START: runafluid_teEdit" << std::endl;
 		bool bools[2];
 		
-		int swint = int_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
+		int swint = bool_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
 			
 		int rho = 0;
 		double critical_field = 0;

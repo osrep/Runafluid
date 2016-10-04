@@ -37,7 +37,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, doub
 		
 		bool bools[2];
 		
-		int swint = int_switch(ne_switch,bools,sizeof(bools)/sizeof(bool));
+		int swint = bool_switch(ne_switch,bools,sizeof(bools)/sizeof(bool));
 		
 			
 		int rho = 0;

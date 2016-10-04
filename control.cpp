@@ -21,10 +21,11 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	double rate_dreicer = 0.0;
 	double rate_avalanche = 0.0;	
 	int dreicer_formula_id = 63;	
-		
+	
+	//! set switches	
 	int runafluid_booln = 4;
 	bool runafluid_bools[runafluid_booln];
-	int_switch(runafluid_switch,runafluid_bools,runafluid_booln);
+	int swint = bool_switch(runafluid_switch,runafluid_bools,runafluid_booln);
 		
 	try {	
 		

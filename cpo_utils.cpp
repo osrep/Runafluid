@@ -115,7 +115,7 @@ switch handling
 
 */
 
-int int_switch(int switch_number, bool *bools, int N){
+int bool_switch(int switch_number, bool *bools, int N){
 	
 	
 	for (int i=0; i<N; i++){
@@ -132,7 +132,7 @@ int int_switch(int switch_number, bool *bools, int N){
 
 }
 
-
+/*
 int bool_switch(bool *bools, int N){
 	
 	int switch_number = 0;
@@ -145,7 +145,8 @@ int bool_switch(bool *bools, int N){
 	
 	return switch_number;
 
-}
+}*/
+
 
 
 /*! This code is looking for

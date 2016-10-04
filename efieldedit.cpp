@@ -46,7 +46,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 		bool bools[4];
 		
 		//! set switches
-		int swint = int_switch(electric_field_switch,bools,sizeof(bools)/sizeof(bool));
+		int swint = bool_switch(electric_field_switch,bools,sizeof(bools)/sizeof(bool));
 		
 		//! counter initialisation			
 		int rho = 0;
