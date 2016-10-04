@@ -141,8 +141,9 @@ int get_digit(int number, int digit){
 		number2 = (double)number/10.0;
 		number/=10; 	
 	}
+	
+	std::cerr << digit << "  " << (int)((number2-number)*10.0) << std::endl;	
 	return (int)((number2-number)*10.0);
-
 }
 
 
@@ -176,7 +177,7 @@ int runafluid_switch_message(int runafluid_switch){
 	if (modulevar_avalanche == 0){		
 		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;	
 	}else{
-		std::cerr << "\t[Runafluid]\tAvalanche module ON"<< std::endl;		
+		std::cerr << "  [Runaway Fluid] \tAvalanche module ON"<< std::endl;		
 	}
 	
 	
