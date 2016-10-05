@@ -143,7 +143,7 @@ int get_digit(int number, int digit){
 		number2 /= 10.0;
 		number/=10; 	
 		
-		std::cerr << "switch test001: "<< i << "/"<< digit << ":  " << (int)number2  << ":" << (int)number << ":" <<(int)((number2-number)*10.0) << std::endl;	
+		std::cerr << "switch test002: "<< i << "/"<< digit << ":  " << number2  << ":" << number << ":" <<(int)((number2-number)*10.0) << std::endl;	
 	}
 	
 	
