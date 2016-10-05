@@ -161,6 +161,7 @@ int runafluid_switch_message(int runafluid_switch){
 		
 	if (modulevar_4 == 1){		
 		std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about how to use runafluid_switch!"<< std::endl;	
+		std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;	
 	}
 	
 	
@@ -175,6 +176,10 @@ int runafluid_switch_message(int runafluid_switch){
 	}else{
 		std::cerr << "  [Runaway Fluid] \tDreicer module ON"<< std::endl;	
 		std::cerr << "\t\t\twith H&C (" << dreicer_formula_id << ") formula"<< std::endl;	
+		if (dreicer_formula_id != 67){
+			std::cerr << "\t\t\tPlease use formula (67)!"<< std::endl;
+			std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;	
+		}
 	}
 		
 	if (modulevar_avalanche == 0){		
