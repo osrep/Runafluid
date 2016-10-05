@@ -193,7 +193,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! Runaway fluid switch message
 	
 	std::cerr << "  [Runaway Fluid] \tswitch message: start"<< std::endl;	
-	int runafluid_switch_message(int runafluid_switch);
+	int runafluid_switch_message(runafluid_switch);
 	std::cerr << "  [Runaway Fluid] \tswitch message: end"<< std::endl;
 
 	//! Distribution source index for output
