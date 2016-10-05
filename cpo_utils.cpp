@@ -140,9 +140,11 @@ int get_digit(int number, int digit){
 	for (int i = 0; i < digit; i++){
 		number2 = (double)number/10.0;
 		number/=10; 	
+		
+		std::cerr << i << "/"<< digit << ":  " << (int)((number2-number)*10.0) << std::endl;	
 	}
 	
-	std::cerr << digit << "  " << (int)((number2-number)*10.0) << std::endl;	
+	
 	return (int)((number2-number)*10.0);
 }
 
@@ -151,42 +153,31 @@ int get_digit(int number, int digit){
 
 int runafluid_switch_message(int runafluid_switch){
 	
-	std::cerr << "  [Runaway Fluid] \tswitch message: state01"<< std::endl;
 	int modulevar_dreicer = get_digit(runafluid_switch,1);
-	int	modulevar_avalanche = get_digit(runafluid_switch,2);	
-	
-	std::cerr << "  [Runaway Fluid] \tswitch message: state02"<< std::endl;
+	int	modulevar_avalanche = get_digit(runafluid_switch,2);		
 	int	modulevar_3 = get_digit(runafluid_switch,3);	
 	int	modulevar_4 = get_digit(runafluid_switch,4);	
-	
-	std::cerr << "  [Runaway Fluid] \tswitch message: state03"<< std::endl;
 	int	modulevar_5 = get_digit(runafluid_switch,5);
 	int dreicer_formula_id = 63;
-	
-	std::cerr << "  [Runaway Fluid] \tswitch message: state04"<< std::endl;
-	
+		
 	if (modulevar_4 == 1){		
 		std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about the new use of runafluid_switch!"<< std::endl;	
 	}
 	
 	
-	std::cerr << "  [Runaway Fluid] \tswitch message: state05"<< std::endl;
 	//! choose Dreicer module scenario
 	if (modulevar_dreicer==1) {dreicer_formula_id = 63;}
 	if (modulevar_dreicer==2) {dreicer_formula_id = 66;}
 	if (modulevar_dreicer==3) {dreicer_formula_id = 67;}	
 	
 	
-	std::cerr << "  [Runaway Fluid] \tswitch message: state06"<< std::endl;
 	if (modulevar_dreicer == 0){		
 		std::cerr << "  [Runaway Fluid] \tDreicer module OFF"<< std::endl;	
 	}else{
 		std::cerr << "  [Runaway Fluid] \tDreicer module ON"<< std::endl;	
 		std::cerr << "\t\t\twith H&C (" << dreicer_formula_id << ") formula"<< std::endl;	
 	}
-	
-	
-	std::cerr << "  [Runaway Fluid] \tswitch message: state07"<< std::endl;
+		
 	if (modulevar_avalanche == 0){		
 		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;	
 	}else{
