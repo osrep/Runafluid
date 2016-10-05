@@ -136,7 +136,6 @@ int bool_switch(int switch_number, bool *bools, int N){
 
 int get_digit(int number, int digit){
 
-	std::cerr << "Runafluid switch  " << number << " " << (double)number << std::endl;	
 	int number2,number3;
 	for (int i = 0; i < digit; i++){
 		number2 = number/10;
