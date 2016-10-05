@@ -142,7 +142,7 @@ int get_digit(int number, int digit){
 		number2 = (double)number/10.0;
 		number/=10; 	
 		
-		std::cerr << i << "/"<< digit << ":  " << (int)((number2-number)*10.0) << std::endl;	
+		std::cerr << i << "/"<< digit << ":  " << (int)number2  << ":" << (int)number << ":" <<(int)((number2-number)*10.0) << std::endl;	
 	}
 	
 	
