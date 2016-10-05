@@ -140,10 +140,10 @@ int get_digit(int number, int digit){
 	double number2;
 	for (int i = 0; i < digit; i++){
 		number2 = (double)number;
-		number2 = number/10.0;
+		number2 /= 10.0;
 		number/=10; 	
 		
-		std::cerr << i << "/"<< digit << ":  " << (int)number2  << ":" << (int)number << ":" <<(int)((number2-number)*10.0) << std::endl;	
+		std::cerr << "switch test001: "<< i << "/"<< digit << ":  " << (int)number2  << ":" << (int)number << ":" <<(int)((number2-number)*10.0) << std::endl;	
 	}
 	
 	
