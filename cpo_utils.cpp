@@ -137,17 +137,18 @@ int bool_switch(int switch_number, bool *bools, int N){
 int get_digit(int number, int digit){
 
 	std::cerr << "Runafluid switch  " << number << " " << (double)number << std::endl;	
-	double number2;
+	int number2;
 	for (int i = 0; i < digit; i++){
-		number2 = (double)number;
-		number2 /= 10.0;
-		number/=10; 	
+		number2 = number/10;
+		number3 = number - 10*number2;
 		
-		std::cerr << "switch test002: "<< i << "/"<< digit << ":  " << number2  << ":" << number << ":" <<(int)((number2-number)*10.0) << std::endl;	
+		std::cerr << "switch test002: "<< i << "/"<< digit << ":  " << number2  << ":" << number << ":" << number3 << std::endl;		
+		
+		number = number2; 		
 	}
 	
 	
-	return (int)((number2-number)*10.0);
+	return number3;
 }
 
 
