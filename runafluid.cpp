@@ -191,7 +191,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(10).value.resize(N_rho);
 	
 	//! Runaway fluid switch message
+	
+	std::cerr << "  [Runaway Fluid] \tswitch message: start"<< std::endl;	
 	int runafluid_switch_message(int runafluid_switch);
+	std::cerr << "  [Runaway Fluid] \tswitch message: end"<< std::endl;
 
 	//! Distribution source index for output
 	int distsource_out_index = 0;
