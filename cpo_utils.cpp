@@ -140,10 +140,7 @@ int get_digit(int number, int digit){
 	int number2,number3;
 	for (int i = 0; i < digit; i++){
 		number2 = number/10;
-		number3 = number - 10*number2;
-		
-		std::cerr << "switch test002: "<< i << "/"<< digit << ":  " << number2  << ":" << number << ":" << number3 << std::endl;		
-		
+		number3 = number - 10*number2;		
 		number = number2; 		
 	}
 	
@@ -164,7 +161,7 @@ int runafluid_switch_message(int runafluid_switch){
 	int dreicer_formula_id = 63;
 		
 	if (modulevar_4 == 1){		
-		std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about the new use of runafluid_switch!"<< std::endl;	
+		std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about how to use runafluid_switch!"<< std::endl;	
 	}
 	
 	
