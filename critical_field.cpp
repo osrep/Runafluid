@@ -102,3 +102,7 @@ double calculate_runaway_collision_time(double electron_density, double electron
 			+ log(electron_temperature * 1e-3);
 	return pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
 }
+
+double calculate_norm_synchrotron_loss_time(double electron_density, double electron_temperature, double magnetic_field){
+	return 0;
+}

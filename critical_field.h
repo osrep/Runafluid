@@ -15,5 +15,6 @@ double calculate_thermal_electron_collision_time(double electron_density, double
 
 double calculate_runaway_collision_time(double electron_density, double electron_temperature);
 
+double calculate_norm_synchrotron_loss_time(double electron_density, double electron_temperature, double magnetic_field);
 
 #endif /* CRITICAL_FIELD_H_ */
