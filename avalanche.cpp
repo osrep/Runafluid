@@ -45,7 +45,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		
 	double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
 	double synchrotron_loss_time = calculate_synchrotron_loss_time(magnetic_field);
-	double trad = synchrotron_loss_time/runaway_collision_time;
+	double norm_synchrotron_loss_time = synchrotron_loss_time/runaway_collision_time;
 
 	//! \return Avalanche generation rate	
 	//\Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right)   ~~~~~~~ \mathrm{(if~}	E \ge E_\mathrm{a}	\mathrm{)}	
@@ -75,9 +75,16 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		//! threshold field: Ea
 		
 		if (modulevar_avalanche == 2){
-			Ea = 
+			
+			/*! 
+		\f[
+			E_\mathrm{a} \approx E_0 = 1 + \frac{ \frac {1+Z}{sqrt(\tau_\mathrm{rad}}}{(\frac{1}{8} + \frac{(Z+1)^2}{\tau_\mathrm{rad}})^{1/6}}
+		\f]
+		*/
+		
+			Ea = (1+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1+effective_charge) * (1+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0);
 		}else{
-			Ea=0;	
+			Ea = 0;	
 		}
 	
 		if (electric_field < Ea){
