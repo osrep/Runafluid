@@ -11,6 +11,7 @@ struct cell {
 	double electron_temperature;
 	double effective_charge;
 	double electric_field;
+	double magnetic_field;
 	double runaway_density; 
 };
 
