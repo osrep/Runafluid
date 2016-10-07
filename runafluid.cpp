@@ -59,21 +59,21 @@ runafluid_switch:
 ABCD
 
  A
-   0: Electric field from input
-   1: Electric field set to 1000  
+   0:
+   1: 
    
  B
-   0: Calculate density
-   1: Previous density
+   0: 
+   1: 
    
  
  C  
-   0: Dreicer  OFF
-   1: Dreicer  ON
+   0: 
+   1: 
 
  D
-   0: Avalanche  OFF
-   1: Avalanche  ON
+   0: 
+   1: 
 
 
 

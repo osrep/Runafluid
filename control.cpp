@@ -42,8 +42,10 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		}*/
 		
 		//! get module variables
-		modulevar_dreicer = get_digit(runafluid_switch,1);
-		modulevar_avalanche = get_digit(runafluid_switch,2);
+		int	modulevar_rates = get_digit(runafluid_switch,1);
+		int modulevar_dreicer = get_digit(runafluid_switch,2);
+		int	modulevar_avalanche = get_digit(runafluid_switch,3);	
+		int	modulevar_toroidicity = get_digit(runafluid_switch,4);	
 		
 		//! choose Dreicer module scenario
 		if (modulevar_dreicer==1) {dreicer_formula_id = 63;}

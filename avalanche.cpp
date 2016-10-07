@@ -58,6 +58,9 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	
 	double agr, Ea;
 	
+	
+	if (modulevar_avalanche == 1) {modulevar_avalanche = 2;}
+	
 	if (modulevar_avalanche == 2 || modulevar_avalanche == 3){
 	
 	
