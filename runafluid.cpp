@@ -202,7 +202,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		if (rho<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
 				
 			//! calculating runaway density
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), timestep, runafluid_switch, rate_values);
+			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, runafluid_switch, rate_values);
 					  
 		   	//! CPO output -- runaway warning
 	   		if (rundensity > zero_threshold){

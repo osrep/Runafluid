@@ -342,7 +342,8 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof,const Itm
 	
 		celll.electric_field = coreprof.profiles1d.eparallel.value(rho) * coreprof.toroid_field.b0
 				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-						coreprof.rho_tor(rho));
+						coreprof.rho_tor(rho));					
+	
 
 		pro.push_back(celll);
 	}
@@ -407,6 +408,18 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		} catch (const std::exception& ex) {
 			celll.electric_field = 0;			
 			std::cerr << "  [Runaway Fluid] ERROR : rho_tor is empty in equilibrium CPO, electric field set to zero. (" << rho << ")" << std::endl;
+		}
+		
+		try{
+		
+			/*! local magnetic field
+			\f[ B = \frac{B_0 R_0}{R} + B_\mathrm{pol} \f]
+			*/			
+			celll.magnetic_field = coreprof.toroidal_field.b0 * coreprof.toroidal_field.r0 / coreprof.rho_tor(rho) + coreprof.profiles1d.bpol.value(rho) ;
+			//! internal error in magnetic field
+		} catch (const std::exception& ex) {
+			celll.magnetic_field = 0;			
+			std::cerr << "  [Runaway Fluid] ERROR : in magnetic field, magnetic field set to zero. (" << rho << ")" << std::endl;
 		}
 		
 		try{		

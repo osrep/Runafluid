@@ -17,7 +17,7 @@ struct cell {
 typedef std::vector<cell> profile;
 
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
-		double effective_charge, double electric_field, double timestep, int runafluid_switch, double *rate_values);
+		double effective_charge, double electric_field, double magnetic_field, double timestep, int runafluid_switch, double *rate_values);
 		
 		
 #endif /* CONTROL_H_ */

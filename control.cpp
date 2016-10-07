@@ -15,7 +15,7 @@ timestep: in s
 */
 
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
-		double effective_charge, double electric_field, double timestep, int runafluid_switch, double *rate_values){
+		double effective_charge, double electric_field, double magnetic_field, double timestep, int runafluid_switch, double *rate_values){
 	
 	double rundensity_after = 0.0;
 	double rate_dreicer = 0.0;
@@ -76,7 +76,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_values[10] = calculate_runaway_collision_time(electron_density, electron_temperature);
 				
 		//! Calculate Avalanche generation rate
-		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, modulevar_avalanche);
+		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, modulevar_avalanche);
 		rate_values[1] = rate_avalanche;		
 		
 		// Dreicer on

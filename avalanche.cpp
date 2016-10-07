@@ -19,7 +19,7 @@ using namespace std;
 */
 
 double avalanche_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field, int modulevar_avalanche) {
+		double effective_charge, double electric_field, double magnetic_field, int modulevar_avalanche) {
 				
 	//! \a REQ-1: Coulomb logarithm
 	/*!
@@ -44,7 +44,8 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	*/
 		
 	double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
-	
+	double synchrotron_loss_time = calculate_synchrotron_loss_time(magnetic_field);
+	double trad = synchrotron_loss_time/runaway_collision_time;
 
 	//! \return Avalanche generation rate	
 	//\Delta n_r \approx \frac{n_\mathrm{r}}{2 \tau \ln \Lambda} \left(\frac{E}{E_\mathrm{c}} -1 \right)   ~~~~~~~ \mathrm{(if~}	E \ge E_\mathrm{a}	\mathrm{)}	
@@ -55,27 +56,38 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	\f]
 	*/		
 	
-	double agr = (electric_field/Ec - 1) / (2*runaway_collision_time*coulomb_log);
+	double agr, Ea;
+	
+	if (modulevar_avalanche == 2 || modulevar_avalanche == 3){
 	
 	
-	/*! 
-	\f[
-		\Delta n_r = 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  \mathrm{(if~}	E < E_\mathrm{a}	\mathrm{)}
-	\f]
-	*/
+	
+		agr = (electric_field/Ec - 1) / (2*runaway_collision_time*coulomb_log);
+	
+	
+		/*! 
+		\f[
+			\Delta n_r = 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  \mathrm{(if~}	E < E_\mathrm{a}	\mathrm{)}
+		\f]
+		*/
 	
 
-	//! threshold field: Ea := Ec
+		//! threshold field: Ea
+		
+		if (modulevar_avalanche == 2){
+			Ea = 
+		}else{
+			Ea=0;	
+		}
 	
-	double Ea=0;
+		if (electric_field < Ea){
+			agr = 0;
+		}	
 	
-	if (electric_field < Ea){
-		agr = 0;
-	}	
-	
-	//! Avalanche rate must be non-negative
-	if(isnan(agr)|| (agr<0)){
-		agr = 0;
+		//! Avalanche rate must be non-negative
+		if(isnan(agr)|| (agr<0)){
+			agr = 0;
+		}
 	}
 	
 	return agr;
