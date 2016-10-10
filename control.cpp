@@ -54,8 +54,16 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 		
 		//! Calculate Dreicer generation rate
-		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, dreicer_formula_id);
+		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, dreicer_formula_id);			
+		
+		//! Calculate Avalanche generation rate
+		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, modulevar_avalanche);		
+				
+		//! temporary for Dreicer rate
 		rate_values[0] = rate_dreicer*electron_density;
+		
+		//! temporary for Avalanche rate
+		rate_values[1] = rate_avalanche;
 		
 		//! temporary for Dreicer H&C 63,66,67		
 		rate_values[2] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 63)*electron_density;
@@ -75,16 +83,19 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 		//! temporary for collision time
 		rate_values[9] = calculate_thermal_electron_collision_time(electron_density, electron_temperature);
-		rate_values[10] = calculate_runaway_collision_time(electron_density, electron_temperature);
-				
-		//! Calculate Avalanche generation rate
-		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, modulevar_avalanche);
-		rate_values[1] = rate_avalanche;		
-		
+		rate_values[10] = calculate_runaway_collision_time(electron_density, electron_temperature);		
+			
 		//! temporary for Dreicer H&C 63,66,67		
 		rate_values[11] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 1);
 		rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 2);
 		rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 3);
+
+		
+		double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
+		double synchrotron_loss_time = calculate_synchrotron_loss_time(magnetic_field);
+		double norm_synchrotron_loss_time = synchrotron_loss_time/runaway_collision_time;
+		
+		rate_values[14] = (1+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1+effective_charge) * (1+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0);
 		
 		// Dreicer on
 		if (modulevar_dreicer==0){
