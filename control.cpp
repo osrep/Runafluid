@@ -95,7 +95,10 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		double synchrotron_loss_time = calculate_synchrotron_loss_time(magnetic_field);
 		double norm_synchrotron_loss_time = synchrotron_loss_time/runaway_collision_time;
 		
-		rate_values[14] = (1+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1+effective_charge) * (1+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0);
+		rate_values[14] = 1 + (1+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1+effective_charge) * (1+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0);
+		
+		rate_values[15] = synchrotron_loss_time;
+		rate_values[16] = norm_synchrotron_loss_time;
 		
 		// Dreicer on
 		if (modulevar_dreicer==0){

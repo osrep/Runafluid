@@ -116,7 +116,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			
 	//! Number of rate calculations (Dreicer, Avalanche etc.)
 	//int N_rates = 6;
-	int N_rates = 15;
+	int N_rates = 17;
 	double rate_values[N_rates];	
 		
 	//! stepping iterator in profile	
@@ -131,13 +131,20 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(0).identifier.id = "dreicer";
 	runaway_rates.timed.float1d(0).identifier.flag = 0;
 	runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
-	runaway_rates.timed.float1d(0).value.resize(N_rho);		
+	runaway_rates.timed.float1d(0).value.resize(N_rho);	
+		
+	//! Avalanche generation rate initialisation
+	runaway_rates.timed.float1d(1).identifier.id = "avalanche";
+	runaway_rates.timed.float1d(1).identifier.flag = 1;
+	runaway_rates.timed.float1d(1).identifier.description = "Avalanche generation rate";
+	runaway_rates.timed.float1d(1).value.resize(N_rho);
 	
 	runaway_rates.timed.float1d(2).identifier.id = "dreicer63";
 	runaway_rates.timed.float1d(2).identifier.flag = 2;
 	runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate by Connor et al. (63)";
 	runaway_rates.timed.float1d(2).value.resize(N_rho);				
 	
+	//! Dreicer generation rate initialisation
 	runaway_rates.timed.float1d(3).identifier.id = "dreicer66";
 	runaway_rates.timed.float1d(3).identifier.flag = 3;
 	runaway_rates.timed.float1d(3).identifier.description = "Dreicer generation rate by Connor et al. (66)";
@@ -151,13 +158,37 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(5).identifier.id = "dreicer_prev";
 	runaway_rates.timed.float1d(5).identifier.flag = 5;
 	runaway_rates.timed.float1d(5).identifier.description = "Dreicer generation rate in the previous timestep";
-	runaway_rates.timed.float1d(5).value.resize(N_rho);
+	runaway_rates.timed.float1d(5).value.resize(N_rho);	
+
+	//! Dreicer field
+	runaway_rates.timed.float1d(6).identifier.id = "dreicerf01";
+	runaway_rates.timed.float1d(6).identifier.flag = 6;
+	runaway_rates.timed.float1d(6).identifier.description = "Dreicer field (formula 1)";
+	runaway_rates.timed.float1d(6).value.resize(N_rho);	
 	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(1).identifier.id = "avalanche";
-	runaway_rates.timed.float1d(1).identifier.flag = 1;
-	runaway_rates.timed.float1d(1).identifier.description = "Avalanche generation rate";
-	runaway_rates.timed.float1d(1).value.resize(N_rho);
+	//! critical field
+	runaway_rates.timed.float1d(7).identifier.id = "criticalf";
+	runaway_rates.timed.float1d(7).identifier.flag = 7;
+	runaway_rates.timed.float1d(7).identifier.description = "Critical field";
+	runaway_rates.timed.float1d(7).value.resize(N_rho);
+	
+	//! Coulomb logarithm
+	runaway_rates.timed.float1d(8).identifier.id = "coulomblog";
+	runaway_rates.timed.float1d(8).identifier.flag = 9;
+	runaway_rates.timed.float1d(8).identifier.description = "Coulomb logarithm";
+	runaway_rates.timed.float1d(8).value.resize(N_rho);
+	
+	//! electron collision time
+	runaway_rates.timed.float1d(9).identifier.id = "thermal_electron_collision_time";
+	runaway_rates.timed.float1d(9).identifier.flag = 9;
+	runaway_rates.timed.float1d(9).identifier.description = "Thermal electron collision time";
+	runaway_rates.timed.float1d(9).value.resize(N_rho);
+		
+	//! electron collision time
+	runaway_rates.timed.float1d(10).identifier.id = "runaway_collision_time";
+	runaway_rates.timed.float1d(10).identifier.flag = 10;
+	runaway_rates.timed.float1d(10).identifier.description = "Runaway electron collision time";
+	runaway_rates.timed.float1d(10).value.resize(N_rho);
 	
 	//! Avalanche generation rate initialisation
 	runaway_rates.timed.float1d(11).identifier.id = "avalanche01";
@@ -183,36 +214,18 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(14).identifier.description = "Avalanche onset field (V/m)";
 	runaway_rates.timed.float1d(14).value.resize(N_rho);
 	
-	//! Dreicer field
-	runaway_rates.timed.float1d(6).identifier.id = "dreicerf01";
-	runaway_rates.timed.float1d(6).identifier.flag = 6;
-	runaway_rates.timed.float1d(6).identifier.description = "Dreicer field (formula 1)";
-	runaway_rates.timed.float1d(6).value.resize(N_rho);
+	//! Synchrotron loss time initialisation
+	runaway_rates.timed.float1d(15).identifier.id = "synchrotron_loss_time";
+	runaway_rates.timed.float1d(15).identifier.flag = 15;
+	runaway_rates.timed.float1d(15).identifier.description = "Synchrotron loss time (s)";
+	runaway_rates.timed.float1d(15).value.resize(N_rho);
 	
+	//! Normalised synchrotron loss time initialisation
+	runaway_rates.timed.float1d(16).identifier.id = "norm_synchrotron_loss_time";
+	runaway_rates.timed.float1d(16).identifier.flag = 16;
+	runaway_rates.timed.float1d(16).identifier.description = "Normalised synchrotron loss time";
+	runaway_rates.timed.float1d(16).value.resize(N_rho);
 	
-	//! critical field
-	runaway_rates.timed.float1d(7).identifier.id = "criticalf";
-	runaway_rates.timed.float1d(7).identifier.flag = 7;
-	runaway_rates.timed.float1d(7).identifier.description = "Critical field";
-	runaway_rates.timed.float1d(7).value.resize(N_rho);
-	
-	//! Coulomb logarithm
-	runaway_rates.timed.float1d(8).identifier.id = "coulomblog";
-	runaway_rates.timed.float1d(8).identifier.flag = 9;
-	runaway_rates.timed.float1d(8).identifier.description = "Coulomb logarithm";
-	runaway_rates.timed.float1d(8).value.resize(N_rho);
-	
-	//! electron collision time
-	runaway_rates.timed.float1d(9).identifier.id = "thermal_electron_collision_time";
-	runaway_rates.timed.float1d(9).identifier.flag = 9;
-	runaway_rates.timed.float1d(9).identifier.description = "Thermal electron collision time";
-	runaway_rates.timed.float1d(9).value.resize(N_rho);
-		
-	//! electron collision time
-	runaway_rates.timed.float1d(10).identifier.id = "runaway_collision_time";
-	runaway_rates.timed.float1d(10).identifier.flag = 10;
-	runaway_rates.timed.float1d(10).identifier.description = "Runaway electron collision time";
-	runaway_rates.timed.float1d(10).value.resize(N_rho);
 	
 	//! Runaway fluid switch message	
 	runafluid_switch_message(runafluid_switch);

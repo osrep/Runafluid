@@ -85,7 +85,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		\f]
 		*/
 		
-			Ea = (1+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1+effective_charge) * (1+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0);
+			Ea = 1 + (1+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1+effective_charge) * (1+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0);
 		}else{
 			Ea = 0;	
 		}
