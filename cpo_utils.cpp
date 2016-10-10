@@ -177,8 +177,8 @@ int runafluid_switch_message(int runafluid_switch){
 	}else{
 		std::cerr << "  [Runaway Fluid] \tDreicer module ON"<< std::endl;	
 		std::cerr << "\t\t\twith H&C (" << dreicer_formula_id << ") formula"<< std::endl;	
-		if (dreicer_formula_id != 67){
-			std::cerr << "\t\t\tPlease use formula (67)!"<< std::endl;
+		if (dreicer_formula_id != 63){
+			std::cerr << "\t\t\tPlease use formula (63)!"<< std::endl;
 			std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;	
 		}
 	}
@@ -186,7 +186,7 @@ int runafluid_switch_message(int runafluid_switch){
 	if (modulevar_avalanche == 0){		
 		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;	
 	}else{
-		std::cerr << "  [Runaway Fluid] \tAvalanche module ON"<< std::endl;		
+		std::cerr << "  [Runaway Fluid] \tAvalanche module ON (modulevar: " << modulevar_avalanche << ") << std::endl;		
 	}
 	
 	

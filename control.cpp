@@ -57,7 +57,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, dreicer_formula_id);
 		rate_values[0] = rate_dreicer*electron_density;
 		
-		//! temporary for 63,66,67		
+		//! temporary for Dreicer H&C 63,66,67		
 		rate_values[2] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 63)*electron_density;
 		rate_values[3] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 66)*electron_density;
 		rate_values[4] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 67)*electron_density;
@@ -80,6 +80,11 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		//! Calculate Avalanche generation rate
 		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, modulevar_avalanche);
 		rate_values[1] = rate_avalanche;		
+		
+		//! temporary for Dreicer H&C 63,66,67		
+		rate_values[11] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 1);
+		rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 2);
+		rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 3);
 		
 		// Dreicer on
 		if (modulevar_dreicer==0){

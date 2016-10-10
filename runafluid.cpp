@@ -116,7 +116,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			
 	//! Number of rate calculations (Dreicer, Avalanche etc.)
 	//int N_rates = 6;
-	int N_rates = 11;
+	int N_rates = 14;
 	double rate_values[N_rates];	
 		
 	//! stepping iterator in profile	
@@ -158,6 +158,24 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(1).identifier.flag = 1;
 	runaway_rates.timed.float1d(1).identifier.description = "Avalanche generation rate";
 	runaway_rates.timed.float1d(1).value.resize(N_rho);
+	
+	//! Avalanche generation rate initialisation
+	runaway_rates.timed.float1d(11).identifier.id = "avalanche01";
+	runaway_rates.timed.float1d(11).identifier.flag = 11;
+	runaway_rates.timed.float1d(11).identifier.description = "Avalanche generation rate (default)";
+	runaway_rates.timed.float1d(11).value.resize(N_rho);
+	
+	//! Avalanche generation rate initialisation
+	runaway_rates.timed.float1d(12).identifier.id = "avalanche02";
+	runaway_rates.timed.float1d(12).identifier.flag = 12;
+	runaway_rates.timed.float1d(12).identifier.description = "Avalanche generation rate (with onset threshold)";
+	runaway_rates.timed.float1d(12).value.resize(N_rho);
+	
+	//! Avalanche generation rate initialisation
+	runaway_rates.timed.float1d(13).identifier.id = "avalanche03";
+	runaway_rates.timed.float1d(13).identifier.flag = 13;
+	runaway_rates.timed.float1d(13).identifier.description = "Avalanche generation rate (linear without threshold)";
+	runaway_rates.timed.float1d(13).value.resize(N_rho);
 	
 	//! Dreicer field
 	runaway_rates.timed.float1d(6).identifier.id = "dreicerf01";
