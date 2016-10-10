@@ -81,14 +81,7 @@ double calculate_coulomb_log(double electron_density, double electron_temperatur
 
 double calculate_thermal_electron_collision_time(double electron_density, double electron_temperature){
 
-	//! \a REQ-4: Coulomb logarithm
-	/*!
-	\f[
-		\ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) .
-	\f]
-	*/
-	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
-			+ log(electron_temperature * 1e-3);
+	double coulomb_log = calculate_coulomb_log(electron_density, electron_temperature);
 			
 	double therm_speed = sqrt(2*electron_temperature*ITM_EV/ITM_ME);		
 
@@ -98,11 +91,11 @@ double calculate_thermal_electron_collision_time(double electron_density, double
 
 double calculate_runaway_collision_time(double electron_density, double electron_temperature){
 
-	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
-			+ log(electron_temperature * 1e-3);
+	double coulomb_log = calculate_coulomb_log(electron_density, electron_temperature);
+			
 	return pi_4_e02_me2_c3__e4 / (electron_density * coulomb_log);	
 }
 
 double calculate_synchrotron_loss_time(double magnetic_field){
-	return pi_6_e02_me3c3__e4/magnetic_field;
+	return pi_6_e0_me3_c3__e4/magnetic_field;
 }

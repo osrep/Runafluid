@@ -27,8 +27,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		\ln \Lambda = 14.9-0.5 \cdot \log \left(n_\mathrm{e} \cdot 10^{-20}\right) + \log \left(t_\mathrm{e} \cdot 10^{-3}\right) .
 	\f]
 	*/
-	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
-			+ log(electron_temperature * 1e-3);
+	double coulomb_log = calculate_coulomb_log(electron_density, electron_temperature);
 		
 
 	//! \a REQ-2: Critical electric field
