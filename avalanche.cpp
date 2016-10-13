@@ -106,3 +106,21 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 }
 
 
+double calculate_flow_Ap(double p, double E, double Z){
+	return 2*E/(Z+1)*p*p/sqrt(p*p+1);
+}
+
+double calculate_flow_costheta(double p, double E, double Z){
+	double Ap = calculate_flow_Ap(p,E,Z);
+	return 1/(tanh(Ap))- 1/Ap;
+}
+
+double calculate_flow_velocity(double electron_density, double effective_charge, double electric_field, double magnetic_field){
+
+	double Ec = calculate_critical_field(electron_density, electron_temperature);
+	double E = electric_field/Ec;
+	double Z = effective_charge;
+
+	double costheta = calculate_flow_costheta(p,E,Z);
+}
+
