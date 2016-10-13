@@ -413,10 +413,10 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		
 		try{
 		
-			/*! local magnetic field
-			\f[ B = \frac{B_0 R_0}{R} + B_\mathrm{pol} \f]
+			/*! local magnetic field -- használjuk b_av (equilibrium)
+			\f[ B = \sqrt{\frac{B_0 R_0}{R}^2 + B_\mathrm{pol}^2} \f]
 			*/			
-			celll.magnetic_field = coreprof.toroid_field.b0 * coreprof.toroid_field.r0 / coreprof.rho_tor(rho) + coreprof.profiles1d.bpol.value(rho) ;
+			celll.magnetic_field = sqrt(pow(coreprof.toroid_field.b0 * coreprof.toroid_field.r0 / coreprof.rho_tor(rho),2) + pow(coreprof.profiles1d.bpol.value(rho),2) ;
 			//! internal error in magnetic field
 		} catch (const std::exception& ex) {
 			celll.magnetic_field = 0;			
