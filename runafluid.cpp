@@ -257,6 +257,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				//std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "%% (" << rho << ")" << std::endl;
 			}
 		   	
+		   	//! runaway density hard limit
+		   	if (rundensity > it->electron_density){
+		   		rundensity = it->electron_densit;
+		   	}
+		   	
 		   	//! runaway density n_R
 		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
 		   	
