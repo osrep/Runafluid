@@ -1,4 +1,8 @@
 #include <cmath>
+
+#include <stdexcept>
+#include <iostream>
+
 #include "avalanche.h"
 #include "products.h"
 #include "critical_field.h"
