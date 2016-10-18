@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include <iostream>
 #include "control.h"
-#include "critical_field.h"
+//#include "critical_field.h"
 #include "dreicer.h"
 #include "avalanche.h"
 #include "cpo_utils.h"
