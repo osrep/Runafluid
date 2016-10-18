@@ -99,6 +99,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! zero limit
 	double zero_threshold = 1e-20;
 	
+	//! maximal normalised minor radius
+	double rho_max = 0.95;
+	
 	//! empty distribution initialiser (integrated distinit)
 	distinit(distribution_out, coreprof, coreimpur);	
 	
@@ -144,14 +147,20 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				
 			//! calculating runaway density
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, runafluid_switch, rate_values);
-					  
+				
+				
+			//! no runaway if  \rho \ge \rho_\mathrm{max}			
+		   	if (distribution.distri_vec(0).profiles_1d.geometry.rho_tor(rho) >= rho_max){
+				rundensity = 0;
+			}	
+			  
 		   	//! CPO output -- runaway warning
 	   		if (rundensity > zero_threshold){
 				runaway_warning = 1;				
 			}else{
 				rundensity = 0; // no runaway
-			}
-			
+			}		
+				
 			//!  critical fraction warning
 	   		if (rundensity > critical_fraction/100.0*it->electron_density){
 				critical_fraction_warning = 1;
@@ -162,9 +171,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   		rundensity = it->electron_density;
 		   	}
 		   	
-		   	//! runaway density n_R
-		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
-		   	
+		   	//! runaway density n_R if \rho < \rho_\mathrm{max}
+	   		distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
+		  
 		   	//! runaway current
 		   	/*!
 		   	
