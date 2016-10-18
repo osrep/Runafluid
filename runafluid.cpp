@@ -178,10 +178,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	//! not suitable warning: j_R > j_e	
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
 		   	if (runcurrent/ecurrent >= 1){		   	
-				not_suitable_warning = 1;	 
-				
-				//! runaway current hard limit
-				runcurrent = ecurrent;  	
+				not_suitable_warning = 1;	 	
 		   	}	   	
 		   	
 		   	
