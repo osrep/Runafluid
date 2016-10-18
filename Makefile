@@ -20,7 +20,7 @@ t:     libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a 
 test:  libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
  
 # Runafluid actor
-libRunafluid.a: runafluid.o distinit.o  critical_field.o control.o  cpo_utils.o  dreicer.o  avalanche.o
+libRunafluid.a: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
 	ar -rvs $@ $^	
 	
 libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
