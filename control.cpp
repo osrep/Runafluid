@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include <iostream>
 #include "control.h"
-//#include "critical_field.h"
+#include "critical_field.h"
 #include "dreicer.h"
 #include "avalanche.h"
 #include "cpo_utils.h"
@@ -23,9 +23,6 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	int dreicer_formula_id = 63;	
 	
 	//! set switches	
-	/*int runafluid_booln = 4;
-	bool runafluid_bools[runafluid_booln];
-	int swint = bool_switch(runafluid_switch,runafluid_bools,runafluid_booln);*/
 
 	int modulevar_dreicer = 1;
 	int modulevar_avalanche = 1;
@@ -34,12 +31,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	try {	
 		
 		//! Dreicer rate formula		 
-		/*	 
-		if (runafluid_bools[1]){dreicer_formula_id = 63;}
-		else{				
-			if (runafluid_bools[2]){dreicer_formula_id = 66;}
-			else{dreicer_formula_id = 67;}
-		}*/
+
 		
 		//! get module variables
 		int	modulevar_rates = get_digit(runafluid_switch,1);
@@ -57,7 +49,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, dreicer_formula_id);			
 		
 		//! Calculate Avalanche generation rate
-		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, modulevar_avalanche);		
+		rate_avalanche = 0;//temp removed: avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, modulevar_avalanche);		
 				
 		//! temporary for Dreicer rate
 		rate_values[0] = rate_dreicer*electron_density;
@@ -86,9 +78,9 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_values[10] = calculate_runaway_collision_time(electron_density, electron_temperature);		
 			
 		//! temporary for Dreicer H&C 63,66,67		
-		rate_values[11] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 1);
-		rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 2);
-		rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 3);
+		rate_values[11] =0;//temp removed:  avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 1);
+		rate_values[12] =0;//temp removed:  avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 2);
+		rate_values[13] =0;//temp removed:  avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 3);
 
 		
 		double runaway_collision_time = 0;//temp removed: calculate_runaway_collision_time(electron_density, electron_temperature);	
