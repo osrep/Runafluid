@@ -259,7 +259,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	
 		   	//! runaway density hard limit
 		   	if (rundensity > it->electron_density){
-		   		rundensity = it->electron_densit;
+		   		rundensity = it->electron_density;
 		   	}
 		   	
 		   	//! runaway density n_R
