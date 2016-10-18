@@ -120,6 +120,7 @@ double calculate_flow_velocity(double electron_density, double effective_charge,
 	double Ec = calculate_critical_field(electron_density, electron_temperature);
 	double E = electric_field/Ec;
 	double Z = effective_charge;
+	double p = 0; // temporary definition
 
 	double costheta = calculate_flow_costheta(p,E,Z);
 }
