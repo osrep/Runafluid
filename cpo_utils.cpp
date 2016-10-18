@@ -413,7 +413,8 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		
 		try{		
 			//! local magnetic field
-			celll.magnetic_field = equilibrium.profiles_1d.b_av(rho);
+			celll.magnetic_field = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
+							coreprof.rho_tor(rho));
 			
 		} catch (const std::exception& ex) {
 			celll.magnetic_field = 0;			
