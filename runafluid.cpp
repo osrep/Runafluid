@@ -128,7 +128,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	int N_rates = 17;
 	double rate_values[N_rates];		
 	
-	init_rates(runaway_rates, N_rates);
+	init_rates(runaway_rates, N_rates, N_rho);
 	
 	
 	//! Runaway fluid switch message	
@@ -229,7 +229,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 }
 
-int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates){
+int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 //! runaway_rates for generation rates
 	//! Dreicer generation rate initialisation
 	runaway_rates.timed.float1d.resize(N_rates);
