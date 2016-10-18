@@ -113,17 +113,19 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
-			
-	//! Number of rate calculations (Dreicer, Avalanche etc.)
-	//int N_rates = 6;
-	int N_rates = 17;
-	double rate_values[N_rates];	
 		
 	//! stepping iterator in profile	
 	int rho = 0;	
 	
 	//! output flag
 	int output_flag = 0;
+	
+	//! runaway fluid temporary rates
+	int	modulevar_rates = get_digit(runafluid_switch,1);
+				
+	//! Number of rate calculations (Dreicer, Avalanche etc.)	
+	int N_rates = 17;
+	double rate_values[N_rates];		
 	
 	//! runaway_rates for generation rates
 	//! Dreicer generation rate initialisation
