@@ -273,21 +273,21 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 
 	profile pro;
 
-	//! read electron density profile length of dataset: cells	
-	int cells = coreprof.ne.value.rows();
+	//! read electron density profile length of dataset: cell_length	
+	int cell_length = coreprof.ne.value.rows();
 	
-	//! read electron temperature profile length of dataset, comparing with cells
-	if (coreprof.te.value.rows() != cells)
+	//! read electron temperature profile length of dataset, comparing with cell_length
+	if (coreprof.te.value.rows() != cell_length)
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
 
-	//! read eparallel profile length of dataset, comparing with cells
-	if (coreprof.profiles1d.eparallel.value.rows() != cells)
+	//! read eparallel profile length of dataset, comparing with cell_length
+	if (coreprof.profiles1d.eparallel.value.rows() != cell_length)
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
 
     //! read data in every $\rho$ 
 
-	for (int rho = 0; rho < cells; rho++) {
+	for (int rho = 0; rho < cell_length; rho++) {
 		cell celll;
 				
 		//! electron density
@@ -313,21 +313,21 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof,const Itm
 
 	profile pro;
 
-	//! read electron density profile length of dataset: cells	
-	int cells = coreprof.ne.value.rows();
+	//! read electron density profile length of dataset: cell_length	
+	int cell_length = coreprof.ne.value.rows();
 	
-	//! read electron temperature profile length of dataset, comparing with cells
-	if (coreprof.te.value.rows() != cells)
+	//! read electron temperature profile length of dataset, comparing with cell_length
+	if (coreprof.te.value.rows() != cell_length)
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
 
-	//! read eparallel profile length of dataset, comparing with cells
-	if (coreprof.profiles1d.eparallel.value.rows() != cells)
+	//! read eparallel profile length of dataset, comparing with cell_length
+	if (coreprof.profiles1d.eparallel.value.rows() != cell_length)
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
 
     //! read data in every $\rho$ 
 
-	for (int rho = 0; rho < cells; rho++) {
+	for (int rho = 0; rho < cell_length; rho++) {
 		cell celll;
 				
 		//! electron density
@@ -365,18 +365,18 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	profile pro;
 	double number_of_parts;
 
-	//! read electron density profile length of dataset: cells	
-	int cells = coreprof.ne.value.rows();
+	//! read electron density profile length of dataset: cell_length	
+	int cell_length = coreprof.ne.value.rows();
 	
-	//! read electron temperature profile length of dataset, comparing with cells
-	if (coreprof.te.value.rows() != cells){
-	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Te: " << coreprof.te.value.rows() << std::endl;
+	//! read electron temperature profile length of dataset, comparing with cell_length
+	if (coreprof.te.value.rows() != cell_length){
+	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cell_length << " and Te: " << coreprof.te.value.rows() << std::endl;
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and Te.");		
 	}		
 	
-	//! read eparallel profile length of dataset, comparing with cells
-	if (coreprof.profiles1d.eparallel.value.rows() != cells){
-	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cells << " and Eparallel: " << coreprof.profiles1d.eparallel.value.rows() << std::endl;		
+	//! read eparallel profile length of dataset, comparing with cell_length
+	if (coreprof.profiles1d.eparallel.value.rows() != cell_length){
+	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cell_length << " and Eparallel: " << coreprof.profiles1d.eparallel.value.rows() << std::endl;		
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");		
 	}			
@@ -387,7 +387,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 								
     //! read data in every $\rho$ 
 
-	for (int rho = 0; rho < cells; rho++) {
+	for (int rho = 0; rho < cell_length; rho++) {
 		cell celll;
 				
 		//! electron density
