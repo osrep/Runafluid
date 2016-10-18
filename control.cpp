@@ -3,7 +3,7 @@
 #include "control.h"
 #include "critical_field.h"
 #include "dreicer.h"
-//#include "avalanche.h"
+#include "avalanche.h"
 #include "cpo_utils.h"
 #include "products.h"
 
