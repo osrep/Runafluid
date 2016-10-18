@@ -23,16 +23,12 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	int dreicer_formula_id = 63;	
 	
 	//! set switches	
-
 	int modulevar_dreicer = 1;
 	int modulevar_avalanche = 1;
 	
 		
 	try {	
-		
-		//! Dreicer rate formula		 
-
-		
+				
 		//! get module variables
 		int	modulevar_rates = get_digit(runafluid_switch,1);
 		int modulevar_dreicer = get_digit(runafluid_switch,2);
@@ -43,8 +39,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		if (modulevar_dreicer==1) {dreicer_formula_id = 63;}
 		if (modulevar_dreicer==2) {dreicer_formula_id = 66;}
 		if (modulevar_dreicer==3) {dreicer_formula_id = 67;}
-		
-		
+				
 		//! Calculate Dreicer generation rate
 		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, dreicer_formula_id);			
 		
@@ -82,7 +77,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 2);
 		rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 3);
 
-		
+		//! temporary time data
 		double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
 		double synchrotron_loss_time = calculate_synchrotron_loss_time(magnetic_field);
 		double norm_synchrotron_loss_time = synchrotron_loss_time/runaway_collision_time;
@@ -111,6 +106,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		\f]
 		*/	
 		
+		//! runaway dansity after (return)
 		rundensity_after = rundensity_before + (electron_density*rate_dreicer + rundensity_before*rate_avalanche) * timestep;		
 
 

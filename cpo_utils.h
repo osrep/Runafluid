@@ -13,10 +13,8 @@ int binary_search(const Array<double, 1> &array, double search_key);
 
 double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double xa);
 
-//int int_switch(int switch_number, int *ints, int N);
-
 int bool_switch(int switch_number, bool *bools, int N);
-/*int bool_switch(bool *bools, int N);*/
+
 int get_digit(int number, int digit);
 
 int runafluid_switch_message(int runafluid_switch);
