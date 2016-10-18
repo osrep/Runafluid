@@ -115,19 +115,18 @@ double calculate_flow_Ap(double p, double E, double Z){
 }
 
 double calculate_flow_costheta(double p, double E, double Z){
-	/*double Ap = calculate_flow_Ap(p,E,Z);
-	return 1/(tanh(Ap))- 1/Ap;*/
-	return 0;
+	double Ap = calculate_flow_Ap(p,E,Z);
+	return 1/(tanh(Ap))- 1/Ap;
 }
 
 double calculate_flow_velocity(double electron_density, double electron_temperature, double effective_charge, double electric_field, double magnetic_field){
-/*
+
 	double Ec = calculate_critical_field(electron_density, electron_temperature);
 	double E = electric_field/Ec;
 	double Z = effective_charge;
 	double p = 0; // temporary definition
 
-	double costheta = calculate_flow_costheta(p,E,Z);*/
+	double costheta = calculate_flow_costheta(p,E,Z);
 	return 0;
 }
 
