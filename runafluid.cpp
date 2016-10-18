@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <UALClasses.h>
 
+#include "runafluid.h"
 #include "constants.h"
 #include "cpo_utils.h"
 #include "distinit.h"
@@ -127,7 +128,109 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	int N_rates = 17;
 	double rate_values[N_rates];		
 	
-	//! runaway_rates for generation rates
+	init_rates(runaway_rates, N_rates);
+	
+	
+	//! Runaway fluid switch message	
+	runafluid_switch_message(runafluid_switch);
+
+	//! Distribution source index for output
+	int distsource_out_index = 0;
+	
+	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
+			
+		//! Length of the runaway distribution is correct
+		if (rho<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
+				
+			//! calculating runaway density
+			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, runafluid_switch, rate_values);
+					  
+		   	//! CPO output -- runaway warning
+	   		if (rundensity > zero_threshold){
+				runaway_warning = 1;				
+			}else{
+				rundensity = 0; // no runaway
+			}
+			
+			//!  critical fraction warning
+	   		if (rundensity > critical_fraction/100.0*it->electron_density){
+				critical_fraction_warning = 1;
+			}
+		   	
+		   	//! runaway density hard limit
+		   	if (rundensity > it->electron_density){
+		   		rundensity = it->electron_density;
+		   	}
+		   	
+		   	//! runaway density n_R
+		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
+		   	
+		   	//! runaway current
+		   	/*!
+		   	
+		   	j = n_R q_e c \mathrm{sign}(E)
+		   	
+		   	*/
+		   			   	
+		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);		   	
+		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho) = runcurrent;
+		   	
+		   	//! not suitable warning: j_R > j_e	
+		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
+		   	if (runcurrent/ecurrent >= 1){		   	
+				not_suitable_warning = 1;	 
+				
+				//! runaway current hard limit
+				runcurrent = ecurrent;  	
+		   	}	   	
+		   	
+		   	
+		   	//! runaway rates (Dreicer, Avalanche etc.)
+		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
+		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
+			}	
+	   		
+	   	}else{		   	
+			std::cerr << "[Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
+	   	}   	   	
+	   
+	    rho++;
+	
+	}
+	
+		   	
+   	//! error messages to dump
+   	if (runaway_warning == 1){				
+		std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
+	}		
+	
+	if (critical_fraction_warning == 1){				
+		std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
+		output_flag -= 1;
+	}	
+	
+	if (not_suitable_warning == 1){				
+		std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
+		output_flag -= 10;
+	}	
+	
+	//! output flag to distribution CPO
+	try {
+		distribution_out.codeparam.output_flag = output_flag;
+	} catch (const std::exception& ex) {
+		std::cerr << "[Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+	}
+	
+	distribution_out.time = distribution_in.time+timestep;
+	
+	//! end: runafluid
+	std::cerr << " END: runaway_fluid" << std::endl;
+
+}
+
+int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates){
+//! runaway_rates for generation rates
 	//! Dreicer generation rate initialisation
 	runaway_rates.timed.float1d.resize(N_rates);
 	runaway_rates.timed.float1d(0).identifier.id = "dreicer";
@@ -228,103 +331,5 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	runaway_rates.timed.float1d(16).identifier.description = "Normalised synchrotron loss time";
 	runaway_rates.timed.float1d(16).value.resize(N_rho);
 	
-	
-	//! Runaway fluid switch message	
-	runafluid_switch_message(runafluid_switch);
-
-	//! Distribution source index for output
-	int distsource_out_index = 0;
-	
-	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-			
-		//! Length of the runaway distribution is correct
-		if (rho<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
-				
-			//! calculating runaway density
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, runafluid_switch, rate_values);
-					  
-		   	//! CPO output -- runaway warning
-	   		if (rundensity > zero_threshold){
-				runaway_warning = 1;				
-				//std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected (" << rho << ")" << std::endl;
-			}else{
-				rundensity = 0; // no runaway
-			}
-			
-			//!  critical fraction warning
-	   		if (rundensity > critical_fraction/100.0*it->electron_density){
-				critical_fraction_warning = 1;
-				//std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the critical fraction: " << critical_fraction << "%% (" << rho << ")" << std::endl;
-			}
-		   	
-		   	//! runaway density hard limit
-		   	if (rundensity > it->electron_density){
-		   		rundensity = it->electron_density;
-		   	}
-		   	
-		   	//! runaway density n_R
-		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
-		   	
-		   	//! runaway current
-		   	/*!
-		   	
-		   	j = n_R q_e c \mathrm{sign}(E)
-		   	
-		   	*/
-		   			   	
-		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);		   	
-		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho) = runcurrent;
-		   	
-		   	//! not suitable warning: j_R > j_e	
-		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
-		   	if (runcurrent/ecurrent >= 1){		   	
-				not_suitable_warning = 1;	 
-				
-				//! runaway current hard limit
-				runcurrent = ecurrent;  	
-		   	}	   	
-		   	
-		   	
-		   	//! runaway rates (Dreicer, Avalanche etc.)
-		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
-		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
-			}	
-	   		
-	   	}else{		   	
-			std::cerr << "[Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
-	   	}   	   	
-	   
-	    rho++;
-	
-	}
-	
-		   	
-   	//! error messages to dump
-   	if (runaway_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
-	}		
-	
-	if (critical_fraction_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
-		output_flag -= 1;
-	}	
-	
-	if (not_suitable_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
-		output_flag -= 10;
-	}	
-	
-	//! output flag to distribution CPO
-	try {
-		distribution_out.codeparam.output_flag = output_flag;
-	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
-	}
-	
-	distribution_out.time = distribution_in.time+timestep;
-	
-	//! end: runafluid
-	std::cerr << " END: runaway_fluid" << std::endl;
-
+	return 0;
 }
