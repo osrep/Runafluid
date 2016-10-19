@@ -287,20 +287,20 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 
     //! read data in every $\rho$ 
 
-	for (int rho = 0; rho < cell_length; rho++) {
+	for (int i = 0; i < cell_length; i++) {
 		cell celll;
 				
 		//! electron density
-		celll.electron_density = coreprof.ne.value(rho);
+		celll.electron_density = coreprof.ne.value(i);
 		
 		//! electron temperature
-		celll.electron_temperature = coreprof.te.value(rho);
+		celll.electron_temperature = coreprof.te.value(i);
 		
 		/*! local electric field
 			\f[ E = E_\parallel(\rho) 
 			where $\rho$ normalised minor radius
 		*/
-		celll.electric_field = coreprof.profiles1d.eparallel.value(rho); 
+		celll.electric_field = coreprof.profiles1d.eparallel.value(i); 
 
 		pro.push_back(celll);
 	}
@@ -327,23 +327,23 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof,const Itm
 
     //! read data in every $\rho$ 
 
-	for (int rho = 0; rho < cell_length; rho++) {
+	for (int i = 0; i < cell_length; i++) {
 		cell celll;
 				
 		//! electron density
-		celll.electron_density = coreprof.ne.value(rho);
+		celll.electron_density = coreprof.ne.value(i);
 		
 		//! electron temperature
-		celll.electron_temperature = coreprof.te.value(rho);
+		celll.electron_temperature = coreprof.te.value(i);
 		
 		/*! local electric field
 			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
 			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
 		*/
 	
-		celll.electric_field = coreprof.profiles1d.eparallel.value(rho) * coreprof.toroid_field.b0
+		celll.electric_field = coreprof.profiles1d.eparallel.value(i) * coreprof.toroid_field.b0
 				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-						coreprof.rho_tor(rho));					
+						coreprof.rho_tor(i));					
 	
 
 		pro.push_back(celll);
@@ -387,38 +387,41 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 								
     //! read data in every $\rho$ 
 
-	for (int rho = 0; rho < cell_length; rho++) {
+	for (int i = 0; i < cell_length; i++) {
 		cell celll;
+		
+		//! normalised minor radius
+		//celll.rho = coreprof.rho_tor_norm(i);
 				
 		//! electron density
-		celll.electron_density = coreprof.ne.value(rho);
+		celll.electron_density = coreprof.ne.value(i);
 		
 		//! electron temperature
-		celll.electron_temperature = coreprof.te.value(rho);
+		celll.electron_temperature = coreprof.te.value(i);
 		
 		/*! local electric field
 			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
 			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
 		*/
 		try{
-			celll.electric_field = coreprof.profiles1d.eparallel.value(rho) * coreprof.toroid_field.b0
+			celll.electric_field = coreprof.profiles1d.eparallel.value(i) * coreprof.toroid_field.b0
 					/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-							coreprof.rho_tor(rho));
+							coreprof.rho_tor(i));
 		
 		//! internal error in equilibrium
 		} catch (const std::exception& ex) {
 			celll.electric_field = 0;			
-			std::cerr << "  [Runaway Fluid] ERROR : rho_tor is empty in equilibrium CPO, electric field set to zero. (" << rho << ")" << std::endl;
+			std::cerr << "  [Runaway Fluid] ERROR : rho_tor is empty in equilibrium CPO, electric field set to zero. (" << i << ")" << std::endl;
 		}
 		
 		try{		
 			//! local magnetic field
 			celll.magnetic_field = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-							coreprof.rho_tor(rho));
+							coreprof.rho_tor(i));
 			
 		} catch (const std::exception& ex) {
 			celll.magnetic_field = 0;			
-			std::cerr << "  [Runaway Fluid] ERROR : in magnetic field, magnetic field set to zero. (" << rho << ")" << std::endl;
+			std::cerr << "  [Runaway Fluid] ERROR : in magnetic field, magnetic field set to zero. (" << i << ")" << std::endl;
 		}
 		
 		try{		
@@ -427,7 +430,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 				celll.runaway_density = 0;
 			//! Runaway in previous distribution CPO
 			}else{
-				celll.runaway_density = distribution.distri_vec(distsource_index).profiles_1d.state.dens(rho);
+				celll.runaway_density = distribution.distri_vec(distsource_index).profiles_1d.state.dens(i);
 			}
 
 		//! internal error in distribution
@@ -439,7 +442,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		}
 
 		//! total sum of electric charge from coreprof CPO
-		celll.effective_charge = coreprof.profiles1d.zeff.value(rho);	
+		celll.effective_charge = coreprof.profiles1d.zeff.value(i);	
 
 		pro.push_back(celll);
 	}
