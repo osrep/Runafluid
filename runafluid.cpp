@@ -150,7 +150,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				
 				
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			
-		   	if (distribution_out.distri_vec(distsource_out_index).profiles_1d.geometry.rho_tor(rho) >= rho_max){
+		   	if (distribution_out.distri_vec(distsource_out_index).profiles_1d.geometry.rho_tor_norm(rho) >= rho_max){
 				rundensity = 0;
 			}	
 			  
