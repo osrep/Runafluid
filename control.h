@@ -7,6 +7,7 @@
 
 #include <vector>	
 struct cell {
+	double rho;
 	double electron_density;
 	double electron_temperature;
 	double effective_charge;

@@ -391,7 +391,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		cell celll;
 		
 		//! normalised minor radius
-		//celll.rho = coreprof.rho_tor_norm(i);
+		celll.rho = coreprof.rho_tor_norm(i);
 				
 		//! electron density
 		celll.electron_density = coreprof.ne.value(i);
