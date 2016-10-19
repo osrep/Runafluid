@@ -1,10 +1,7 @@
 #ifndef CONTROL_H_
 #define CONTROL_H_
 
-//#include "cpo_utils.h"
-
 //! cell structure	
-
 #include <vector>	
 struct cell {
 	double rho;
