@@ -23,7 +23,7 @@ using namespace std;
 */
 
 double avalanche_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field, double magnetic_field, double inv_asp_ratio, int modulevar_avalanche) {
+		double effective_charge, double electric_field, double magnetic_field, int modulevar_avalanche) {
 				
 	//! \a REQ-1: Coulomb logarithm
 	/*!
