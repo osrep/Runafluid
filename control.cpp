@@ -28,7 +28,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		int	modulevar_rates = get_digit(runafluid_switch,1);
 		int modulevar_dreicer = get_digit(runafluid_switch,2);
 		int	modulevar_avalanche = get_digit(runafluid_switch,3);	
-		int	modulevar_inv_asp_ratio = get_digit(runafluid_switch,4);	
+		int	modulevar_toroidicity = get_digit(runafluid_switch,4);	
 		
 		//! choose Dreicer module scenario
 		if (modulevar_dreicer==1) {dreicer_formula_id = 63;}
@@ -43,6 +43,32 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 		// temporary data back module
 		if (modulevar_rates!=0){	
+				
+					
+			// Dreicer on
+			if (modulevar_dreicer==0){
+				rate_dreicer = 0;		
+			}		
+	
+			// avalanche on
+			if (modulevar_avalanche==0){
+				rate_avalanche = 0;		
+			}		
+			
+			/*! toroidicity for Dreicer rate	
+			
+			
+			*/		
+			if (modulevar_toroidicity == 1 || modulevar_toroidicity == 2){
+				rate_dreicer * = calculate_toroidicity_dreicer(inv_asp_ratio);
+			}
+			
+			/*! toroidicity for Avalanche rate	
+			
+			*/		
+			if (modulevar_toroidicity == 1 || modulevar_toroidicity == 3){
+				rate_avalanche * = calculate_toroidicity_avalanche(inv_asp_ratio,electric_field, electron_density, electron_temperature);
+			}
 				
 			//! temporary for Dreicer rate
 			rate_values[0] = rate_dreicer*electron_density;
@@ -86,16 +112,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 				rate_values[16] = norm_synchrotron_loss_time;
 			}
 		}
-		
-		// Dreicer on
-		if (modulevar_dreicer==0){
-			rate_dreicer = 0;		
-		}		
-		
-		// avalanche on
-		if (modulevar_avalanche==0){
-			rate_avalanche = 0;		
-		}	
+
 			
 		/*! runaway electron density			
 		n_R = n_R0 + (R_DR+R_A)*dt
