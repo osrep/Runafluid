@@ -185,13 +185,13 @@ int runafluid_switch_message(int runafluid_switch){
 	if (modulevar_toroidicity == 0){		
 		std::cerr << "  [Runaway Fluid] \tToroidicity module OFF"<< std::endl;	
 		
-	}else if (modulevar_toroidicity == 1 {
+	}else if (modulevar_toroidicity == 1) {
 		std::cerr << "  [Runaway Fluid] \tToroidicity module ON"<< std::endl;	
 		
-	}else if (modulevar_toroidicity == 2 {
+	}else if (modulevar_toroidicity == 2) {
 		std::cerr << "  [Runaway Fluid] \tToroidicity module ONLY for Dreicer"<< std::endl;	
 		
-	}else if (modulevar_toroidicity == 3 {
+	}else if (modulevar_toroidicity == 3) {
 		std::cerr << "  [Runaway Fluid] \tToroidicity module ONLY for Avalanche"<< std::endl;	
 	}
 	
