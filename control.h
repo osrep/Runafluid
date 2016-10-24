@@ -17,6 +17,7 @@ typedef std::vector<cell> profile;
 
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
 		double effective_charge, double electric_field, double magnetic_field, double timestep, double inv_asp_ratio, int runafluid_switch, double *rate_values);
-		
+
+int runafluid_switch_message(int runafluid_switch);		
 		
 #endif /* CONTROL_H_ */

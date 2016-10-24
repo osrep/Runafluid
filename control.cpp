@@ -136,3 +136,49 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	}
 	return rundensity_after;
 }
+
+
+/*! Runafluid switch message */
+
+int runafluid_switch_message(int runafluid_switch){
+	
+			
+	int	modulevar_rates = get_digit(runafluid_switch,1);
+	int modulevar_dreicer = get_digit(runafluid_switch,2);
+	int	modulevar_avalanche = get_digit(runafluid_switch,3);	
+	int	modulevar_toroidicity = get_digit(runafluid_switch,4);	
+	int	modulevar_5 = get_digit(runafluid_switch,5);
+	int dreicer_formula_id = 63;
+		
+			
+	std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about how to use runafluid_switch!"<< std::endl;	
+	std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;	
+	
+	
+	
+	//! choose Dreicer module scenario
+	if (modulevar_dreicer==1) {dreicer_formula_id = 63;}
+	if (modulevar_dreicer==2) {dreicer_formula_id = 66;}
+	if (modulevar_dreicer==3) {dreicer_formula_id = 67;}	
+	
+	
+	if (modulevar_dreicer == 0){		
+		std::cerr << "  [Runaway Fluid] \tDreicer module OFF"<< std::endl;	
+	}else{
+		std::cerr << "  [Runaway Fluid] \tDreicer module ON"<< std::endl;	
+		std::cerr << "\t\t\twith H&C (" << dreicer_formula_id << ") formula"<< std::endl;	
+		if (dreicer_formula_id != 63){
+			std::cerr << "\t\t\tPlease use formula (63)!"<< std::endl;
+			std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;	
+		}
+	}
+		
+	if (modulevar_avalanche == 0){		
+		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;	
+	}else{
+		std::cerr << "  [Runaway Fluid] \tAvalanche module ON (modulevar: " << modulevar_avalanche << ")" << std::endl;		
+	}
+	
+	
+	
+}
