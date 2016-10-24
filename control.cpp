@@ -161,7 +161,7 @@ int runafluid_switch_message(int runafluid_switch){
 	if (modulevar_dreicer==2) {dreicer_formula_id = 66;}
 	if (modulevar_dreicer==3) {dreicer_formula_id = 67;}	
 	
-	
+	//! Dreicer message
 	if (modulevar_dreicer == 0){		
 		std::cerr << "  [Runaway Fluid] \tDreicer module OFF"<< std::endl;	
 	}else{
@@ -173,6 +173,7 @@ int runafluid_switch_message(int runafluid_switch){
 		}
 	}
 		
+	//! avalanche message
 	if (modulevar_avalanche == 0){		
 		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;	
 	}else{
@@ -180,5 +181,18 @@ int runafluid_switch_message(int runafluid_switch){
 	}
 	
 	
+	//! toroidicity message
+	if (modulevar_toroidicity == 0){		
+		std::cerr << "  [Runaway Fluid] \tToroidicity module OFF"<< std::endl;	
+		
+	}else if (modulevar_toroidicity == 1 {
+		std::cerr << "  [Runaway Fluid] \tToroidicity module ON"<< std::endl;	
+		
+	}else if (modulevar_toroidicity == 2 {
+		std::cerr << "  [Runaway Fluid] \tToroidicity module ONLY for Dreicer"<< std::endl;	
+		
+	}else if (modulevar_toroidicity == 3 {
+		std::cerr << "  [Runaway Fluid] \tToroidicity module ONLY for Avalanche"<< std::endl;	
+	}
 	
 }
