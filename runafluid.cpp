@@ -133,6 +133,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 	init_rates(runaway_rates, N_rates, N_rho);
 	
+	//! inverse aspect ratio \eps = a/R
+	double inv_asp_ratio = equilibrium.eqgeometry.a_minor / coreprof.toroid_field.r0;
 	
 	//! Runaway fluid switch message	
 	runafluid_switch_message(runafluid_switch);
@@ -146,7 +148,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		if (rho<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
 				
 			//! calculating runaway density
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, runafluid_switch, rate_values);
+			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, inv_asp_ratio, runafluid_switch, rate_values);
 				
 				
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			

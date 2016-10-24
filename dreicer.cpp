@@ -25,7 +25,7 @@ using namespace std;
 */
 
 double dreicer_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field, int formula_id) {
+		double effective_charge, double electric_field, double inv_asp_ratio, int formula_id) {
 		
 		
 	//! electron temperature: electronvolt to joule
