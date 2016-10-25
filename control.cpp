@@ -86,7 +86,8 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 				rate_values[6] = calculate_dreicer_field(electron_density, electron_temperature);
 		
 				//! temporary for critical field
-				rate_values[7] = calculate_critical_field(electron_density, electron_temperature);
+				double critical_field = calculate_critical_field(electron_density, electron_temperature);
+				rate_values[7] = critical_field;
 		
 				//! temporary for Coulomb log
 				rate_values[8] = calculate_coulomb_log(electron_density, electron_temperature);		
@@ -114,6 +115,9 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 				//! temporary toroidicity data
 				rate_values[17] = calculate_toroidicity_dreicer(inv_asp_ratio);				
 				rate_values[18] = calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature);
+				
+				//! temporary for relative electric field				
+				rate_values[18] =  electric_field/critical_field;
 			}
 		}
 

@@ -128,7 +128,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	int	modulevar_rates = get_digit(runafluid_switch,1);
 				
 	//! Number of rate calculations (Dreicer, Avalanche etc.)	
-	int N_rates = 19;
+	int N_rates = 20;
 	double rate_values[N_rates];		
 	
 	init_rates(runaway_rates, N_rates, N_rho);
@@ -350,6 +350,13 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	runaway_rates.timed.float1d(18).identifier.flag = 18;
 	runaway_rates.timed.float1d(18).identifier.description = "Toroidicity for Avalanche rate";
 	runaway_rates.timed.float1d(18).value.resize(N_rho);
+	
+	
+	//! Toroidicity for Avalanche
+	runaway_rates.timed.float1d(19).identifier.id = "relative_electric_field";
+	runaway_rates.timed.float1d(19).identifier.flag = 19;
+	runaway_rates.timed.float1d(19).identifier.description = "Relative electric field (by critical field)";
+	runaway_rates.timed.float1d(19).value.resize(N_rho);
 	
 	return 0;
 }
