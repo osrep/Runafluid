@@ -1,6 +1,6 @@
 #ifndef CONSTANTS_H_
 #define CONSTANTS_H_
-
+/*
 //! value of \f$ \pi \f$
 //#define ITM_PI		3.141592653589793238462643383280
 const double ITM_PI = 3.141592653589793238462643383280;
@@ -30,15 +30,22 @@ const double ITM_MU0 = 4.0e-7 * ITM_PI;
 const double ITM_EPS0 = 1.0 / (ITM_MU0 * ITM_C * ITM_C);
 
 
-//! distsource_identifier for runaways (7)
-//#define DISTSOURCE_IDENTIFIER 7
-const int DISTSOURCE_IDENTIFIER = 7;
+
 
 //! ERROR CODE
 //#define ITM_INVALID_INT	-999999999
 const int ITM_INVALID_INT = -999999999;
 
 //#define ITM_INVALID_FLOAT -9.E40
-const double ITM_INVALID_FLOAT = -9.E40;
+const double ITM_INVALID_FLOAT = -9.E40;*/
+
+
+
+#include <itmconstants.h>
+
+//! distsource_identifier for runaways (7)
+
+//#define DISTSOURCE_IDENTIFIER 7
+const int DISTSOURCE_IDENTIFIER = 7;
 
 #endif /* CONSTANTS_H_ */
