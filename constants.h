@@ -41,7 +41,7 @@ const double ITM_INVALID_FLOAT = -9.E40;*/
 
 
 
-#include <itmconstants.h>
+#include <itm_constants.h>
 
 //! distsource_identifier for runaways (7)
 
