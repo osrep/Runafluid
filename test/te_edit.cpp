@@ -78,7 +78,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		//! internal error in distribution
 		std::cerr << "ERROR An error occurred during firing actor runafluid_teEdit." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
-		output = ITM_ILLEGAL_INT;		
+		output = ITM_INVALID_INT;		
 		
 	}
 
