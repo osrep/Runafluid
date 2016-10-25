@@ -199,7 +199,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}	
 	   		
 	   	}else{		   	
-			std::cerr << "[Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
+			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 	   	}   	   	
 	   
 	    rho++;
@@ -209,16 +209,16 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	
    	//! error messages to dump
    	if (runaway_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
+		std::cerr << "  [Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
 	}		
 	
 	if (critical_fraction_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
+		std::cerr << "  [Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
 		output_flag -= 1;
 	}	
 	
 	if (not_suitable_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
+		std::cerr << "  [Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
 		output_flag -= 10;
 	}	
 	
@@ -226,8 +226,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	try {
 		distribution_out.codeparam.output_flag = output_flag;
 	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
 	distribution_out.time = distribution_in.time+timestep;

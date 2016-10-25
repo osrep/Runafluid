@@ -116,8 +116,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		distribution.distri_vec(0).gyro_type = 1;	
 			
 	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred metadata filling" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred metadata filling" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
 	
@@ -128,8 +128,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		distribution.distri_vec(0).profiles_1d.geometry.psi(N_psi);
 		
 	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred during geometry vectors allocation" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during geometry vectors allocation" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
 	
@@ -151,8 +151,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 			
 		}
 	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
 	//! Filling up coreimpur geometry data	
@@ -173,8 +173,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		}
 			
 	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
 	
@@ -184,8 +184,8 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		distribution.codeparam.codename = "Runaway Fluid (runafluid)";
 		distribution.codeparam.codeversion = "1.0";
 	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred during filling codeparam" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling codeparam" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
 }
