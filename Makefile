@@ -4,7 +4,7 @@ CXX=g++
 CXXFLAGS = -pthread -g -fPIC 
 CXXFLAGS+=$(shell eval-pkg-config --cflags ual-cpp-gnu)
 LDFLAGS=$(shell eval-pkg-config --libs ual-cpp-gnu)
-CXXFLAGS += -I$(ITMLIBDIR)/itmconstants/include/
+#CXXFLAGS += -I$(ITMLIBDIR)/itmconstants/include/
 
 # for Fortran
 F90=ifort
