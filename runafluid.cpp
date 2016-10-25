@@ -128,7 +128,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	int	modulevar_rates = get_digit(runafluid_switch,1);
 				
 	//! Number of rate calculations (Dreicer, Avalanche etc.)	
-	int N_rates = 17;
+	int N_rates = 19;
 	double rate_values[N_rates];		
 	
 	init_rates(runaway_rates, N_rates, N_rho);
@@ -338,6 +338,18 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	runaway_rates.timed.float1d(16).identifier.flag = 16;
 	runaway_rates.timed.float1d(16).identifier.description = "Normalised synchrotron loss time";
 	runaway_rates.timed.float1d(16).value.resize(N_rho);
+	
+	//! Toroidicity for Dreicer
+	runaway_rates.timed.float1d(17).identifier.id = "toroidicity_dreicer";
+	runaway_rates.timed.float1d(17).identifier.flag = 17;
+	runaway_rates.timed.float1d(17).identifier.description = "Toroidicity for Dreicer rate";
+	runaway_rates.timed.float1d(17).value.resize(N_rho);
+		
+	//! Toroidicity for Avalanche
+	runaway_rates.timed.float1d(18).identifier.id = "toroidicity_avalanche";
+	runaway_rates.timed.float1d(18).identifier.flag = 18;
+	runaway_rates.timed.float1d(18).identifier.description = "Toroidicity for Avalanche rate";
+	runaway_rates.timed.float1d(18).value.resize(N_rho);
 	
 	return 0;
 }

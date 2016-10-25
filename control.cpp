@@ -110,6 +110,10 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 				rate_values[15] = synchrotron_loss_time;
 				rate_values[16] = norm_synchrotron_loss_time;
+				
+				//! temporary toroidicity data
+				rate_values[17] = calculate_toroidicity_dreicer(inv_asp_ratio);				
+				rate_values[18] = calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature);
 			}
 		}
 
