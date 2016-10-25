@@ -117,7 +117,12 @@ double calculate_toroidicity_avalanche(double inv_asp_ratio, double electric_fie
 	double critical_field = calculate_critical_field(electron_density, electron_temperature);
 	double rel_electric_field = electric_field/critical_field;
 	
-	return pow(1.0-inv_asp_ratio,2)/(ITM_PI*sqrt(inv_asp_ratio*rel_electric_field));
+	double toroidicity_avalanche = pow(1.0-inv_asp_ratio,2)/(ITM_PI*sqrt(inv_asp_ratio*rel_electric_field));
+	
+	if(rel_electric_field<1){
+		toroidicity_avalanche = 1;
+	}
+	return toroidicity_avalanche;
 
 }
 
