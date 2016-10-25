@@ -117,7 +117,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 				rate_values[18] = calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature);
 				
 				//! temporary for relative electric field				
-				rate_values[18] =  electric_field/critical_field;
+				rate_values[19] =  electric_field/critical_field;
 			}
 		}
 
