@@ -131,7 +131,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		//! internal error in runaway distribution calculation
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during runaway distribution calculation." << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
-		rundensity_after = ITM_ILLEGAL_FLOAT;
+		rundensity_after = ITM_INVALID_FLOAT;
 		
 	}
 	return rundensity_after;
