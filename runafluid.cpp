@@ -229,11 +229,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		distribution_out.codeparam.output_flag = output_flag;
 		
 		if (output_flag == 1){			
-			distribution.codeparam.output_diag = "Runaway Fluid was running successfully and runaway electrons indicated";
+			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully and runaway electrons indicated";
 		}else if (output_flag == 2){			
-			distribution.codeparam.output_diag = "Runaway Fluid was running successfully but runaway current is higher than electron current";
+			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully but runaway current is higher than electron current";
 		}else if (output_flag == 3){			
-			distribution.codeparam.output_diag = "Runaway Fluid was running successfully but results out of the range of validity";
+			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully but results out of the range of validity";
 		}
 		
 	} catch (const std::exception& ex) {
