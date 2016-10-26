@@ -15,7 +15,7 @@ timestep: in s
 */
 
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
-		double effective_charge, double electric_field, double magnetic_field, double timestep, int runafluid_switch, double *rate_values){
+		double effective_charge, double electric_field, double magnetic_field, double timestep, double inv_asp_ratio, int runafluid_switch, double *rate_values){
 	
 	double rundensity_after = 0.0;
 	double rate_dreicer = 0.0;
@@ -44,6 +44,32 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		// temporary data back module
 		if (modulevar_rates!=0){	
 				
+					
+			// Dreicer on
+			if (modulevar_dreicer==0){
+				rate_dreicer = 0;		
+			}		
+	
+			// avalanche on
+			if (modulevar_avalanche==0){
+				rate_avalanche = 0;		
+			}		
+			
+			/*! toroidicity for Dreicer rate	
+			
+			
+			*/		
+			if (modulevar_toroidicity == 1 || modulevar_toroidicity == 2){
+				rate_dreicer *= calculate_toroidicity_dreicer(inv_asp_ratio);
+			}
+			
+			/*! toroidicity for Avalanche rate	
+			
+			*/		
+			if (modulevar_toroidicity == 1 || modulevar_toroidicity == 3){
+				rate_avalanche *= calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature);
+			}
+				
 			//! temporary for Dreicer rate
 			rate_values[0] = rate_dreicer*electron_density;
 		
@@ -60,7 +86,8 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 				rate_values[6] = calculate_dreicer_field(electron_density, electron_temperature);
 		
 				//! temporary for critical field
-				rate_values[7] = calculate_critical_field(electron_density, electron_temperature);
+				double critical_field = calculate_critical_field(electron_density, electron_temperature);
+				rate_values[7] = critical_field;
 		
 				//! temporary for Coulomb log
 				rate_values[8] = calculate_coulomb_log(electron_density, electron_temperature);		
@@ -84,18 +111,16 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 				rate_values[15] = synchrotron_loss_time;
 				rate_values[16] = norm_synchrotron_loss_time;
+				
+				//! temporary toroidicity data
+				rate_values[17] = calculate_toroidicity_dreicer(inv_asp_ratio);				
+				rate_values[18] = calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature);
+				
+				//! temporary for relative electric field				
+				rate_values[19] =  electric_field/critical_field;
 			}
 		}
-		
-		// Dreicer on
-		if (modulevar_dreicer==0){
-			rate_dreicer = 0;		
-		}
-		
-		// avalanche on
-		if (modulevar_avalanche==0){
-			rate_avalanche = 0;		
-		}	
+
 			
 		/*! runaway electron density			
 		n_R = n_R0 + (R_DR+R_A)*dt
@@ -114,8 +139,68 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		//! internal error in runaway distribution calculation
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during runaway distribution calculation." << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
-		rundensity_after = ITM_ILLEGAL_FLOAT;
+		rundensity_after = ITM_INVALID_FLOAT;
 		
 	}
 	return rundensity_after;
+}
+
+
+/*! Runafluid switch message */
+
+int runafluid_switch_message(int runafluid_switch){
+	
+			
+	int	modulevar_rates = get_digit(runafluid_switch,1);
+	int modulevar_dreicer = get_digit(runafluid_switch,2);
+	int	modulevar_avalanche = get_digit(runafluid_switch,3);	
+	int	modulevar_toroidicity = get_digit(runafluid_switch,4);	
+	int	modulevar_5 = get_digit(runafluid_switch,5);
+	int dreicer_formula_id = 63;
+		
+			
+	std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch changed. Please read documentation about how to use runafluid_switch!"<< std::endl;	
+	std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;	
+	
+	
+	
+	//! choose Dreicer module scenario
+	if (modulevar_dreicer==1) {dreicer_formula_id = 63;}
+	if (modulevar_dreicer==2) {dreicer_formula_id = 66;}
+	if (modulevar_dreicer==3) {dreicer_formula_id = 67;}	
+	
+	//! Dreicer message
+	if (modulevar_dreicer == 0){		
+		std::cerr << "  [Runaway Fluid] \tDreicer module OFF"<< std::endl;	
+	}else{
+		std::cerr << "  [Runaway Fluid] \tDreicer module ON"<< std::endl;	
+		std::cerr << "\t\t\twith H&C (" << dreicer_formula_id << ") formula"<< std::endl;	
+		if (dreicer_formula_id != 63){
+			std::cerr << "\t\t\tPlease use formula (63)!"<< std::endl;
+			std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;	
+		}
+	}
+		
+	//! avalanche message
+	if (modulevar_avalanche == 0){		
+		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;	
+	}else{
+		std::cerr << "  [Runaway Fluid] \tAvalanche module ON (modulevar: " << modulevar_avalanche << ")" << std::endl;		
+	}
+	
+	
+	//! toroidicity message
+	if (modulevar_toroidicity == 0){		
+		std::cerr << "  [Runaway Fluid] \tToroidicity module OFF"<< std::endl;	
+		
+	}else if (modulevar_toroidicity == 1) {
+		std::cerr << "  [Runaway Fluid] \tToroidicity module ON"<< std::endl;	
+		
+	}else if (modulevar_toroidicity == 2) {
+		std::cerr << "  [Runaway Fluid] \tToroidicity module ONLY for Dreicer"<< std::endl;	
+		
+	}else if (modulevar_toroidicity == 3) {
+		std::cerr << "  [Runaway Fluid] \tToroidicity module ONLY for Avalanche"<< std::endl;	
+	}
+	
 }

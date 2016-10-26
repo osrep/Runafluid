@@ -114,7 +114,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 		//! internal error in distribution
 		std::cerr << "ERROR An error occurred during firing actor runafluid_efieldEdit." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
-		output = ITM_ILLEGAL_INT;		
+		output = ITM_INVALID_INT;		
 		
 	}
 

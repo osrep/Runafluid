@@ -128,11 +128,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	int	modulevar_rates = get_digit(runafluid_switch,1);
 				
 	//! Number of rate calculations (Dreicer, Avalanche etc.)	
-	int N_rates = 17;
+	int N_rates = 20;
 	double rate_values[N_rates];		
 	
 	init_rates(runaway_rates, N_rates, N_rho);
 	
+	//! inverse aspect ratio \eps = a/R
+	double inv_asp_ratio = equilibrium.eqgeometry.a_minor / coreprof.toroid_field.r0;
 	
 	//! Runaway fluid switch message	
 	runafluid_switch_message(runafluid_switch);
@@ -146,11 +148,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		if (rho<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
 				
 			//! calculating runaway density
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, runafluid_switch, rate_values);
+			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, inv_asp_ratio, runafluid_switch, rate_values);
 				
 				
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			
-		   	if (distribution_out.distri_vec(distsource_out_index).profiles_1d.geometry.rho_tor(rho) >= rho_max){
+		   	if (it->rho >= rho_max){
 				rundensity = 0;
 			}	
 			  
@@ -197,7 +199,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}	
 	   		
 	   	}else{		   	
-			std::cerr << "[Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
+			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 	   	}   	   	
 	   
 	    rho++;
@@ -207,25 +209,36 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	
    	//! error messages to dump
    	if (runaway_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
+		std::cerr << "  [Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
+		output_flag = 1;
+	}		
+		
+	if (not_suitable_warning == 1){				
+		std::cerr << "  [Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
+		output_flag = 2;
 	}		
 	
 	if (critical_fraction_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
-		output_flag -= 1;
+		std::cerr << "  [Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
+		output_flag = 3;
 	}	
-	
-	if (not_suitable_warning == 1){				
-		std::cerr << "[Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
-		output_flag -= 10;
-	}	
+
 	
 	//! output flag to distribution CPO
 	try {
 		distribution_out.codeparam.output_flag = output_flag;
+		
+		if (output_flag == 1){			
+			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully and runaway electrons indicated";
+		}else if (output_flag == 2){			
+			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully but runaway current is higher than electron current";
+		}else if (output_flag == 3){			
+			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully but results out of the range of validity";
+		}
+		
 	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
 	distribution_out.time = distribution_in.time+timestep;
@@ -336,6 +349,25 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	runaway_rates.timed.float1d(16).identifier.flag = 16;
 	runaway_rates.timed.float1d(16).identifier.description = "Normalised synchrotron loss time";
 	runaway_rates.timed.float1d(16).value.resize(N_rho);
+	
+	//! Toroidicity for Dreicer
+	runaway_rates.timed.float1d(17).identifier.id = "toroidicity_dreicer";
+	runaway_rates.timed.float1d(17).identifier.flag = 17;
+	runaway_rates.timed.float1d(17).identifier.description = "Toroidicity for Dreicer rate";
+	runaway_rates.timed.float1d(17).value.resize(N_rho);
+		
+	//! Toroidicity for Avalanche
+	runaway_rates.timed.float1d(18).identifier.id = "toroidicity_avalanche";
+	runaway_rates.timed.float1d(18).identifier.flag = 18;
+	runaway_rates.timed.float1d(18).identifier.description = "Toroidicity for Avalanche rate";
+	runaway_rates.timed.float1d(18).value.resize(N_rho);
+	
+	
+	//! Toroidicity for Avalanche
+	runaway_rates.timed.float1d(19).identifier.id = "relative_electric_field";
+	runaway_rates.timed.float1d(19).identifier.flag = 19;
+	runaway_rates.timed.float1d(19).identifier.description = "Relative electric field (by critical field)";
+	runaway_rates.timed.float1d(19).value.resize(N_rho);
 	
 	return 0;
 }

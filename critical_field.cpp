@@ -9,22 +9,31 @@
 \param pro profile
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  4.1.3 Functional Requirements
 \return \a REQ-1: If a radius exists where electric field is above critical, returns 1.	
 \return \a REQ-2: If electric field is below critical across the whole profile, returns 0.
 \return \a REQ-3: Critical electric field 
 
 */
-int is_field_critical(profile pro) {
 
-	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
-		if (calculate_critical_field(it->electron_density, it->electron_temperature)
-				< it->electric_field)
-			return 1;
-	}
-
-	return 0;
-}
 
 double calculate_critical_field(double electron_density, double electron_temperature) {
 	
@@ -34,8 +43,7 @@ double calculate_critical_field(double electron_density, double electron_tempera
 		\ln \Lambda = 14.9-0.5 \cdot \log \left(n_e \cdot 10^{-20}\right) + \log \left(t_e \cdot 10^{-3}\right) .
 	\f]
 	*/
-	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
-			+ log(electron_temperature * 1e-3);
+	double coulomb_log = calculate_coulomb_log(electron_density, electron_temperature);
 
 
 	//! \return \a REQ-3: Critical field

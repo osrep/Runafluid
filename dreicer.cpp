@@ -170,3 +170,8 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 }
 
 
+double calculate_toroidicity_dreicer(double inv_asp_ratio){
+
+	return ( 1.0 - 1.2*sqrt((2.0*inv_asp_ratio)/(1.0+inv_asp_ratio)) );
+}
+
