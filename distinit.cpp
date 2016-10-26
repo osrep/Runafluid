@@ -182,7 +182,9 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	
 	try {
 		distribution.codeparam.codename = "Runaway Fluid (runafluid)";
-		distribution.codeparam.codeversion = "1.0";
+		distribution.codeparam.codeversion = "1.2.0";
+		distribution.codeparam.output_diag = "Runaway Fluid was initialised successfully";
+		distribution.codeparam.output_flag = 0;
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling codeparam" << std::endl;
 		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
