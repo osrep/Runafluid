@@ -16,3 +16,5 @@ plt.plot(rho_tor_norm, runaway_current)
 plt.xlabel('normalised rho tor')
 plt.ylabel('runaway current [A/m^3] ')
 fig2.show()
+
+raw_input()
