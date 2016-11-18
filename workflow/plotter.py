@@ -5,6 +5,9 @@ runaway_density = distribution0[0].distri_vec[0].profiles_1d.state.dens
 runaway_current = distribution0[0].distri_vec[0].profiles_1d.state.current
 
 dreicer_rate = temporary0[0].timed.float1d[0].value
+dreicer_rate63 = temporary0[0].timed.float1d[0].value
+dreicer_rate66 = temporary0[0].timed.float1d[0].value
+dreicer_rate67 = temporary0[0].timed.float1d[0].value
 
 
 fig1=plt.figure(1)
@@ -31,6 +34,17 @@ fig3.show()
 fig3.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_dreicer.pdf')
 
 
+
+
+fig3=plt.figure(4)
+plt.plot(rho_tor_norm, dreicer_rate67, legend='H&C (67)')
+plt.plot(rho_tor_norm, dreicer_rate66, legend='H&C (66)')
+plt.plot(rho_tor_norm, dreicer_rate63, legend='H&C (63)')
+plt.xlabel('normalised rho tor')
+plt.ylabel('Dreicer rate [1/m3s] ')
+plt.legend()
+fig3.show()
+fig3.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_dreicer_all.pdf')
 
 
 
