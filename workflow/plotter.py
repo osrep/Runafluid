@@ -4,7 +4,7 @@ rho_tor_norm = distribution0[0].distri_vec[0].profiles_1d.geometry.rho_tor_norm
 runaway_density = distribution0[0].distri_vec[0].profiles_1d.state.dens
 runaway_current = distribution0[0].distri_vec[0].profiles_1d.state.current
 
-dreicer_rate = runaway_rates1[0].timed.float1d[0].value
+dreicer_rate = runaway_current#runaway_rates1[0].timed.float1d[0].value
 
 
 fig1=plt.figure(1)
@@ -24,7 +24,7 @@ fig2.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_current.pdf')
 
 
 fig3=plt.figure(3)
-plt.plot(rho_tor_norm, runaway_current)
+plt.plot(rho_tor_norm, dreicer_rate)
 plt.xlabel('normalised rho tor')
 plt.ylabel('Dreicer rate [1/m3s] ')
 fig3.show()
