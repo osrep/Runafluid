@@ -32,17 +32,17 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[355.0, 280.0]">
         </property>
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, -4, 1928, 1023}, maximized=true}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, -4, 1928, 990}, maximized=true}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1612, 861]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1612, 828]">
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1717.5, 4037.5}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1801.5, 4017.0}">
     </property>
-    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2913:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:4:8:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:24:34:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:27:478:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:48:383:urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:21:223:urn:lsid:uuid:9b1b1470-87cd-417d-ba00-1b6c52839fb5:3:1785:urn:lsid:uuid:909f673d-27d1-40ef-b069-9d07bf027f8e:11:127:urn:lsid:kepler-project.org/ns/:81940:3:782">
+    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org/ns/:62444:70:10:urn:lsid:kepler-project.org/ns/:62444:72:185:urn:lsid:kepler-project.org/ns/:62444:108:333:urn:lsid:kepler-project.org/ns/:62444:168:597:urn:lsid:kepler-project.org/ns/:62444:213:204:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:201:103:urn:lsid:uuid:31aea705-75c3-4e50-9d43-444c2d02a038:207:775:urn:lsid:uuid:4f3824ad-095f-43ef-97c0-84640bd8f0e4:6:320:urn:lsid:uuid:6163ab9c-dce6-441d-bfa6-c81f2b9ecedb:15:1078:urn:lsid:uuid:ce1fda52-e951-4dd3-b49d-310f8313d145:12:7:urn:lsid:uuid:882eb47d-7923-4020-81cd-b5ac08b8579d:12:292:urn:lsid:uuid:dc2fe125-657d-45be-aaaa-4c48de8808bc:9:2913:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:4:8:urn:lsid:uuid:361fcc32-45e0-4f44-80eb-a723c53b744b:24:34:urn:lsid:uuid:d628bd26-9df9-4627-a983-eea309867d4d:27:478:urn:lsid:uuid:93b166f5-f241-49c6-bc91-db075b88e76e:48:383:urn:lsid:uuid:65341647-b095-4a63-8209-a4c346638ff9:21:223:urn:lsid:uuid:9b1b1470-87cd-417d-ba00-1b6c52839fb5:3:1785:urn:lsid:uuid:909f673d-27d1-40ef-b069-9d07bf027f8e:11:127:urn:lsid:kepler-project.org/ns/:81940:3:782:urn:lsid:kepler-project.org/ns/:82087:66:566">
     </property>
-    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82087:66:566">
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82087:259:47">
     </property>
     <property name="dt_in" class="ptolemy.data.expr.Parameter" value="0.01">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
@@ -158,7 +158,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[135.0, 25.0]">
         </property>
     </property>
-    <property name="stop" class="ptolemy.data.expr.Parameter" value="2">
+    <property name="stop" class="ptolemy.data.expr.Parameter" value="1">
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
@@ -4791,7 +4791,7 @@
     <entity name="runaway-fluid-wrapper" class="ptolemy.actor.TypedCompositeActor">
         <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="8.1.devel">
         </property>
-        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82087:94:278">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82087:94:319">
         </property>
         <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.TypedCompositeActor">
             <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:449:1">
@@ -6079,7 +6079,7 @@
             <property name="pyoutcposlice" class="ptolemy.data.expr.Parameter" value="false">
                 <display name="Slice mode for all output CPOs"/>
             </property>
-            <property name="pysync" class="ptolemy.data.expr.Parameter" value="false">
+            <property name="pysync" class="ptolemy.data.expr.Parameter" value="true">
                 <display name="Synchronized mode"/>
             </property>
             <property name="pydebug" class="ptolemy.data.expr.Parameter" value="false">
@@ -6093,7 +6093,7 @@
             </property>
             <property name="parameters (comma separated)" class="ptolemy.data.expr.Parameter" value="">
             </property>
-            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82087:203:23">
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82087:203:39">
             </property>
             <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.python.ualpython">
                 <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:8:1">
@@ -6107,61 +6107,75 @@
             </property>
             <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:efda-itm.eu:actor:8:1">
             </property>
-            <property name="" class="ptolemy.vergil.basic.DocAttribute">
-                <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&#10;	&lt;p&gt;The ualpython enables manipulation of CPOs with the Python UAL interface. It also provides Matplotlib plotting capabilities by using a standard Python shell for interpretation of Python commands and scripts. Note that the manipulated CPO should be given into a new input port, it is up to the user to add this port (there are no restrictions to input port names for CPOs).&lt;/p&gt;&#10;	The actor can be used in two ways:&#10;	&lt;p&gt;- the user provides a Python script written in a file as input. For this mode, connect a FileReader actor at the inputScript port of the ualpython.&lt;/p&gt; &#10;	&lt;p&gt;- the user writes Python commands direclty in parameters of the ualpython. Double-click on the actor (or right-click on it and select Configure Actor) to access the text box where you can write the Python commands.&lt;/p&gt;&#10;&#10;	&lt;p&gt;***** Note about how to program in python from the ualpython actor *****&lt;/p&gt;&#10;&#10;	&lt;p&gt;The actor get CPO data automatically into a &quot;cponameX&quot; variable (always an array, that will contain only 1 element in slice mode), where &quot;cponame&quot; is the type of the CPO (equilibrium, coreprof, mhd, etc...) and &quot;X&quot; is a number representing the position of the CPO amongst all inputs of the same type. For instance if there are 3 input CPOs in the order equilibrium, coreprof, equilibrium, the associated python variables will be named respectively &quot;equilibrium0&quot;, &quot;coreprof0&quot; and &quot;equilibrium1&quot;.&lt;/p&gt;&#10;	&lt;p&gt;Some python packages are already imported and ready to be used. Here is the list: &quot;import pylab&quot;, &quot;import ual&quot;, &quot;from numpy import *&quot;, &quot;import sys&quot;, &quot;import copy&quot;. For instance, for plotting with matplotlib you can call &quot;pylab.plot(some_data)&quot; and &quot;pylab.show()&quot;.&lt;/p&gt;&#10;	&lt;p&gt;A dictionary &quot;cpo_in&quot; has been added for easy manipulation of all input CPOs of a given type: &quot;cpo_in['equilibrium']&quot; contains the list of all equilibrium variables got from input ports.&lt;/p&gt;&#10;&#10;	&lt;p&gt;You can also add output port for CPOs by respecting strictly the following naming convention: the port should be named by the name of the CPO variable in python. For writting a CPO present as input, simply put the name of the corresponding python variable (defined as explained previously). When the CPO has to be written into an occurrence different than the default one, then &quot;/Y&quot; as to be concatenated to the name of the variable (where &quot;Y&quot; is the occurrence number). In time slice mode of output CPOs, all CPOs are written at the time specified in the &quot;time_in&quot; input port (similar to FC2K).&lt;/p&gt;&#10;	&lt;p&gt;IMPORTANT NOTE 1: python process is asynchronous with the actor, so if you have CPO as output of the actor you should set ualpython in synchronous mode. &lt;/p&gt;&#10;	&lt;p&gt;IMPORTANT NOTE 2: as for FC2K actors, all output CPOs are written in the same pulsefile/database, this one is given by the very first input CPO.&lt;/p&gt;&#10;&#10;	&lt;p&gt;ADVANCED USERS: for writting CPOs that are NOT present as input (it can be another type of CPO, or another instance of a type already present as input), please follow the same rules for naming the python variable (type of the CPO + a number) as for input CPOs, but with a different number. Here is an example based of the inputs stated above: having &quot;equilibrium0&quot;, &quot;coreprof0&quot; and &quot;equilibrium1&quot; as input variables, the first additional output port can be named &quot;equilibrium1/1&quot; to specify writting in the same pulsefile as the second equilibrium input and in occurrence 1 for this CPO. Then a new mhd CPO can be outputed by specifying for instance &quot;mhd0/1&quot; as the name of the output port for this CPO. This implies that the mhd0 variable exists in python and as been set and filled by the developer of the script. This can be done as the following: &quot;mhd0 = ual.mhd.mhdArray()&quot; and then &quot;mhd0.resize(desired_nb_of_slices)&quot;.&lt;/p&gt;&#10;&#10;&lt;p&gt;&#10;Passing workflow's parameters valuse to Python script is possible via parameters property. This list can contain parameters that are defined on the workflow. List of parameters should be specified as comma separated list of parametes names. Each parameter is retrieved from the workflow and it's name and value is passed inside dictionary withing python script. The name of the dictionary is 'parameters'. Note! If you specify wrong name of the parameter, it will not occur in script.&#10;&lt;/p&gt;&#10;&#10;	&lt;p&gt;For more information on usage of the Python UAL interface, please refer to its manual in the Python Visualization project under ITM gforge (http://portal.efda-itm.eu/gf/download/docmanfileversion/108/911/ual-python-doc.pdf).&lt;/p&gt;&#10;      ">
-                </property>
-                <property name="author" class="ptolemy.kernel.util.StringAttribute" value="ISIP (by EUFORIA)">
-                </property>
-                <property name="version" class="ptolemy.kernel.util.StringAttribute" value="4.10b, 01.09.2014">
-                </property>
-                <property name="pyincposlice (parameter)" class="ptolemy.data.expr.StringParameter" value="If this option is enabled, all input CPOs are read in slice mode, at the time given through the time_in port.">
-                </property>
-                <property name="pyoutcposlice (parameter)" class="ptolemy.data.expr.StringParameter" value="If this option is enabled, all output CPOs are written in slice mode. In case the associated python variable contains several slices, the first one is written.">
-                </property>
-                <property name="pysync (parameter)" class="ptolemy.data.expr.StringParameter" value="Switch on the synchronized mode: wait for python process to terminate, mandatory when outputs contain CPOs.">
-                </property>
-                <property name="pydebug (parameter)" class="ptolemy.data.expr.StringParameter" value="Switch on the debug mode (implies sync mode): print python standard output and the actual python script which has been executed.">
-                </property>
-                <property name="pywait (parameter)" class="ptolemy.data.expr.StringParameter" value="Switch off to allow killing python running process (e.g matplotlib window before it is closed) automatically at the end of the workflow.">
-                </property>
-                <property name="parameters (comma separated) (parameter)" class="ptolemy.data.expr.StringParameter" value="This list can contain parameters that are defined on the workflow. List of parameters should be specified as comma separated list of parametes names. Each parameter is retrieved from the workflow and it's name and value is passed inside dictionary withing python script. The name of the dictionary is 'parameters'. Note! If you specify wrong name of the parameter, it will not occur in script.">
-                </property>
-                <property name="inputScript (port)" class="ptolemy.kernel.util.StringAttribute" value="File containing the Python script (for example given by a FileReader actor).">
-                </property>
-                <property name="time_in (port)" class="ptolemy.kernel.util.StringAttribute" value="Time at which the input CPOs are read, when slice mode is used.">
-                </property>
-                <property name="iter_in (port)" class="ptolemy.kernel.util.StringAttribute" value="Only used when output CPOs are written in slice mode. If the passed value is 1 (one), it writes first the non-timed values of the CPO (this will erase previous data for this CPO). Else it just writes the time-dependent values. This is similar to FC2K actors.">
-                </property>
-                <property name="time_out (port)" class="ptolemy.kernel.util.StringAttribute" value="Output time value is equal to input time value. This is similar to FC2K actors.">
-                </property>
-                <property name="outputError (port)" class="ptolemy.kernel.util.StringAttribute" value="Error stream, used only in debug mode: returns standard output and error from the Python process, and gives the actual executed script (be aware that the actor is blocking when in debug mode).">
-                </property>
-                <property name="pyoutidx (parameter)" class="ptolemy.data.expr.StringParameter" value="(only in expert mode) Allow to choose a different mode for setting pulsefile of output CPOs: when it is checked (default) ouput pulsefile is same as first INPUT CPO (as FC2K), when it is un-checked, output pulsefile is given by the first output CPO which is then mandatory linked to an input CPO (but not automatically the first input CPO)">
-                </property>
-            </property>
 <property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
 <property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
 <property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>ISIP (by EUFORIA)</configure></property>
 <property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>4.10b, 01.09.2014</configure></property>
 <property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;	&lt;p&gt;The ualpython enables manipulation of CPOs with the Python UAL interface. It also provides Matplotlib plotting capabilities by using a standard Python shell for interpretation of Python commands and scripts. Note that the manipulated CPO should be given into a new input port, it is up to the user to add this port (there are no restrictions to input port names for CPOs).&lt;/p&gt;&#10;	The actor can be used in two ways:&#10;	&lt;p&gt;- the user provides a Python script written in a file as input. For this mode, connect a FileReader actor at the inputScript port of the ualpython.&lt;/p&gt; &#10;	&lt;p&gt;- the user writes Python commands direclty in parameters of the ualpython. Double-click on the actor (or right-click on it and select Configure Actor) to access the text box where you can write the Python commands.&lt;/p&gt;&#10;&#10;	&lt;p&gt;***** Note about how to program in python from the ualpython actor *****&lt;/p&gt;&#10;&#10;	&lt;p&gt;The actor get CPO data automatically into a &quot;cponameX&quot; variable (always an array, that will contain only 1 element in slice mode), where &quot;cponame&quot; is the type of the CPO (equilibrium, coreprof, mhd, etc...) and &quot;X&quot; is a number representing the position of the CPO amongst all inputs of the same type. For instance if there are 3 input CPOs in the order equilibrium, coreprof, equilibrium, the associated python variables will be named respectively &quot;equilibrium0&quot;, &quot;coreprof0&quot; and &quot;equilibrium1&quot;.&lt;/p&gt;&#10;	&lt;p&gt;Some python packages are already imported and ready to be used. Here is the list: &quot;import pylab&quot;, &quot;import ual&quot;, &quot;from numpy import *&quot;, &quot;import sys&quot;, &quot;import copy&quot;. For instance, for plotting with matplotlib you can call &quot;pylab.plot(some_data)&quot; and &quot;pylab.show()&quot;.&lt;/p&gt;&#10;	&lt;p&gt;A dictionary &quot;cpo_in&quot; has been added for easy manipulation of all input CPOs of a given type: &quot;cpo_in['equilibrium']&quot; contains the list of all equilibrium variables got from input ports.&lt;/p&gt;&#10;&#10;	&lt;p&gt;You can also add output port for CPOs by respecting strictly the following naming convention: the port should be named by the name of the CPO variable in python. For writting a CPO present as input, simply put the name of the corresponding python variable (defined as explained previously). When the CPO has to be written into an occurrence different than the default one, then &quot;/Y&quot; as to be concatenated to the name of the variable (where &quot;Y&quot; is the occurrence number). In time slice mode of output CPOs, all CPOs are written at the time specified in the &quot;time_in&quot; input port (similar to FC2K).&lt;/p&gt;&#10;	&lt;p&gt;IMPORTANT NOTE 1: python process is asynchronous with the actor, so if you have CPO as output of the actor you should set ualpython in synchronous mode. &lt;/p&gt;&#10;	&lt;p&gt;IMPORTANT NOTE 2: as for FC2K actors, all output CPOs are written in the same pulsefile/database, this one is given by the very first input CPO.&lt;/p&gt;&#10;&#10;	&lt;p&gt;ADVANCED USERS: for writting CPOs that are NOT present as input (it can be another type of CPO, or another instance of a type already present as input), please follow the same rules for naming the python variable (type of the CPO + a number) as for input CPOs, but with a different number. Here is an example based of the inputs stated above: having &quot;equilibrium0&quot;, &quot;coreprof0&quot; and &quot;equilibrium1&quot; as input variables, the first additional output port can be named &quot;equilibrium1/1&quot; to specify writting in the same pulsefile as the second equilibrium input and in occurrence 1 for this CPO. Then a new mhd CPO can be outputed by specifying for instance &quot;mhd0/1&quot; as the name of the output port for this CPO. This implies that the mhd0 variable exists in python and as been set and filled by the developer of the script. This can be done as the following: &quot;mhd0 = ual.mhd.mhdArray()&quot; and then &quot;mhd0.resize(desired_nb_of_slices)&quot;.&lt;/p&gt;&#10;&#10;&lt;p&gt;&#10;Passing workflow's parameters valuse to Python script is possible via parameters property. This list can contain parameters that are defined on the workflow. List of parameters should be specified as comma separated list of parametes names. Each parameter is retrieved from the workflow and it's name and value is passed inside dictionary withing python script. The name of the dictionary is 'parameters'. Note! If you specify wrong name of the parameter, it will not occur in script.&#10;&lt;/p&gt;&#10;&#10;	&lt;p&gt;For more information on usage of the Python UAL interface, please refer to its manual in the Python Visualization project under ITM gforge (http://portal.efda-itm.eu/gf/download/docmanfileversion/108/911/ual-python-doc.pdf).&lt;/p&gt;&#10;      </configure></property>
 <property name="port:iter_in" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Only used when output CPOs are written in slice mode. If the passed value is 1 (one), it writes first the non-timed values of the CPO (this will erase previous data for this CPO). Else it just writes the time-dependent values. This is similar to FC2K actors.</configure></property>
+<property name="port:temporary1" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="port:outputError" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Error stream, used only in debug mode: returns standard output and error from the Python process, and gives the actual executed script (be aware that the actor is blocking when in debug mode).</configure></property>
 <property name="port:inputScript" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>File containing the Python script (for example given by a FileReader actor).</configure></property>
+<property name="port:distribution0" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="port:time_out" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Output time value is equal to input time value. This is similar to FC2K actors.</configure></property>
 <property name="port:time_in" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Time at which the input CPOs are read, when slice mode is used.</configure></property>
-<property name="prop:pydebug" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Switch on the debug mode (implies sync mode): print python standard output and the actual python script which has been executed.</configure></property>
-<property name="prop:pyoutcposlice" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If this option is enabled, all output CPOs are written in slice mode. In case the associated python variable contains several slices, the first one is written.</configure></property>
-<property name="prop:pyoutidx" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>(only in expert mode) Allow to choose a different mode for setting pulsefile of output CPOs: when it is checked (default) ouput pulsefile is same as first INPUT CPO (as FC2K), when it is un-checked, output pulsefile is given by the first output CPO which is then mandatory linked to an input CPO (but not automatically the first input CPO)</configure></property>
-<property name="prop:pysync" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Switch on the synchronized mode: wait for python process to terminate, mandatory when outputs contain CPOs.</configure></property>
+<property name="prop:pyincposlice" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If this option is enabled, all input CPOs are read in slice mode, at the time given through the time_in port.</configure></property>
+<property name="prop:derivedFrom" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
 <property name="prop:pywait" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Switch off to allow killing python running process (e.g matplotlib window before it is closed) automatically at the end of the workflow.</configure></property>
 <property name="prop:parameters (comma separated)" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>This list can contain parameters that are defined on the workflow. List of parameters should be specified as comma separated list of parametes names. Each parameter is retrieved from the workflow and it's name and value is passed inside dictionary withing python script. The name of the dictionary is 'parameters'. Note! If you specify wrong name of the parameter, it will not occur in script.</configure></property>
-<property name="prop:pyincposlice" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If this option is enabled, all input CPOs are read in slice mode, at the time given through the time_in port.</configure></property>
-</property>            <port name="distribution0" class="ptolemy.actor.TypedIOPort">
+<property name="prop:pysync" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Switch on the synchronized mode: wait for python process to terminate, mandatory when outputs contain CPOs.</configure></property>
+<property name="prop:pyoutcposlice" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>If this option is enabled, all output CPOs are written in slice mode. In case the associated python variable contains several slices, the first one is written.</configure></property>
+<property name="prop:script" class="ptolemy.kernel.util.ConfigurableAttribute"><configure></configure></property>
+<property name="prop:pydebug" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Switch on the debug mode (implies sync mode): print python standard output and the actual python script which has been executed.</configure></property>
+<property name="prop:pyoutidx" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>(only in expert mode) Allow to choose a different mode for setting pulsefile of output CPOs: when it is checked (default) ouput pulsefile is same as first INPUT CPO (as FC2K), when it is un-checked, output pulsefile is given by the first output CPO which is then mandatory linked to an input CPO (but not automatically the first input CPO)</configure></property>
+</property>            <property name="" class="ptolemy.vergil.basic.DocAttribute">
+                <property name="author" class="ptolemy.kernel.util.StringAttribute" value="ISIP (by EUFORIA)">
+                </property>
+                <property name="version" class="ptolemy.kernel.util.StringAttribute" value="4.10b, 01.09.2014">
+                </property>
+                <property name="since" class="ptolemy.kernel.util.StringAttribute">
+                </property>
+                <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&#10;	&lt;p&gt;The ualpython enables manipulation of CPOs with the Python UAL interface. It also provides Matplotlib plotting capabilities by using a standard Python shell for interpretation of Python commands and scripts. Note that the manipulated CPO should be given into a new input port, it is up to the user to add this port (there are no restrictions to input port names for CPOs).&lt;/p&gt;&#10;	The actor can be used in two ways:&#10;	&lt;p&gt;- the user provides a Python script written in a file as input. For this mode, connect a FileReader actor at the inputScript port of the ualpython.&lt;/p&gt; &#10;	&lt;p&gt;- the user writes Python commands direclty in parameters of the ualpython. Double-click on the actor (or right-click on it and select Configure Actor) to access the text box where you can write the Python commands.&lt;/p&gt;&#10;&#10;	&lt;p&gt;***** Note about how to program in python from the ualpython actor *****&lt;/p&gt;&#10;&#10;	&lt;p&gt;The actor get CPO data automatically into a &quot;cponameX&quot; variable (always an array, that will contain only 1 element in slice mode), where &quot;cponame&quot; is the type of the CPO (equilibrium, coreprof, mhd, etc...) and &quot;X&quot; is a number representing the position of the CPO amongst all inputs of the same type. For instance if there are 3 input CPOs in the order equilibrium, coreprof, equilibrium, the associated python variables will be named respectively &quot;equilibrium0&quot;, &quot;coreprof0&quot; and &quot;equilibrium1&quot;.&lt;/p&gt;&#10;	&lt;p&gt;Some python packages are already imported and ready to be used. Here is the list: &quot;import pylab&quot;, &quot;import ual&quot;, &quot;from numpy import *&quot;, &quot;import sys&quot;, &quot;import copy&quot;. For instance, for plotting with matplotlib you can call &quot;pylab.plot(some_data)&quot; and &quot;pylab.show()&quot;.&lt;/p&gt;&#10;	&lt;p&gt;A dictionary &quot;cpo_in&quot; has been added for easy manipulation of all input CPOs of a given type: &quot;cpo_in['equilibrium']&quot; contains the list of all equilibrium variables got from input ports.&lt;/p&gt;&#10;&#10;	&lt;p&gt;You can also add output port for CPOs by respecting strictly the following naming convention: the port should be named by the name of the CPO variable in python. For writting a CPO present as input, simply put the name of the corresponding python variable (defined as explained previously). When the CPO has to be written into an occurrence different than the default one, then &quot;/Y&quot; as to be concatenated to the name of the variable (where &quot;Y&quot; is the occurrence number). In time slice mode of output CPOs, all CPOs are written at the time specified in the &quot;time_in&quot; input port (similar to FC2K).&lt;/p&gt;&#10;	&lt;p&gt;IMPORTANT NOTE 1: python process is asynchronous with the actor, so if you have CPO as output of the actor you should set ualpython in synchronous mode. &lt;/p&gt;&#10;	&lt;p&gt;IMPORTANT NOTE 2: as for FC2K actors, all output CPOs are written in the same pulsefile/database, this one is given by the very first input CPO.&lt;/p&gt;&#10;&#10;	&lt;p&gt;ADVANCED USERS: for writting CPOs that are NOT present as input (it can be another type of CPO, or another instance of a type already present as input), please follow the same rules for naming the python variable (type of the CPO + a number) as for input CPOs, but with a different number. Here is an example based of the inputs stated above: having &quot;equilibrium0&quot;, &quot;coreprof0&quot; and &quot;equilibrium1&quot; as input variables, the first additional output port can be named &quot;equilibrium1/1&quot; to specify writting in the same pulsefile as the second equilibrium input and in occurrence 1 for this CPO. Then a new mhd CPO can be outputed by specifying for instance &quot;mhd0/1&quot; as the name of the output port for this CPO. This implies that the mhd0 variable exists in python and as been set and filled by the developer of the script. This can be done as the following: &quot;mhd0 = ual.mhd.mhdArray()&quot; and then &quot;mhd0.resize(desired_nb_of_slices)&quot;.&lt;/p&gt;&#10;&#10;&lt;p&gt;&#10;Passing workflow's parameters valuse to Python script is possible via parameters property. This list can contain parameters that are defined on the workflow. List of parameters should be specified as comma separated list of parametes names. Each parameter is retrieved from the workflow and it's name and value is passed inside dictionary withing python script. The name of the dictionary is 'parameters'. Note! If you specify wrong name of the parameter, it will not occur in script.&#10;&lt;/p&gt;&#10;&#10;	&lt;p&gt;For more information on usage of the Python UAL interface, please refer to its manual in the Python Visualization project under ITM gforge (http://portal.efda-itm.eu/gf/download/docmanfileversion/108/911/ual-python-doc.pdf).&lt;/p&gt;&#10;      ">
+                </property>
+                <property name="iter_in (port)" class="ptolemy.kernel.util.StringAttribute" value="Only used when output CPOs are written in slice mode. If the passed value is 1 (one), it writes first the non-timed values of the CPO (this will erase previous data for this CPO). Else it just writes the time-dependent values. This is similar to FC2K actors.">
+                </property>
+                <property name="temporary1 (port)" class="ptolemy.kernel.util.StringAttribute">
+                </property>
+                <property name="outputError (port)" class="ptolemy.kernel.util.StringAttribute" value="Error stream, used only in debug mode: returns standard output and error from the Python process, and gives the actual executed script (be aware that the actor is blocking when in debug mode).">
+                </property>
+                <property name="inputScript (port)" class="ptolemy.kernel.util.StringAttribute" value="File containing the Python script (for example given by a FileReader actor).">
+                </property>
+                <property name="distribution0 (port)" class="ptolemy.kernel.util.StringAttribute">
+                </property>
+                <property name="time_out (port)" class="ptolemy.kernel.util.StringAttribute" value="Output time value is equal to input time value. This is similar to FC2K actors.">
+                </property>
+                <property name="time_in (port)" class="ptolemy.kernel.util.StringAttribute" value="Time at which the input CPOs are read, when slice mode is used.">
+                </property>
+                <property name="pyincposlice (parameter)" class="ptolemy.data.expr.StringParameter" value="If this option is enabled, all input CPOs are read in slice mode, at the time given through the time_in port.">
+                </property>
+                <property name="derivedFrom (parameter)" class="ptolemy.data.expr.StringParameter" value="">
+                </property>
+                <property name="pywait (parameter)" class="ptolemy.data.expr.StringParameter" value="Switch off to allow killing python running process (e.g matplotlib window before it is closed) automatically at the end of the workflow.">
+                </property>
+                <property name="parameters (comma separated) (parameter)" class="ptolemy.data.expr.StringParameter" value="This list can contain parameters that are defined on the workflow. List of parameters should be specified as comma separated list of parametes names. Each parameter is retrieved from the workflow and it's name and value is passed inside dictionary withing python script. The name of the dictionary is 'parameters'. Note! If you specify wrong name of the parameter, it will not occur in script.">
+                </property>
+                <property name="pysync (parameter)" class="ptolemy.data.expr.StringParameter" value="Switch on the synchronized mode: wait for python process to terminate, mandatory when outputs contain CPOs.">
+                </property>
+                <property name="pyoutcposlice (parameter)" class="ptolemy.data.expr.StringParameter" value="If this option is enabled, all output CPOs are written in slice mode. In case the associated python variable contains several slices, the first one is written.">
+                </property>
+                <property name="script (parameter)" class="ptolemy.data.expr.StringParameter" value="">
+                </property>
+                <property name="pydebug (parameter)" class="ptolemy.data.expr.StringParameter" value="Switch on the debug mode (implies sync mode): print python standard output and the actual python script which has been executed.">
+                </property>
+                <property name="pyoutidx (parameter)" class="ptolemy.data.expr.StringParameter" value="(only in expert mode) Allow to choose a different mode for setting pulsefile of output CPOs: when it is checked (default) ouput pulsefile is same as first INPUT CPO (as FC2K), when it is un-checked, output pulsefile is given by the first output CPO which is then mandatory linked to an input CPO (but not automatically the first input CPO)">
+                </property>
+            </property>
+            <port name="distribution0" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
                 <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
                 </property>
             </port>
-            <port name="runaway_rates1" class="ptolemy.actor.TypedIOPort">
+            <port name="temporary0" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
                 <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
                 </property>
@@ -6245,13 +6259,81 @@
                 </property>
             </port>
         </entity>
+        <entity name="Display" class="ptolemy.actor.lib.gui.Display">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={770, 650, 451, 207}, maximized=false}">
+            </property>
+            <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+            </property>
+            <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
+            </property>
+            <property name="columnsDisplayed" class="ptolemy.data.expr.Parameter" value="40">
+            </property>
+            <property name="suppressBlankLines" class="ptolemy.data.expr.Parameter" value="false">
+            </property>
+            <property name="title" class="ptolemy.data.expr.StringParameter" value="">
+            </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong, Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Display actor reads tokens of any type via its input multiport, and displays each token on a separate line in a text display window.&lt;/p&gt;&#10;&#10;&lt;p&gt;Specify the size of the text display window with the rowsDisplayed and columnsDisplayed parameters. Simply resizing the window onscreen does not persistently change the size when the workflow is saved, closed, and then re-opened. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the input is a string token, then the actor strips the surrounding quotation marks before displaying the value.&lt;/p&gt; &#10;&#10;&lt;p&gt;Select the suppressBlankLines parameter to specify that the actor not add blank lines to the display. By default, the actor will add blank lines.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: this actor can consume large amounts of memory. It is not advisable to use it to display large output streams.&lt;/p&gt;</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts tokens of any type.</configure></property>
+<property name="prop:suppressBlankLines" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether the actor should display blank lines (the default) or suppress them.</configure></property>
+<property name="prop:rowsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The vertical size of the display, in rows. The value is an integer that defaults to 10.</configure></property>
+<property name="prop:columnsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The horizontal size of the display, in columns. The value is an integer that defaults to 40.</configure></property>
+<property name="prop:title" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The title of the text display window. If specified, the value will appear in the title bar of the text display window.</configure></property>
+</property>            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:7:1">
+            </property>
+            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.Display">
+                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:883:1">
+                </property>
+            </property>
+            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#TextualOutputActor">
+            </property>
+            <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#TextualOutput">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{2265, 4005}">
+            </property>
+        </entity>
+        <entity name="cpocontent" class="eu.itm.cpocontent.cpocontent">
+            <property name="verbose" class="ptolemy.data.expr.Parameter" value="false">
+                <display name="Verbose mode"/>
+            </property>
+            <property name="treeview" class="ptolemy.data.expr.Parameter" value="true">
+                <display name="Treeview mode"/>
+            </property>
+            <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:efda-itm.eu:actor:6:1">
+            </property>
+            <property name="class" class="ptolemy.kernel.util.StringAttribute" value="eu.itm.cpocontent.cpocontent">
+                <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:efda-itm.eu:class:6:1">
+                </property>
+            </property>
+            <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ISIPActor">
+            </property>
+            <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#ISIP">
+            </property>
+            <property name="prop:verbMode" class="ptolemy.kernel.util.ConfigurableAttribute">
+                <configure>print also fields which do not contain stored data</configure>
+            </property>
+            <property name="prop:treeMode" class="ptolemy.kernel.util.ConfigurableAttribute">
+                <configure>print fields hierarchy instead of full path</configure>
+            </property>
+            <property name="_showName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{2000, 4130}">
+            </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>ISIP</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>$Revision: 152 $</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;Displays all the fields that are not empty in the input CPO&lt;/p&gt;&#10;</configure></property>
+<property name="port:cpo" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>cpo to be explored</configure></property>
+</property>        </entity>
         <relation name="relation10" class="ptolemy.actor.TypedIORelation">
             <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
             </property>
             <vertex name="vertex1" value="[1930.0, 3785.0]">
             </vertex>
-        </relation>
-        <relation name="relation24" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation25" class="ptolemy.actor.TypedIORelation">
             <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
@@ -6369,9 +6451,17 @@
             <vertex name="vertex1" value="[1705.25, 4060.0]">
             </vertex>
         </relation>
+        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
+            <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+            </property>
+            <vertex name="vertex1" value="[2235.0, 3560.0]">
+            </vertex>
+        </relation>
+        <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="input_bundle" relation="relation38"/>
-        <link port="output_bundle" relation="relation24"/>
-        <link port="Pass input bundle.output" relation="relation24"/>
+        <link port="output_bundle" relation="relation12"/>
+        <link port="Pass input bundle.output" relation="relation12"/>
         <link port="Pass input bundle.in" relation="relation7"/>
         <link port="Pass input bundle.distribution" relation="relation25"/>
         <link port="Message composer.runaway_warning" relation="relation3"/>
@@ -6415,12 +6505,15 @@
         <link port="runafluid_python_plotter.inputScript" relation="relation16"/>
         <link port="runafluid_python_plotter.time_in" relation="relation27"/>
         <link port="runafluid_python_plotter.iter_in" relation="relation48"/>
+        <link port="runafluid_python_plotter.outputError" relation="relation9"/>
         <link port="runafluid_python_plotter.distribution0" relation="relation25"/>
-        <link port="runafluid_python_plotter.runaway_rates1" relation="relation10"/>
+        <link port="runafluid_python_plotter.temporary0" relation="relation10"/>
         <link port="read_python_plotter.file" relation="relation8"/>
         <link port="read_python_plotter.content" relation="relation16"/>
         <link port="python_plotter_filename.output" relation="relation8"/>
         <link port="python_plotter_filename.in" relation="relation6"/>
+        <link port="Display.input" relation="relation9"/>
+        <link port="cpocontent.cpo" relation="relation10"/>
         <link relation1="relation31" relation2="relation35"/>
         <link relation1="relation31" relation2="relation41"/>
         <link relation1="relation35" relation2="relation36"/>
