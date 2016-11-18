@@ -9,14 +9,14 @@ plt.plot(rho_tor_norm, runaway_density)
 plt.xlabel('normalised rho tor')
 plt.ylabel('runaway density [1/m3$] ')
 fig1.show()
-fig1.savefig('plot_density.pdf', format='pdf')
+fig1.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_density.pdf')
 
 fig2=plt.figure(2)
 plt.plot(rho_tor_norm, runaway_current)
 plt.xlabel('normalised rho tor')
 plt.ylabel('runaway current [A/m3] ')
 fig2.show()
-fig2.savefig('plot_current.pdf', format='pdf')
+fig2.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_current.pdf')
 
 # Three subplots sharing both x/y axes
 #fig3, (ax1, ax2, ax3) = plt.subplots(3, sharex=True, sharey=True)
