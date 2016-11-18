@@ -1,20 +1,23 @@
 import matplotlib.pyplot as plt
 
 rho_tor_norm = distribution0[0].distri_vec[0].profiles_1d.geometry.rho_tor_norm
-runaway_density = distribution0[0].distri_vec[0].profiles_1d.state.dens
-runaway_current = distribution0[0].distri_vec[0].profiles_1d.state.current
 
-dreicer_rate = temporary0[0].timed.float1d[0].value
-dreicer_rate63 = temporary0[0].timed.float1d[2].value
-dreicer_rate66 = temporary0[0].timed.float1d[3].value
-dreicer_rate67 = temporary0[0].timed.float1d[4].value
+indices = np.where(rho_tor_norm < 0.95)[0]
+
+runaway_density = distribution0[0].distri_vec[0].profiles_1d.state.dens[indices]
+runaway_current = distribution0[0].distri_vec[0].profiles_1d.state.current[indices]
+
+dreicer_rate = temporary0[0].timed.float1d[0].value[indices]
+dreicer_rate63 = temporary0[0].timed.float1d[2].value[indices]
+dreicer_rate66 = temporary0[0].timed.float1d[3].value[indices]
+dreicer_rate67 = temporary0[0].timed.float1d[4].value[indices]
 
 
-avalanche_rate = temporary0[0].timed.float1d[1].value
-avalanche_rate_lin = temporary0[0].timed.float1d[12].value
-avalanche_rate_thr = temporary0[0].timed.float1d[13].value
+avalanche_rate = temporary0[0].timed.float1d[1].value[indices]
+avalanche_rate_lin = temporary0[0].timed.float1d[12].value[indices]
+avalanche_rate_thr = temporary0[0].timed.float1d[13].value[indices]
 
-rel_efield = temporary0[0].timed.float1d[19].value
+rel_efield = temporary0[0].timed.float1d[19].value[indices]
 
 
 fig1=plt.figure(1)
