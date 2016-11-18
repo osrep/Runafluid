@@ -5,9 +5,9 @@ runaway_density = distribution0[0].distri_vec[0].profiles_1d.state.dens
 runaway_current = distribution0[0].distri_vec[0].profiles_1d.state.current
 
 dreicer_rate = temporary0[0].timed.float1d[0].value
-dreicer_rate63 = temporary0[0].timed.float1d[0].value
-dreicer_rate66 = temporary0[0].timed.float1d[0].value
-dreicer_rate67 = temporary0[0].timed.float1d[0].value
+dreicer_rate63 = temporary0[0].timed.float1d[2].value
+dreicer_rate66 = temporary0[0].timed.float1d[3].value
+dreicer_rate67 = temporary0[0].timed.float1d[4].value
 
 
 fig1=plt.figure(1)
