@@ -4,6 +4,9 @@ rho_tor_norm = distribution0[0].distri_vec[0].profiles_1d.geometry.rho_tor_norm
 runaway_density = distribution0[0].distri_vec[0].profiles_1d.state.dens
 runaway_current = distribution0[0].distri_vec[0].profiles_1d.state.current
 
+dreicer_rate = runaway_rates1[0].timed.float1d[0].value
+
+
 fig1=plt.figure(1)
 plt.plot(rho_tor_norm, runaway_density)
 plt.xlabel('normalised rho tor')
@@ -18,6 +21,19 @@ plt.ylabel('runaway current [A/m3] ')
 fig2.show()
 fig2.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_current.pdf')
 
+
+
+fig3=plt.figure(3)
+plt.plot(rho_tor_norm, runaway_current)
+plt.xlabel('normalised rho tor')
+plt.ylabel('Dreicer rate [1/m3s] ')
+fig3.show()
+fig3.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_dreicer.pdf')
+
+
+
+
+
 # Three subplots sharing both x/y axes
 #fig3, (ax1, ax2, ax3) = plt.subplots(3, sharex=True, sharey=True)
 #ax1.plot(rho_tor_norm, runaway_density)
@@ -28,5 +44,7 @@ fig2.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_current.pdf')
 # all but bottom plot.
 #fig3.subplots_adjust(hspace=0)
 #plt.setp([a.get_xticklabels() for a in fig3.axes[:-1]], visible=False)
+
+#fig3.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_current.pdf')
 
 #raw_input()
