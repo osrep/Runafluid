@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 rho_tor_norm = distribution0[0].distri_vec[0].profiles_1d.geometry.rho_tor_norm
 
-indices = np.where(rho_tor_norm < 0.95)[0]
+indices = where(rho_tor_norm < 0.95)[0]
 
 runaway_density = distribution0[0].distri_vec[0].profiles_1d.state.dens[indices]
 runaway_current = distribution0[0].distri_vec[0].profiles_1d.state.current[indices]
