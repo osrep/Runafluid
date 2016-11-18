@@ -37,12 +37,12 @@ fig3.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_dreicer.pdf')
 
 
 fig4=plt.figure(4)
-plt.plot(rho_tor_norm, dreicer_rate67, legend='H&C (67)')
-plt.plot(rho_tor_norm, dreicer_rate66, legend='H&C (66)')
-plt.plot(rho_tor_norm, dreicer_rate63, legend='H&C (63)')
+plt.plot(rho_tor_norm, dreicer_rate67, label='H&C (67)')
+plt.plot(rho_tor_norm, dreicer_rate66, label='H&C (66)')
+plt.plot(rho_tor_norm, dreicer_rate63, label='H&C (63)')
 plt.xlabel('normalised rho tor')
 plt.ylabel('Dreicer rate [1/m3s] ')
-plt.legend()
+plt.legend(loc=2)
 fig4.show()
 fig4.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_dreicer_all.pdf')
 
