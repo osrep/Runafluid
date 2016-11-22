@@ -16,8 +16,11 @@ F90INCLUDES = -I$(UAL)/include/amd64_ifort
 all:   libRunafluid.a libEfieldEdit.a
 
 # test files
-t:     libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
-test:  libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
+t:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libhdf5save.a
+test:     libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libhdf5save.a
+testonly: test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libhdf5save.a
+fortran:  test/libNewDistSlice.a test/libhdf5save.a
+hdf5:     test/libhdf5save.a
  
 # Runafluid actor
 libRunafluid.a: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
@@ -55,6 +58,12 @@ test/libNewDistSlice.a: test/newdist_slice.o
 test/newdist_slice.o: test/newdist_slice.f90
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
 
+# save HDF5 (Fortran)	
+test/libhdf5save.a: test/hdf5_save.o
+	ar -rvs $@ $^
+
+test/hdf5_save.o: test/hdf5_save.f90
+	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
 
 #test/test.o: test/test.cpp
 #	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(ITMWORK)/gtest-1.7.0/include/ -c -o $@ $^
