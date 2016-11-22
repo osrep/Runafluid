@@ -59,10 +59,10 @@ test/newdist_slice.o: test/newdist_slice.f90
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
 
 # save HDF5 (Fortran)	
-test/libhdf5save.a: test/hdf5_save.o
+test/libhdf5save.a: test/hdf5save.o
 	ar -rvs $@ $^
 
-test/hdf5_save.o: test/hdf5_save.f90
+test/hdf5save.o: test/hdf5save.f90
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
 
 #test/test.o: test/test.cpp
