@@ -12,7 +12,7 @@ program diagnostic
   TYPE (TYPE_EDGE), pointer :: EDGE(:)
   TYPE (TYPE_DISTRIBUTION), pointer :: DISTRIBUTION(:)
   integer idx, idx3, i, cposize
-
+  integer :: shotnumber,runnumber
 
     integer :: idx2
     type (type_equilibrium), pointer :: equilibrium2(:)
@@ -29,6 +29,9 @@ program diagnostic
     write (*,*) "Value of z: ", equilibrium2(1)%eqgeometry%boundary(1)%z(6)
 
     call euitm_close(idx2)
+
+
+  read (*,*) shotnumber,runnumber
 
 
   write(*,*) 'Reading data'
