@@ -11,7 +11,22 @@ program diagnostic
   TYPE (TYPE_CORETRANSP), pointer :: CORETRANSP(:)
   TYPE (TYPE_EDGE), pointer :: EDGE(:)
   TYPE (TYPE_DISTRIBUTION), pointer :: DISTRIBUTION(:)
-  integer idx
+  integer idx, num_args, shotnumber, runnumber
+  
+  num_args = command_argument_count()
+  
+  if (num_args < 1) then
+     shotnumber = 28906
+  else
+     call get_command_argument(1, shotnumber)  
+  end if   
+  
+  if (num_args < 2) then
+     runnumber = 1007
+  else
+     call get_command_argument(2, runnumber)  
+  end if    
+     
 
   write(*,*) 'Reading data'
   call euitm_open('euitm',28906, 1007,idx)
