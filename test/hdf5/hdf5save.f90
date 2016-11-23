@@ -29,7 +29,7 @@ program diagnostic
      
 
   write(*,*) 'Reading data'
-  call euitm_open('euitm',28906, 1007,idx)
+  call euitm_open('euitm', shotnumber, runnumber, idx)
 
   call euitm_get(idx, 'equilibrium', equilibrium)
   call euitm_get(idx, 'coreprof', coreprof)
@@ -40,7 +40,7 @@ program diagnostic
   call euitm_close(idx)
   
   write(*,*) 'Writing data'
-  call euitm_create_hdf5('euitm',9,9998,0,0,idx)
+  call euitm_create_hdf5('euitm', shotnumber, runnumber, 0, 0, idx)
   call euitm_put(idx,"coreprof",coreprof)
   call euitm_put(idx,"equilibrium",equilibrium)
   call euitm_put(idx,"distribution",distribution)
