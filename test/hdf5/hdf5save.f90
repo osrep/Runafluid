@@ -9,6 +9,7 @@ program diagnostic
 	type (type_coreprof), pointer :: coreprof(:)
 	type (type_equilibrium), pointer :: equilibrium(:)
 	type (type_distribution), pointer :: distribution(:)
+	type (type_distsource), pointer :: distsource(:)
 	integer :: idx, num_args
 	
 	! command line input declaration
@@ -47,6 +48,7 @@ program diagnostic
 		call euitm_get(idx, 'equilibrium', equilibrium)
 		call euitm_get(idx, 'coreprof', coreprof)
 		call euitm_get(idx, 'distribution', distribution)
+		call euitm_get(idx, 'distsource', distsource)
 		call euitm_close(idx)
 	
 		! write data	
@@ -55,6 +57,7 @@ program diagnostic
 		call euitm_put(idx,"coreprof",coreprof)
 		call euitm_put(idx,"equilibrium",equilibrium)
 		call euitm_put(idx,"distribution",distribution)		
+		call euitm_put(idx,"distsource",distsource)	
 		call euitm_close(idx)
 		
 	!else
