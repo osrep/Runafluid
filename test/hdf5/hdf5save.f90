@@ -6,10 +6,11 @@ program diagnostic
 	implicit none
 
 	! data input declaration
-	type (type_coreprof), pointer :: coreprof(:)
-	type (type_equilibrium), pointer :: equilibrium(:)
+	type (type_coreprof),     pointer :: coreprof(:)
+	type (type_coresource),   pointer :: coresource(:)
+	type (type_coreimpur),    pointer :: coreimpur(:)
+	type (type_equilibrium),  pointer :: equilibrium(:)
 	type (type_distribution), pointer :: distribution(:)
-	type (type_distsource), pointer :: distsource(:)
 	integer :: idx, num_args
 	
 	! command line input declaration
@@ -35,7 +36,7 @@ program diagnostic
 	end if			
 	
 	read (shotnumber_str, *) shotnumber
-	read (runnumber_str, *) runnumber
+	read (runnumber_str, *)  runnumber
 	
 	
 	
@@ -45,19 +46,21 @@ program diagnostic
 		write(*,*) 'Reading data'
 		call euitm_open('euitm', shotnumber, runnumber, idx)
 
-		call euitm_get(idx, 'equilibrium', equilibrium)
-		call euitm_get(idx, 'coreprof', coreprof)
+		call euitm_get(idx, 'equilibrium',  equilibrium)
+		call euitm_get(idx, 'coreprof',     coreprof)
+		call euitm_get(idx, 'coresource',   coresource)
+		call euitm_get(idx, 'coreimpur',    coreimpur)
 		call euitm_get(idx, 'distribution', distribution)
-		call euitm_get(idx, 'distsource', distsource)
 		call euitm_close(idx)
 	
 		! write data	
 		write(*,*) 'Writing data'
 		call euitm_create_hdf5('euitm', shotnumber, runnumber, 0, 0, idx)
-		call euitm_put(idx,"coreprof",coreprof)
-		call euitm_put(idx,"equilibrium",equilibrium)
-		call euitm_put(idx,"distribution",distribution)		
-		call euitm_put(idx,"distsource",distsource)	
+		call euitm_put(idx, 'coreprof',     coreprof)	
+		call euitm_put(idx, 'coresource',   coresource)	
+		call euitm_get(idx, 'coreimpur',    coreimpur)
+		call euitm_put(idx, 'equilibrium',  equilibrium)
+		call euitm_put(idx, 'distribution', distribution)	
 		call euitm_close(idx)
 		
 	!else
