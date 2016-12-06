@@ -9,7 +9,7 @@ function itmplotter
 	itm.datastruc = 'euitm';
 	itm.machine = 'aug';
 	itm.shotnumber = '28906';
-	itm.runnumber='1037';
+	itm.runnumber='1027'%'1037';
 	
 	itm.timeflag = 200;%000;%200;	
 	itm.time=1e-6;%0.0046 % not used
@@ -17,7 +17,7 @@ function itmplotter
 	itm.filepath = [itm.folder,'/',itm.datastruc,'_',itm.shotnumber,'_',itm.runnumber,'.hd5'];
 
 
-	
+	if false
 	
 	% temperature plot
 	figure
@@ -63,8 +63,31 @@ function itmplotter
     xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
     ylabel('runaway current [A/m$^2$]', 'fontsize', 14,'interpreter', 'latex')    
 	legend({'runaways'}, 'fontsize', 14,'interpreter', 'latex')
+	end
 	
-	%
+	% number of timeslices and rho
+	rho_norm_mx = read_itm_rho_norm(itm);
+	[N_time, N_rho] = size(rho_norm_mx);
+	runaway_mx = zeros(N_time, N_rho);
+	size(runaway_mx)
+	
+	%for i=1:N_time	
+	%	runaway_mx(i,:) = read_itm_data_simple('runaway', itm);
+	%	i
+	%end
+	
+	disp('test')
+	[b,a,t] = read_itm_data_all('runaway', itm);
+	disp('size');size(b)
+	size(a)
+	size(t)
+	contourf(t,a,b,30,'edgecolor','none')
+	t(1:5,1:5)
+	a(1:5,1:5)
+	b(1:5,1:5)
+	
+	
+	
 	
 end
 
@@ -73,10 +96,10 @@ end
 function [data, rho_norm] = read_itm_data_simple(data_name, itm)
 
 	% time vector
-	time_cp = read_itm_time(data_name, itm);
+	time_cp = read_itm_time(itm);
 	
 	% normalised minor radius vector 
-	rho_norm_cp = read_itm_rho_norm(data_name, itm);
+	rho_norm_cp = read_itm_rho_norm(itm);
 	
 	% time index for timeslices
 	index = size(rho_norm_cp,2)*[itm.timeflag-1 itm.timeflag]+[1 0];
@@ -118,11 +141,60 @@ function [data, rho_norm] = read_itm_data_simple(data_name, itm)
 
 end
 
+%testing
+function [data, rho_norm, time_mx] = read_itm_data_all(data_name, itm)	% time vector
+	time_cp = read_itm_time(itm);
+	
+	% normalised minor radius vector 
+	rho_norm_cp = read_itm_rho_norm(itm);	
+	
+	% find data in database and set data structure for reading
+	switch data_name
+		case 'te'
+			data_path = '/coreprof/te/value'; data_mode = 0;
+		case 'ti'
+			data_path = '/coreprof/ti/value'; data_mode = 0;
+		case 'ne'
+			data_path = '/coreprof/ne/value'; data_mode = 0;
+		case 'ni'
+			data_path = '/coreprof/ni/value'; data_mode = 0;
+		case 'runaway'
+			data_path = '/coresource/values/timed/3/j'; data_mode = 1;
+		case 'total_current'
+			data_path = '/coresource/values/timed/0/j';	data_mode = 1;
+		end
+	
+	% read data from CPO vector	
+	data_cp = h5read(itm.filepath,data_path);
+	
+	% all data 	
+	s = size(rho_norm_cp');
+	
+	%time matrix from time vector
+
+	time_mx = (repmat((time_cp),1,s(1)))';	
+	
+	rho_norm = reshape(rho_norm_cp,s(1),s(2));
+	
+	switch data_mode
+		%coreprof data
+		case 0
+			data = reshape(data_cp,s(1),s(2));	
+			
+		%coresource data	
+		case 1
+			data = cell2mat(data_cp);
+			data = reshape(data,s(1),s(2));	
+			
+		end
+
+end
+
 % not working
 function [data, rho_norm] = read_itm_data(data_name, itm)
 
-	time_cp = read_itm_time(data_name, itm);
-	rho_norm_cp = read_itm_rho_norm(data_name, itm);
+	time_cp = read_itm_time(itm);
+	rho_norm_cp = read_itm_rho_norm(itm);
 	rho_norm_cp2 = reshape(rho_norm_cp,length(time_cp),[]);
 	rho_norm = interp1(time_cp,rho_norm_cp2,itm.time);
 	[rho_norm, rho_index] = sort(rho_norm);
@@ -149,20 +221,14 @@ function [data, rho_norm] = read_itm_data(data_name, itm)
 
 end
 
-% number of CPO slices
-function l = read_itm_length(data_name, itm)
-
-	time_cp = read_itm_time(data_name, itm);
-	l = length(time_cp);
-end
 
 % read time vector
-function time_cp = read_itm_time(data_name, itm)
+function time_cp = read_itm_time(itm)
 	time_cp = h5read(itm.filepath,'/coreprof/time');
 end
 
 % read normalised minor radius vector
-function rho_norm_cp = read_itm_rho_norm(data_name, itm)
+function rho_norm_cp = read_itm_rho_norm(itm)
 	rho_norm_cp = h5read(itm.filepath,'/coreprof/rho_tor_norm');
 end
 
