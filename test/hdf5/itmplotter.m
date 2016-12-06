@@ -64,6 +64,8 @@ function itmplotter
     ylabel('runaway current [A/m$^2$]', 'fontsize', 14,'interpreter', 'latex')    
 	legend({'runaways'}, 'fontsize', 14,'interpreter', 'latex')
 	
+	%
+	
 end
 
 
@@ -71,10 +73,10 @@ end
 function [data, rho_norm] = read_itm_data_simple(data_name, itm)
 
 	% time vector
-	time_cp = h5read(itm.filepath,'/coreprof/time');
+	time_cp = read_itm_time(data_name, itm);
 	
 	% normalised minor radius vector 
-	rho_norm_cp = h5read(itm.filepath,'/coreprof/rho_tor_norm');
+	rho_norm_cp = read_itm_rho_norm(data_name, itm);
 	
 	% time index for timeslices
 	index = size(rho_norm_cp,2)*[itm.timeflag-1 itm.timeflag]+[1 0];
@@ -119,8 +121,8 @@ end
 % not working
 function [data, rho_norm] = read_itm_data(data_name, itm)
 
-	time_cp = h5read(itm.filepath,'/coreprof/time');
-	rho_norm_cp = h5read(itm.filepath,'/coreprof/rho_tor_norm');
+	time_cp = read_itm_time(data_name, itm);
+	rho_norm_cp = read_itm_rho_norm(data_name, itm);
 	rho_norm_cp2 = reshape(rho_norm_cp,length(time_cp),[]);
 	rho_norm = interp1(time_cp,rho_norm_cp2,itm.time);
 	[rho_norm, rho_index] = sort(rho_norm);
@@ -150,7 +152,17 @@ end
 % number of CPO slices
 function l = read_itm_length(data_name, itm)
 
-	time_cp = h5read(itm.filepath,'/coreprof/time');
+	time_cp = read_itm_time(data_name, itm);
 	l = length(time_cp);
+end
+
+% read time vector
+function time_cp = read_itm_time(data_name, itm)
+	time_cp = h5read(itm.filepath,'/coreprof/time');
+end
+
+% read normalised minor radius vector
+function rho_norm_cp = read_itm_rho_norm(data_name, itm)
+	rho_norm_cp = h5read(itm.filepath,'/coreprof/rho_tor_norm');
 end
 
