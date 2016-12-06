@@ -3,58 +3,63 @@ function itmplotter
 	close all
 	clc
 	
+	%% Initialisation
 	%itm.folder = '.';
 	itm.folder = '~/svn/deep/trunk/go';
 	itm.datastruc = 'euitm';
 	itm.machine = 'aug';
 	itm.shotnumber = '28906';
 	itm.runnumber='1037';
-
+	
+	itm.timeflag = 200;%000;%200;	
+	itm.time=1e-6;%0.0046 % not used
+	%% Body
 	itm.filepath = [itm.folder,'/',itm.datastruc,'_',itm.shotnumber,'_',itm.runnumber,'.hd5'];
 
 
-	timeflag = 200;%000;%200;	
-	t=1e-6;%0.0046
 	
 	
+	% temperature plot
 	figure
-	[b,a] = read_itm_data_simple('ti', timeflag, itm);
+	[b,a] = read_itm_data_simple('ti', itm);
 	plot(a,b,'r-')
 	hold on
-	[b,a] = read_itm_data_simple('te', timeflag, itm);
+	[b,a] = read_itm_data_simple('te', itm);
 	plot(a,b,'--')
-	title([upper(itm.machine),' #',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
     ylabel('temperature [eV]', 'fontsize', 14,'interpreter', 'latex')    
 	legend({'$T_i$','$T_e$'}, 'fontsize', 14,'interpreter', 'latex')
 
-	
+	% density plot
 	figure
-	[b,a] = read_itm_data_simple('ni', timeflag, itm);
+	[b,a] = read_itm_data_simple('ni', itm);
 	plot(a,b,'r-')
 	hold on
-	[b,a] = read_itm_data_simple('ne', timeflag, itm);
+	[b,a] = read_itm_data_simple('ne', itm);
 	plot(a,b,'--')
-	title([upper(itm.machine),' #',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
     ylabel('density [m$^{-3}$]', 'fontsize', 14,'interpreter', 'latex')    
 	legend({'$n_i$','$n_e$'}, 'fontsize', 14,'interpreter', 'latex')
 	
+	% current plot
 	figure
-	[b,a] = read_itm_data_simple('runaway', timeflag, itm);
+	[b,a] = read_itm_data_simple('runaway', itm);
 	plot(a,b,'r-')
 	hold on
-	[b,a] = read_itm_data_simple('total_current', timeflag, itm);
+	[b,a] = read_itm_data_simple('total_current', itm);
 	plot(a,b,'--')	
-	title([upper(itm.machine),' #',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
     ylabel('current [A/m$^2$]', 'fontsize', 14,'interpreter', 'latex')    
 	legend({'runaways','total'}, 'fontsize', 14,'interpreter', 'latex')
 	
+	% runaway current plot
 	figure
-	[b,a] = read_itm_data_simple('runaway', timeflag, itm);
+	[b,a] = read_itm_data_simple('runaway', itm);
 	plot(a,b,'r-')
-	title([upper(itm.machine),' #',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
     ylabel('runaway current [A/m$^2$]', 'fontsize', 14,'interpreter', 'latex')    
 	legend({'runaways'}, 'fontsize', 14,'interpreter', 'latex')
@@ -62,16 +67,23 @@ function itmplotter
 end
 
 
+% read data from CPOs
+function [data, rho_norm] = read_itm_data_simple(data_name, itm)
 
-function [data, rho_norm] = read_itm_data_simple(data_name, timeflag, itm)
-
+	% time vector
 	time_cp = h5read(itm.filepath,'/coreprof/time');
+	
+	% normalised minor radius vector 
 	rho_norm_cp = h5read(itm.filepath,'/coreprof/rho_tor_norm');
 	
-	index = size(rho_norm_cp,2)*[timeflag-1 timeflag]+[1 0];
+	% time index for timeslices
+	index = size(rho_norm_cp,2)*[itm.timeflag-1 itm.timeflag]+[1 0];
 	index = index(1):index(2);
+	
+	% slice of normalised minor radius
 	rho_norm = rho_norm_cp(index);
 	
+	% find data in database and set data structure for reading
 	switch data_name
 		case 'te'
 			data_path = '/coreprof/te/value'; data_mode = 0;
@@ -86,24 +98,31 @@ function [data, rho_norm] = read_itm_data_simple(data_name, timeflag, itm)
 		case 'total_current'
 			data_path = '/coresource/values/timed/0/j';	data_mode = 1;
 		end
-		
+	
+	% read data from CPO vector	
 	data_cp = h5read(itm.filepath,data_path);
+	
+	% time slice 
 	switch data_mode
+		%coreprof data
 		case 0
 			data = data_cp(index);	
+			
+		%coresource data	
 		case 1
-			data = data_cp{timeflag};
+			data = data_cp{itm.timeflag};
+			
 		end
 
 end
 
-
-function [data, rho_norm] = read_itm_data(data_name, t, itm)
+% not working
+function [data, rho_norm] = read_itm_data(data_name, itm)
 
 	time_cp = h5read(itm.filepath,'/coreprof/time');
 	rho_norm_cp = h5read(itm.filepath,'/coreprof/rho_tor_norm');
 	rho_norm_cp2 = reshape(rho_norm_cp,length(time_cp),[]);
-	rho_norm = interp1(time_cp,rho_norm_cp2,t);
+	rho_norm = interp1(time_cp,rho_norm_cp2,itm.time);
 	[rho_norm, rho_index] = sort(rho_norm);
 	
 	switch data_name
@@ -123,8 +142,15 @@ function [data, rho_norm] = read_itm_data(data_name, t, itm)
 		
 	data_cp = h5read(itm.filepath,data_path);
 	data_cp2 = reshape(data_cp,length(time_cp),[]);	
-	data = interp1(time_cp,data_cp2,t);
+	data = interp1(time_cp,data_cp2,itm.time);
 	data = data(rho_index);
 
+end
+
+% number of CPO slices
+function l = read_itm_length(data_name, itm)
+
+	time_cp = h5read(itm.filepath,'/coreprof/time');
+	l = length(time_cp);
 end
 
