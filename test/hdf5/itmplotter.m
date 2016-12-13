@@ -81,11 +81,28 @@ function itmplotter
 	disp('size');size(b)
 	size(a)
 	size(t)
-	contourf(t,a,b,30,'edgecolor','none')
+	
+	figure
+	contourf(t,a,b,100,'edgecolor','none')
 	t(1:5,1:5)
 	a(1:5,1:5)
 	b(1:5,1:5)
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $j_\mathrm{runaway} \mathrm{[A/m2]}$'], 'fontsize', 16,'interpreter', 'latex')
+    xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+	colorbar
 	
+	
+	[b,a,t] = read_itm_data_all('te', itm);
+	figure
+	contourf(t,a,log10(b),100,'edgecolor','none')
+	t(1:5,1:5)
+	a(1:5,1:5)
+	b(1:5,1:5)
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ T \mathrm{[eV]}$'], 'fontsize', 16,'interpreter', 'latex')
+    xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+	colorbar
 	
 	
 	
