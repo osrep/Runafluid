@@ -5,11 +5,11 @@ function itmplotter
 	
 	%% Initialisation
 	%itm.folder = '.';
-	itm.folder = '~/svn/deep/trunk/go';
+	itm.folder = '%maradi/public/aug_hdf5'%'~/svn/deep/trunk/go';
 	itm.datastruc = 'euitm';
 	itm.machine = 'aug';
 	itm.shotnumber = '28906';
-	itm.runnumber='1027'%'1037';
+	itm.runnumber='666'%'3000';
 	
 	itm.timeflag = 200;%000;%200;	
 	itm.time=1e-6;%0.0046 % not used
@@ -17,52 +17,52 @@ function itmplotter
 	itm.filepath = [itm.folder,'/',itm.datastruc,'_',itm.shotnumber,'_',itm.runnumber,'.hd5'];
 
 
-	if false
-	
-	% temperature plot
-	figure
-	[b,a] = read_itm_data_simple('ti', itm);
-	plot(a,b,'r-')
-	hold on
-	[b,a] = read_itm_data_simple('te', itm);
-	plot(a,b,'--')
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
-    xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
-    ylabel('temperature [eV]', 'fontsize', 14,'interpreter', 'latex')    
-	legend({'$T_i$','$T_e$'}, 'fontsize', 14,'interpreter', 'latex')
+	% timeslice plot
+	if false	
+		% temperature plot
+		figure
+		[b,a] = read_itm_data_simple('ti', itm);
+		plot(a,b,'r-')
+		hold on
+		[b,a] = read_itm_data_simple('te', itm);
+		plot(a,b,'--')
+		title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
+		xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+		ylabel('temperature [eV]', 'fontsize', 14,'interpreter', 'latex')    
+		legend({'$T_i$','$T_e$'}, 'fontsize', 14,'interpreter', 'latex')
 
-	% density plot
-	figure
-	[b,a] = read_itm_data_simple('ni', itm);
-	plot(a,b,'r-')
-	hold on
-	[b,a] = read_itm_data_simple('ne', itm);
-	plot(a,b,'--')
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
-    xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
-    ylabel('density [m$^{-3}$]', 'fontsize', 14,'interpreter', 'latex')    
-	legend({'$n_i$','$n_e$'}, 'fontsize', 14,'interpreter', 'latex')
+		% density plot
+		figure
+		[b,a] = read_itm_data_simple('ni', itm);
+		plot(a,b,'r-')
+		hold on
+		[b,a] = read_itm_data_simple('ne', itm);
+		plot(a,b,'--')
+		title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
+		xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+		ylabel('density [m$^{-3}$]', 'fontsize', 14,'interpreter', 'latex')    
+		legend({'$n_i$','$n_e$'}, 'fontsize', 14,'interpreter', 'latex')
 	
-	% current plot
-	figure
-	[b,a] = read_itm_data_simple('runaway', itm);
-	plot(a,b,'r-')
-	hold on
-	[b,a] = read_itm_data_simple('total_current', itm);
-	plot(a,b,'--')	
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
-    xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
-    ylabel('current [A/m$^2$]', 'fontsize', 14,'interpreter', 'latex')    
-	legend({'runaways','total'}, 'fontsize', 14,'interpreter', 'latex')
+		% current plot
+		figure
+		[b,a] = read_itm_data_simple('runaway', itm);
+		plot(a,b,'r-')
+		hold on
+		[b,a] = read_itm_data_simple('total_current', itm);
+		plot(a,b,'--')	
+		title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
+		xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+		ylabel('current [A/m$^2$]', 'fontsize', 14,'interpreter', 'latex')    
+		legend({'runaways','total'}, 'fontsize', 14,'interpreter', 'latex')
 	
-	% runaway current plot
-	figure
-	[b,a] = read_itm_data_simple('runaway', itm);
-	plot(a,b,'r-')
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
-    xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
-    ylabel('runaway current [A/m$^2$]', 'fontsize', 14,'interpreter', 'latex')    
-	legend({'runaways'}, 'fontsize', 14,'interpreter', 'latex')
+		% runaway current plot
+		figure
+		[b,a] = read_itm_data_simple('runaway', itm);
+		plot(a,b,'r-')
+		title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 16,'interpreter', 'latex')
+		xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+		ylabel('runaway current [A/m$^2$]', 'fontsize', 14,'interpreter', 'latex')    
+		legend({'runaways'}, 'fontsize', 14,'interpreter', 'latex')
 	end
 	
 	% number of timeslices and rho
@@ -70,42 +70,39 @@ function itmplotter
 	[N_time, N_rho] = size(rho_norm_mx);
 	runaway_mx = zeros(N_time, N_rho);
 	size(runaway_mx)
-	
-	%for i=1:N_time	
-	%	runaway_mx(i,:) = read_itm_data_simple('runaway', itm);
-	%	i
-	%end
-	
-	disp('test')
-	[b,a,t] = read_itm_data_all('runaway', itm);
-	disp('size');size(b)
-	size(a)
-	size(t)
-	
+		
+	% runaway current plot
+	[b,a,t] = read_itm_data_all('runaway', itm);	
 	figure
 	contourf(t,a,b,100,'edgecolor','none')
-	t(1:5,1:5)
-	a(1:5,1:5)
-	b(1:5,1:5)
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $j_\mathrm{runaway} \mathrm{[A/m2]}$'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $j_\mathrm{runaway} [\frac{\mathrm{A}}{\mathrm{m}^3}]$'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
 	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
+	saveas([itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_runaway.png'])
 	
-	
+	% electron temperature plot
 	[b,a,t] = read_itm_data_all('te', itm);
 	figure
 	contourf(t,a,log10(b),100,'edgecolor','none')
-	t(1:5,1:5)
-	a(1:5,1:5)
-	b(1:5,1:5)
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ T \mathrm{[eV]}$'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ T_\mathrm{e} \mathrm{[eV]}$'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
 	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
+	saveas([itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_te.png'])
 	
+	% electron density plot
+	[b,a,t] = read_itm_data_all('ne', itm);
+	figure
+	contourf(t,a,log10(b),100,'edgecolor','none')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ n_\mathrm{e} \mathrm{[m]}^{-3}$'], 'fontsize', 16,'interpreter', 'latex')
+    xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+	colorbar
+	saveas([itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_ne.png'])	
 	
-	
+	time_cp = read_itm_time(itm);
+    disp(['Last time: ',num2str(time_cp(end))])
 end
 
 
