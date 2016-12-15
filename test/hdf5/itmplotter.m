@@ -5,11 +5,11 @@ function itmplotter
 	
 	%% Initialisation
 	%itm.folder = '.';
-	itm.folder = '%maradi/public/aug_hdf5'%'~/svn/deep/trunk/go';
+	itm.folder = '/u/maradi/public/aug_hdf5';%'~/svn/deep/trunk/go';
 	itm.datastruc = 'euitm';
 	itm.machine = 'aug';
 	itm.shotnumber = '28906';
-	itm.runnumber='666'%'3000';
+	itm.runnumber='666';%'3000';
 	
 	itm.timeflag = 200;%000;%200;	
 	itm.time=1e-6;%0.0046 % not used
