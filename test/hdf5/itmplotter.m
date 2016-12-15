@@ -75,7 +75,7 @@ function itmplotter
 	[b,a,t] = read_itm_data_all('runaway', itm);	
 	figure
 	contourf(t,a,b,100,'edgecolor','none')
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $j_\mathrm{runaway} [\frac{\mathrm{A}}{\mathrm{m}^3}]$'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $j_\mathrm{runaway} \left[\frac{\mathrm{A}}{\mathrm{m}^3}\right]$'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
 	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
@@ -85,7 +85,7 @@ function itmplotter
 	[b,a,t] = read_itm_data_all('te', itm);
 	figure
 	contourf(t,a,log10(b),100,'edgecolor','none')
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ T_\mathrm{e} \mathrm{[eV]}$'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ T_\mathrm{e} \left[\mathrm{eV}\right]$'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
 	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
@@ -95,7 +95,7 @@ function itmplotter
 	[b,a,t] = read_itm_data_all('ne', itm);
 	figure
 	contourf(t,a,log10(b),100,'edgecolor','none')
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ n_\mathrm{e} \mathrm{[m]}^{-3}$'], 'fontsize', 16,'interpreter', 'latex')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ n_\mathrm{e} \left[\frac{1}{\mathrm{m}}\right]$'], 'fontsize', 16,'interpreter', 'latex')
     xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
 	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
