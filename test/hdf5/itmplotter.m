@@ -79,7 +79,7 @@ function itmplotter
     xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
 	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
-	saveas([itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_runaway.png'])
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_runaway.png'])
 	
 	% electron temperature plot
 	[b,a,t] = read_itm_data_all('te', itm);
@@ -89,7 +89,7 @@ function itmplotter
     xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
 	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
-	saveas([itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_te.png'])
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_te.png'])
 	
 	% electron density plot
 	[b,a,t] = read_itm_data_all('ne', itm);
@@ -99,7 +99,7 @@ function itmplotter
     xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
 	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
-	saveas([itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_ne.png'])	
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_ne.png'])	
 	
 	time_cp = read_itm_time(itm);
     disp(['Last time: ',num2str(time_cp(end))])
