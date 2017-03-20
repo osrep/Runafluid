@@ -1,7 +1,8 @@
 F90=ifort
-COPTS = -g -O0 -assume no2underscore -fPIC -shared-intel
-LIBS =   -L$(UAL)/lib  -lUALFORTRANInterface_ifort
+COPTS = -r8 -assume no2underscore  -fPIC $(shell eval-pkg-config --cflags ual-ifort) -shared-intel
+LIBS=$(shell eval-pkg-config --libs ual-ifort) -lm
 INCLUDES = -I$(UAL)/include/amd64_ifort
+
 
 all: hdf5save
 
