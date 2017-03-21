@@ -6,6 +6,7 @@ program diagnostic
 	implicit none
 
 	! data input declaration
+	type (type_topinfo),      pointer :: topinfo(:)
 	type (type_coreprof),     pointer :: coreprof(:)
 	type (type_coresource),   pointer :: coresource(:)
 	type (type_coreimpur),    pointer :: coreimpur(:)
@@ -30,7 +31,7 @@ program diagnostic
 	end if	 
 	
 	if (num_args < 2) then
-		 runnumber_str = '1007'
+		 runnumber_str = '666'
 	else
 		 call get_command_argument(2, runnumber_str)	
 	end if			
@@ -46,16 +47,18 @@ program diagnostic
 		write(*,*) 'Reading data'
 		call euitm_open('euitm', shotnumber, runnumber, idx)
 
-		call euitm_get(idx, 'equilibrium',  equilibrium)
+		call euitm_get(idx, 'topinfo',      topinfo)
 		call euitm_get(idx, 'coreprof',     coreprof)
 		call euitm_get(idx, 'coresource',   coresource)
 		call euitm_get(idx, 'coreimpur',    coreimpur)
+		call euitm_get(idx, 'equilibrium',  equilibrium)
 		call euitm_get(idx, 'distribution', distribution)
 		call euitm_close(idx)
 	
 		! write data	
 		write(*,*) 'Writing data'
 		call euitm_create_hdf5('euitm', shotnumber, runnumber, 0, 0, idx)
+		call euitm_put(idx, 'topinfo',      topinfo)	
 		call euitm_put(idx, 'coreprof',     coreprof)	
 		call euitm_put(idx, 'coresource',   coresource)	
 		call euitm_get(idx, 'coreimpur',    coreimpur)
