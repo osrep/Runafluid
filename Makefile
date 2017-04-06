@@ -1,23 +1,24 @@
 # for C++
 CXX=g++
-
 CXXFLAGS = -pthread -g -fPIC 
 CXXFLAGS+=$(shell eval-pkg-config --cflags ual-cpp-gnu)
 LDFLAGS=$(shell eval-pkg-config --libs ual-cpp-gnu)
-CXXFLAGS += -I$(ITMLIBDIR)/itmconstants/include/
+CXXFLAGS += $(shell eval-pkg-config --cflags itmconstants)
 
 # for Fortran
 F90=ifort
-F90COPTS = -g -O0 -assume no2underscore -fPIC -shared-intel
-F90LIBS =   -L$(UAL)/lib  -lUALFORTRANInterface_ifort
-F90INCLUDES = -I$(UAL)/include/amd64_ifort
+F90COPTS = -r8 -assume no2underscore  -fPIC $(shell eval-pkg-config --cflags ual-ifort) -shared-intel
+F90LIBS = $(shell eval-pkg-config --libs ual-ifort) -lm
+F90INCLUDES = $(shell eval-pkg-config --cflags ual-ifort)
 
 # all files
 all:   libRunafluid.a libEfieldEdit.a
 
 # test files
-t:     libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
-test:  libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
+t:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
+test:     libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
+testonly: test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
+fortran:  test/libNewDistSlice.a
  
 # Runafluid actor
 libRunafluid.a: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o

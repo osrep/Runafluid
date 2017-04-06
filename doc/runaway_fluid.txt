@@ -7,7 +7,7 @@ This document specifies software requirements of the Runaway Fluid (runafluid) s
 
 Intended Audience and Reading Suggestions
 
-This Software Requirements Specification (SRS) document is intended for ITM/ETS/H&CD workflow developers, and developers of runafluid module. The document describes the module runafluid, laying out functional and non-functional requirements. Purpose, overview of the module, interfaces, and CPO objects used, constraints, assumptions and dependencies, functional requirements are contained in this documentation.
+This Software Requirements Specification (SRS) document is intended for ITM/ETS/HCD workflow developers, and developers of runafluid module. The document describes the module runafluid, laying out functional and non-functional requirements. Purpose, overview of the module, interfaces, and CPO objects used, constraints, assumptions and dependencies, functional requirements are contained in this documentation.
 
 Product Scope
 
