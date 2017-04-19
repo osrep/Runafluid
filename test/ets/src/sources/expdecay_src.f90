@@ -12,11 +12,12 @@ CONTAINS
 !     ETS workflow.                                     !
 !-------------------------------------------------------!
 !     Source:       ---                                 !
-!     Developers:   D.Kalupin                           !
-!     Kontacts:     Denis.Kalupin@efda.org              !
+!     Developers:   D.Kalupin, M. Aradi                 !
+!     Contacts:     Denis.Kalupin@efda.org              !
+!                   maradi@reak.bme.hu                  !
 !                                                       !
 !     Comments:     input parameter list is specified   !
-!                   in "source_dummy.xml" file.         !
+!                   in "expdecay_dummy.xml" file.       !
 !                                                       !
 !                   output CORESOURCE CPO is            !
 !                   allocated inside the module         !
@@ -265,6 +266,10 @@ CONTAINS
       REAL(R8)             :: RCURR                      !rho position of current profile maximum [m]
       REAL(R8)             :: FWCURR                     !A full width at half maximum of the current profiles [m]
 
+
+!     EXPDECAY ELECTRON HEATING:
+      REAL(R8)             :: EXPTAU                    !Exponential decay time for heat loss [s]
+
 !     ELECTRON HEATING:
       REAL(R8)             :: WTOT_EL                    !total energy input  [W]
       REAL(R8)             :: RHEAT_EL                   !rho position of heating profile maximum [m]
@@ -297,12 +302,15 @@ CONTAINS
       TYPE (TYPE_PARAM)    :: code_parameters
 
 
-!     CALL FILL_PARAM (code_parameters, 'XML/source_dummy.xml', '', 'XML/source_dummy.xsd')
+!     CALL FILL_PARAM (code_parameters, 'XML/expdecay_dummy.xml', '', 'XML/expdecay_dummy.xsd')
 
 ! choose some defaults
+
       JNITOT       = 0.0_R8
       RCURR        = 0.0_R8  
       FWCURR       = 0.5_R8 * RHO(NRHO)
+      
+      EXPTAU       = 0.0_R8		
                
       WTOT_EL      = 0.0_R8
       RHEAT_EL     = 0.0_R8  
@@ -370,6 +378,18 @@ CONTAINS
      ELSE
         JNI = 0.0_R8
      ENDIF
+     
+     
+     
+!-------------------------------------------------------!
+! +++ Expdecay electron heating sources:
+
+     IF(EXPTAU .NE. 0.0_R8) THEN
+        QEL      = EXPTAU
+     ELSE
+        QEL = 0.0_R8
+     ENDIF
+
 
 !-------------------------------------------------------!
 ! +++ Electron heating sources:
@@ -584,6 +604,10 @@ CONTAINS
          CASE ("heating_el")
             temp_pointer => temp_pointer%child
             CYCLE
+            
+         CASE ("EXPTAU")
+            IF (ALLOCATED(temp_pointer%cvalue)) &
+                 CALL char2num(temp_pointer%cvalue, EXPTAU)
 
          CASE ("WTOT_el")
             IF (ALLOCATED(temp_pointer%cvalue)) &

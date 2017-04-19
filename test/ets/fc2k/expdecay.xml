@@ -1,8 +1,8 @@
 <generactor.ActorGenerator>
   <version>R3.0.0</version>
-  <paramFile>XML/source_dummy.xml</paramFile>
-  <defaultparamFile>XML/source_dummy.xml</defaultparamFile>
-  <paramXsdFile>XML/source_dummy.xsd</paramXsdFile>
+  <paramFile>XML/expdecay_dummy.xml</paramFile>
+  <defaultparamFile>XML/expdecay_dummy.xml</defaultparamFile>
+  <paramXsdFile>XML/expdecay_dummy.xsd</paramXsdFile>
   <fFile>obj/amd64_intel_12.debug/libsources.a</fFile>
   <mainLibraryOptim>obj/amd64_intel_12.opt/libsources.a</mainLibraryOptim>
   <HasOptim>true</HasOptim>
