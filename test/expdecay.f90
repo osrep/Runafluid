@@ -1,17 +1,17 @@
-subroutine expdecay(coreprof,equilibrium,coresource)
+subroutine expdecay(in_coreprof,in_equilibrium,out_coresource)
 
 use euitm_schemas   !use euITM_routines ! Needed only if using euitm_deallocate and euitm_copy functions
 implicit none
 integer,parameter :: DP=kind(1.0D0)
-type (type_coreprof),pointer :: coreprof(:)
-type (type_equilibrium),pointer :: equilibrium(:)
-type (type_coresource),pointer :: coresource(:)
+type (type_coreprof),pointer :: in_coreprof(:)
+type (type_equilibrium),pointer :: in_equilibrium(:)
+type (type_coresource),pointer :: out_coresource(:)
 real(DP),pointer :: time(:)
 
-allocate(coresource%codeparam%codename(1))   ! For a string of 132 characters max.
-coresource%codeparam%codename(1)   = 'expdecay'
-allocate(coresource%codeparam%codeversion(1))   ! For a string of 132 characters max.
-coresource%codeparam%codeversion(1)   = '1.0'
+allocate(out_coresource%codeparam%codename(1))   ! For a string of 132 characters max.
+out_coresource%codeparam%codename(1)   = 'expdecay'
+allocate(out_coresource%codeparam%codeversion(1))   ! For a string of 132 characters max.
+out_coresource%codeparam%codeversion(1)   = '1.0'
 
 return
 end subroutine
