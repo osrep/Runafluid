@@ -55,6 +55,15 @@ test/libNewDistSlice.a: test/newdist_slice.o
 
 test/newdist_slice.o: test/newdist_slice.f90
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
+	
+	
+	
+# expdecay coresource CPO slice (Fortran)	
+test/libExpDecay.a: test/expdecay.o
+	ar -rvs $@ $^
+
+test/expdecay.o: test/expdecay.f90
+	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
 
 
 #test/test.o: test/test.cpp
