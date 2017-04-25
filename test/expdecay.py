@@ -1,0 +1,11 @@
+coresource1.time = coresource0.time 
+coresource1.values.rho_tor = coresource0.values.rho_tor 
+coresource1.values.j = coresource0.values.j  
+coresource1.values.qe.exp = coresource0.values.qe.exp 
+coresource1.values.qe.imp = coresource0.values.qe.imp 
+coresource1.values.se.exp = coresource0.values.se.exp 
+coresource1.values.se.imp = coresource0.values.se.imp 
+#coresource1.values. = coresource0.values.  
+coresource1.values.sourceid.id = 'expdecay" 
+coresource1.values.sourceid.flag = coresource0.values.sourceid.flag  
+coresource1.values.sourceid.description = 'Exponential heat drain'
