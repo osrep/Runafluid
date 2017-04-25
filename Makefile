@@ -11,7 +11,7 @@ F90COPTS = -r8 -assume no2underscore  -fPIC $(shell eval-pkg-config --cflags ual
 F90LIBS = $(shell eval-pkg-config --libs ual-ifort) -lm
 F90INCLUDES = $(shell eval-pkg-config --cflags ual-ifort)
 ETSDIR = /marconi_work/eufus_gw/work/g2denka/ETS
-F90ETSINCLUDES = -I$ETSDIR/src/itm_tools/
+#F90ETSINCLUDES = -I$ETSDIR/src/itm_tools/
 
 # all files
 all:   libRunafluid.a libEfieldEdit.a
@@ -64,7 +64,7 @@ test/newdist_slice.o: test/newdist_slice.f90
 test/libexpdecay.a: test/expdecay.o
 	ar -rvs $@ $^
 
-test/expdecay.o: test/expdecay.f90 allocate_deallocate.f90
+test/expdecay.o: test/expdecay.f90 
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} ${F90ETSINCLUDES} $(F90LIBS)	
 
 

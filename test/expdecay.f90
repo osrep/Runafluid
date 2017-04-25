@@ -1,7 +1,7 @@
 subroutine expdecay(in_coreprof,in_equilibrium,out_coresource)
 
 use euitm_schemas   !use euITM_routines ! Needed only if using euitm_deallocate and euitm_copy functions
-use allocate_deallocate
+use euitm_routines  !allocate_deallocate
 implicit none
 integer,parameter :: DP=kind(1.0D0)
 type (type_coreprof),pointer :: in_coreprof(:)
