@@ -10,6 +10,8 @@ F90=ifort
 F90COPTS = -r8 -assume no2underscore  -fPIC $(shell eval-pkg-config --cflags ual-ifort) -shared-intel
 F90LIBS = $(shell eval-pkg-config --libs ual-ifort) -lm
 F90INCLUDES = $(shell eval-pkg-config --cflags ual-ifort)
+ETSDIR = /marconi_work/eufus_gw/work/g2denka/ETS
+F90ETSINCLUDES = -I$ETSDIR/src/itm_tools/
 
 # all files
 all:   libRunafluid.a libEfieldEdit.a
@@ -63,7 +65,7 @@ test/libexpdecay.a: test/expdecay.o
 	ar -rvs $@ $^
 
 test/expdecay.o: test/expdecay.f90
-	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} $(F90LIBS)	
+	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} ${F90ETSINCLUDES} $(F90LIBS)	
 
 
 #test/test.o: test/test.cpp
