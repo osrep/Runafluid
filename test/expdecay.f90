@@ -7,11 +7,11 @@ type (type_coreprof),pointer :: in_coreprof(:)
 type (type_equilibrium),pointer :: in_equilibrium(:)
 type (type_coresource),pointer :: out_coresource(:)
 real(DP),pointer :: time(:)
-
-allocate(out_coresource%codeparam%codename(1))   ! For a string of 132 characters max.
-out_coresource%codeparam%codename(1)   = 'expdecay'
-allocate(out_coresource%codeparam%codeversion(1))   ! For a string of 132 characters max.
-out_coresource%codeparam%codeversion(1)   = '1.0'
+allocate(out_coresource(1))
+allocate(out_coresource(1)%codeparam%codename(1))   ! For a string of 132 characters max.
+out_coresource(1)%codeparam%codename(1)   = 'expdecay'
+allocate(out_coresource(1)%codeparam%codeversion(1))   ! For a string of 132 characters max.
+out_coresource(1)%codeparam%codeversion(1)   = '1.0'
 
 return
 end subroutine
