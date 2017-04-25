@@ -8,6 +8,11 @@ type (type_equilibrium),pointer :: equilibrium(:)
 type (type_coresource),pointer :: coresource(:)
 real(DP),pointer :: time(:)
 
+allocate(coresource%codeparam%codename(1))   ! For a string of 132 characters max.
+coresource%codeparam%codename(1)   = 'expdecay'
+allocate(coresource%codeparam%codeversion(1))   ! For a string of 132 characters max.
+coresource%codeparam%codeversion(1)   = '1.0'
+
 return
 end subroutine
 
