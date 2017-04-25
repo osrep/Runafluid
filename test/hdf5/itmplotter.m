@@ -6,19 +6,36 @@ function itmplotter
 	%% Initialisation
 	%itm.folder = '.';
 	itm.folder = '/u/maradi/public/aug_hdf5';%'~/svn/deep/trunk/go';
+	itm.folder = '~/svn/GO/trunk/examples/ETS_benchmark/data/';
 	itm.datastruc = 'euitm';
 	itm.machine = 'aug';
 	itm.shotnumber = '28906';
-	itm.runnumber='666';%'3000';
+	itm.runnumber='3104';
 	
-	itm.timeflag = 200;%000;%200;	
+	itm.timeflag = 1;%000;%200;	
 	itm.time=1e-6;%0.0046 % not used
 	%% Body
 	itm.filepath = [itm.folder,'/',itm.datastruc,'_',itm.shotnumber,'_',itm.runnumber,'.hd5'];
 
 
 	% timeslice plot
-	if false	
+	
+	if true
+		figure
+		[b,a] = read_itm_data_simple('gaussian_qe', itm);
+		plot(a,b,'r-','linewidth',5)
+		hold on
+		title([upper(itm.machine),' #',itm.shotnumber,' (',itm.runnumber,')'], 'fontsize', 28,'fontname','Arial','FontWeight','bold')
+		%xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 40,'interpreter', 'latex','fontname','Arial')
+		xlabel('r/a', 'fontsize', 24,'fontname','Arial','FontWeight','bold')
+		ylabel('Electron heat source [W/m^3]', 'fontsize', 24,'fontname','Arial','FontWeight','bold')  
+		set(gca,'FontSize',18)
+	    saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_gaussian_qe.pdf'])	
+	    saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_gaussian_qe.png'])  
+		%legend({'$T_i$','$T_e$'}, 'fontsize', 14,'interpreter', 'latex')
+	end
+	
+	if true	
 		% temperature plot
 		figure
 		[b,a] = read_itm_data_simple('ti', itm);
@@ -74,32 +91,66 @@ function itmplotter
 	% runaway current plot
 	[b,a,t] = read_itm_data_all('runaway', itm);	
 	figure
-	contourf(t,a,b,100,'edgecolor','none')
-	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $j_\mathrm{runaway} \left[\frac{\mathrm{A}}{\mathrm{m}^3}\right]$'], 'fontsize', 16,'interpreter', 'latex')
-    xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
-	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+	contourf(a,t,b,100,'edgecolor','none')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $j_\mathrm{runaway} \left[\frac{\mathrm{A}}{\mathrm{m}^2}\right]$'], 'fontsize', 16,'interpreter', 'latex')
+    ylabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
-	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_runaway.png'])
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_runaway.pdf'])
 	
+	% total current plot
+	[b,a,t] = read_itm_data_all('total_current', itm);	
+	figure
+	contourf(a,t,b,100,'edgecolor','none')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $j_\mathrm{total} \left[\frac{\mathrm{A}}{\mathrm{m}^2}\right]$'], 'fontsize', 16,'interpreter', 'latex')
+    ylabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+	colorbar
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_total.pdf'])
+    
 	% electron temperature plot
 	[b,a,t] = read_itm_data_all('te', itm);
 	figure
-	contourf(t,a,log10(b),100,'edgecolor','none')
+	contourf(a,t,log10(b),100,'edgecolor','none')
 	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ T_\mathrm{e} \left[\mathrm{eV}\right]$'], 'fontsize', 16,'interpreter', 'latex')
-    xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
-	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+    ylabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
-	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_te.png'])
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_te.pdf'])
 	
 	% electron density plot
 	[b,a,t] = read_itm_data_all('ne', itm);
 	figure
-	contourf(t,a,log10(b),100,'edgecolor','none')
+	contourf(a,t,log10(b),100,'edgecolor','none')
 	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $\mathrm{log_{10}}~ n_\mathrm{e} \left[\frac{1}{\mathrm{m}}\right]$'], 'fontsize', 16,'interpreter', 'latex')
-    xlabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
-	ylabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+    ylabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
 	colorbar
-	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_ne.png'])	
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_ne.pdf'])	
+	
+	
+	figure
+	size (t)
+	size(a)
+	size(b)
+	contourf(a,t,b,100,'edgecolor','none')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $ n_\mathrm{e} \left[\frac{1}{\mathrm{m}}\right]$'], 'fontsize', 16,'interpreter', 'latex')
+    ylabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+	colorbar
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_ne2.pdf'])	
+	
+	
+	% electron density plot
+	[b,a,t] = read_itm_data_all('eparallel', itm);
+	figure
+	contourf(a,t,b,100,'edgecolor','none')
+	title([upper(itm.machine),' \#',itm.shotnumber,' (',itm.runnumber,') $ E_\mathrm{||} \left[\frac{\mathrm{V}}{\mathrm{m}}\right]$'], 'fontsize', 16,'interpreter', 'latex')
+    ylabel('time [s]', 'fontsize', 14,'interpreter', 'latex')    
+	xlabel('normalised minor radius ($$\rho$$)', 'fontsize', 14,'interpreter', 'latex')
+	colorbar
+	saveas(gcf,[itm.datastruc,'_',itm.machine,'_',itm.shotnumber,'_',itm.runnumber,'_eparallel.pdf'])	
+	
 	
 	time_cp = read_itm_time(itm);
     disp(['Last time: ',num2str(time_cp(end))])
@@ -136,6 +187,11 @@ function [data, rho_norm] = read_itm_data_simple(data_name, itm)
 			data_path = '/coresource/values/timed/3/j'; data_mode = 1;
 		case 'total_current'
 			data_path = '/coresource/values/timed/0/j';	data_mode = 1;
+			data_path = '/coreprof/profiles1d/jtot/value'; data_mode = 0;
+		case 'eparallel'
+			data_path = '/coreprof/profiles1d/eparallel/value'; data_mode = 0;
+		case 'gaussian_qe'		    
+			data_path = '/coresource/values/timed/0/qe/exp'; data_mode = 1;			
 		end
 	
 	% read data from CPO vector	
@@ -176,6 +232,11 @@ function [data, rho_norm, time_mx] = read_itm_data_all(data_name, itm)	% time ve
 			data_path = '/coresource/values/timed/3/j'; data_mode = 1;
 		case 'total_current'
 			data_path = '/coresource/values/timed/0/j';	data_mode = 1;
+			data_path = '/coreprof/profiles1d/jtot/value'; data_mode = 0;
+		case 'eparallel'
+			data_path = '/coreprof/profiles1d/eparallel/value'; data_mode = 0;
+		case 'gaussian_qe'		    
+			data_path = '/coresource/values/timed/0/qe/exp'; data_mode = 1;
 		end
 	
 	% read data from CPO vector	
