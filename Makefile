@@ -64,7 +64,7 @@ test/newdist_slice.o: test/newdist_slice.f90
 test/libexpdecay.a: test/expdecay.o
 	ar -rvs $@ $^
 
-test/expdecay.o: test/expdecay.f90
+test/expdecay.o: test/expdecay.f90 allocate_deallocate.f90
 	$(F90) $(F90COPTS) -c -o $@ $^ ${F90INCLUDES} ${F90ETSINCLUDES} $(F90LIBS)	
 
 
