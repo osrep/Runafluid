@@ -15,10 +15,10 @@ F90INCLUDES = $(shell eval-pkg-config --cflags ual-ifort)
 all:   libRunafluid.a libEfieldEdit.a
 
 # test files
-t:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
-test:     libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
-testonly: test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a
-fortran:  test/libNewDistSlice.a
+t:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libexpdecay.a
+test:     libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libexpdecay.a
+testonly: test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libexpdecay.a
+fortran:  test/libNewDistSlice.a test/libexpdecay.a
  
 # Runafluid actor
 libRunafluid.a: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
@@ -59,7 +59,7 @@ test/newdist_slice.o: test/newdist_slice.f90
 	
 	
 # expdecay coresource CPO slice (Fortran)	
-test/libExpDecay.a: test/expdecay.o
+test/libexpdecay.a: test/expdecay.o
 	ar -rvs $@ $^
 
 test/expdecay.o: test/expdecay.f90
