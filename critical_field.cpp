@@ -9,24 +9,6 @@
 \param pro profile
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  4.1.3 Functional Requirements
 \return \a REQ-1: If a radius exists where electric field is above critical, returns 1.	
 \return \a REQ-2: If electric field is below critical across the whole profile, returns 0.
