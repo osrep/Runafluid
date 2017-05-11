@@ -110,6 +110,7 @@ TEST(Interpolate, Intrapolate) {
 ItmNs::Itm::coreprof coreprof;
 ItmNs::Itm::coreimpur coreimpur;
 ItmNs::Itm::equilibrium equilibrium;
+ItmNs::Itm::distribution distribution;
 
 void create_cpo() {
 	coreprof.rho_tor.resize(5);
@@ -193,7 +194,7 @@ TEST(CpoToProfil, ElectricField) {
 
 TEST(CpoToProfil, EffectiveCharge) {
 	create_cpo();
-	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium);
+	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
 	ASSERT_EQ(5, pro.size());
 
