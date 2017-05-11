@@ -18,7 +18,7 @@ const double reference_Zeff_2 = 1.2;
 const double reference_electric_field_1 = 1.2;
 const double reference_electric_field_2 = 0.8;
 
-const int formula_id_66 = 63;
+const int formula_id_63 = 63;
 const int formula_id_66 = 66;
 const int formula_id_67 = 67;
 const double reference_dreicer_generation_rate_63 = 3.0822e20;
@@ -239,36 +239,33 @@ EXPECT_NEAR(reference_thermal_electron_collision_time, calculate_thermal_electro
 
 
 TEST(Dreicer, DreicerGenerationRate_63) {
-EXPECT_NEAR(reference_dreicer_generation_rate_63, dreicer_generation_rate(reference_ne, reference_te,
-																		  reference_Zeff_1,reference_electric_field_1,formula_id_63), 1e18);
+EXPECT_NEAR(reference_dreicer_generation_rate_63, dreicer_generation_rate(reference_ne, reference_te,reference_Zeff_1,reference_electric_field_1,formula_id_63), 1e18);
 }
 
 TEST(Dreicer, DreicerGenerationRate_66) {
-EXPECT_NEAR(reference_dreicer_generation_rate_66, dreicer_generation_rate(reference_ne, reference_te,
-																	   reference_Zeff_1,reference_electric_field_1,formula_id_66), 1e18);
+EXPECT_NEAR(reference_dreicer_generation_rate_66, dreicer_generation_rate(reference_ne, reference_te, reference_Zeff_1,reference_electric_field_1,formula_id_66), 1e18);
 }
 
 TEST(Dreicer, DreicerGenerationRate_67) {
-EXPECT_NEAR(reference_dreicer_generation_rate_67, dreicer_generation_rate(reference_ne, reference_te,
-																	   reference_Zeff_1,reference_electric_field_1,formula_id_67), 1e18);
+EXPECT_NEAR(reference_dreicer_generation_rate_67, dreicer_generation_rate(reference_ne, reference_te, reference_Zeff_1,reference_electric_field_1,formula_id_67), 1e18);
 }
 
-TEST(Dreicer, CalculateAlpha){
+TEST(Dreicer, CalculateAlpha) {
 	EXPECT_EQ(reference_alpha,calculate_alpha(reference_electric_field_1, reference_ne,reference_te));
 }
 
-TEST(Dreicer, CalculateLambda){
+TEST(Dreicer, CalculateLambda) {
 EXPECT_EQ(reference_lambda,calculate_lambda(reference_alpha));
 }
 
-TEST(Dreicer, CalculateGamma){
+TEST(Dreicer, CalculateGamma) {
 EXPECT_EQ(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha));
 }
 
-TEST(Dreicer, CalculateH){
+TEST(Dreicer, CalculateH) {
 EXPECT_EQ(reference_h,calculate_h(reference_alpha, reference_Zeff_1));
 }
 
-TEST(Dreicer, CalculateToroidicityDreicer){
+TEST(Dreicer, CalculateToroidicityDreicer) {
 EXPECT_NEAR(reference_toroidicity_dreicer,calculate_toroidicity_dreicer(reference_inv_asp_ratio),1e18);
 }
