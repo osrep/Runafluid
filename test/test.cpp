@@ -9,8 +9,6 @@ const double reference_te = 1e5;
 const double reference_ne = 1e21;
 const double reference_dreicer_field = 17.452;
 const double reference_critical_field = 0.83625;
-const double reference_growth_rate_1 = 8.27939e20;
-const double reference_growth_rate_2 = 2.27479e21;
 const double reference_thermal_electron_collision_time = 4.9909e-4;
 const double reference_runaway_electron_collision_time = 2.0383e-3;
 const double reference_Zeff_1 = 1.0;
@@ -226,25 +224,6 @@ TEST(CoulombLog, CalculateCoulombLog) {
 
 TEST(CriticalField, CalculateCriticalField) {
 	EXPECT_NEAR(reference_critical_field, calculate_critical_field(reference_ne, reference_te), 0.0001);
-}
-
-TEST(CriticalField, IsFieldCritical) {
-	cell cell1, cell2;
-
-	cell1.electron_density = 0.9*reference_ne;
-	cell1.electron_temperature = reference_te;
-	cell1.electric_field = reference_critical_field;
-
-	cell2.electron_density = 1.1*reference_ne;
-	cell2.electron_temperature = reference_te;
-	cell2.electric_field = reference_critical_field;
-
-	profile pro;
-	pro.push_back(cell1);
-	EXPECT_EQ(0, is_field_critical(pro));
-
-	pro.push_back(cell2);
-	EXPECT_EQ(1, is_field_critical(pro));
 }
 
 TEST(GrowthRate, CalculateDreicerField) {
