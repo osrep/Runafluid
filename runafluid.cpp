@@ -14,16 +14,25 @@
 
 Purpose
 
-This document specifies software requirements of the Runaway Fluid (runafluid) software module. The module is developed and deployed in the European Transport Solver (ETS) framework maintained by the Code Development for Integrated Modelling Project (ITM) of the EUROfusion consortium (http://portal.efda-itm.eu).
+This document specifies software requirements of the Runaway Fluid (runafluid) software module.
+The module is developed and deployed in the European Transport Solver (ETS) framework maintained by the Code Development
+for Integrated Modelling Project (ITM) of the EUROfusion consortium (http://portal.efda-itm.eu).
 
 Intended Audience and Reading Suggestions
 
-This Software Requirements Specification (SRS) document is intended for ITM/ETS/H&CD workflow developers, and developers of runafluid module. The document describes the module runafluid, laying out functional and non-functional requirements. Purpose, overview of the module, interfaces, and CPO objects used, constraints, assumptions and dependencies, functional requirements are contained in this documentation.
+This Software Requirements Specification (SRS) document is intended for ITM/ETS/H&CD workflow developers,
+and developers of runafluid module. The document describes the module runafluid, laying out functional
+and non-functional requirements. Purpose, overview of the module, interfaces, and CPO objects used,
+constraints, assumptions and dependencies, functional requirements are contained in this documentation.
 
 
 Product Scope
 
-The Runaway Fluid (Runafluid) project supplies a simulator module assembled as a Kepler workflow actor, which is capable of indicating whether runaway electron generation is to be expected during tokamak operation. This functionality is highly valuable in ITM simulations, since present equilibrium and transport calculations neglect the generation of runaway electrons. The Runafluid module can determine whether runaways are generated thus validate the results of equilibrium and transport modules in this manner.
+The Runaway Fluid (Runafluid) project supplies a simulator module assembled as a Kepler workflow actor,
+which is capable of indicating whether runaway electron generation is to be expected during tokamak operation.
+This functionality is highly valuable in ITM simulations, since present equilibrium and transport calculations neglect
+the generation of runaway electrons. The Runafluid module can determine whether runaways are generated thus validate
+the results of equilibrium and transport modules in this manner.
 
 \subpage references
 
@@ -32,21 +41,25 @@ The Runaway Fluid (Runafluid) project supplies a simulator module assembled as a
 
 /*! \page references References
 
-Basic description is provided at http://portal.efda-itm.eu/twiki/bin/view/Main/HCD-ElectronRun-awayPhysics?sso_from=bin/view/Main/HCD-ElectronRun-awayPhysics.
+Basic description is provided at:
+http://portal.efda-itm.eu/twiki/bin/view/Main/HCD-ElectronRun-awayPhysics?sso_from=bin/view/Main/HCD-ElectronRun-awayPhysics.
 
 User manual is maintained at http://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runin-usermanual.
 
-Runaway Indicator is maintained under the ITM-TF Collaborative Software Development Environment using Gforge. The project documentation is accessible via http://gforge.efda-itm.eu/gf/project/runin/. Source code is stored in the SVN repository https://gforge.efda-itm.eu/svn/runin.
+Runaway Indicator is maintained under the ITM-TF Collaborative Software Development Environment using Gforge.
+The project documentation is accessible via http://gforge.efda-itm.eu/gf/project/runin/. Source code is stored in the
+SVN repository https://gforge.efda-itm.eu/svn/runin.
 
-Analytical formula used to determine the critical electric field is based on the work of J.W. Connor and R.J. Hastie [1]. The method of calculating Dreicer runaway generation growth rate stems from the article of H. Dreicer [2].
+Analytical formula used to determine the critical electric field is based on the work of J.W. Connor and R.J. Hastie [1].
+The method of calculating Dreicer runaway generation growth rate stems from the article of H. Dreicer [2].
 
-[1] A. Stahl, E. Hirvijoki, J. Decker, O. Embréus, and T. Fülöp. Effective Critical Electric Field for Runaway-Electron Generation. Physical Review Letters 114(11), 115002 (2015)
+[1] A. Stahl, E. Hirvijoki, J. Decker, O. Embréus, and T. Fülöp. Effective Critical Electric Field for Runaway-Electron Generation.
+Physical Review Letters 114(11), 115002 (2015)
 
-[2] H. Smith, P. Helander, L.-G. Eriksson, D. Anderson, M. Lisak, and F. Andersson, Runaway electrons and the evolution of the plasma current in tokamak disruptions,  Physics of Plasmas 13, 102502 (2006)
+[2] H. Smith, P. Helander, L.-G. Eriksson, D. Anderson, M. Lisak, and F. Andersson, Runaway electrons and the evolution
+of the plasma current in tokamak disruptions,  Physics of Plasmas 13, 102502 (2006)
 
 */
-
-
 
 
 /*! 
@@ -66,8 +79,7 @@ ABCD
  B
    0: 
    1: 
-   
- 
+
  C  
    0: 
    1: 
@@ -76,14 +88,13 @@ ABCD
    0: 
    1: 
 
-
-
 */
 
-
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in, ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch, double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning, ItmNs::Itm::temporary &runaway_rates) {
-
+		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
+		  ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch,
+		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
+		  ItmNs::Itm::temporary &runaway_rates) {
 
 	//! start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
@@ -148,9 +159,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		if (rho<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
 				
 			//! calculating runaway density
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature, it->effective_charge, abs(it->electric_field), abs(it->magnetic_field), timestep, inv_asp_ratio, runafluid_switch, rate_values);
-				
-				
+			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
+										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
+										   timestep, inv_asp_ratio, runafluid_switch, rate_values);
+
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			
 		   	if (it->rho >= rho_max){
 				rundensity = 0;
@@ -190,23 +202,22 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
 		   	if (runcurrent/ecurrent >= 1){		   	
 				not_suitable_warning = 1;	 	
-		   	}	   	
-		   	
-		   	
+		   	}
+
 		   	//! runaway rates (Dreicer, Avalanche etc.)
 		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
 		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
 			}	
 	   		
 	   	}else{		   	
-			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/" << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
+			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/"
+					  << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 	   	}   	   	
 	   
 	    rho++;
 	
 	}
-	
-		   	
+
    	//! error messages to dump
    	if (runaway_warning == 1){				
 		std::cerr << "  [Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
@@ -219,20 +230,22 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	}		
 	
 	if (critical_fraction_warning == 1){				
-		std::cerr << "  [Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: " << critical_fraction << "%)  at " << time << " s" << std::endl;
+		std::cerr << "  [Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: "
+				  << critical_fraction << "%)  at " << time << " s" << std::endl;
 		output_flag = 3;
 	}	
 
-	
 	//! output flag to distribution CPO
 	try {
 		distribution_out.codeparam.output_flag = output_flag;
 		
 		if (output_flag == 1){			
 			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully and runaway electrons indicated";
-		}else if (output_flag == 2){			
+		}
+		else if (output_flag == 2){
 			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully but runaway current is higher than electron current";
-		}else if (output_flag == 3){			
+		}
+		else if (output_flag == 3){
 			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully but results out of the range of validity";
 		}
 		
@@ -245,7 +258,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 	//! end: runafluid
 	std::cerr << " END: runaway_fluid" << std::endl;
-
 }
 
 int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
@@ -361,13 +373,12 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	runaway_rates.timed.float1d(18).identifier.flag = 18;
 	runaway_rates.timed.float1d(18).identifier.description = "Toroidicity for Avalanche rate";
 	runaway_rates.timed.float1d(18).value.resize(N_rho);
-	
-	
+
 	//! Toroidicity for Avalanche
 	runaway_rates.timed.float1d(19).identifier.id = "relative_electric_field";
 	runaway_rates.timed.float1d(19).identifier.flag = 19;
 	runaway_rates.timed.float1d(19).identifier.description = "Relative electric field (by critical field)";
 	runaway_rates.timed.float1d(19).value.resize(N_rho);
-	
+
 	return 0;
 }
