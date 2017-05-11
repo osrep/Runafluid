@@ -54,7 +54,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 		double dreicer_field = 0;
 		
 		double electric_field_value2;
-		double electric_field_value20;		
 					
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
