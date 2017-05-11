@@ -23,9 +23,7 @@ AB
    0: linear
    1: logarithmic
 
-
 */
-
 
 void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, double &output) {		
 		
@@ -42,8 +40,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		double dreicer_field = 0;
 
 		double te_value2;
-		
-					
+
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
 		
@@ -67,11 +64,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		}	
 		
 		output = 0;	
-		
-		
+
 		//! end: runafluid_teEdit
 		std::cerr << " END: runafluid_teEdit" << std::endl;
-
 
 	} catch (const std::exception& ex) {
 	

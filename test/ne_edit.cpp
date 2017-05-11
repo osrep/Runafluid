@@ -30,16 +30,14 @@ AB
 void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, double &output) {		
 		
 	try {
-		
-		
+
 		//! start: runafluid_neEdit
 		std::cerr << " START: runafluid_neEdit" << std::endl;
 		
 		bool bools[2];
 		
 		int swint = bool_switch(ne_switch,bools,sizeof(bools)/sizeof(bool));
-		
-			
+
 		int rho = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
@@ -68,9 +66,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, doub
 		
 		}	
 		
-		output = 0;		
-		
-		
+		output = 0;
+
 		//! end: runafluid_neEdit
 		std::cerr << " END: runafluid_neEdit" << std::endl;
 
