@@ -8,14 +8,35 @@
 
 \param pro profile
 
+<<<<<<< .mine
+||||||| .r1535
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+
+>>>>>>> .r1568
  4.1.3 Functional Requirements
 \return \a REQ-1: If a radius exists where electric field is above critical, returns 1.	
 \return \a REQ-2: If electric field is below critical across the whole profile, returns 0.
-\return \a REQ-3: Critical electric field 
-
+\return \a REQ-3: Critical electric field
 */
-
 
 double calculate_critical_field(double electron_density, double electron_temperature) {
 	
@@ -27,7 +48,6 @@ double calculate_critical_field(double electron_density, double electron_tempera
 	*/
 	double coulomb_log = calculate_coulomb_log(electron_density, electron_temperature);
 
-
 	//! \return \a REQ-3: Critical field
 	/*!
 	\f[
@@ -38,10 +58,7 @@ double calculate_critical_field(double electron_density, double electron_tempera
 	//return calculate_dreicer_field(electron_density,electron_temperature)
 }
 
-
-
 double calculate_dreicer_field(double electron_density, double electron_temperature){	
-
 
 	//! \a REQ-3: Dreicer field
 		/*!
@@ -55,7 +72,6 @@ double calculate_dreicer_field(double electron_density, double electron_temperat
 	
 }
 
-
 double calculate_coulomb_log(double electron_density, double electron_temperature){
 
 	//! \a REQ-4: Coulomb logarithm
@@ -67,7 +83,6 @@ double calculate_coulomb_log(double electron_density, double electron_temperatur
 	return 14.9 - 0.5 * log10(electron_density * 1e-20)
 			+ log10(electron_temperature * 1e-3);
 }	
-
 
 double calculate_thermal_electron_collision_time(double electron_density, double electron_temperature){
 
