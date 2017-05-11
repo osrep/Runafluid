@@ -151,11 +151,29 @@ void create_cpo() {
 	coreimpur.impurity(0).nz = 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2;
 	coreimpur.impurity(1).nz.resize(6, 2);
 	coreimpur.impurity(1).nz = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+
+
+	distribution.distri_vec.resize(1);
+	distribution.distri_vec(0).profiles_1d.state.dens.resize(6);
+	distribution.distri_vec(0).profiles_1d.state.current.resize(6);
+	distribution.distri_vec(0).source_id.resize(1);
+	//! Filling up distribution source
+	distribution.distri_vec(0).source_id(0).type.id = "runaway";
+	distribution.distri_vec(0).source_id(0).type.flag = 7;
+	distribution.distri_vec(0).source_id(0).type.description = "Source from runaway processes";
+	//! Filling up distribution species
+	distribution.distri_vec(0).species.type.id = "electron";
+	distribution.distri_vec(0).species.type.flag = 1;
+	distribution.distri_vec(0).species.type.description = "Electron";
+	distribution.distri_vec(0).profiles_1d.geometry.rho_tor.resize(6);
+	distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(6);
+	distribution.distri_vec(0).profiles_1d.geometry.rho_tor = 0.0, 1.0, 1.5, 2.0, 6.0, 10.0;
+	distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm = 0.0, 0.10, 0.15, 0.20, 0.60, 1.0;
 }
 
 TEST(CpoToProfil, ElectronDensity) {
 	create_cpo();
-	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium);
+	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
 	ASSERT_EQ(5, pro.size());
 
@@ -168,7 +186,7 @@ TEST(CpoToProfil, ElectronDensity) {
 
 TEST(CpoToProfil, ElectronTemperature) {
 	create_cpo();
-	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium);
+	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
 	ASSERT_EQ(5, pro.size());
 
@@ -181,7 +199,7 @@ TEST(CpoToProfil, ElectronTemperature) {
 
 TEST(CpoToProfil, ElectricField) {
 	create_cpo();
-	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium);
+	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
 	ASSERT_EQ(5, pro.size());
 
