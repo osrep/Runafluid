@@ -113,7 +113,7 @@ ItmNs::Itm::distribution distribution;
 void create_cpo() {
 	coreprof.rho_tor.resize(5);
 	coreprof.rho_tor = 0.0, 1.0, 2.0, 4.0, 8.0;
-	doreprof.rho_tor_norm.resize(5);
+	coreprof.rho_tor_norm.resize(5);
 	coreprof.rho_tor_norm = 0.0, 0.1, 0.2, 0.4, 0.8;
 
 	coreprof.ne.value.resize(5);
