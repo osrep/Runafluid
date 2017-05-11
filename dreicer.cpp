@@ -43,8 +43,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 		\ln \Lambda = 14.9-0.5 \cdot \log \left(n_\mathrm{e} \cdot 10^{-20}\right) + \log \left(t_\mathrm{e} \cdot 10^{-3}\right) .
 	\f]
 	*/
-	double coulomb_log = 14.9 - 0.5 * log(electron_density * 1e-20)
-			+ log(electron_temperature * 1e-3);
+	double coulomb_log = calculate_coulomb_log(electron_density, electron_temperature);
 
 
 	//! \a REQ-2: electron collision time
@@ -74,7 +73,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/	
 		
-	double alpha = electric_field / calculate_critical_field(electron_density, electron_temperature);
+	double alpha = calculate_alpha(electric_field,electron_density,electron_temperature);
 		
 	//! \a REQ-6: lambda: C&H (64)
 	/*!
@@ -83,7 +82,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double lambda = 8.0*alpha*(alpha-1.0/2.0-sqrt(alpha*(alpha-1.0)));
+	double lambda = calculate_lambda(alpha);
 	
 	//! \a REQ-5: multiplication factor: C&H (64)
 	/*!
@@ -92,7 +91,7 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 	
-	double gamma = sqrt((1.0+effective_charge) * alpha*alpha/8.0/(alpha-1.0)) * (ITM_PI/2.0-asin(1.0-2.0/alpha));
+	double gamma = calculate_gamma(effective_charge,alpha);
 
 	//! \a REQ-4: h factor: C&H (62)
 	/*!	
@@ -102,19 +101,15 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	\f]
 	*/
 
-	double h = 1.0/(16.0*(alpha-1.0)) * (alpha*(effective_charge+1.0) - \
-		effective_charge + 7.0 + 2.0*sqrt(alpha/(alpha-1.0)) * (1.0+effective_charge)*(alpha-2.0));		
-	
-		
+	double h = calculate_h(alpha,effective_charge);
+
 	//! runaway limit -- critical field: C&H  (65)
 	/*!
 	\f[
 		E_\mathrm{R} = \frac{E_\mathrm{D} T}{m_\mathrm{e} c^2}
 	\f]
 	*/
-			
-	
-	
+
 	double Cr=1.0;	
 	double dgr;
 	
@@ -165,13 +160,26 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 
 	//! output: Dreicer generation rate	
 	return dgr;
-	
-	
+}
+/*Inner calculations of dreicer generation rate*/
+
+double calculate_alpha(double electric_field, double electron_density, double electron_temperature){
+	return electric_field / calculate_critical_field(electron_density, electron_temperature);
 }
 
+double calculate_lambda(double alpha){
+	return 8.0*alpha*(alpha-1.0/2.0-sqrt(alpha*(alpha-1.0)));
+}
+
+double calculate_gamma(double effective_charge, double alpha){
+	return sqrt((1.0+effective_charge) * alpha*alpha/8.0/(alpha-1.0)) * (ITM_PI/2.0-asin(1.0-2.0/alpha));
+}
+double calculate_h(double alpha, double effective_charge){
+	return (1.0/(16.0*(alpha-1.0)) * (alpha*(effective_charge+1.0) -
+			effective_charge + 7.0 + 2.0*sqrt(alpha/(alpha-1.0)) * (1.0+effective_charge)*(alpha-2.0)));
+}
 
 double calculate_toroidicity_dreicer(double inv_asp_ratio){
-
-	return ( 1.0 - 1.2*sqrt((2.0*inv_asp_ratio)/(1.0+inv_asp_ratio)) );
+	return (1.0 - 1.2*sqrt((2.0*inv_asp_ratio)/(1.0+inv_asp_ratio)));
 }
 

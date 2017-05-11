@@ -304,7 +304,6 @@ profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof,const Itm
 	return pro;
 }
 
-
 /*!
 
 Copy data from CPO inputs to profile structure
