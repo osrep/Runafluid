@@ -6,4 +6,5 @@
 make
 
 # with test files
-# make t
+make t
+test/test.bin
