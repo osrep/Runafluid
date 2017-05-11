@@ -113,6 +113,8 @@ ItmNs::Itm::distribution distribution;
 void create_cpo() {
 	coreprof.rho_tor.resize(5);
 	coreprof.rho_tor = 0.0, 1.0, 2.0, 4.0, 8.0;
+	doreprof.rho_tor_norm.resize(5);
+	coreprof.rho_tor_norm = 0.0, 0.1, 0.2, 0.4, 0.8;
 
 	coreprof.ne.value.resize(5);
 	coreprof.te.value.resize(5);
@@ -173,7 +175,7 @@ TEST(CpoToProfil, ElectronDensity) {
 	create_cpo();
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
-	ASSERT_EQ(7, pro.size());
+	ASSERT_EQ(5, pro.size());
 
 	EXPECT_DOUBLE_EQ(10.0, pro[0].electron_density);
 	EXPECT_DOUBLE_EQ(11.0, pro[1].electron_density);
@@ -186,7 +188,7 @@ TEST(CpoToProfil, ElectronTemperature) {
 	create_cpo();
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
-	ASSERT_EQ(7, pro.size());
+	ASSERT_EQ(5, pro.size());
 
 	EXPECT_DOUBLE_EQ(20.0, pro[0].electron_temperature);
 	EXPECT_DOUBLE_EQ(21.0, pro[1].electron_temperature);
@@ -199,7 +201,7 @@ TEST(CpoToProfil, ElectricField) {
 	create_cpo();
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
-	ASSERT_EQ(7, pro.size());
+	ASSERT_EQ(5, pro.size());
 
 	EXPECT_DOUBLE_EQ(1.0 * 2.0 / 5.5, pro[0].electric_field);
 	EXPECT_DOUBLE_EQ(2.0 * 2.0 / 1.5, pro[1].electric_field);
@@ -233,8 +235,6 @@ EXPECT_NEAR(reference_dreicer_field, calculate_dreicer_field(reference_thermal_e
 TEST(GrowthRate, CalculateThermalElectronCollisionTime) {
 EXPECT_NEAR(reference_thermal_electron_collision_time, calculate_thermal_electron_collision_time(reference_ne,reference_te), 0.0001);
 }
-
-
 
 TEST(Dreicer, DreicerGenerationRate_63) {
 EXPECT_NEAR(reference_dreicer_generation_rate_63, dreicer_generation_rate(reference_ne, reference_te,reference_Zeff_1,reference_electric_field_1,formula_id_63), 1e18);
