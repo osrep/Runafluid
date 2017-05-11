@@ -262,7 +262,7 @@ EXPECT_EQ(reference_lambda,calculate_lambda(reference_alpha));
 }
 
 TEST(Dreicer, CalculateGamma){
-EXPECT_EQ(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha)));
+EXPECT_EQ(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha));
 }
 
 TEST(Dreicer, CalculateH){
