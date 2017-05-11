@@ -1,7 +1,9 @@
 #include <gtest/gtest.h>
 #include "../cpo_utils.h"
 #include "../critical_field.h"
-#include "../growth_rate.h"
+#include "../dreicer.h"
+#include "../avalanche.h"
+
 
 const double reference_te = 1e5;
 const double reference_ne = 1e21;
