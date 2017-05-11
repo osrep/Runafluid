@@ -173,7 +173,7 @@ TEST(CpoToProfil, ElectronDensity) {
 	create_cpo();
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
-	ASSERT_EQ(5, pro.size());
+	ASSERT_EQ(7, pro.size());
 
 	EXPECT_DOUBLE_EQ(10.0, pro[0].electron_density);
 	EXPECT_DOUBLE_EQ(11.0, pro[1].electron_density);
@@ -186,7 +186,7 @@ TEST(CpoToProfil, ElectronTemperature) {
 	create_cpo();
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
-	ASSERT_EQ(5, pro.size());
+	ASSERT_EQ(7, pro.size());
 
 	EXPECT_DOUBLE_EQ(20.0, pro[0].electron_temperature);
 	EXPECT_DOUBLE_EQ(21.0, pro[1].electron_temperature);
@@ -199,7 +199,7 @@ TEST(CpoToProfil, ElectricField) {
 	create_cpo();
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
-	ASSERT_EQ(5, pro.size());
+	ASSERT_EQ(7, pro.size());
 
 	EXPECT_DOUBLE_EQ(1.0 * 2.0 / 5.5, pro[0].electric_field);
 	EXPECT_DOUBLE_EQ(2.0 * 2.0 / 1.5, pro[1].electric_field);
@@ -212,7 +212,7 @@ TEST(CpoToProfil, EffectiveCharge) {
 	create_cpo();
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
-	ASSERT_EQ(5, pro.size());
+	ASSERT_EQ(7, pro.size());
 
 	EXPECT_NEAR(3.46000, pro[0].effective_charge, 0.00001);
 	EXPECT_NEAR(131.24, pro[3].effective_charge, 0.01);
