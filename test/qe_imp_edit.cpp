@@ -4,7 +4,6 @@
 #include <stdexcept>
 #include <UALClasses.h>
 
-#include "../constants.h"
 #include "../cpo_utils.h"
 
 /*! 
@@ -21,9 +20,7 @@ void fire(ItmNs::Itm::coresource &coresource, double &qe_imp, double &output) {
 	try {
 		
 		std::cerr << " START: runafluid_qe_imp_edit" << std::endl;
-		bool bools[2];
-		
-		int swint = bool_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
+	
 			
 		int rho = 0;
 
