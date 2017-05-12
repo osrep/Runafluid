@@ -15,17 +15,16 @@ qe_imp: Implicit energy source [s^-1.m^-3]
 
 */
 
-void fire(ItmNs::Itm::coresource &coresource, double &qe_imp, int &values_index, double &output) {		
+void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, double &qe_imp, int &values_index, double &output) {		
 		
 	try {
 		
-		std::cerr << " START: runafluid_qe_imp_edit" << std::endl;
-	
+		std::cerr << " START: runafluid_qe_imp_edit" << std::endl;	
 			
 		int rho = 0;
 
 		//! reading profile from CPO inputs
-		profile pro = read_coresource(coresource);
+		profile pro = read_coreprof(coreprof, values_index);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
