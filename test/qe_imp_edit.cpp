@@ -15,7 +15,7 @@ qe_imp: Implicit energy source [s^-1.m^-3]
 
 */
 
-void fire(ItmNs::Itm::coresource &coresource, double &qe_imp, double &output) {		
+void fire(ItmNs::Itm::coresource &coresource, double &qe_imp, int &values_index, double &output) {		
 		
 	try {
 		
@@ -30,7 +30,7 @@ void fire(ItmNs::Itm::coresource &coresource, double &qe_imp, double &output) {
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
 		
-			coresource.value(rho).qe.imp = qe_imp;
+			coresource.values(values_index).qe.imp(rho) = qe_imp;
 			
 			rho++;
 		
