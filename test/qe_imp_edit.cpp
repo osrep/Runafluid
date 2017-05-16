@@ -15,7 +15,7 @@ qe_imp: Implicit energy source [s^-1.m^-3]
 
 */
 
-void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, double &qe_imp, int &values_index, double &output) {		
+void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, double &qe_imp, int &values_index, int &source_id, double &output) {		
 		
 	try {
 		
@@ -25,6 +25,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, do
 
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
+		coresource.values(values_index).sourceid.flag = source_id;
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
