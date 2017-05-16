@@ -67,6 +67,15 @@
             <string>values_index</string>
           </vector>
           <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>source_id</string>
+          </vector>
+          <vector>
             <string>double</string>
             <string>0</string>
             <string>0</string>
