@@ -15,7 +15,7 @@ qe_exp: explicit energy source [s^-1.m^-3]
 
 */
 
-void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, double &qe_exp, int &values_index, int &source_id, double &output) {		
+void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, double &qe_exp, int &values_index, int &source_id, double &timestep, double &output) {		
 		
 	try {
 		
@@ -30,7 +30,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, do
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
 		
-			coresource.values(values_index).qe.exp(rho) = qe_exp/0.01;
+			coresource.values(values_index).qe.exp(rho) = qe_exp/coresource.values(values_index).volume/timestep;
 			
 			rho++;
 		

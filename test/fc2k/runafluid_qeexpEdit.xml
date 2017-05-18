@@ -74,6 +74,15 @@
             <string>1</string>
             <string>0</string>
             <string>source_id</string>
+          </vector>          
+          <vector>
+            <string>double</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>timestep</string>
           </vector>
           <vector>
             <string>double</string>
