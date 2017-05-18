@@ -14,10 +14,26 @@ ETSDIR = /marconi_work/eufus_gw/work/g2denka/ETS
 F90ETSINCLUDES = $(shell eval-pkg-config --libs itmtypes-ifort)
 
 # all files
-all:   libRunafluid.a libEfieldEdit.a
+
+ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
+    CXXFLAGS += $(shell eval-pkg-config --cflags ual-cpp-gnu --cflags itmconstants)
+    CXXFLAGS +=-DITM_CONSTANTS
+    LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu)    
+    all:   libRunafluid.a libEfieldEdit.a
+    $(info *** Compiler set to ITM *** )
+else
+    CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz)
+    LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
+    all: libRunafluid_imas.a
+    $(info *** Compiler set to IMAS *** )
+endif
+
  
 # Runafluid actor
 libRunafluid.a: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
+	ar -rvs $@ $^	
+	
+libRunafluid_imas.a: runafluid.o distinit.o  ids_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
 	ar -rvs $@ $^	
 	
 libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
