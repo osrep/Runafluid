@@ -205,9 +205,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	}
 
 		   	//! runaway rates (Dreicer, Avalanche etc.)
-		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
+		   	/*for(int rates_i=0;rates_i<N_rates;++rates_i){
 		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
-			}	
+			}*/	
 	   		
 	   	}else{		   	
 			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/"
@@ -262,8 +262,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 //! runaway_rates for generation rates
-	//! Dreicer generation rate initialisation
+    runaway_rates.constant_float1d.resize(1);
+/*
 	runaway_rates.timed.float1d.resize(N_rates);
+
+	//! Dreicer generation rate initialisation
 	runaway_rates.timed.float1d(0).identifier.id = "dreicer";
 	runaway_rates.timed.float1d(0).identifier.flag = 0;
 	runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
@@ -379,6 +382,6 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	runaway_rates.timed.float1d(19).identifier.flag = 19;
 	runaway_rates.timed.float1d(19).identifier.description = "Relative electric field (by critical field)";
 	runaway_rates.timed.float1d(19).value.resize(N_rho);
-
+    */
 	return 0;
 }
