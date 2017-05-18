@@ -17,7 +17,8 @@ integer,parameter :: DP=kind(1.0D0)
 type (type_coreprof),pointer :: coreprof(:)
 type (type_equilibrium),pointer :: equilibrium(:)
 type (type_coresource),pointer :: coresource(:)
-
+! +++ CPO derived types:
+      TYPE (TYPE_PARAM)                 :: code_parameters
 
 
 ! +++ Local variables:
