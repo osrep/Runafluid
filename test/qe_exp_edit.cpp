@@ -5,6 +5,7 @@
 #include <UALClasses.h>
 
 #include "../cpo_utils.h"
+#include "../constants.h"
 
 /*! 
 
@@ -21,7 +22,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, It
 		
 		std::cerr << " START: runafluid_qe_exp_edit" << std::endl;	
 			
-		int rho = 0;
+		int i = 0;
 		double volume = 0;
 		double volume_prev = 0;
 
@@ -31,12 +32,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, It
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {			    
-		    volume = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.volume, coreprof.rho_tor(rho));		    	   
+		   /* volume = interpolate(equilibrium.profiles_1d.i_tor, equilibrium.profiles_1d.volume, coreprof.i_tor(i));		    	   
 		
-			coresource.values(values_index).qe.exp(rho) = qe_imp/(volume-volume_prev)/timestep;
-			volume_prev=volume;
+			coresource.values(values_index).qe.exp(i) = qe_imp/(volume-volume_prev)/timestep;
+			volume_prev=volume;*/
+			coresource.values(values_index).qe.exp(i) = coreprof.te.value(i)*ITM_EV*coreprof.ne.value(i)/qe_imp;
 			
-			rho++;
+			i++;
 		
 		}	
 		
