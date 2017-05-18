@@ -15,13 +15,14 @@ qe_imp: implicit energy source [s^-1.m^-3]
 
 */
 
-void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, double &qe_imp, int &values_index, int &source_id, double &timestep, double &output) {		
+void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, ItmNs::Itm::equilibrium &equilibrium, double &qe_imp, int &values_index, int &source_id, double &timestep, double &output) {		
 		
 	try {
 		
 		std::cerr << " START: runafluid_qe_exp_edit" << std::endl;	
 			
 		int rho = 0;
+		double volume = 0;
 
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
@@ -29,8 +30,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, do
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
+		    volume = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.volume, coreprof.rho_tor(rho));	   
 		
-			coresource.values(values_index).qe.exp(rho) = qe_imp*coresource.values(values_index).volume(rho)*timestep;
+			coresource.values(values_index).qe.exp(rho) = qe_imp*volume*timestep;
 			
 			rho++;
 		
