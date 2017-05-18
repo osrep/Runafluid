@@ -23,16 +23,18 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, It
 			
 		int rho = 0;
 		double volume = 0;
+		double volume_prev = 0;
 
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
 		coresource.values(values_index).sourceid.flag = source_id;
 		
 		//! stepping iterator in profile		
-		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
-		    volume = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.volume, coreprof.rho_tor(rho));	   
+		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {			    
+		    volume = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.volume, coreprof.rho_tor(rho));		    	   
 		
-			coresource.values(values_index).qe.exp(rho) = qe_imp*volume*timestep;
+			coresource.values(values_index).qe.exp(rho) = qe_imp/(volume-volume_prev)/timestep;
+			volume_prev=volume;
 			
 			rho++;
 		
