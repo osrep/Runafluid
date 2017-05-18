@@ -30,7 +30,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, do
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
 		
-			coresource.values(values_index).qe.exp(rho) = qe_exp/coresource.values(values_index).volume/timestep;
+			coresource.values(values_index).qe.exp(rho) = qe_exp/coresource.values(values_index).volume(rho)/timestep;
 			
 			rho++;
 		
