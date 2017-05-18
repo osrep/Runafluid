@@ -33,7 +33,7 @@ endif
 libRunafluid.a: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
 	ar -rvs $@ $^	
 	
-libRunafluid_imas.a: runafluid.o distinit.o  ids_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
+libRunafluid_imas.a: runafluid_imas.o distinit_imas.o  ids_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
 	ar -rvs $@ $^	
 	
 libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
