@@ -44,7 +44,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, It
 		//! internal error in distribution
 		std::cerr << "ERROR An error occurred during firing actor runafluid_qe_exp_edit." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
-		output = ITM_INVALID_INT;		
 		
 	}
 
