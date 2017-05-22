@@ -47,9 +47,9 @@ test/test.o: test/test.cpp
 	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(ITMWORK)/gtest-1.7.0/include/ -c -o $@ $^
 
 # test developing files
-d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpEdit.a
-dev:      libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpEdit.a
-devonly:  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpEdit.a
+d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a
+dev:      libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a
+devonly:  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a
 fortran:  test/libNewDistSlice.a 
 
 
@@ -63,7 +63,7 @@ test/libNeEdit.a: test/ne_edit.o  cpo_utils.o
 test/libqeimpEdit.a: test/qe_imp_edit.o  cpo_utils.o 
 	ar -rvs $@ $^
 	
-test/libqeexpEdit.a: test/qe_exp_edit.o  cpo_utils.o 
+test/libqeexpdecay.a: test/qe_expdecay.o  cpo_utils.o 
 	ar -rvs $@ $^
 	
 # compile C++ files
