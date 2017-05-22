@@ -16,7 +16,7 @@ qe_imp: implicit energy source [s^-1.m^-3]
 
 */
 
-void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, ItmNs::Itm::equilibrium &equilibrium, double &qe_imp, int &values_index, int &source_id, double &timestep, double &output) {		
+void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, ItmNs::Itm::equilibrium &equilibrium, double &exponential_time_constant) {		
 		
 	try {
 		
@@ -25,20 +25,17 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, It
 		int i = 0;
 		double volume = 0;
 		double volume_prev = 0;
+		int values_index = 0;
+		int source_id = 0;
 
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
 		coresource.values(values_index).sourceid.flag = source_id;
 		
 		//! stepping iterator in profile		
-		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {			    
-		   /* volume = interpolate(equilibrium.profiles_1d.i_tor, equilibrium.profiles_1d.volume, coreprof.i_tor(i));		    	   
+		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it,++i) {		
 		
-			coresource.values(values_index).qe.exp(i) = qe_imp/(volume-volume_prev)/timestep;
-			volume_prev=volume;*/
-			coresource.values(values_index).qe.exp(i) = coreprof.te.value(i)*ITM_EV*coreprof.ne.value(i)/qe_imp;
-			
-			i++;
+			coresource.values(values_index).qe.exp(i) = pro.electron_temperature*ITM_EV*pro.electron_density/exponential_time_constant;			
 		
 		}	
 		
