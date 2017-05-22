@@ -34,7 +34,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, It
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it,++i) {				
-			coresource.values(values_index).qe.exp(i) = it.electron_temperature*ITM_EV * it.electron_density / exponential_time_constant;	
+			coresource.values(values_index).qe.exp(i) = it->electron_temperature*ITM_EV * it->electron_density / exponential_time_constant;	
 		}	
 		
 		std::cerr << " END: runafluid_qe_exp_edit" << std::endl;
