@@ -33,14 +33,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, It
 		coresource.values(values_index).sourceid.flag = source_id;
 		
 		//! stepping iterator in profile		
-		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it,++i) {		
-		
-			coresource.values(values_index).qe.exp(i) = pro.electron_temperature*ITM_EV*pro.electron_density/exponential_time_constant;			
-		
+		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it,++i) {				
+			coresource.values(values_index).qe.exp(i) = it.electron_temperature*ITM_EV * it.electron_density / exponential_time_constant;	
 		}	
 		
-		output = 0;	
-
 		std::cerr << " END: runafluid_qe_exp_edit" << std::endl;
 
 	} catch (const std::exception& ex) {
