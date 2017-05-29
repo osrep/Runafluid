@@ -66,6 +66,15 @@
             <string>0</string>
             <string>exponential_time_constant</string>
           </vector>
+          <vector>
+            <string>double</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>temperature_limit</string>
+          </vector>
         </tupleParams>
       </default>
     </generactor.TupleP>
