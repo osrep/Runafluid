@@ -12,6 +12,7 @@ program diagnostic
 	type (type_coreimpur),    pointer :: coreimpur(:)
 	type (type_equilibrium),  pointer :: equilibrium(:)
 	type (type_distribution), pointer :: distribution(:)
+	type (type_scenario),     pointer :: scenario(:)
 	integer :: idx, num_args
 	
 	! command line input declaration
@@ -53,6 +54,7 @@ program diagnostic
 		call euitm_get(idx, 'coreimpur',    coreimpur)
 		call euitm_get(idx, 'equilibrium',  equilibrium)
 		call euitm_get(idx, 'distribution', distribution)
+		call euitm_get(idx, 'scenario',     scenario)
 		call euitm_close(idx)
 	
 		! write data	
@@ -64,6 +66,7 @@ program diagnostic
 		call euitm_get(idx, 'coreimpur',    coreimpur)
 		call euitm_put(idx, 'equilibrium',  equilibrium)
 		call euitm_put(idx, 'distribution', distribution)	
+		call euitm_put(idx, 'scenario',     scenario)	
 		call euitm_close(idx)
 		
 	!else
