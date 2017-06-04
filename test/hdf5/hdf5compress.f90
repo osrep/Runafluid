@@ -91,6 +91,20 @@ program hdf5compress
 			coreprof_out(i)%profiles1d%jphi%value(j) = coreprof_in(i)%profiles1d%jphi%value(j)
 		end do	
 	end do
+		
+	coresource_slices = size(coresource_in)
+	allocate(coresource_out(coresource_slices))
+	rho_length = size(coresource_in(1)%rho_tor_norm)
+	do i=1,coresource_slices
+		coresource_out(i)%time = coresource_in(i)%time
+		coresource_out(i)%toroid_field%r0 = coresource_in(i)%toroid_field%r0
+		
+		allocate(coresource_out(i)%rho_tor(rho_length))
+		allocate(coresource_out(i)%rho_tor_norm(rho_length))		
+		do j=1,rho_length
+				coresource_out(i)%values%timed%3%j(j) = coresource_in(i)%values%timed%3%j(j)
+		end do	
+	end do
 
 	shotnumber=99999
 	! write data	
