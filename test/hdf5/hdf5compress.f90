@@ -72,7 +72,7 @@ program hdf5compress
 		allocate(coreprof_out(i)%profiles1d%q%value(rho_length))
 		allocate(coreprof_out(i)%profiles1d%zeff%value(rho_length))
 			
-		allocate(coreprof_out(i)%profiles1d%johm%value(rho_length))
+		allocate(coreprof_out(i)%profiles1d%joh%value(rho_length))
 		allocate(coreprof_out(i)%profiles1d%jtot%value(rho_length))
 		allocate(coreprof_out(i)%profiles1d%jphi%value(rho_length))
 				
