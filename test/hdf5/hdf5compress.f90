@@ -132,7 +132,6 @@ program hdf5compress
 		
 	end do
 
-	shotnumber=99999
 	! write data	
 	write(*,*) 'Writing data'
 	call euitm_create_hdf5('euitm', shotnumber, runnumber, 0, 0, idx)
