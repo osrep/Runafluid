@@ -101,6 +101,7 @@ program hdf5compress
 		allocate(coresource_out(i)%values(source_length))	
 		
 		do k=1,source_length
+			allocate(coresource_out(i)%values(k)%j(rho_length))	
 			do j=1,rho_length
 				coresource_out(i)%values(k)%j(j) = coresource_in(i)%values(k)%j(j)
 			end do	
