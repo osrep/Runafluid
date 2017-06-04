@@ -118,7 +118,6 @@ program hdf5compress
 		equilibrium_out%global_param%toroid_field%b0 = equilibrium_in%global_param%toroid_field%b0
 	end do
 
-	shotnumber=99999
 	! write data	
 	write(*,*) 'Writing data'
 	call euitm_create_hdf5('euitm', shotnumber, runnumber, 0, 0, idx)
