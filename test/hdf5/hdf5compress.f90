@@ -113,13 +113,23 @@ program hdf5compress
 	
 	equilibrium_slices = size(equilibrium_in)
 	allocate(equilibrium_out(equilibrium_slices))
+	rho_length = size(equilibrium_in(1)%profiles_1d%rho_tor)
 	
 	do i=1,equilibrium_slices
 		equilibrium_out(i)%time = equilibrium_in(i)%time
-		equilibrium_out%eqgeometry%a_minor = equilibrium_in%eqgeometry%a_minor
-		equilibrium_out%eqgeometry%elongation = equilibrium_in%eqgeometry%elongation
-		equilibrium_out%global_param%i_plasma = equilibrium_in%global_param%i_plasma
-		equilibrium_out%global_param%toroid_field%b0 = equilibrium_in%global_param%toroid_field%b0
+		equilibrium_out(i)%eqgeometry%a_minor = equilibrium_in(i)%eqgeometry%a_minor
+		equilibrium_out(i)%eqgeometry%elongation = equilibrium_in(i)%eqgeometry%elongation
+		equilibrium_out(i)%global_param%i_plasma = equilibrium_in(i)%global_param%i_plasma
+		equilibrium_out(i)%global_param%toroid_field%b0 = equilibrium_in(i)%global_param%toroid_field%b0
+		
+		allocate(equilibrium_out(i)%profiles_1d%rho_tor(rho_length)
+		allocate(equilibrium_out(i)%profiles_1d%area(rho_length)
+		
+		do j=1,rho_length
+				equilibrium_out(i)%profiles_1d%rho_tor(j) = equilibrium_in(i)%profiles_1d%rho_tor(j)
+				equilibrium_out(i)%profiles_1d%area(j) = equilibrium_in(i)%profiles_1d%area(j)
+		end do
+		
 	end do
 
 	shotnumber=99999
