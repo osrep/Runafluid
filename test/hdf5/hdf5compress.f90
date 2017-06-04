@@ -60,7 +60,7 @@ program hdf5compress
 	rho_length = size(coreprof_in(1)%rho_tor_norm)
 	
 	do i=1,coreprof_slices
-		allocate(oreprof_out(i)%rho_tor_norm(rho_length))
+		allocate(coreprof_out(i)%rho_tor_norm(rho_length))
 		do j=1,rho_length
 			coreprof_out(i)%rho_tor_norm(j) = coreprof_in(i)%rho_tor_norm(j)	
 		end do	
