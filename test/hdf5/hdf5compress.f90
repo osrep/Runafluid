@@ -122,8 +122,8 @@ program hdf5compress
 		equilibrium_out(i)%global_param%i_plasma = equilibrium_in(i)%global_param%i_plasma
 		equilibrium_out(i)%global_param%toroid_field%b0 = equilibrium_in(i)%global_param%toroid_field%b0
 		
-		allocate(equilibrium_out(i)%profiles_1d%rho_tor(rho_length)
-		allocate(equilibrium_out(i)%profiles_1d%area(rho_length)
+		allocate(equilibrium_out(i)%profiles_1d%rho_tor(rho_length))
+		allocate(equilibrium_out(i)%profiles_1d%area(rho_length))
 		
 		do j=1,rho_length
 				equilibrium_out(i)%profiles_1d%rho_tor(j) = equilibrium_in(i)%profiles_1d%rho_tor(j)
