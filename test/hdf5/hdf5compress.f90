@@ -107,6 +107,16 @@ program hdf5compress
 			end do	
 		end do
 	end do
+	
+	equilibrium_slices = size(equilibrium_in)
+	allocate(equilibrium_out(equilibrium_slices))
+	
+	do i=1,equilibrium_slices
+		equilibrium_out%eqgeometry%a_minor = equilibrium_in%eqgeometry%a_minor
+		equilibrium_out%eqgeometry%elongation = equilibrium_in%eqgeometry%elongation
+		equilibrium_out%global_param%i_plasma = equilibrium_in%global_param%i_plasma
+		equilibrium_out%global_param%toroid_field%b0 = equilibrium_in%global_param%toroid_field%b0
+	end do
 
 	shotnumber=99999
 	! write data	
