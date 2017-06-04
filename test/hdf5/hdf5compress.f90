@@ -94,15 +94,15 @@ program hdf5compress
 		
 	coresource_slices = size(coresource_in)
 	allocate(coresource_out(coresource_slices))
-	source_length= size(coresource_in(1)%values%timed)
+	source_length= size(coresource_in(1)%values)
 	
 	do i=1,coresource_slices
 		coresource_out(i)%time = coresource_in(i)%time		
-		allocate(coresource_out(i)%values%timed(source_length))	
+		allocate(coresource_out(i)%values(source_length))	
 		
 		do k=1,source_length
 			do j=1,rho_length
-				coresource_out(i)%values%timed(k)%j(j) = coresource_in(i)%values%timed(k)%j(j)
+				coresource_out(i)%values(k)%j(j) = coresource_in(i)%values(k)%j(j)
 			end do	
 		end do
 	end do
