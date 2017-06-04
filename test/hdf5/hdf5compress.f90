@@ -63,10 +63,10 @@ program hdf5compress
 		coreprof_out(i)%rho_tor_norm = coreprof_in(i)%rho_tor_norm		
 	end do
 
-
+	shotnumber=99999
 	! write data	
 	write(*,*) 'Writing data'
-	call euitm_create_hdf5('euitm_comp', shotnumber, runnumber, 0, 0, idx)
+	call euitm_create_hdf5('euitm', shotnumber, runnumber, 0, 0, idx)
 !		call euitm_put(idx, 'topinfo',      topinfo)	
 	call euitm_put(idx, 'coreprof',     coreprof_out)	
 	call euitm_put(idx, 'coresource',   coresource_out)	
