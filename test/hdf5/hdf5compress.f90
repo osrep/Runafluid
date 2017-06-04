@@ -57,10 +57,13 @@ program hdf5compress
 	! fill up data
 	coreprof_slices = size(coreprof_in)
 	allocate(coreprof_out(coreprof_slices))
-	
+	rho_length = size(coreprof_in(1)%rho_tor_norm)
 	
 	do i=1,coreprof_slices
-		coreprof_out(i)%rho_tor_norm = coreprof_in(i)%rho_tor_norm		
+		allocate(oreprof_out(i)%rho_tor_norm(rho_length))
+		do j=1,rho_length
+			coreprof_out(i)%rho_tor_norm(j) = coreprof_in(i)%rho_tor_norm(j)	
+		end do	
 	end do
 
 	shotnumber=99999
