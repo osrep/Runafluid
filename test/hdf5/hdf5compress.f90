@@ -15,7 +15,7 @@ program hdf5compress
 	type (type_coreprof),     pointer :: coreprof_out(:)
 	type (type_coresource),   pointer :: coresource_out(:)
 	type (type_equilibrium),  pointer :: equilibrium_out(:)
-	integer :: idx, num_args, coreprof_slices, coresource_slices, equilibrium_slices, i
+	integer :: idx, num_args, coreprof_slices, coresource_slices, equilibrium_slices, rho_length, i, j
 	
 	! command line input declaration
 	integer :: shotnumber, runnumber
