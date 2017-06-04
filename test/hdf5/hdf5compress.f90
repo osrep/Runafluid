@@ -57,20 +57,20 @@ program hdf5compress
 	! fill up data
 	coreprof_slices = size(coreprof_in)
 	allocate(coreprof_out(coreprof_slices))
-	allocate(coreprof_out%time(coreprof_slices))
 	rho_length = size(coreprof_in(1)%rho_tor_norm)
 	
 	do i=1,coreprof_slices
-		coreprof_out%time(i) = coreprof_in%time(i)
+		coreprof_out(i)%time = coreprof_in(i)%time
 		coreprof_out(i)%toroid_field%r0 = coreprof_in(i)%toroid_field%r0
 		
 		allocate(coreprof_out(i)%rho_tor(rho_length))
 		allocate(coreprof_out(i)%rho_tor_norm(rho_length))
 		
+		allocate(coreprof_out(i)%te%value(rho_length))
+		allocate(coreprof_out(i)%ne%value(rho_length))	
+		
 		allocate(coreprof_out(i)%profiles1d%q%value(rho_length))
 		allocate(coreprof_out(i)%profiles1d%zeff%value(rho_length))
-		allocate(coreprof_out(i)%profiles1d%te%value(rho_length))
-		allocate(coreprof_out(i)%profiles1d%ne%value(rho_length))	
 			
 		allocate(coreprof_out(i)%profiles1d%johm%value(rho_length))
 		allocate(coreprof_out(i)%profiles1d%jtot%value(rho_length))
@@ -80,10 +80,11 @@ program hdf5compress
 			coreprof_out(i)%rho_tor(j) = coreprof_in(i)%rho_tor(j)
 			coreprof_out(i)%rho_tor_norm(j) = coreprof_in(i)%rho_tor_norm(j)
 			
+			coreprof_out(i)%te%value(j) = coreprof_in(i)%te%value(j)
+			coreprof_out(i)%ne%value(j) = coreprof_in(i)%ne%value(j)	
+			
 			coreprof_out(i)%profiles1d%q%value(j) = coreprof_in(i)%profiles1d%q%value(j)
 			coreprof_out(i)%profiles1d%zeff%value(j) = coreprof_in(i)%profiles1d%zeff%value(j)
-			coreprof_out(i)%profiles1d%te%value(j) = coreprof_in(i)%profiles1d%te%value(j)
-			coreprof_out(i)%profiles1d%ne%value(j) = coreprof_in(i)%profiles1d%ne%value(j)	
 					
 			coreprof_out(i)%profiles1d%joh%value(j) = coreprof_in(i)%profiles1d%joh%value(j)
 			coreprof_out(i)%profiles1d%jtot%value(j) = coreprof_in(i)%profiles1d%jtot%value(j)
