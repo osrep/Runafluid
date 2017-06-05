@@ -38,7 +38,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &time_step, double &exponential
 		//! internal error in distribution
 		std::cerr << "ERROR An error occurred during firing actor runafluid_te_expdecay." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
-		output = ITM_INVALID_INT;		
 		
 	}
 
