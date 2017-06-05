@@ -27,7 +27,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &time_step, double &exponential
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it,++i) {				
-			coreprof.te.value(i) *= exp(-time_step/exponential_time_constant);	
+			coreprof.te.value(i) *= exp(-time_step/exponential_time_constant);				
+			coreprof.ti.value(i) *= exp(-time_step/exponential_time_constant);	
 		}		
 
 		//! end: runafluid_teEdit
