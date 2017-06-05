@@ -7,71 +7,36 @@
 #include "../constants.h"
 #include "../cpo_utils.h"
 
-/*! 
-
-Parallel electric field editor
-
-te_switch:
-
-AB
-
- A
-   0: non-increasing temperature
-   1: increasing temperature   
- 
- B  
-   0: linear
-   1: logarithmic
-
-*/
-
-void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, double &output) {		
+void fire(ItmNs::Itm::coreprof &coreprof, double &time_step, double &exponential_time_constant, double &temperature_limit) {		
+		
 		
 	try {
 		
 		//! start: runafluidteEdit
-		std::cerr << " START: runafluid_teEdit" << std::endl;
-		bool bools[2];
+		std::cerr << " START: runafluid_te_expdecay" << std::endl;
 		
-		int swint = bool_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
-			
-		int rho = 0;
-		double critical_field = 0;
-		double dreicer_field = 0;
-
-		double te_value2;
+		
+		int i = 0;
+		double volume = 0;
+		double volume_prev = 0;
+		int values_index = 0;
+		int source_id = 0;
 
 		//! reading profile from CPO inputs
 		profile pro = read_coreprof(coreprof);
 		
 		//! stepping iterator in profile		
-		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
-
-			if(bools[1]){			
-				if(bools[0]){
-					te_value2 = pow(10,(double)rho/(coreprof.ne.value.rows()-1.0)*log10(te_value));
-				}else{
-					te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*te_value;
-				}					
-			}else{
-				te_value2 = te_value;
-			}
-			
-			coreprof.te.value(rho) = te_value2;
-			
-			rho++;
-		
-		}	
-		
-		output = 0;	
+		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it,++i) {				
+			coreprof.te.value(i) *= exp(-time_step/exponential_time_constant);	
+		}		
 
 		//! end: runafluid_teEdit
-		std::cerr << " END: runafluid_teEdit" << std::endl;
+		std::cerr << " END: runafluid_te_expdecay" << std::endl;
 
 	} catch (const std::exception& ex) {
 	
 		//! internal error in distribution
-		std::cerr << "ERROR An error occurred during firing actor runafluid_teEdit." << std::endl;
+		std::cerr << "ERROR An error occurred during firing actor runafluid_te_expdecay." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 		output = ITM_INVALID_INT;		
 		
