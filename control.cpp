@@ -36,10 +36,10 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		if (modulevar_dreicer==3) {dreicer_formula_id = 67;}
 				
 		//! Calculate Dreicer generation rate
-		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, dreicer_formula_id);			
+		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, dreicer_formula_id);			
 		
 		//! Calculate Avalanche generation rate
-		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, modulevar_avalanche);		
+		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, rho_tor_norm, modulevar_avalanche);		
 		// Dreicer on
 		if (modulevar_dreicer==0){
 			rate_dreicer = 0;		
@@ -74,9 +74,9 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 			rate_values[1] = rate_avalanche;
 			if(modulevar_rates == 1){		
 				//! temporary for Dreicer H&C 63,66,67		
-				rate_values[2] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 63)*electron_density;
-				rate_values[3] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 66)*electron_density;
-				rate_values[4] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, 67)*electron_density;
+				rate_values[2] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, 63)*electron_density;
+				rate_values[3] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, 66)*electron_density;
+				rate_values[4] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, 67)*electron_density;
 				rate_values[5] = rundensity_before;
 		
 				//! temporary for Dreicer field
@@ -95,9 +95,9 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 				rate_values[10] = calculate_runaway_collision_time(electron_density, electron_temperature);		
 			
 				//! temporary for Dreicer H&C 63,66,67		
-				rate_values[11] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 1);
-				rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 2);
-				rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 3);
+				rate_values[11] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, rho_tor_norm, 1);
+				rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, rho_tor_norm, 2);
+				rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, rho_tor_norm, 3);
 
 				//! temporary time data
 				double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
@@ -110,8 +110,8 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 				rate_values[16] = norm_synchrotron_loss_time;
 				
 				//! temporary toroidicity data
-				rate_values[17] = calculate_toroidicity_dreicer(inv_asp_ratio);				
-				rate_values[18] = calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature);
+				rate_values[17] = calculate_toroidicity_dreicer(inv_asp_ratio, rho_tor_norm);				
+				rate_values[18] = calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature, rho_tor_norm);
 				
 				//! temporary for relative electric field				
 				rate_values[19] =  electric_field/critical_field;
