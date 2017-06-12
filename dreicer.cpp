@@ -25,7 +25,7 @@ using namespace std;
 */
 
 double dreicer_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field, int formula_id) {
+		double effective_charge, double electric_field, double rho_tor_norm, int formula_id) {
 		
 		
 	//! electron temperature: electronvolt to joule
@@ -179,7 +179,8 @@ double calculate_h(double alpha, double effective_charge){
 			effective_charge + 7.0 + 2.0*sqrt(alpha/(alpha-1.0)) * (1.0+effective_charge)*(alpha-2.0)));
 }
 
-double calculate_toroidicity_dreicer(double inv_asp_ratio){
-	return (1.0 - 1.2*sqrt((2.0*inv_asp_ratio)/(1.0+inv_asp_ratio)));
+double calculate_toroidicity_dreicer(double inv_asp_ratio, double rho_tor_norm){
+    double inv_asp_ratio_coord = inv_asp_ratio*rho_tor_norm;
+	return (1.0 - 1.2*sqrt((2.0*inv_asp_ratio_coord)/(1.0+inv_asp_ratio_coord)));
 }
 
