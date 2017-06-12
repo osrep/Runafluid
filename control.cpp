@@ -55,14 +55,14 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		
 		*/		
 		if (modulevar_toroidicity == 1 || modulevar_toroidicity == 2){
-			rate_dreicer *= calculate_toroidicity_dreicer(inv_asp_ratio);
+			rate_dreicer *= calculate_toroidicity_dreicer(inv_asp_ratio, rho_tor_norm);
 		}
 		
 		/*! toroidicity for Avalanche rate	
 		
 		*/		
 		if (modulevar_toroidicity == 1 || modulevar_toroidicity == 3){
-			rate_avalanche *= calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature);
+			rate_avalanche *= calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature, rho_tor_norm);
 		}	
 		// temporary data back module
 		if (modulevar_rates!=0){	
