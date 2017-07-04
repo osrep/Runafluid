@@ -4,9 +4,9 @@
 #include <stdexcept>
 #include <UALClasses.h>
 
-#include "runafluid.h"
+//#include "runafluid.h"
 #include "constants.h"
-#include "cpo_utils.h"
+#include "ids_utils.h"
 #include "distinit.h"
 #include "control.h"
 
@@ -90,9 +90,9 @@ ABCD
 
 */
 
-void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
-		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
-		  ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch,
+void fire(const IdsNs::IDS::core_profiles &core_profiles,
+		  const IdsNs::IDS::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
+		  const IdsNs::IDS::distribution &distribution_out, double &timestep, int &runafluid_switch,
 		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
 		  ItmNs::Itm::temporary &runaway_rates) {
 
@@ -127,7 +127,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	double ecurrent = 0.0;		
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
-	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
+	profile pro = ids_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
 		
 	//! stepping iterator in profile	
 	int rho = 0;	
