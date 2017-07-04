@@ -14,14 +14,12 @@
 
 
 
-void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur) {
+void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &coreprof) {
 	
 	int N=0;
 	int N_rho_tor=0;
 	int N_rho_tor_norm=0;
 	int N_psi=0;
-	int N_area=0;
-	int N_volume=0;
 	 
 	  
 	//! number of coreprof geometry elements
@@ -54,18 +52,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
-	/*
-	//! number of coreimpur geometry elements
-	try {
-		N_area = coreimpur.area.rows();			
-		N_volume = coreimpur.volume.rows();
-		
-	} catch (const std::exception& ex) {
-		std::cerr << "ERROR An error occurred during coreimpur elements" << std::endl;
-		std::cerr << "ERROR : " << ex.what() << std::endl;
-	}	
-	*/
-		
+			
 	//! New distribution data set	
 	try {	
 		distribution.distri_vec.resize(1);	
@@ -154,35 +141,13 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
 		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
-	
-	//! Filling up coreimpur geometry data	
-	try {
-	
-		if(N_area==0){
-			//std::cerr << "WARNING: coreimpur.area is empty" << std::endl;
-		}
-		for (int i = 0; i < N; ++i){
-	
-		//	if (i < N_area){
-		//		distribution.distri_vec(0).profiles_1d.geometry.area(i) = coreimpur.area(i);
-		//	}
-	
-		//	if (i < N_volume){
-		//		distribution.distri_vec(0).profiles_1d.geometry.volume(i) = coreimpur.volume(i);
-		//	}
-		}
-			
-	} catch (const std::exception& ex) {
-		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
-		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
-	}
-	
+
 	
 	//! Filling up codeparam
 	
 	try {
 		distribution.codeparam.codename = "Runaway Fluid (runafluid)";
-		distribution.codeparam.codeversion = "1.2.0";
+		distribution.codeparam.codeversion = "1.6.2";
 		distribution.codeparam.output_diag = "Runaway Fluid was initialised successfully";
 		distribution.codeparam.output_flag = 0;
 	} catch (const std::exception& ex) {
