@@ -114,7 +114,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	double rho_max = 0.95;
 	
 	//! empty distribution initialiser (integrated distinit)
-	distinit(distribution_out, coreprof, coreimpur);	
+	distinit(distribution_out, coreprof);	
 	
 	//! Number of elements in runaway electron distribution
 	int N_rho = coreprof.ne.value.rows();
