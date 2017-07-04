@@ -208,15 +208,6 @@ int whereRunaway(const ItmNs::Itm::distribution &distribution){
 
 }
 
-
-
-
-
-
-
-
-
-
 /*!
 
 Copy data from coreprof CPO
@@ -227,7 +218,7 @@ output: profile
 
 */
 
-profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
+profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof) {
 
 	profile pro;
 
@@ -266,49 +257,6 @@ profile read_coreprof(const ItmNs::Itm::coreprof &coreprof) {
 	return pro;
 }
 
-
-profile read_coreprof_equilibrium(const ItmNs::Itm::coreprof &coreprof,const ItmNs::Itm::equilibrium &equilibrium) {
-
-	profile pro;
-
-	//! read electron density profile length of dataset: cell_length	
-	int cell_length = coreprof.ne.value.rows();
-	
-	//! read electron temperature profile length of dataset, comparing with cell_length
-	if (coreprof.te.value.rows() != cell_length)
-		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
-
-	//! read eparallel profile length of dataset, comparing with cell_length
-	if (coreprof.profiles1d.eparallel.value.rows() != cell_length)
-		throw std::invalid_argument(
-				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
-
-    //! read data in every $\rho$ 
-
-	for (int i = 0; i < cell_length; i++) {
-		cell celll;
-				
-		//! electron density
-		celll.electron_density = coreprof.ne.value(i);
-		
-		//! electron temperature
-		celll.electron_temperature = coreprof.te.value(i);
-		
-		/*! local electric field
-			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
-			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
-		*/
-	
-		celll.electric_field = coreprof.profiles1d.eparallel.value(i) * coreprof.toroid_field.b0
-				/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-						coreprof.rho_tor(i));					
-	
-
-		pro.push_back(celll);
-	}
-
-	return pro;
-}
 
 /*!
 

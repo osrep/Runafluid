@@ -29,7 +29,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coresource &coresource, It
 		int source_id = 0;
 
 		//! reading profile from CPO inputs
-		profile pro = read_coreprof(coreprof);
+		profile pro = cpo_to_profile(coreprof);
 		coresource.values(values_index).sourceid.flag = source_id;
 		
 		//! stepping iterator in profile		

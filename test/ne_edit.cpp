@@ -45,7 +45,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, doub
 		double ne_value2;
 							
 		//! reading profile from CPO inputs
-		profile pro = read_coreprof(coreprof);
+		profile pro = cpo_to_profile(coreprof);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
