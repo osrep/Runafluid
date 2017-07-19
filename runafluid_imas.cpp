@@ -157,12 +157,12 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 		//! Length of the runaway distribution is correct
-		if (i<distribution_out.distribution(distsource_out_index).profiles_1d.state.dens.rows()){
+		if (i<distribution_out.distribution(distsource_out_index).profiles_1d.density.rows()){
 				
 			//! calculating runaway density
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
 										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
-										   timestep, inv_asp_ratio, runafluid_switch, rate_values);
+										   timestep, inv_asp_ratio, it->rho, runafluid_switch, rate_values);
 
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			
 		   	if (it->rho >= rho_max){
