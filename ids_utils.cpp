@@ -65,14 +65,62 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 	return y(index) + (y(index + 1) - y(index)) / (x(index + 1) - x(index)) * (xa - x(index));
 }
 
+
+/*! This code is looking for
+which element of distri_vec is 
+the runaway distribution
+
+runaway: distri_vec index
+no runaway: -1
+
+*/
+
+
+int whereRunaway(const ItmNs::Itm::distributions &distributions){
+	int N_distr = 0;
+	
+	int runaway_index = -1;
+	
+	try {
+		N_distr = distributions.distribution.rows();
+		
+		for (int i=0; (i<N_distr && runaway_index<0); i++){
+
+			//! Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
+			if (distributions.distribution(i).process()>0){
+				if (distributions.distribution(i).process(0).type == DISTSOURCE_IDENTIFIER){/process(i2)/type
+					runaway_index = i;
+				}
+			}
+		}
+		
+	} catch (const std::exception& ex) {
+		std::cerr << "  [Runaway Fluid] ERROR : An error occurred during geometry vectors allocation" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR : " << ex.what() << std::endl;
+	}
+	
+	if (runaway_index == -1){
+		std::cerr << "  [Runaway Fluid] WARNING: There is no previous runaway distribution. New distribution initialised." << std::endl;
+	}else{	
+		std::cerr << "  [Runaway Fluid] Distri_vec identifier: " << runaway_index << std::endl;
+	}
+	
+	return runaway_index;
+
+}
+
+
 // IMAS utilities
 // https://portal.iter.org/departments/POP/CM/IMDesign/Data%20Model/CI/imas-3.7.3/html_documentation.html
-profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, int timeindex){
+profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex){
 
 	profile pro;
 
 	//! read electron density profile length of dataset: cells	
 	int cells = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
+	
+    //! read distribution source index for runaways from distribution CPO						
+	int distsource_index = whereRunaway(distributions);	
 	
     //! read data in every $\rho$ 
 	for (int rho = 0; rho < cells; rho++) {
@@ -91,6 +139,23 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 						
 		//! total sum of electric charge in \a rho cell
 		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(rho);
+		
+		try{		
+			//! No runaway in previous distribution CPO
+			if (distsource_index<0){
+				celll.runaway_density = 0;
+			//! Runaway in previous distribution CPO
+			}else{
+				celll.runaway_density = distribution.distribution(distsource_index).profiles_1d(timeindex).density(i);
+			}
+
+		//! internal error in distribution
+		} catch (const std::exception& ex) {
+
+			celll.runaway_density = 0;
+			
+			std::cerr << "  [Runaway Fluid] WARNING : Cannot read runaway density, density set to zero." << std::endl;
+		}
 
 		pro.push_back(celll);
 	}

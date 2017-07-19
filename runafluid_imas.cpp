@@ -91,8 +91,8 @@ ABCD
 */
 
 void fire(const IdsNs::IDS::core_profiles &core_profiles,
-		  const IdsNs::IDS::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
-		  const IdsNs::IDS::distribution &distribution_out, double &timestep, int &runafluid_switch,
+		  const IdsNs::IDS::equilibrium &equilibrium, IdsNs::IDS::distributions &distribution_in,
+		  const IdsNs::IDS::distributions &distribution_out, double &timestep, int &runafluid_switch,
 		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
 		  ItmNs::Itm::temporary &runaway_rates) {
 
@@ -130,7 +130,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	profile pro = ids_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
 		
 	//! stepping iterator in profile	
-	int rho = 0;	
+	int i = 0;	
 	
 	//! output flag
 	int output_flag = 0;
@@ -156,7 +156,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 		//! Length of the runaway distribution is correct
-		if (rho<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
+		if (i<distribution_out.distribution(distsource_out_index).profiles_1d.state.dens.rows()){
 				
 			//! calculating runaway density
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
@@ -186,7 +186,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 		   	}
 		   	
 		   	//! runaway density n_R if \rho < \rho_\mathrm{max}
-	   		distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
+	   		distribution_out.distribution(distsource_out_index).profiles_1d(t_i).density(i) = rundensity;
 		  
 		   	//! runaway current
 		   	/*!
@@ -196,7 +196,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 		   	*/
 		   			   	
 		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);		   	
-		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho) = runcurrent;
+		   	distribution_out.distribution(distsource_out_index).profiles_1d(t_i).current_tor(i) = runcurrent;
 		   	
 		   	//! not suitable warning: j_R > j_e	
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
@@ -206,15 +206,15 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 
 		   	//! runaway rates (Dreicer, Avalanche etc.)
 		   	/*for(int rates_i=0;rates_i<N_rates;++rates_i){
-		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
+		   		runaway_rates.timed.float1d(rates_i).value(i) = rate_values[rates_i];
 			}*/	
 	   		
 	   	}else{		   	
-			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/"
-					  << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
+			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << i << "/"
+					  << distribution_out.distribution(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 	   	}   	   	
 	   
-	    rho++;
+	    i++;
 	
 	}
 
