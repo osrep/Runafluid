@@ -146,7 +146,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	init_rates(runaway_rates, N_rates, N_rho);
 	
 	//! inverse aspect ratio \eps = a/R
-	double inv_asp_ratio = equilibrium.time_slice(timeindex).boundary.minor_radius / equilibrium.time_slice(timeindex).boundary.outline.r;
+	double inv_asp_ratio = equilibrium.time_slice(timeindex).boundary.minor_radius / equilibrium.vacuum_toroidal_field.r0;
 	
 	//! Runaway fluid switch message	
 	runafluid_switch_message(runafluid_switch);
