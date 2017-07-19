@@ -261,7 +261,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	std::cerr << " END: runaway_fluid" << std::endl;
 }
 
-int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
+int init_rates(IdsNs::IDS::temporary &runaway_rates, int N_rates, int N_rho){
 //! runaway_rates for generation rates
     runaway_rates.constant_float1d.resize(1);
 /*
