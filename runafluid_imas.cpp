@@ -94,13 +94,14 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 		  const IdsNs::IDS::equilibrium &equilibrium, IdsNs::IDS::distributions &distribution_in,
 		  const IdsNs::IDS::distributions &distribution_out, double &timestep, int &runafluid_switch,
 		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
-		  ItmNs::Itm::temporary &runaway_rates) {
+		  IdsNs::IDS::temporary &runaway_rates) {
 
 	//! start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
 	//! get time
 	double time = coreprof.time;
+	int timeindex = 0;
 	
 	//! output initialisation
 	runaway_warning = 0;
@@ -114,10 +115,10 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	double rho_max = 0.95;
 	
 	//! empty distribution initialiser (integrated distinit)
-	distinit(distribution_out, coreprof, coreimpur);	
+	//distinit(distribution_out, core_profiles);	
 	
 	//! Number of elements in runaway electron distribution
-	int N_rho = coreprof.ne.value.rows();
+	int N_rho = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
 		
 	//! runaway density and current initialisation	
 	double rundensity = 0.0;
@@ -127,11 +128,10 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	double ecurrent = 0.0;		
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
-	profile pro = ids_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
+	profile pro = ids_to_profile(core_profiles, equilibrium, timeindex); // testing until previous distribution validating
 		
 	//! stepping iterator in profile	
 	int i = 0;	
-	int timeindex = 0;
 	
 	//! output flag
 	int output_flag = 0;
@@ -146,7 +146,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	init_rates(runaway_rates, N_rates, N_rho);
 	
 	//! inverse aspect ratio \eps = a/R
-	double inv_asp_ratio = equilibrium.eqgeometry.a_minor / coreprof.toroid_field.r0;
+	double inv_asp_ratio = equilibrium.time_slice(timeindex).boundary.minor_radius / equilibrium.time_slice(timeindex).boundary.outline.r;
 	
 	//! Runaway fluid switch message	
 	runafluid_switch_message(runafluid_switch);
