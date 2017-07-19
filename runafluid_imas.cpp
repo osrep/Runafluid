@@ -212,7 +212,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	   		
 	   	}else{		   	
 			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << i << "/"
-					  << distribution_out.distribution(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
+					  << distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows() << ")" << std::endl;
 	   	}   	   	
 	   
 	    i++;
@@ -238,24 +238,24 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 
 	//! output flag to distribution CPO
 	try {
-		distribution_out.codeparam.output_flag = output_flag;
-		
+		distribution_out.code.output_flag = output_flag;
+		/*
 		if (output_flag == 1){			
-			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully and runaway electrons indicated";
+			distribution_out.code.output_diag = "Runaway Fluid was running successfully and runaway electrons indicated";
 		}
 		else if (output_flag == 2){
-			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully but runaway current is higher than electron current";
+			distribution_out.code.output_diag = "Runaway Fluid was running successfully but runaway current is higher than electron current";
 		}
 		else if (output_flag == 3){
-			distribution_out.codeparam.output_diag = "Runaway Fluid was running successfully but results out of the range of validity";
-		}
+			distribution_out.code.output_diag = "Runaway Fluid was running successfully but results out of the range of validity";
+		}*/
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
 		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
-	distribution_out.time = distribution_in.time+timestep;
+	distribution_out.time(timeindex) = distribution_in.time(timeindex)+timestep;
 	
 	//! end: runafluid
 	std::cerr << " END: runaway_fluid" << std::endl;
