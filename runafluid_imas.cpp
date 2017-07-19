@@ -131,6 +131,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 		
 	//! stepping iterator in profile	
 	int i = 0;	
+	int timeindex = 0;
 	
 	//! output flag
 	int output_flag = 0;
@@ -186,7 +187,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 		   	}
 		   	
 		   	//! runaway density n_R if \rho < \rho_\mathrm{max}
-	   		distribution_out.distribution(distsource_out_index).profiles_1d(t_i).density(i) = rundensity;
+	   		distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density(i) = rundensity;
 		  
 		   	//! runaway current
 		   	/*!
@@ -196,7 +197,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 		   	*/
 		   			   	
 		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);		   	
-		   	distribution_out.distribution(distsource_out_index).profiles_1d(t_i).current_tor(i) = runcurrent;
+		   	distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).current_tor(i) = runcurrent;
 		   	
 		   	//! not suitable warning: j_R > j_e	
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
