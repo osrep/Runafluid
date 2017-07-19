@@ -100,7 +100,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
 	//! get time
-	double time = coreprof.time;
+	//double time = coreprof.time;
 	int timeindex = 0;
 	
 	//! output initialisation
