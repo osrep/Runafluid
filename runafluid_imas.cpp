@@ -128,7 +128,7 @@ void fire(const IdsNs::IDS::core_profiles &core_profiles,
 	double ecurrent = 0.0;		
 	
 	//! reading profile from CPO inputs (cpo_utils.h)
-	profile pro = ids_to_profile(core_profiles, equilibrium, distributions, timeindex); // testing until previous distribution validating
+	profile pro = ids_to_profile(core_profiles, equilibrium, distribution_in, timeindex); // testing until previous distribution validating
 		
 	//! stepping iterator in profile	
 	int i = 0;	
