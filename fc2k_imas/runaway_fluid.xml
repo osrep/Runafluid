@@ -49,7 +49,7 @@
             <string>equilibrium</string>
           </vector>
           <vector>
-            <string>distribution_sources</string>
+            <string>distributions</string>
             <string>1</string>
             <string>0</string>
             <string>0</string>
@@ -58,7 +58,7 @@
             <string>distribution_in</string>
           </vector>
           <vector>
-            <string>distribution_sources</string>
+            <string>distributions</string>
             <string>1</string>
             <string>0</string>
             <string>0</string>
