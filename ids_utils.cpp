@@ -184,28 +184,28 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 	int distsource_index = whereRunaway(distributions);	
 	
     //! read data in every $\rho$ 
-	for (int rho = 0; rho < cells; rho++) {
+	for (int i = 0; i < cells; i++) {
 		cell celll;
 		//! normalised minor radius
 		celll.rho = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm(i);
 		
 		//! electron density
-		celll.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(rho);
+		celll.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
 		
 		//! electron temperature
-		celll.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(rho);
+		celll.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
 		
 		/*! local electric field
 			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
 			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
 		*/
 				
-		celll.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(rho) * core_profiles.vacuum_toroidal_field.b0(timeindex)
+		celll.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(i) * core_profiles.vacuum_toroidal_field.b0(timeindex)
 				/ interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
-						core_profiles.profiles_1d(timeindex).grid.rho_tor(rho));
+						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
 						
 		//! total sum of electric charge in \a rho cell
-		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(rho);
+		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
 		
 		try{		
 			//! No runaway in previous distribution CPO
