@@ -149,7 +149,7 @@ int whereRunaway(const IdsNs::IDS::distributions &distributions){
 
 			//! Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
 			if (distributions.distribution(i).process()>0){
-				if (distributions.distribution(i).process(0).type == DISTSOURCE_IDENTIFIER)
+				if (distributions.distribution(i).process(0).type == DISTSOURCE_IDENTIFIER){
 					runaway_index = i;
 				}
 			}
