@@ -90,9 +90,9 @@ ABCD
 
 */
 
-void fire(const IdsNs::IDS::core_profiles &core_profiles,
-		  const IdsNs::IDS::equilibrium &equilibrium, IdsNs::IDS::distributions &distribution_in,
-		  const IdsNs::IDS::distributions &distribution_out, double &timestep, int &runafluid_switch,
+void fire(IdsNs::IDS::core_profiles &core_profiles,
+		  IdsNs::IDS::equilibrium &equilibrium, IdsNs::IDS::distributions &distribution_in,
+		  IdsNs::IDS::distributions &distribution_out, double &timestep, int &runafluid_switch,
 		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
 		  IdsNs::IDS::temporary &runaway_rates) {
 
