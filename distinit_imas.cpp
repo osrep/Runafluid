@@ -14,7 +14,7 @@
 
 
 
-void distinit(IdsNs::IDS::distribution &distribution, IdsNs::IDS::core_profiles &core_profiles, int timeindex) {
+void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profiles &core_profiles, int timeindex) {
 	
 	int N=0;
 	int N_rho_tor=0;
