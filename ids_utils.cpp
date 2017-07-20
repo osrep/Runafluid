@@ -3,6 +3,29 @@
 
 /*!
 \param a
+
+\details
+\f[
+	\mathrm{sign}(a) 
+\f]
+*/
+
+double sign(double a){
+
+	double b;
+	if(a>0){
+		b=1.0;
+	}else if (a==0){
+		b=0.0;
+	}else{
+		b=-1.0;
+	}
+	
+	return b;
+}
+
+/*!
+\param a
 \param b
 \param tolerance
 
@@ -75,6 +98,44 @@ no runaway: -1
 
 */
 
+
+/*!
+
+switch handling
+
+*/
+
+int bool_switch(int switch_number, bool *bools, int N){
+	
+	
+	for (int i=0; i<N; i++){
+		if (switch_number%10==1){
+			bools[i]=true;
+		}else{		
+			bools[i]=false;
+		}
+				
+		switch_number /= 10;
+	}
+	
+	return N;
+
+}
+
+
+
+int get_digit(int number, int digit){
+
+	int number2,number3;
+	for (int i = 0; i < digit; i++){
+		number2 = number/10;
+		number3 = number - 10*number2;		
+		number = number2; 		
+	}
+	
+	
+	return number3;
+}
 
 int whereRunaway(const ItmNs::Itm::distributions &distributions){
 	int N_distr = 0;
