@@ -14,14 +14,14 @@
 
 
 
-void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &coreprof) {
+void distinit(IdsNs::IDS::distribution &distribution, IdsNs::IDS::core_profiles &core_profiles, int timeindex) {
 	
 	int N=0;
 	int N_rho_tor=0;
 	int N_rho_tor_norm=0;
 	int N_psi=0;
 	 
-	  
+	/*  
 	//! number of coreprof geometry elements
 	try {		
 		N = coreprof.ne.value.rows();		
@@ -31,7 +31,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	}	
 	
 	try {		
-		N_rho_tor = coreprof.rho_tor.rows();
+		N_rho_tor = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof elements" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
@@ -39,7 +39,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	
 	
 	try {			
-		N_rho_tor_norm = coreprof.rho_tor_norm.rows();		
+		N_rho_tor_norm = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm.rows();;		
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof elements" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
@@ -153,7 +153,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling codeparam" << std::endl;
 		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
-	}
+	}*/
 	
 }
 
