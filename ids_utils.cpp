@@ -137,7 +137,7 @@ int get_digit(int number, int digit){
 	return number3;
 }
 
-int whereRunaway(const ItmNs::Itm::distributions &distributions){
+int whereRunaway(const IdsNs::IDS::distributions &distributions){
 	int N_distr = 0;
 	
 	int runaway_index = -1;
