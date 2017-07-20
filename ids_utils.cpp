@@ -213,7 +213,7 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 				celll.runaway_density = 0;
 			//! Runaway in previous distribution CPO
 			}else{
-				celll.runaway_density = distribution.distribution(distsource_index).profiles_1d(timeindex).density(i);
+				celll.runaway_density = distributions.distribution(distsource_index).profiles_1d(timeindex).density(i);
 			}
 
 		//! internal error in distribution
