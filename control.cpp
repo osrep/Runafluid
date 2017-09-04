@@ -4,7 +4,11 @@
 #include "critical_field.h"
 #include "dreicer.h"
 #include "avalanche.h"
-#include "cpo_utils.h"
+#ifdef ITM_CONSTANTS
+    #include "cpo_utils.h"
+#else
+    #include "ids_utils.h"
+#endif
 #include "products.h"
 
 /*!
