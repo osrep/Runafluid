@@ -31,6 +31,7 @@
 
         //! ERROR CODE
         #define ITM_INVALID_INT	-999999999
+        #define ITM_INVALID_FLOAT	-9.0D40
 
     #endif
 
