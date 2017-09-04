@@ -20,11 +20,18 @@ ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
     CXXFLAGS +=-DITM_CONSTANTS
     LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu)    
     all:   libRunafluid.a libEfieldEdit.a
+    # test developing files
+    d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
+    dev:      libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
+    devonly:  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
+    fortran:  test/libNewDistSlice.a     
     $(info *** Compiler set to ITM *** )
 else
     CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz)
     LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
     all: libRunafluid_imas.a
+    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a test/libqeimpEdit_imas.a test/libqeexpdecay_imas.a test/libteexpdecay_imas.a
+    
     $(info *** Compiler set to IMAS *** )
 endif
 
@@ -39,6 +46,9 @@ libRunafluid_imas.a: runafluid_imas.o distinit_imas.o  ids_utils.o  critical_fie
 libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
 	ar -rvs $@ $^	
 	
+libEfieldEdit_imas.a: efieldedit.o  ids_utils.o  critical_field.o
+	ar -rvs $@ $^	
+	
 # google test
 test: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test.o
 	$(CXX) $(LDFLAGS) -L$(ITMWORK)/gtest-1.7.0/ -lgtest_main $^ -lgtest -o test.bin
@@ -46,11 +56,7 @@ test: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.
 test/test.o: test/test.cpp
 	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(ITMWORK)/gtest-1.7.0/include/ -c -o $@ $^
 
-# test developing files
-d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
-dev:      libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
-devonly:  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
-fortran:  test/libNewDistSlice.a 
+
 
 
 # test C++ files 		
@@ -67,6 +73,23 @@ test/libqeexpdecay.a: test/qe_expdecay.o  cpo_utils.o
 	ar -rvs $@ $^
 	
 test/libteexpdecay.a: test/te_expdecay.o  cpo_utils.o 
+	ar -rvs $@ $^
+	
+	
+# test C++ files 	for IMAS	
+test/libTeEdit_imas.a: test/te_edit.o  ids_utils.o 
+	ar -rvs $@ $^
+	
+test/libNeEdit_imas.a: test/ne_edit.o  ids_utils.o 
+	ar -rvs $@ $^
+
+test/libqeimpEdit_imas.a: test/qe_imp_edit.o  ids_utils.o 
+	ar -rvs $@ $^
+	
+test/libqeexpdecay_imas.a: test/qe_expdecay.o  ids_utils.o 
+	ar -rvs $@ $^
+	
+test/libteexpdecay_imas.a: test/te_expdecay.o  ids_utils.o 
 	ar -rvs $@ $^
 	
 # compile C++ files
