@@ -179,6 +179,35 @@ int whereRunaway(const IdsNs::IDS::distributions &distributions){
 
 // IMAS utilities
 // https://portal.iter.org/departments/POP/CM/IMDesign/Data%20Model/CI/imas-3.7.3/html_documentation.html
+profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex){
+
+	profile pro;
+
+	//! read electron density profile length of dataset: cells	
+	int cells = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
+	
+	//! read data in every $\rho$ 
+	for (int i = 0; i < cells; i++) {
+		cell celll;
+		//! normalised minor radius
+		celll.rho = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm(i);
+		
+		//! electron density
+		celll.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
+		
+		//! electron temperature
+		celll.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
+						
+		//! total sum of electric charge in \a rho cell
+		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
+
+		pro.push_back(celll);
+	}
+
+	return pro;
+}
+
+
 profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex){
 
 	profile pro;
