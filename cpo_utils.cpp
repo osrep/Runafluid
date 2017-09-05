@@ -147,7 +147,7 @@ int get_digit(int number, int digit){
 		}
 		return got_digit;
 	}
-
+		//if the incoming digit is negative, return invalid int value
 	else
 		return ITM_INVALID_INT;
 }
