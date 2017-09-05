@@ -35,7 +35,7 @@ ABCD (Do not write strating 0s!)
 */
 
 
-void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, double &electric_field_value, int &electric_field_switch, double &output) {
+void fire(IdsNs::IDS::core_profiles &core_profiles,  IdsNs::IDS::equilibrium &equilibrium, double &electric_field_value, int &electric_field_switch, double &output) {
 		
 	try {
 		
@@ -49,14 +49,15 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 		int swint = bool_switch(electric_field_switch,bools,sizeof(bools)/sizeof(bool));
 		
 		//! counter initialisation			
-		int rho = 0;
+		int i = 0;
+		int timeindex = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
 		
 		double electric_field_value2;
 					
 		//! reading profile from CPO inputs
-		profile pro = cpo_to_profile(coreprof);
+		profile pro = ids_to_profile(core_profiles);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
@@ -65,11 +66,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 			
 				//! logarithmically increasing field
 				if(bools[2]){
-					electric_field_value2 = pow(10,(double)rho/(coreprof.ne.value.rows()-1.0)*log10(electric_field_value));
+					electric_field_value2 = pow(10,(double)i/(core_profiles.profiles_1d(timeindex).electrons.density.rows()-1.0)*log10(electric_field_value));
 					
 				//! linearly increasing field
 				}else{
-					electric_field_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*electric_field_value;
+					electric_field_value2 = (double)i/(core_profiles.profiles_1d(timeindex).electrons.density.rows()-1.0)*electric_field_value;
 				}	
 			//! constant field
 			}else{
@@ -81,24 +82,26 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 				
 					//! maximal value of field related to critical field
 					critical_field = calculate_critical_field(it->electron_density, it->electron_temperature);				
-					critical_field/= (coreprof.toroid_field.b0 / interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av, coreprof.rho_tor(rho)));
+					critical_field/= ( equilibrium.vacuum_toroidal_field.b0(timeindex) / 					
+					interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
+						core_profiles.profiles_1d(timeindex).grid.rho_tor(i)) );
 
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_value2*critical_field;		
+					core_profiles.profiles_1d(timeindex).e_field.parallel(i) = electric_field_value2*critical_field;		
 					
 				} else {
 				
 					//! maximal value of field related to Dreier field
 					dreicer_field = calculate_dreicer_field(it->electron_density, it->electron_temperature);
-					coreprof.profiles1d.eparallel.value(rho) = electric_field_value2*dreicer_field;	
+					core_profiles.profiles_1d(timeindex).e_field.parallel(i) = electric_field_value2*dreicer_field;	
 				}
 				
 			} else {
 			
 			//! absolut electric field
-				coreprof.profiles1d.eparallel.value(rho) = electric_field_value2;
+				core_profiles.profiles_1d(timeindex).e_field.parallel(i) = electric_field_value2;
 			}
 			
-			rho++;
+			i++;
 		
 		}				
 		
