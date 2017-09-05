@@ -45,7 +45,7 @@ libRunafluid_imas.a: runafluid_imas.o distinit_imas.o  ids_utils.o  critical_fie
 libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
 	ar -rvs $@ $^	
 	
-libEfieldEdit_imas.a: efieldedit.o  ids_utils.o  critical_field.o
+libEfieldEdit_imas.a: efieldedit_imas.o  ids_utils.o  critical_field.o
 	ar -rvs $@ $^	
 	
 # google test
@@ -76,19 +76,19 @@ test/libteexpdecay.a: test/te_expdecay.o  cpo_utils.o
 	
 	
 # test C++ files 	for IMAS	
-test/libTeEdit_imas.a: test/te_edit.o  ids_utils.o 
+test/libTeEdit_imas.a: test/te_edit_imas.o  ids_utils.o 
 	ar -rvs $@ $^
 	
-test/libNeEdit_imas.a: test/ne_edit.o  ids_utils.o 
+test/libNeEdit_imas.a: test/ne_edit_imas.o  ids_utils.o 
 	ar -rvs $@ $^
 
-test/libqeimpEdit_imas.a: test/qe_imp_edit.o  ids_utils.o 
+test/libqeimpEdit_imas.a: test/qe_imp_edit_imas.o  ids_utils.o 
 	ar -rvs $@ $^
 	
-test/libqeexpdecay_imas.a: test/qe_expdecay.o  ids_utils.o 
+test/libqeexpdecay_imas.a: test/qe_expdecay_imas.o  ids_utils.o 
 	ar -rvs $@ $^
 	
-test/libteexpdecay_imas.a: test/te_expdecay.o  ids_utils.o 
+test/libteexpdecay_imas.a: test/te_expdecay_imas.o  ids_utils.o 
 	ar -rvs $@ $^
 	
 # compile C++ files
