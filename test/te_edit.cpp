@@ -35,7 +35,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		
 		int swint = bool_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
 			
-		int rho = 0;
+		int i = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
 
@@ -49,17 +49,17 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 
 			if(bools[1]){			
 				if(bools[0]){
-					te_value2 = pow(10,(double)rho/(coreprof.ne.value.rows()-1.0)*log10(te_value));
+					te_value2 = pow(10,(double)i/(coreprof.te.value.rows()-1.0)*log10(te_value));
 				}else{
-					te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*te_value;
+					te_value2 = (double)i/(coreprof.te.value.rows()-1.0)*te_value;
 				}					
 			}else{
 				te_value2 = te_value;
 			}
 			
-			coreprof.te.value(rho) = te_value2;
+			coreprof.te.value(i) = te_value2;
 			
-			rho++;
+			i++;
 		
 		}	
 		
