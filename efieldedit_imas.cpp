@@ -57,7 +57,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,  IdsNs::IDS::equilibrium &eq
 		double electric_field_value2;
 					
 		//! reading profile from CPO inputs
-		profile pro = ids_to_profile(core_profiles);
+		profile pro = ids_to_profile(core_profiles, timeindex);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {

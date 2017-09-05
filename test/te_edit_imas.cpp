@@ -36,13 +36,14 @@ void fire(IdsNs::IDS::core_profiles &core_profiles, double &te_value, int &te_sw
 		int swint = bool_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
 			
 		int i = 0;
+		int timeindex = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
 
 		double te_value2;
 
 		//! reading profile from CPO inputs
-		profile pro = ids_to_profile(core_profiles);
+		profile pro = ids_to_profile(core_profiles, timeindex);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
