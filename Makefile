@@ -27,7 +27,7 @@ ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
     fortran:  test/libNewDistSlice.a     
     $(info *** Compiler set to ITM *** )
 else ifeq ($(IMAS_ENVIRONMENT_LOADED), yes)
-    CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz imasconstants)
+    CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz imas-constants-cpp)
     LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
     all: libRunafluid_imas.a
     d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a     
