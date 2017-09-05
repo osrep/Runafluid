@@ -27,7 +27,7 @@ AB
 */
 
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, double &output) {		
+void fire(IdsNs::IDS::core_profiles &core_profiles, double &ne_value, int &ne_switch, double &output) {		
 		
 	try {
 
@@ -38,31 +38,31 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &ne_value, int &ne_switch, doub
 		
 		int swint = bool_switch(ne_switch,bools,sizeof(bools)/sizeof(bool));
 
-		int rho = 0;
+		int i = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
 
 		double ne_value2;
 							
 		//! reading profile from CPO inputs
-		profile pro = cpo_to_profile(coreprof);
+		profile pro = ids_to_profile(core_profiles);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 			if(bools[1]){			
 				if(bools[0]){
-					ne_value2 = pow(10,(double)rho/(coreprof.ne.value.rows()-1.0)*log10(ne_value));
+					ne_value2 = pow(10,(double)i/(core_profiles.profiles_1d(timeindex).electrons.density.rows()-1.0)*log10(ne_value));
 				}else{
-					ne_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*ne_value;
+					ne_value2 = (double)i/(core_profiles.profiles_1d(timeindex).electrons.density.rows()-1.0)*ne_value;
 				}					
 			}else{
 				ne_value2 = ne_value;
 			}
 			
-			coreprof.ne.value(rho) = ne_value2;
+			core_profiles.profiles_1d(timeindex).electrons.density(i) = ne_value2;
 			
-			rho++;
+			i++;
 		
 		}	
 		

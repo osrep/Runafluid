@@ -5,7 +5,7 @@
 #include <UALClasses.h>
 
 #include "../constants.h"
-#include "../cpo_utils.h"
+#include "../ids_utils.h"
 
 /*! 
 
@@ -25,7 +25,7 @@ AB
 
 */
 
-void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, double &output) {		
+void fire(IdsNs::IDS::core_profiles &core_profiles, double &te_value, int &te_switch, double &output) {		
 		
 	try {
 		
@@ -35,31 +35,31 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		
 		int swint = bool_switch(te_switch,bools,sizeof(bools)/sizeof(bool));		
 			
-		int rho = 0;
+		int i = 0;
 		double critical_field = 0;
 		double dreicer_field = 0;
 
 		double te_value2;
 
 		//! reading profile from CPO inputs
-		profile pro = cpo_to_profile(coreprof);
+		profile pro = ids_to_profile(core_profiles);
 		
 		//! stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
 
 			if(bools[1]){			
 				if(bools[0]){
-					te_value2 = pow(10,(double)rho/(coreprof.ne.value.rows()-1.0)*log10(te_value));
+					te_value2 = pow(10,(double)i/(core_profiles.profiles_1d(timeindex).electrons.temperature.rows()-1.0)*log10(te_value));
 				}else{
-					te_value2 = (double)rho/(coreprof.ne.value.rows()-1.0)*te_value;
+					te_value2 = (double)i/(core_profiles.profiles_1d(timeindex).electrons.temperature.rows()-1.0)*te_value;
 				}					
 			}else{
 				te_value2 = te_value;
 			}
 			
-			coreprof.te.value(rho) = te_value2;
+			core_profiles.profiles_1d(timeindex).electrons.temperature(i) = te_value2;
 			
-			rho++;
+			i++;
 		
 		}	
 		
