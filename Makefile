@@ -26,12 +26,18 @@ ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
     devonly:  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
     fortran:  test/libNewDistSlice.a     
     $(info *** Compiler set to ITM *** )
+else ifeq ($(IMAS_ENVIRONMENT_LOADED), yes)
+    CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz imasconstants)
+    LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
+    all: libRunafluid_imas.a
+    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a     
+    $(info *** Compiler set to IMAS *** )
 else
     CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz)
     LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
     all: libRunafluid_imas.a
     d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a     
-    $(info *** Compiler set to IMAS *** )
+    $(info *** Compiler set to IMAS (no imasconstants) *** )
 endif
 
  
