@@ -126,15 +126,21 @@ int bool_switch(int switch_number, bool *bools, int N){
 
 int get_digit(int number, int digit){
 
-	int number2,number3;
-	for (int i = 0; i < digit; i++){
-		number2 = number/10;
-		number3 = number - 10*number2;		
-		number = number2; 		
+	int input_number = number;
+	int divided_number;
+	int got_digit;
+
+	if(digit>0) {
+		for (int i = 0; i < digit; i++) {
+			divided_number = input_number / 10;
+			got_digit = input_number % 10;
+			input_number = divided_number;
+		}
+		return got_digit;
 	}
-	
-	
-	return number3;
+
+	else
+		return ITM_INVALID_INT;
 }
 
 int whereRunaway(const IdsNs::IDS::distributions &distributions){
