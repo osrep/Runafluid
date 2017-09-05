@@ -30,8 +30,7 @@ else
     CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz)
     LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
     all: libRunafluid_imas.a
-    d:  libRunafluid_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a test/libqeimpEdit_imas.a test/libqeexpdecay_imas.a test/libteexpdecay_imas.a
-    
+    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a     
     $(info *** Compiler set to IMAS *** )
 endif
 
@@ -46,7 +45,7 @@ libRunafluid_imas.a: runafluid_imas.o distinit_imas.o  ids_utils.o  critical_fie
 libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
 	ar -rvs $@ $^	
 	
-libEfieldEdit_imas.a: efieldedit_imas.o  ids_utils.o  critical_field.o
+libEfieldEdit_imas.a: efieldedit.o  ids_utils.o  critical_field.o
 	ar -rvs $@ $^	
 	
 # google test
