@@ -84,7 +84,7 @@
   <actorDoc>Parallel electric field editor&amp;#xA;(runafluid_efieldEdit)&amp;#xA;&amp;#xA;electric_field_switch:&amp;#xA;&amp;#xA;ABCD (Do not write strating 0s!)&amp;#xA;&amp;#xA; A&amp;#xA;   0: non-increasing field &amp;#xA;   1: increasing field   &amp;#xA; &amp;#xA; B  &amp;#xA;   0: linear&amp;#xA;   1: logarithmic&amp;#xA;&amp;#xA; C&amp;#xA;   0: absolute field&amp;#xA;   1: relative field &amp;#xA;&amp;#xA; D  &amp;#xA;   0: related to Dreicer field&amp;#xA;   1: related to critical field</actorDoc>
   <actorFolder>eu/itm/runafluid_efieldEdit_imas</actorFolder>
   <ualFolder>/afs/ipp/itm/switm/ual/4.10b.10_R2.2.0</ualFolder>
-  <semantic>Itm</semantic>
+  <semantic>IMAS</semantic>
   <keplerFolder>/pfs/home/maradi/kepler</keplerFolder>
   <compiler>g++</compiler>
   <libraries/>

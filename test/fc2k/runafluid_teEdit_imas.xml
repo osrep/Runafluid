@@ -647,7 +647,7 @@
       </default>
     </generactor.TupleP>
   </returnType>
-  <semantic>Itm</semantic>
+  <semantic>IMAS</semantic>
   <keplerFolder>/pfs/home/maradi/kepler</keplerFolder>
   <ptFolder>empty</ptFolder>
   <compiler>g++</compiler>
