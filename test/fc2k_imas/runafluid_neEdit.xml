@@ -27,7 +27,7 @@
         </elementData>
       </default>
     </vector>
-    <generactor.TupleP>
+    <org.iter.imas.fc2k.TupleP>
       <default>
         <tupleParams>
           <vector>
@@ -68,7 +68,7 @@
           </vector>
         </tupleParams>
       </default>
-    </generactor.TupleP>
+    </org.iter.imas.fc2k.TupleP>
   </tupleParams>
   <actor>runafluid_neEdit</actor>
   <actorVersion></actorVersion>
