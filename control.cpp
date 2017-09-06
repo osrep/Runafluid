@@ -43,7 +43,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, dreicer_formula_id);			
 		
 		//! Calculate Avalanche generation rate
-		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, rho_tor_norm, modulevar_avalanche);		
+		rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, modulevar_avalanche);
 		// Dreicer on
 		if (modulevar_dreicer==0){
 			rate_dreicer = 0;		
@@ -99,9 +99,9 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 				rate_values[10] = calculate_runaway_collision_time(electron_density, electron_temperature);		
 			
 				//! temporary for Dreicer H&C 63,66,67		
-				rate_values[11] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, rho_tor_norm, 1);
-				rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, rho_tor_norm, 2);
-				rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, rho_tor_norm, 3);
+				rate_values[11] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 1);
+				rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 2);
+				rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 3);
 
 				//! temporary time data
 				double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
