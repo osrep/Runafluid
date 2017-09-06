@@ -170,7 +170,7 @@ EXPECT_NEAR(reference_toroidicity_dreicer,calculate_toroidicity_dreicer(referenc
 TEST(Avalanche, CalculateAvalancheGenerationRate) {                             //Új teszt, még nincsen meg minden ref. érték
 EXPECT_EQ(reference_avalanche_generation_rate, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_1,reference_magnetic_field,
-																		 reference_rho_tor_norm, reference_modulevar_avalanche));
+																		 reference_modulevar_avalanche));
 }
 
 TEST(Avalanche, CalculateToroidicityAvalanche) {                             //Új teszt, még nincsen meg minden ref. érték
