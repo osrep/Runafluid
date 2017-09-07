@@ -152,15 +152,15 @@ TEST(Dreicer, DreicerGenerationRate_67) {
 }
 
 TEST(Dreicer, CalculateLambda) {
-	EXPECT_EQ(reference_lambda,calculate_lambda(reference_alpha_1));
+	EXPECT_NEAR(reference_lambda,calculate_lambda(reference_alpha_1),0.001);
 }
 
 TEST(Dreicer, CalculateGamma) {
-	EXPECT_EQ(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha_1));
+	EXPECT_NEAR(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha_1),0.001);
 }
 
 TEST(Dreicer, CalculateH) {
-	EXPECT_EQ(reference_h,calculate_h(reference_alpha_1, reference_Zeff_1));
+	EXPECT_NEAR(reference_h,calculate_h(reference_alpha_1, reference_Zeff_1), 0.001);
 }
 
 TEST(Dreicer, CalculateToroidicityDreicer) {
