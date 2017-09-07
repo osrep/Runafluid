@@ -54,8 +54,17 @@ libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
 libEfieldEdit_imas.a: efieldedit_imas.o  ids_utils.o  critical_field.o
 	ar -rvs $@ $^	
 	
+test/test_phys.o: test/test_phys.cpp
+	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+
+test/test_ids.o: test/test_ids.cpp
+	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+
+test/test_cpo.o: test/test_cpo.cpp
+	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+	
 # google test
-test: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test.o
+test: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test_phys.o test/test_cpo.o
 	$(CXX) $(LDFLAGS) -L$(ITMWORK)/gtest-1.7.0/ -lgtest_main $^ -lgtest -o test.bin
 		
 test/test.o: test/test.cpp
