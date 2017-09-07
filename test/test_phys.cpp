@@ -128,7 +128,7 @@ TEST(CriticalField, CalculateCriticalField) {
 }
 
 TEST(GrowthRate, CalculateDreicerField) {
-	EXPECT_NEAR(reference_dreicer_field, calculate_dreicer_field(reference_thermal_electron_collision_time, reference_te), 0.01);
+	EXPECT_NEAR(reference_dreicer_field, calculate_dreicer_field(reference_ne, reference_te), 0.01);
 }
 
 TEST(GrowthRate, CalculateThermalElectronCollisionTime) {
