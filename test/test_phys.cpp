@@ -30,7 +30,7 @@ const double reference_dreicer_generation_rate_67 = 4.2101e1;
 const double reference_electric_field_1 =  reference_alpha_1*reference_critical_field;
 const double reference_electric_field_2 =  reference_alpha_2*reference_critical_field;
 const double reference_lambda = 2.0169;
-const double reference_gamma =0.6173;
+const double reference_gamma =3.086476806;
 const double reference_h = 1.8865;
 
 const double reference_inv_asp_ratio = 0.30303;
