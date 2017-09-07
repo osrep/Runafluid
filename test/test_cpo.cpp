@@ -100,6 +100,7 @@ void create_cpo() {
 
 TEST(CpoToProfil, ElectronDensity) {
 create_cpo();
+distinit(distribution, coreprof);
 profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
 ASSERT_EQ(5, pro.size());
