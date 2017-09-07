@@ -15,17 +15,17 @@ double RefNumberIsNegative = -1.0;
 int reference_got_digit = 7;
 int reference_number = 9876;
 int reference_digit = 2;
-
+/*
 TEST(CpoFunc, bool_switch) {												//Új teszt, még nincsenek meg hozzá a
 EXPECT_EQ(reference_bool, bool_switch(switch_numbers, *bools, N ));			//referenciaértékek
 }
-
+*/
 TEST(CpoFunc, sign) {														//Új teszt, ezek közül kettőnek failelni kell,
 EXPECT_EQ(RefNumberIsPositive, sign(reference_Number));						//hogyha helyesen működik a sign fv.
 EXPECT_EQ(RefNumberIsZero, sign(reference_Number));
 EXPECT_EQ(RefNumberIsNegative, sign(reference_Number));
 }
-
+/*
 TEST(CpoFunc, get_digit) {													//Új teszt, még nincsenek meg hozzá a
 EXPECT_EQ(reference_got_digit, get_digit(reference_number, reference_digit));	//referenciaértékek
 }
@@ -33,7 +33,7 @@ EXPECT_EQ(reference_got_digit, get_digit(reference_number, reference_digit));	//
 TEST(CpoFunc, whereRunaway) {												//Új teszt, még nincsenek meg hozzá a
 EXPECT_EQ(reference_runaway_index, whereRunaway(*reference_distribution));	//referenciaértékek, és a ref_dist-et sem
 }																			//tudom, mi pontosan
-
+*/
 
 void create_cpo() {
 	coreprof.rho_tor.resize(5);
