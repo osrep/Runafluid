@@ -7,7 +7,9 @@ ItmNs::Itm::coreimpur coreimpur;
 ItmNs::Itm::equilibrium equilibrium;
 ItmNs::Itm::distribution distribution;
 
-double reference_Number = -1.5;												//Referencia szám a teszteléshez
+double reference_negative = -1.5;
+double reference_zero = 0;
+double reference_positive = 1.5;
 double RefNumberIsPositive = 1.0;
 double RefNumberIsZero = 0.0;
 double RefNumberIsNegative = -1.0;
@@ -21,9 +23,9 @@ EXPECT_EQ(reference_bool, bool_switch(switch_numbers, *bools, N ));			//referenc
 }
 */
 TEST(CpoFunc, sign) {														//Új teszt, ezek közül kettőnek failelni kell,
-EXPECT_EQ(RefNumberIsPositive, sign(reference_Number));						//hogyha helyesen működik a sign fv.
-EXPECT_EQ(RefNumberIsZero, sign(reference_Number));
-EXPECT_EQ(RefNumberIsNegative, sign(reference_Number));
+EXPECT_EQ(RefNumberIsPositive, sign(reference_positive));						//hogyha helyesen működik a sign fv.
+EXPECT_EQ(RefNumberIsZero, sign(reference_zero));
+EXPECT_EQ(RefNumberIsNegative, sign(reference_negative));
 }
 /*
 TEST(CpoFunc, get_digit) {													//Új teszt, még nincsenek meg hozzá a

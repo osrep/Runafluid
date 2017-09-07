@@ -12,14 +12,14 @@
 
 const double reference_te = 1e5;
 const double reference_ne = 1e21;
-const double reference_dreicer_field = 17.452;
+const double reference_dreicer_field = 4.27324;
 const double reference_critical_field = 0.83625;
 const double reference_thermal_electron_collision_time = 4.9909e-4;
 const double reference_runaway_electron_collision_time = 2.0383e-3;
 const double reference_Zeff_1 = 1.0;
 const double reference_Zeff_2 = 1.2;
-const double reference_electric_field_1 = 1.2;
-const double reference_electric_field_2 = 0.8;
+const double reference_alpha_1 = 1.2;
+const double reference_alpha_2 = 0.8;
 
 const int formula_id_63 = 63;
 const int formula_id_66 = 66;
@@ -27,7 +27,8 @@ const int formula_id_67 = 67;
 const double reference_dreicer_generation_rate_63 = 3.0822e20;
 const double reference_dreicer_generation_rate_66 = 5.3092e19;
 const double reference_dreicer_generation_rate_67 = 1.2513e15;
-const double reference_alpha = reference_electric_field_1;
+const double reference_electric_field_1 =  reference_alpha_1*reference_critical_field;
+const double reference_electric_field_2 =  reference_alpha_2*reference_critical_field;
 const double reference_lambda = 2.0169;
 const double reference_gamma =0.6173;
 const double reference_h = 1.8865;
@@ -150,20 +151,16 @@ TEST(Dreicer, DreicerGenerationRate_67) {
 																		  reference_electric_field_1,reference_rho_tor_norm,formula_id_67), 1e18);
 }
 
-TEST(Dreicer, CalculateAlpha) {
-	EXPECT_EQ(reference_alpha,calculate_alpha(reference_electric_field_1, reference_ne,reference_te));
-}
-
 TEST(Dreicer, CalculateLambda) {
-	EXPECT_EQ(reference_lambda,calculate_lambda(reference_alpha));
+	EXPECT_EQ(reference_lambda,calculate_lambda(reference_alpha_1));
 }
 
 TEST(Dreicer, CalculateGamma) {
-	EXPECT_EQ(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha));
+	EXPECT_EQ(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha_1));
 }
 
 TEST(Dreicer, CalculateH) {
-	EXPECT_EQ(reference_h,calculate_h(reference_alpha, reference_Zeff_1));
+	EXPECT_EQ(reference_h,calculate_h(reference_alpha_1, reference_Zeff_1));
 }
 
 TEST(Dreicer, CalculateToroidicityDreicer) {
