@@ -31,7 +31,7 @@ const double reference_electric_field_1 =  reference_alpha_1*reference_critical_
 const double reference_electric_field_2 =  reference_alpha_2*reference_critical_field;
 const double reference_lambda = 2.0169;
 const double reference_gamma =3.086476806;
-const double reference_h = 1.8865;
+const double reference_h = 0.175510257;
 
 const double reference_inv_asp_ratio = 0.30303;
 const double reference_toroidicity_dreicer = 0.1816067;
