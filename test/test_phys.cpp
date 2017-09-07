@@ -174,7 +174,7 @@ TEST(Avalanche, CalculateAvalancheThresholdField){								//new test with good i
 }
 
 
-TEST(Avalanche, CalculateAvalancheGenerationRate) {                             //Új teszt, még nincsen meg minden ref. érték
+TEST(Avalanche, CalculateAvalancheGenerationRate) {
 
 	EXPECT_EQ(avalanche_generation_rate_mod_1, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_2,reference_magnetic_field,
