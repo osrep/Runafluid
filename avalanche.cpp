@@ -50,6 +50,8 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	
 	double agr, avalanche_threshold_field;
 	
+	double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);
+	
 	if (modulevar_avalanche == 1) {modulevar_avalanche = 2;}
 	
 	if (modulevar_avalanche == 2 || modulevar_avalanche == 3){
@@ -65,7 +67,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		//! threshold field: avalanche_thresold_field
 		if (modulevar_avalanche == 2){
 			avalanche_threshold_field = calculate_avalanche_threshold_field(electron_density, electron_temperature,
-																			effective_charge, critical_field);
+																			effective_charge, critical_field, magnetic_field);
 			avalanche_threshold_field *= critical_field;
 		}
 		else{
@@ -86,7 +88,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	
 }
 
-double calculate_avalanche_threshold_field(double electron_density, double electron_temperature, double effective_charge, double critical_field){
+double calculate_avalanche_threshold_field(double electron_density, double electron_temperature, double effective_charge, double critical_field, double magnetic_field){
 
 	//! \a REQ-3: electron collision time
 	/*!
