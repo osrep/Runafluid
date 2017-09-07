@@ -3,6 +3,11 @@
 #include "../dreicer.h"
 #include "../avalanche.h"
 #include "../control.h"
+#ifdef ITM_CONSTANTS
+    #include "../cpo_utils.h"
+#else
+    #include "../ids_utils.h"
+#endif
 
 
 const double reference_te = 1e5;
