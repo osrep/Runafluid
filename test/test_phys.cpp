@@ -44,7 +44,7 @@ const int modulevar_avalanche_3 = 3;
 const double reference_magnetic_field = 2;
 const int avalanche_generation_rate_mod_1 = 0;
 const int avalanche_generation_rate_mod_2 = 0;
-const double avalanche_generation_rate_mod_3 = 6.50620;
+const double avalanche_generation_rate_mod_3 = 2.991547;
 
 TEST(Equal, Tolerance) {
 	EXPECT_TRUE(equal(1.0, 1.1, 0.1));
