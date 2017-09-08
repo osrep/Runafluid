@@ -78,5 +78,5 @@ double calculate_runaway_collision_time(double electron_density, double electron
 }
 
 double calculate_synchrotron_loss_time(double magnetic_field){
-	return pi_6_e0_me3_c3__e4/magnetic_field;
+	return pi_6_e0_me3_c3__e4/magnetic_field/magnetic_field;
 }
