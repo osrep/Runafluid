@@ -59,6 +59,8 @@ void create_cpo() {
 	equilibrium.profiles_1d.b_av.resize(8);
 	equilibrium.profiles_1d.b_av = 5.5, 1.5, 5.5, 2.5, 1.6, 11.6, 15.5, 55.5;
 
+	coreprof.profiles_1d.zeff.value.resize(5);
+	coreprof.profiles_1d.zeff.value= 1.0, 1.0, 1.0, 1.0, 1.0;
 	coreprof.ni.value.resize(5, 2);
 	coreprof.ni.value = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
 
@@ -81,7 +83,7 @@ void create_cpo() {
 	coreimpur.impurity(1).nz = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
 
 	distribution.distri_vec.resize(1);
-	/*distribution.distri_vec(0).profiles_1d.state.dens.resize(6);
+	distribution.distri_vec(0).profiles_1d.state.dens.resize(6);
 	distribution.distri_vec(0).profiles_1d.state.current.resize(6);
 	distribution.distri_vec(0).source_id.resize(1);
 	//! Filling up distribution source
@@ -96,7 +98,7 @@ void create_cpo() {
 	distribution.distri_vec(0).profiles_1d.geometry.rho_tor.resize(6);
 	distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(6);
 	distribution.distri_vec(0).profiles_1d.geometry.rho_tor = 0.0, 1.0, 1.5, 2.0, 6.0, 10.0;
-	distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm = 0.0, 0.10, 0.15, 0.20, 0.60, 1.0;*/
+	distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm = 0.0, 0.10, 0.15, 0.20, 0.60, 1.0;
 }
 
 TEST(CpoToProfil, ElectronDensity) {
