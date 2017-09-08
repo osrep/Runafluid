@@ -38,7 +38,7 @@ const double reference_inv_asp_ratio = 0.30303;
 const double reference_toroidicity_dreicer = 0.1816067;
 
 const double reference_rho_tor_norm = 0.65;
-const double reference_avalanche_threshold_field = 1.11152;
+const double reference_avalanche_threshold_field = 0.929514;
 const int modulevar_avalanche_1 = 1;
 const int modulevar_avalanche_2 = 2;
 const int modulevar_avalanche_3 = 3;
