@@ -23,8 +23,8 @@ TEST(CpoFunc, bool_switch) {												//Új teszt, még nincsenek meg hozzá a
 EXPECT_EQ(reference_bool, bool_switch(switch_numbers, *bools, N ));			//referenciaértékek
 }
 */
-TEST(CpoFunc, sign) {														//Új teszt, ezek közül kettőnek failelni kell,
-EXPECT_EQ(RefNumberIsPositive, sign(reference_positive));						//hogyha helyesen működik a sign fv.
+TEST(CpoFunc, sign) {
+EXPECT_EQ(RefNumberIsPositive, sign(reference_positive));
 EXPECT_EQ(RefNumberIsZero, sign(reference_zero));
 EXPECT_EQ(RefNumberIsNegative, sign(reference_negative));
 }
