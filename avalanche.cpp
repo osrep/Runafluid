@@ -68,7 +68,6 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		if (modulevar_avalanche == 2){
 			avalanche_threshold_field = calculate_avalanche_threshold_field(electron_density, electron_temperature,
 																			effective_charge, critical_field, magnetic_field);
-			avalanche_threshold_field *= critical_field;
 		}
 		else{
 			avalanche_threshold_field = 0;
@@ -106,7 +105,7 @@ double calculate_avalanche_threshold_field(double electron_density, double elect
 		E_\mathrm{a} \approx E_0 = 1 + \frac{ \frac {1+Z}{sqrt(\tau_\mathrm{rad}}}{(\frac{1}{8} + \frac{(Z+1)^2}{\tau_\mathrm{rad}})^{1/6}}
 	\f]
 	*/
-	return (1.0 + (1.0+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1.0+effective_charge) * (1.0+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0));
+	return critical_field*(1.0 + (1.0+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1.0+effective_charge) * (1.0+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0));
 
 }
 
