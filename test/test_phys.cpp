@@ -176,15 +176,15 @@ TEST(Avalanche, CalculateAvalancheThresholdField){								//new test with good i
 
 TEST(Avalanche, CalculateAvalancheGenerationRate) {
 
-	EXPECT_EQ(avalanche_generation_rate_mod_1, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
+	EXPECT_NEAR(avalanche_generation_rate_mod_1, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_2,reference_magnetic_field,
-																		 modulevar_avalanche_1));
-	EXPECT_EQ(avalanche_generation_rate_mod_2, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
+																		 modulevar_avalanche_1), 0.01);
+	EXPECT_NEAR(avalanche_generation_rate_mod_2, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_2,reference_magnetic_field,
-																		 modulevar_avalanche_2));
-	EXPECT_EQ(avalanche_generation_rate_mod_3, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
+																		 modulevar_avalanche_2), 0.01);
+	EXPECT_NEAR(avalanche_generation_rate_mod_3, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_1,reference_magnetic_field,
-																		 modulevar_avalanche_3));
+																		 modulevar_avalanche_3), 0.01);
 
 }
 /*
