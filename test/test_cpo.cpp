@@ -145,7 +145,7 @@ TEST(CpoToProfil, EffectiveCharge) {
 create_cpo();
 profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
-ASSERT_EQ(7, pro.size());
+ASSERT_EQ(5, pro.size());
 
 EXPECT_NEAR(1.0, pro[0].effective_charge, 0.00001);
 EXPECT_NEAR(1.0, pro[1].effective_charge, 0.00001);
