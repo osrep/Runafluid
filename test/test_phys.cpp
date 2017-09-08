@@ -21,6 +21,7 @@ const double reference_Zeff_2 = 1.2;
 const double reference_alpha_1 = 1.2;
 const double reference_alpha_2 = 0.8;
 
+
 const int formula_id_63 = 63;
 const int formula_id_66 = 66;
 const int formula_id_67 = 67;
@@ -126,6 +127,14 @@ TEST(CoulombLog, CalculateCoulombLog) {
 
 TEST(CriticalField, CalculateCriticalField) {
 	EXPECT_NEAR(reference_critical_field, calculate_critical_field(reference_ne, reference_te), 0.0001);
+}
+
+TEST(CriticalField, CalculateRunawayCollisionTime) {
+	EXPECT_NEAR(reference_runaway_electron_collision_time, calculate_runaway_collision_time(reference_ne, reference_te), 0.001);
+}
+
+TEST(CriticalField, CalculateSynchrotronLossTime) {
+	EXPECT_NEAR(reference_synchrotron_loss_time, calculate_synchrotron_loss_time(reference_magnetic_field), 0.001);
 }
 
 TEST(GrowthRate, CalculateDreicerField) {
