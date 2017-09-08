@@ -33,7 +33,7 @@ const double reference_electric_field_2 =  reference_alpha_2*reference_critical_
 const double reference_lambda = 2.0169;
 const double reference_gamma =3.086476806;
 const double reference_h = 0.175510257;
-
+const double reference_synchrotron_loss_time = 1.28967;
 const double reference_inv_asp_ratio = 0.30303;
 const double reference_toroidicity_dreicer = 0.1816067;
 
