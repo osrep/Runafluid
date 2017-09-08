@@ -59,8 +59,8 @@ void create_cpo() {
 	equilibrium.profiles_1d.b_av.resize(8);
 	equilibrium.profiles_1d.b_av = 5.5, 1.5, 5.5, 2.5, 1.6, 11.6, 15.5, 55.5;
 
-	coreprof.profiles_1d.zeff.value.resize(5);
-	coreprof.profiles_1d.zeff.value= 1.0, 1.0, 1.0, 1.0, 1.0;
+	coreprof.profiles1d.zeff.value.resize(5);
+	coreprof.profiles1d.zeff.value= 1.0, 1.0, 1.0, 1.0, 1.0;
 	coreprof.ni.value.resize(5, 2);
 	coreprof.ni.value = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
 
