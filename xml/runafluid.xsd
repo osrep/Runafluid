@@ -1,1 +1,157 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- document element -->
+  <xs:element name="parameters">
+    <xs:annotation>
+      <xs:documentation>
+        GLOBAL: parameters for source combiner
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="runaway_fluid" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Runafluid parameters -->
+  <xs:element name="runaway_fluid">
+    <xs:annotation>
+      <xs:documentation>
+        Runaway Fluid input and output switches
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="sources" maxOccurs="1"/>
+        <xs:element ref="output" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="sources">
+    <xs:annotation>
+      <xs:documentation>
+        runaway sources
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="dreicer" maxOccurs="1"/>
+        <xs:element ref="avalanche" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  
+  
+  <!-- Dreicer parameters -->  
+  <xs:element name="dreicer">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="dreicer_list" maxOccurs="1"/>
+        <xs:element ref="dreicer_off" maxOccurs="1"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+    
+  <xs:element name="dreicer_off" type="xs:string"
+    fixed="Dreicer source turned OFF"/>
+  
+   <xs:element name="dreicer_list">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="dreicer_formula" maxOccurs="1"/>
+        <xs:element ref="dreicer_toroidicity" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>  
+  
+   <xs:element name="dreicer_formula">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="hc_formula_63" maxOccurs="1"/>
+        <xs:element ref="hc_formula_66" maxOccurs="1"/>
+        <xs:element ref="hc_formula_67" maxOccurs="1"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dreicer_toroidicity">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="dreicer_toroidicity" maxOccurs="1"/>
+        <xs:element ref="dreicer_toroidicity_off" maxOccurs="1"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="dreicer_toroidicity_off" type="xs:string"
+    fixed="Dreicer toroidicity turned OFF"/>
+ 
+ 
+  <!-- Avalanche parameters --> 
+  <xs:element name="avalanche">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="avalanche_list" maxOccurs="1"/>
+        <xs:element ref="avalanche_off" maxOccurs="1"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>  
+  
+ <xs:element name="avalanche_off" type="xs:string"
+    fixed="Avalanche source turned OFF"/>
+    
+ <xs:element name="avalanche_list">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="avalanche_formula" maxOccurs="1"/>
+        <xs:element ref="avalanche_threshold" maxOccurs="1"/>
+        <xs:element ref="avalanche_toroidicity" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>  
+    
+  <xs:element name="avalanche_formula">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="rosenbluth_putvinski"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:element name="avalanche_threshold">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="avalanche_threshold"/>
+        <xs:element ref="avalanche_threshold_off"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>  
+
+ <xs:element name="avalanche_threshold_off" type="xs:string"
+    fixed="Avalanche threshold turned OFF"/>  
+  
+  <xs:element name="output">
+    <xs:annotation>
+      <xs:documentation>
+        output data
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="output_rates" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>  
+  
+
+  <xs:element name="output_rates" type="xs:integer">
+  </xs:element>
+
+</xs:schema>
 

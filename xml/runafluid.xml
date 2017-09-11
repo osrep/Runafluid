@@ -1,1 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?xml-stylesheet type="text/xsl" href="./runafluid.xsl" charset="utf-8"?>
+ 
+<parameters>
+  <runaway_fluid>
+      <sources>
+        <dreicer>
+          <dreicer_list>
+            <dreicer_formula>            
+              <hc_formula_63>1</hc_formula_63>
+              <hc_formula_66>0</hc_formula_66>
+              <hc_formula_67>0</hc_formula_67>
+            </dreicer_formula>
+            <dreicer_toroidicity>0</dreicer_toroidicity> 
+          </dreicer_list>       
+        </dreicer> 
+        <avalance>         
+          <avalance_list>
+            <avalance_formula>
+              <rosenbluth_putvinski>1<rosenbluth_putvinski>            
+            </avalance_formula>
+            <avalanche_threshold>1</avalanche_threshold>  
+            <avalanche_toroidicity>0</avalanche_toroidicity>           
+          </avalance_list> 
+        </avalanche>          
+      </sources>
+      <output>
+        <output_rates>1</output_rates>
+      </output>
+  </runaway_fluid> 
+</parameters>
