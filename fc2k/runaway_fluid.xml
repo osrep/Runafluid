@@ -1,8 +1,8 @@
 <generactor.ActorGenerator>
   <version>branches/R2.2_r586</version>
-  <paramFile>empty</paramFile>
-  <defaultparamFile>empty</defaultparamFile>
-  <paramXsdFile>empty</paramXsdFile>
+  <paramFile>xml/runafluid.xml</paramFile>
+  <defaultparamFile>xml/runafluid.xml</defaultparamFile>
+  <paramXsdFile>xml/runafluid.xsd</paramXsdFile>
   <fFile>libRunafluid.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
@@ -727,7 +727,7 @@
   <systemLibraries/>
   <lang>c</lang>
   <HasTimeSlice>false</HasTimeSlice>
-  <HasCodeParam>false</HasCodeParam>
+  <HasCodeParam>true</HasCodeParam>
   <MPI>false</MPI>
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
