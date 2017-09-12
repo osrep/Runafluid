@@ -15,14 +15,14 @@
             <dreicer_toroidicity>0</dreicer_toroidicity> 
           </dreicer_list>       
         </dreicer> 
-        <avalance>         
-          <avalance_list>
-            <avalance_formula>
+        <avalanche>         
+          <avalanche_list>
+            <avalanche_formula>
               <rosenbluth_putvinski>1</rosenbluth_putvinski>            
-            </avalance_formula>
+            </avalanche_formula>
             <avalanche_threshold>1</avalanche_threshold>  
             <avalanche_toroidicity>0</avalanche_toroidicity>           
-          </avalance_list> 
+          </avalanche_list> 
         </avalanche>          
       </sources>
       <output>
