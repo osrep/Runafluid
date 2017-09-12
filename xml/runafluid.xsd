@@ -1,20 +1,22 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
   <!-- document element -->
   <xs:element name="parameters">
     <xs:annotation>
       <xs:documentation>
-        GLOBAL: parameters for source combiner
+        Runaway Fluid parameters
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:all>
-        <xs:element ref="runaway_fluid" maxOccurs="1"/>
+        <xs:element ref="runaway_fluid_input" maxOccurs="1"/>
+        <xs:element ref="runaway_fluid_output" maxOccurs="1"/>
       </xs:all>
     </xs:complexType>
   </xs:element>
 
-  <!-- Runafluid parameters -->
-  <xs:element name="runaway_fluid">
+  <!-- Runafluid INPUT parameters -->
+  <xs:element name="runaway_fluid_input">
     <xs:annotation>
       <xs:documentation>
         Runaway Fluid input and output switches
@@ -42,26 +44,20 @@
     </xs:complexType>
   </xs:element>
   
-  
-  
-  
-  
-  
   <!-- Dreicer parameters -->  
   <xs:element name="dreicer">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="dreicer_list" maxOccurs="1"/>
-        <xs:element ref="dreicer_off" maxOccurs="1"/>
+        <xs:element ref="dreicer_module" maxOccurs="1"/>
+        <xs:element ref="dreicer_module_off" maxOccurs="1"/>
       </xs:choice>
     </xs:complexType>
-  </xs:element>
-  
+  </xs:element>  
     
-  <xs:element name="dreicer_off" type="xs:string"
-    fixed="Dreicer source turned OFF"/>
+  <xs:element name="dreicer_module_off" type="xs:string"
+    fixed="Dreicer module turned OFF"/>
   
-   <xs:element name="dreicer_list">
+   <xs:element name="dreicer_module">
     <xs:complexType>
       <xs:all>
         <xs:element ref="dreicer_formula" maxOccurs="1"/>
@@ -70,88 +66,85 @@
     </xs:complexType>
   </xs:element>  
   
-   <xs:element name="dreicer_formula">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element ref="hc_formula_63" maxOccurs="1"/>
-        <xs:element ref="hc_formula_66" maxOccurs="1"/>
-        <xs:element ref="hc_formula_67" maxOccurs="1"/>
-      </xs:choice>
-    </xs:complexType>
+  <xs:element name="dreicer_formula">
+    <xs:simpleType>
+      <xs:restriction base="xs:string" default="hc_formula_63"  nillable="false">
+        <xs:enumeration value="hc_formula_63"/>
+        <xs:enumeration value="hc_formula_66"/>
+        <xs:enumeration value="hc_formula_67"/>
+      </xs:restriction>
+    </xs:simpleType>
   </xs:element>
 
-  <xs:element name="dreicer_toroidicity">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element ref="dreicer_toroidicity" maxOccurs="1"/>
-        <xs:element ref="dreicer_toroidicity_off" maxOccurs="1"/>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="dreicer_toroidicity_off" type="xs:string"
-    fixed="Dreicer toroidicity turned OFF"/>
- 
+  <xs:element name="dreicer_toroidicity"  type="xs:boolean">   
+  </xs:element>   
  
   <!-- Avalanche parameters --> 
   <xs:element name="avalanche">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="avalanche_list" maxOccurs="1"/>
-        <xs:element ref="avalanche_off" maxOccurs="1"/>
+       <xs:element ref="avalanche_module" maxOccurs="1"/>
+        <xs:element ref="avalanche_module_off" maxOccurs="1"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>  
   
- <xs:element name="avalanche_off" type="xs:string"
-    fixed="Avalanche source turned OFF"/>
+ <xs:element name="avalanche_module_off" type="xs:string"
+    fixed="Avalanche module turned OFF"/>
     
- <xs:element name="avalanche_list">
+ <xs:element name="avalanche_module">
     <xs:complexType>
       <xs:all>
         <xs:element ref="avalanche_formula" maxOccurs="1"/>
-        <xs:element ref="avalanche_threshold" maxOccurs="1"/>
         <xs:element ref="avalanche_toroidicity" maxOccurs="1"/>
       </xs:all>
     </xs:complexType>
   </xs:element>  
     
   <xs:element name="avalanche_formula">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element ref="rosenbluth_putvinski"/>
-      </xs:choice>
-    </xs:complexType>
+    <xs:simpleType>
+      <xs:restriction base="xs:string" default="rosenbluth_putvinski_with_threshold" nillable="false">
+        <xs:enumeration value="rosenbluth_putvinski"/>
+        <xs:enumeration value="rosenbluth_putvinski_with_threshold"/>
+      </xs:restriction>
+    </xs:simpleType>
   </xs:element>
- 
-  <xs:element name="avalanche_threshold">
-    <xs:complexType>
-      <xs:choice>
-        <xs:element ref="avalanche_threshold"/>
-        <xs:element ref="avalanche_threshold_off"/>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>  
 
- <xs:element name="avalanche_threshold_off" type="xs:string"
-    fixed="Avalanche threshold turned OFF"/>  
-  
-  <xs:element name="output">
+  <xs:element name="avalanche_toroidicity"  type="xs:boolean">   
+  </xs:element>    
+ 
+  <!-- Runafluid OUTPUT parameters -->
+  <xs:element name="runaway_fluid_output">
     <xs:annotation>
       <xs:documentation>
         output data
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:all>
-        <xs:element ref="output_rates" maxOccurs="1"/>
-      </xs:all>
+      <xs:choice>
+        <xs:element ref="output_module" maxOccurs="1"/>
+        <xs:element ref="output_module_off" maxOccurs="1"/>
+      </xs:choice>
     </xs:complexType>
   </xs:element>  
-  
 
-  <xs:element name="output_rates" type="xs:integer">
+  <xs:element name="output_module_off" type="xs:string"
+    fixed="Output module turned OFF"/>  
+
+  <xs:element name="output_module" type="xs:integer">
+   <xs:complexType>
+      <xs:all>
+        <xs:element ref="output_dreicer" maxOccurs="1"/>
+        <xs:element ref="output_avalanche" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
   </xs:element>
+
+  <xs:element name="output_dreicer"  type="xs:boolean">   
+  </xs:element>   
+
+  <xs:element name="output_avalanche"  type="xs:boolean">   
+  </xs:element>  
 
 </xs:schema>
 
