@@ -18,7 +18,7 @@
         <avalance>         
           <avalance_list>
             <avalance_formula>
-              <rosenbluth_putvinski>1<rosenbluth_putvinski>            
+              <rosenbluth_putvinski>1</rosenbluth_putvinski>            
             </avalance_formula>
             <avalanche_threshold>1</avalanche_threshold>  
             <avalanche_toroidicity>0</avalanche_toroidicity>           
