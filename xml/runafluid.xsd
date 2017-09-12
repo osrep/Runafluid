@@ -103,7 +103,7 @@
     
   <xs:element name="avalanche_formula">
     <xs:simpleType>
-      <xs:restriction base="xs:string" default="rosenbluth_putvinski_with_threshold" nillable="false">
+      <xs:restriction base="xs:string" default="rosenbluth_putvinski_with_threshold">
         <xs:enumeration value="rosenbluth_putvinski"/>
         <xs:enumeration value="rosenbluth_putvinski_with_threshold"/>
       </xs:restriction>
@@ -136,6 +136,7 @@
       <xs:all>
         <xs:element ref="output_dreicer" maxOccurs="1"/>
         <xs:element ref="output_avalanche" maxOccurs="1"/>
+        <xs:element ref="output_other" maxOccurs="1"/>
       </xs:all>
     </xs:complexType>
   </xs:element>
@@ -144,6 +145,9 @@
   </xs:element>   
 
   <xs:element name="output_avalanche"  type="xs:boolean">   
+  </xs:element>  
+  
+  <xs:element name="output_other"  type="xs:boolean">   
   </xs:element>  
 
 </xs:schema>

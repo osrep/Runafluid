@@ -21,6 +21,7 @@
     <output_module>
       <output_dreicer>1</output_dreicer>
       <output_avalanche>1</output_avalanche>
+      <output_other>1</output_other>
     </output_module>
   </runaway_fluid_output> 
 </parameters>
