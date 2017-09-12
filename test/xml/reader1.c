@@ -44,7 +44,7 @@ processNode(xmlTextReaderPtr reader) {
             for(int i=0;i<xmlTextReaderDepth(reader);i++){
                 printf("  ");
             }
-            printf("--[ %s ] (%s)\n",value,name2);
+            printf("--[ %s ]\n",value);
             break;
     }
 
