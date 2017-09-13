@@ -94,7 +94,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
 		  ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch,
 		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
-		  ItmNs::Itm::temporary &runaway_rates, ItmNs::codeparam_t&) {
+		  ItmNs::Itm::temporary &runaway_rates, ItmNs::codeparam_t &codeparam) {
 
 	//! start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
@@ -381,4 +381,71 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	runaway_rates.timed.float1d(19).value.resize(N_rho);
 
 	return 0;
+}
+
+static void streamFile(const char *filename) {
+    xmlTextReaderPtr reader;
+    int ret;
+
+    reader = xmlReaderForFile(filename, NULL, 0);
+    if (reader != NULL) {
+        ret = xmlTextReaderRead(reader);
+        while (ret == 1) {
+            processNode(reader);
+            ret = xmlTextReaderRead(reader);
+        }
+        xmlFreeTextReader(reader);
+        if (ret != 0) {
+            fprintf(stderr, "%s : failed to parse\n", filename);
+        }
+    } else {
+        fprintf(stderr, "Unable to open %s\n", filename);
+    }
+}
+
+static void processNode(xmlTextReaderPtr reader) {
+    const xmlChar *name, *value;
+
+    name = xmlTextReaderConstName(reader);
+    if (name == NULL)
+	name = BAD_CAST "--";
+
+    value = xmlTextReaderConstValue(reader);
+
+
+    switch(xmlTextReaderNodeType(reader)){
+        case 1: 
+            for(int i=0;i<xmlTextReaderDepth(reader);i++){
+                printf("  ");
+            }
+            printf("--> %s\n",name);
+            break;
+        case 3:
+            for(int i=0;i<xmlTextReaderDepth(reader);i++){
+                printf("  ");
+            }
+            printf("--[ %s ]\n",value);
+            break;
+    }
+
+}
+
+static void streamCodeparam(ItmNs::codeparam_t &codeparam) {
+    xmlTextReaderPtr reader;
+    int ret;
+
+    reader = codeparam.parameters;
+    if (reader != NULL) {
+        ret = xmlTextReaderRead(reader);
+        while (ret == 1) {
+            processNode(reader);
+            ret = xmlTextReaderRead(reader);
+        }
+        xmlFreeTextReader(reader);
+        if (ret != 0) {
+            fprintf(stderr, " failed to parse Codeparam\n");
+        }
+    } else {
+        fprintf(stderr, "Unable to open Codeparam\n");
+    }
 }

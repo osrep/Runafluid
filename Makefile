@@ -16,9 +16,11 @@ F90ETSINCLUDES = $(shell eval-pkg-config --libs itmtypes-ifort)
 # all files
 
 ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
-    CXXFLAGS += $(shell eval-pkg-config --cflags ual-cpp-gnu --cflags itmconstants)
+    CXXFLAGS += $(shell eval-pkg-config --cflags ual-cpp-gnu --cflags itmconstants)    
     CXXFLAGS +=-DITM_CONSTANTS
-    LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu)    
+    CXXFLAGS +=  -I$(ITM_XMLLIB_DIR)/$(ITM_XMLLIB_VERSION)/$(DATAVERSION)/include/  
+    LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu)  
+    LDFLAGS += --cflags xmllib-$(ITM_INTEL_OBJECTCODE) -lTreeShr -lTdiShr -lXTreeShr
     all:   libRunafluid.a libEfieldEdit.a
     # test developing files
     d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
