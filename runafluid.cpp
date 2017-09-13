@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <UALClasses.h>
+#include <libxml/xmlreader.h>
 
 #include "runafluid.h"
 #include "constants.h"
