@@ -456,6 +456,7 @@ static void streamCodeparam(ItmNs::codeparam_t &codeparam) {
 
 static void streamCodeparam(ItmNs::codeparam_t &codeparam){
 
-	std::cerr << " \n RUNAWAY FLUID XMLPARSE:\n\n" << codeparam.parameters << std::endl;
+	std::cerr << std::endl << "  [Runaway Fluid] [XMLPARSE]" << std::endl;
+	std::cerr << codeparam.parameters << std::endl;
 
 }
