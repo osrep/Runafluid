@@ -430,7 +430,7 @@ static void processNode(xmlTextReaderPtr reader) {
     }
 
 }
-
+/*
 static void streamCodeparam(ItmNs::codeparam_t &codeparam) {
     xmlTextReaderPtr reader;
     int ret;
@@ -449,4 +449,10 @@ static void streamCodeparam(ItmNs::codeparam_t &codeparam) {
     } else {
         fprintf(stderr, "Unable to open Codeparam\n");
     }
+}*/
+
+static void streamCodeparam(ItmNs::codeparam_t &codeparam){
+
+	std::cerr << " \n RUNAWAY FLUID XMLPARSE:\n\n" << codeparam.parameters << std::endl;
+
 }
