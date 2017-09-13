@@ -387,7 +387,7 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	return 0;
 }
 
-static void streamFile(const char *filename) {
+/*static void streamFile(const char *filename) {
     xmlTextReaderPtr reader;
     int ret;
 
@@ -405,9 +405,9 @@ static void streamFile(const char *filename) {
     } else {
         fprintf(stderr, "Unable to open %s\n", filename);
     }
-}
+}*/
 
-static void processNode(xmlTextReaderPtr reader) {
+/*static void processNode(xmlTextReaderPtr reader) {
     const xmlChar *name, *value;
 
     name = xmlTextReaderConstName(reader);
@@ -432,7 +432,7 @@ static void processNode(xmlTextReaderPtr reader) {
             break;
     }
 
-}
+}*/
 /*
 static void streamCodeparam(ItmNs::codeparam_t &codeparam) {
     xmlTextReaderPtr reader;
