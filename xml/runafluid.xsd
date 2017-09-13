@@ -68,7 +68,7 @@
   
   <xs:element name="dreicer_formula">
     <xs:simpleType>
-      <xs:restriction base="xs:string" default="hc_formula_63">
+      <xs:restriction base="xs:string">
         <xs:enumeration value="hc_formula_63"/>
         <xs:enumeration value="hc_formula_66"/>
         <xs:enumeration value="hc_formula_67"/>
@@ -103,7 +103,7 @@
     
   <xs:element name="avalanche_formula">
     <xs:simpleType>
-      <xs:restriction base="xs:string" default="rosenbluth_putvinski_with_threshold">
+      <xs:restriction base="xs:string">
         <xs:enumeration value="rosenbluth_putvinski"/>
         <xs:enumeration value="rosenbluth_putvinski_with_threshold"/>
       </xs:restriction>
