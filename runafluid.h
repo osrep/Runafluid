@@ -13,6 +13,4 @@ static void streamFile(const char *filename);
 
 static void processNode(xmlTextReaderPtr reader);
 
-static void streamCodeparam(ItmNs::codeparam_t &codeparam);
-
 #endif /* RUNAFLUID_H_ */
