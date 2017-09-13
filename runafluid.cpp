@@ -95,13 +95,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
 		  ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch,
 		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
-		  ItmNs::Itm::temporary &runaway_rates, ItmNs::codeparam_t &codeparam) {
+		  ItmNs::Itm::temporary &runaway_rates, ItmNs::codeparam_t&) {
 
 	//! start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
 	//! parse codeparam
-	streamCodeparam(codeparam);
+	streamFile("xml/runafluid.xml");
 	
 	//! get time
 	double time = coreprof.time;
@@ -387,7 +387,7 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	return 0;
 }
 
-/*static void streamFile(const char *filename) {
+static void streamFile(const char *filename) {
     xmlTextReaderPtr reader;
     int ret;
 
@@ -405,9 +405,9 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
     } else {
         fprintf(stderr, "Unable to open %s\n", filename);
     }
-}*/
+}
 
-/*static void processNode(xmlTextReaderPtr reader) {
+static void processNode(xmlTextReaderPtr reader) {
     const xmlChar *name, *value;
 
     name = xmlTextReaderConstName(reader);
@@ -432,12 +432,13 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
             break;
     }
 
-}*/
-/*
+}
+
 static void streamCodeparam(ItmNs::codeparam_t &codeparam) {
     xmlTextReaderPtr reader;
     int ret;
 
+	std::cerr << std::endl << "  [Runaway Fluid] [XMLPARSE]" << std::endl;
     reader = codeparam.parameters;
     if (reader != NULL) {
         ret = xmlTextReaderRead(reader);
@@ -452,11 +453,5 @@ static void streamCodeparam(ItmNs::codeparam_t &codeparam) {
     } else {
         fprintf(stderr, "Unable to open Codeparam\n");
     }
-}*/
-
-static void streamCodeparam(ItmNs::codeparam_t &codeparam){
-
-	std::cerr << std::endl << "  [Runaway Fluid] [XMLPARSE]" << std::endl;
-	std::cerr << codeparam.parameters << std::endl;
-
 }
+

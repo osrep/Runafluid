@@ -9,7 +9,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 int init_rates(ItmNs::Itm::temporary & runaway_rates, int N_rates, int N_rho);
 
-/*static void processNode(xmlTextReaderPtr reader);*/
+static void streamFile(const char *filename);
+
+static void processNode(xmlTextReaderPtr reader);
 
 static void streamCodeparam(ItmNs::codeparam_t &codeparam);
 
