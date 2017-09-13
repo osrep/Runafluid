@@ -205,6 +205,8 @@ int whereRunaway(const ItmNs::Itm::distribution &distribution){
 	
 	if (runaway_index == -1){
 		std::cerr << "  [Runaway Fluid] WARNING: There is no previous runaway distribution. New distribution initialised." << std::endl;
+		distinit(distribution, coreprof);
+		runaway_index = 0;
 	}else{	
 		std::cerr << "  [Runaway Fluid] Distri_vec identifier: " << runaway_index << std::endl;
 	}
