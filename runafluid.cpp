@@ -100,6 +100,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
+	//! parse codeparam
+	streamCodeparam(ItmNs::codeparam_t &codeparam)
+	
 	//! get time
 	double time = coreprof.time;
 	
