@@ -186,7 +186,10 @@ int runafluid_switch_message(int runafluid_switch){
 	if (modulevar_avalanche == 0){		
 		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;	
 	}else{
-		std::cerr << "  [Runaway Fluid] \tAvalanche module ON (modulevar: " << modulevar_avalanche << ")" << std::endl;		
+		std::cerr << "  [Runaway Fluid] \tAvalanche module ON (Rosenbluth--Putvinski linear modell)" << std::endl;			
+		if (dreicer_formula_id != 3){
+    		std::cerr << "\t\t\twith avalanche threshold"<< std::endl;
+		}		
 	}
 	
 	
