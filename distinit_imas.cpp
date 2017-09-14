@@ -72,10 +72,10 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	
 	try {		
 		//! Initialisation of runaway density
-		distributions.distribution(0).profiles_1d.density.resize(N);
+		distributions.distribution(0).profiles_1d(0).density.resize(N);
 
 		//! Initialisation of runaway current
-		distributions.distribution(0).profiles_1d.current_tor.resize(N);
+		distributions.distribution(0).profiles_1d(0).current_tor.resize(N);
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during density vector allocation" << std::endl;
@@ -85,8 +85,8 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	//! Filling up distribution density and current
 	try {	
 		for (int i = 0; i < N; ++i){		
-			distributions.distribution(0).profiles_1d.density(i) = 0;
-			distributions.distribution(0).profiles_1d.current_tor(i) = 0;
+			distributions.distribution(0).profiles_1d(0).density(i) = 0;
+			distributions.distribution(0).profiles_1d(0).current_tor(i) = 0;
 		}
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during density vector filling" << std::endl;
@@ -119,15 +119,6 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	
 	//! Initialisation of geometry data
 	
-	try {	
-		distributions.distribution(0).profiles_1d.resize(1);
-		
-	} catch (const std::exception& ex) {
-		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during geometry timeindex allocation" << std::endl;
-		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
-	}
-	
-		
 	try {	
 		distributions.distribution(0).profiles_1d(0).grid.rho_tor.resize(N_rho_tor);
 		distributions.distribution(0).profiles_1d(0).grid.rho_tor_norm.resize(N_rho_tor_norm);
