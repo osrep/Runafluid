@@ -167,12 +167,34 @@ int whereRunaway(const IdsNs::IDS::distributions &distributions){
 	}
 	
 	if (runaway_index == -1){
-		std::cerr << "  [Runaway Fluid] WARNING: There is no previous runaway distribution. New distribution initialised." << std::endl;
+		std::cerr << "  [Runaway Fluid] WARNING: There is no previous runaway distribution." << std::endl;
 	}else{	
 		std::cerr << "  [Runaway Fluid] Distri_vec identifier: " << runaway_index << std::endl;
 	}
 	
 	return runaway_index;
+
+}
+
+
+// if rho_tor_norm empty, we need to fill it up
+
+double fill_rho_tor_norm(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, int cpindex, int timeindex){
+    
+    double rho_tor_norm;
+    
+	int N_rho_tor = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
+	int N_rho_tor_norm = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm.rows();
+
+    if (N_rho_tor>N_rho_tor_norm){
+        rho_tor_norm = interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor,
+            equilibrium.time_slice(timeindex).profiles_1d.rho_tor_norm,
+		    core_profiles.profiles_1d(timeindex).grid.rho_tor(cpindex));
+    }else{
+        rho_tor_norm = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm(cpindex);
+    }
+
+	return rho_tor_norm;
 
 }
 
@@ -210,17 +232,20 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 
 	profile pro;
 
-	//! read electron density profile length of dataset: cells	
-	int cells = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
+	//! read electron density profile length of dataset: N_rho
+	int N_rho_tor = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
+	int N_rho_tor_norm = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm.rows();
+	
+	int N_rho = (N_rho_tor>N_rho_tor_norm)?N_rho_tor:N_rho_tor_norm;
 	
     //! read distribution source index for runaways from distribution CPO						
 	int distsource_index = whereRunaway(distributions);	
 	
     //! read data in every $\rho$ 
-	for (int i = 0; i < cells; i++) {
+	for (int i = 0; i < N_rho; i++) {
 		cell celll;
 		//! normalised minor radius
-		celll.rho = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm(i);
+		celll.rho = fill_rho_tor_norm(core_profiles, equilibrium, i, timeindex);
 		
 		//! electron density
 		celll.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);

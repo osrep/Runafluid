@@ -18,6 +18,8 @@ int bool_switch(int switch_number, bool *bools, int N);
 int get_digit(int number, int digit);
 
 int whereRunaway(IdsNs::IDS::distributions &distributions);
+
+double fill_rho_tor_norm(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, int cpindex, int timeindex);
 		
 profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex);
 
