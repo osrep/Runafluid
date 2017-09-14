@@ -202,15 +202,7 @@ int whereRunaway(const ItmNs::Itm::distribution &distribution){
 		std::cerr << "  [Runaway Fluid] ERROR : An error occurred during geometry vectors allocation" << std::endl;
 		std::cerr << "  [Runaway Fluid] ERROR : " << ex.what() << std::endl;
 	}
-	
-	if (runaway_index == -1){
-		std::cerr << "  [Runaway Fluid] WARNING: There is no previous runaway distribution. New distribution initialised." << std::endl;
-		distinit(distribution, coreprof);
-		runaway_index = 0;
-	}else{	
-		std::cerr << "  [Runaway Fluid] Distri_vec identifier: " << runaway_index << std::endl;
-	}
-	
+		
 	return runaway_index;
 
 }
