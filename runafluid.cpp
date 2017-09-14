@@ -417,7 +417,7 @@ std::string split_string(std::string s, std::string ref){
 			token.erase(0, pos2 + delimiter2.length());
 			//std::cout <<"     "<<i<<"  "<<token<<" >>>   "<< token << std::endl;
 			if (!token2.compare(ref)){
-				std::cout <<"    :::      VALUE for  "<<token2<<" is "<< token << std::endl;
+				std::cout <<"  [Runaway Fluid] \t Code Parameter for  "<<token2<<" is "<< token << std::endl;
 				xml_value = token;
 			}
 		}
