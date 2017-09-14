@@ -21,10 +21,10 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	int N_rho_tor_norm=0;
 	int N_psi=0;
 	 
-	/*  
+	  
 	//! number of coreprof geometry elements
 	try {		
-		N = coreprof.ne.value.rows();		
+		N = core_profiles.profiles_1d(timeindex).electrons.density.rows();		
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof elements" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
@@ -44,29 +44,38 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof elements" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
-	
+	/*
 	try {			
 		N_psi = coreprof.psi.value.rows();		
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof elements" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
-	}
+	}*/
 	
 			
 	//! New distribution data set	
 	try {	
-		distribution.distri_vec.resize(1);	
+		distributions.distribution.resize(1);	
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during distri_vec allocation" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
+	
+	//! New distribution data set	
+	try {	
+		distributions.distribution(0).profiles_1d.resize(1);	
+	} catch (const std::exception& ex) {
+		std::cerr << "[Runaway Fluid] ERROR: An error occurred during profiles_1d timeslice allocation" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+	}
+	
 	try {		
 		//! Initialisation of runaway density
-		distribution.distri_vec(0).profiles_1d.state.dens.resize(N);
+		distributions.distribution(0).profiles_1d.density.resize(N);
 
 		//! Initialisation of runaway current
-		distribution.distri_vec(0).profiles_1d.state.current.resize(N);
+		distributions.distribution(0).profiles_1d.current_tor.resize(N);
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during density vector allocation" << std::endl;
@@ -76,8 +85,8 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	//! Filling up distribution density and current
 	try {	
 		for (int i = 0; i < N; ++i){		
-			distribution.distri_vec(0).profiles_1d.state.dens(i) = 0;
-			distribution.distri_vec(0).profiles_1d.state.current(i) = 0;
+			distributions.distribution(0).profiles_1d.density(i) = 0;
+			distributions.distribution(0).profiles_1d.current_tor(i) = 0;
 		}
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during density vector filling" << std::endl;
@@ -87,20 +96,20 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	//! Filling up metadata
 	try {	
 		//! New distribution source
-		distribution.distri_vec(0).source_id.resize(1);	
+		distributions.distribution(0).process.resize(1);	
 	
 		//! Filling up distribution source
-		distribution.distri_vec(0).source_id(0).type.id = "runaway";
-		distribution.distri_vec(0).source_id(0).type.flag = 7;
-		distribution.distri_vec(0).source_id(0).type.description = "Source from runaway processes";
+		distributions.distribution(0).process(0).type.name = "runaway";
+		distributions.distribution(0).process(0).type.index = 7;
+		distributions.distribution(0).process(0).type.description = "Source from runaway processes";
 
 		//! Filling up distribution species
-		distribution.distri_vec(0).species.type.id = "electron";
-		distribution.distri_vec(0).species.type.flag = 1;
-		distribution.distri_vec(0).species.type.description = "Electron";
+		distributions.distribution(0).species.type.name = "electron";
+		distributions.distribution(0).species.type.index = 1;
+		distributions.distribution(0).species.type.description = "Electron";
 
 		//! Filling up distribution gyro type
-		distribution.distri_vec(0).gyro_type = 1;	
+		distributions.distribution(0).gyro_type = 1;	
 			
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred metadata filling" << std::endl;
@@ -108,11 +117,21 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	}
 	
 	
-	//! Initialisation of geometry data	
+	//! Initialisation of geometry data
+	
 	try {	
-		distribution.distri_vec(0).profiles_1d.geometry.rho_tor.resize(N_rho_tor);
-		distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N_rho_tor_norm);
-		distribution.distri_vec(0).profiles_1d.geometry.psi(N_psi);
+		distributions.distribution(0).profiles_1d.resize(1);
+		
+	} catch (const std::exception& ex) {
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during geometry timeindex allocation" << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
+	}
+	
+		
+	try {	
+		distributions.distribution(0).profiles_1d(0).grid.rho_tor.resize(N_rho_tor);
+		distributions.distribution(0).profiles_1d(0).grid.rho_tor_norm.resize(N_rho_tor_norm);
+/*		distributions.distribution(0).profiles_1d.grid.psi(N_psi);*/
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during geometry vectors allocation" << std::endl;
@@ -124,11 +143,11 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	try {			
 		for (int i = 0; i < N; ++i){
 			if (i < N_rho_tor){
-				distribution.distri_vec(0).profiles_1d.geometry.rho_tor(i) = coreprof.rho_tor(i);
+        		distributions.distribution(0).profiles_1d(0).grid.rho_tor(i) = core_profiles.profiles_1d(0).grid.rho_tor(i);
 			}
 	
 			if (i < N_rho_tor_norm){
-				distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
+        		distributions.distribution(0).profiles_1d(0).grid.rho_tor_norm(i) = core_profiles.profiles_1d(0).grid.rho_tor_norm(i);
 			}
 			
 			
@@ -146,14 +165,12 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	//! Filling up codeparam
 	
 	try {
-		distribution.codeparam.codename = "Runaway Fluid (runafluid)";
-		distribution.codeparam.codeversion = "1.6.2";
-		distribution.codeparam.output_diag = "Runaway Fluid was initialised successfully";
-		distribution.codeparam.output_flag = 0;
+		distributions.code.name = "Runaway Fluid (runafluid)";
+		distributions.code.output_flag = 0;
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling codeparam" << std::endl;
 		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
-	}*/
+	}
 	
 }
 
