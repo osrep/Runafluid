@@ -56,7 +56,7 @@ SVN repository https://gforge.efda-itm.eu/svn/runin.
 Analytical formula used to determine the critical electric field is based on the work of J.W. Connor and R.J. Hastie [1].
 The method of calculating Dreicer runaway generation growth rate stems from the article of H. Dreicer [2].
 
-[1] A. Stahl, E. Hirvijoki, J. Decker, O. Embrï¿½us, and T. Fï¿½lï¿½p. Effective Critical Electric Field for Runaway-Electron Generation.
+[1] A. Stahl, E. Hirvijoki, J. Decker, O. Embr�us, and T. F�l�p. Effective Critical Electric Field for Runaway-Electron Generation.
 Physical Review Letters 114(11), 115002 (2015)
 
 [2] H. Smith, P. Helander, L.-G. Eriksson, D. Anderson, M. Lisak, and F. Andersson, Runaway electrons and the evolution
@@ -84,13 +84,36 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
 	//! parse codeparam
+	runafluid_switch=0;
 	DecITM::DecodeITMpar params(codeparams.parameters);
 	std::string parameters;
 	parameters = params.get();
-	stream_xml_string(parameters,"dreicer_formula");
-	stream_xml_string(parameters,"dreicer_toroidicity");
-	stream_xml_string(parameters,"avalanche_formula");
-	stream_xml_string(parameters,"avalanche_toroidicity");
+	std::string str_dreicer_formula = stream_xml_string(parameters,"dreicer_formula");
+	std::string str_dreicer_toroidicity =stream_xml_string(parameters,"dreicer_toroidicity");
+	std::string str_avalanche_formula =stream_xml_string(parameters,"avalanche_formula");
+	std::string str_avalanche_toroidicity =stream_xml_string(parameters,"avalanche_toroidicity");
+
+	if(!str_dreicer_toroidicity.compare("1") && !str_avalanche_toroidicity.compare("1")){
+		runafluid_switch += 1000;	
+	}else if(!str_dreicer_toroidicity.compare("1")){
+		runafluid_switch += 2000;	
+	}else if(!str_avalanche_toroidicity.compare("1")){
+		runafluid_switch += 3000;	
+	}
+
+	if(!str_avalanche_formula.compare("rosenbluth_putvinski")){
+		runafluid_switch += 300;	
+	}else if(!str_avalanche_formula.compare("rosenbluth_putvinski_with_threshold")){
+		runafluid_switch += 100;	
+	}
+
+	if(!str_dreicer_formula.compare("hc_formula_63")){
+		runafluid_switch += 10;	
+	}else if(!str_dreicer_formula.compare("hc_formula_66")){
+		runafluid_switch += 20;	
+	}else if(!str_dreicer_formula.compare("hc_formula_67")){
+		runafluid_switch += 30;	
+	}
 
 	//! get time
 	double time = coreprof.time;
@@ -416,52 +439,3 @@ std::string stream_xml_string(std::string xml_string, std::string ref){
 	
 	return split_string(xml_string,ref);
 }
-
-
-/*
-static void streamFile(const char *filename) {
-    xmlTextReaderPtr reader;
-    int ret;
-
-    reader = new XmlTextReader(filename, XmlNodeType::Element, context);//xmlReaderForFile(filename, NULL, 0);
-    if (reader != NULL) {
-        ret = xmlTextReaderRead(reader);
-        while (ret == 1) {
-            processNode(reader);
-            ret = xmlTextReaderRead(reader);
-        }
-        xmlFreeTextReader(reader);
-        if (ret != 0) {
-            fprintf(stderr, "failed to parse\n");
-        }
-    } else {
-        fprintf(stderr, "Unable to open \n");
-    }
-}
-
-static void processNode(xmlTextReaderPtr reader) {
-    const xmlChar *name, *value;
-
-    name = xmlTextReaderConstName(reader);
-    if (name == NULL)
-	name = BAD_CAST "--";
-
-    value = xmlTextReaderConstValue(reader);
-
-
-    switch(xmlTextReaderNodeType(reader)){
-        case 1: 
-            for(int i=0;i<xmlTextReaderDepth(reader);i++){
-                printf("  ");
-            }
-            printf("--> %s\n",name);
-            break;
-        case 3:
-            for(int i=0;i<xmlTextReaderDepth(reader);i++){
-                printf("  ");
-            }
-            printf("--[ %s ]\n",value);
-            break;
-    }
-
-}*/
