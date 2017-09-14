@@ -9,8 +9,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 int init_rates(ItmNs::Itm::temporary & runaway_rates, int N_rates, int N_rho);
 
-static void streamFile(const char *filename);
+std::string stream_xml_string(std::string xml_string, std::string ref);
 
-static void processNode(xmlTextReaderPtr reader);
+std::string split_string(std::string s, std::string ref);
 
 #endif /* RUNAFLUID_H_ */

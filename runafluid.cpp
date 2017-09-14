@@ -4,6 +4,8 @@
 #include <stdexcept>
 #include <UALClasses.h>
 #include <libxml/xmlreader.h>
+#include "DecodeITMpar.h"		
+#include <unistd.h>
 
 #include "runafluid.h"
 #include "constants.h"
@@ -54,7 +56,7 @@ SVN repository https://gforge.efda-itm.eu/svn/runin.
 Analytical formula used to determine the critical electric field is based on the work of J.W. Connor and R.J. Hastie [1].
 The method of calculating Dreicer runaway generation growth rate stems from the article of H. Dreicer [2].
 
-[1] A. Stahl, E. Hirvijoki, J. Decker, O. Embréus, and T. Fülöp. Effective Critical Electric Field for Runaway-Electron Generation.
+[1] A. Stahl, E. Hirvijoki, J. Decker, O. Embrï¿½us, and T. Fï¿½lï¿½p. Effective Critical Electric Field for Runaway-Electron Generation.
 Physical Review Letters 114(11), 115002 (2015)
 
 [2] H. Smith, P. Helander, L.-G. Eriksson, D. Anderson, M. Lisak, and F. Andersson, Runaway electrons and the evolution
@@ -67,42 +69,29 @@ of the plasma current in tokamak disruptions,  Physics of Plasmas 13, 102502 (20
 
 main function
 
-fix time label
-
-runafluid_switch:
-
-ABCD
-
- A
-   0:
-   1: 
-   
- B
-   0: 
-   1: 
-
- C  
-   0: 
-   1: 
-
- D
-   0: 
-   1: 
 
 */
+
+
 
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
 		  ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch,
 		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
-		  ItmNs::Itm::temporary &runaway_rates, ItmNs::codeparam_t&) {
+		  ItmNs::Itm::temporary &runaway_rates, ItmNs::codeparam_t &codeparams) {
 
 	//! start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
 	//! parse codeparam
-	streamFile("xml/runafluid.xml");
-	
+	DecITM::DecodeITMpar params(codeparams.parameters);
+	std::string parameters;
+	parameters = params.get();
+	stream_xml_string(parameters,"dreicer_formula");
+	stream_xml_string(parameters,"dreicer_toroidicity");
+	stream_xml_string(parameters,"avalanche_formula");
+	stream_xml_string(parameters,"avalanche_toroidicity");
+
 	//! get time
 	double time = coreprof.time;
 	
@@ -387,11 +376,54 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	return 0;
 }
 
+std::string split_string(std::string s, std::string ref){
+
+	std::string delimiter = "<";
+	std::string delimiter2 = ">";
+	std::string xml_value = ""; 
+	size_t pos = 0;
+	size_t pos2 = 0;
+	std::string token, token2;
+	while ((pos = s.find(delimiter)) != std::string::npos) {
+		token = s.substr(0, pos);
+		//std::cout << "--> "<< token << std::endl;
+
+		for(int i=0; ((pos2 = token.find(delimiter2)) != std::string::npos);i++){
+			token2 = token.substr(0, pos2);
+			//std::cout <<"     "<<i<<"   "<< token2 << std::endl;
+			token.erase(0, pos2 + delimiter2.length());
+			//std::cout <<"     "<<i<<"  "<<token<<" >>>   "<< token << std::endl;
+			if (!token2.compare(ref)){
+				std::cout <<"    :::      VALUE for  "<<token2<<" is "<< token << std::endl;
+				xml_value = token;
+			}
+		}
+
+		s.erase(0, pos + delimiter.length());
+	
+	}
+	//std::cout << s << std::endl;
+	return xml_value;
+
+}
+
+
+
+std::string stream_xml_string(std::string xml_string, std::string ref){
+
+	/*std::cout <<  "---- From the Actor ---" << std::endl;
+	std::cout << xml_string << std::flush;*/
+	
+	return split_string(xml_string,ref);
+}
+
+
+/*
 static void streamFile(const char *filename) {
     xmlTextReaderPtr reader;
     int ret;
 
-    reader = xmlReaderForFile(filename, NULL, 0);
+    reader = new XmlTextReader(filename, XmlNodeType::Element, context);//xmlReaderForFile(filename, NULL, 0);
     if (reader != NULL) {
         ret = xmlTextReaderRead(reader);
         while (ret == 1) {
@@ -400,10 +432,10 @@ static void streamFile(const char *filename) {
         }
         xmlFreeTextReader(reader);
         if (ret != 0) {
-            fprintf(stderr, "%s : failed to parse\n", filename);
+            fprintf(stderr, "failed to parse\n");
         }
     } else {
-        fprintf(stderr, "Unable to open %s\n", filename);
+        fprintf(stderr, "Unable to open \n");
     }
 }
 
@@ -432,4 +464,4 @@ static void processNode(xmlTextReaderPtr reader) {
             break;
     }
 
-}
+}*/
