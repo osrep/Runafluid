@@ -115,7 +115,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	double rho_max = 0.95;
 	
 	//! empty distribution initialiser (integrated distinit)
-	distinit(distribution_out, core_profiles);	
+	distinit(distribution_out, core_profiles, 0);	
 	
 	//! Number of elements in runaway electron distribution
 	int N_rho = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
