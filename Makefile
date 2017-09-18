@@ -32,13 +32,15 @@ else ifeq ($(IMAS_ENVIRONMENT_LOADED), yes)
     CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz imas-constants-cpp)
     LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
     all: libRunafluid_imas.a
-    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a     
+    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a   
+    dev:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a     
     $(info *** Compiler set to IMAS *** )
 else
     CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz)
     LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
     all: libRunafluid_imas.a
-    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a     
+    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a   
+    dev:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a    
     $(info *** Compiler set to IMAS (no imasconstants) *** )
 endif
 
