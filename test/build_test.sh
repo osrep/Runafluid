@@ -1,3 +1,5 @@
+#!/bin/tcsh
+
 # runafluid parameter editors (make t)
 
 cd ..
