@@ -1,9 +1,6 @@
 # for C++
 CXX=g++
 CXXFLAGS = -pthread -g -fPIC 
-CXXFLAGS += $(shell eval-pkg-config --cflags ual-cpp-gnu)
-CXXFLAGS += $(shell eval-pkg-config --cflags itmconstants)
-LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu)
 
 # for Fortran
 F90=ifort
