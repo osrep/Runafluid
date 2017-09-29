@@ -19,6 +19,15 @@ ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
     LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu)  
     CXXFLAGS += $(shell eval-pkg-config --cflags xmllib-$(ITM_INTEL_OBJECTCODE)) -lTreeShr -lTdiShr -lXTreeShr
     all:   libRunafluid.a libEfieldEdit.a
+
+    # google test
+    test: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test_phys.o test/test_cpo.o
+		$(CXX) $(LDFLAGS) -L$(GTEST)/ -lgtest_main $^ -lgtest -o test.bin		
+    test/test.o: test/test.cpp
+		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+	test/test_cpo.o: test/test_cpo.cpp
+		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+
     # test developing files
     d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
     dev:      libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
@@ -29,13 +38,33 @@ else ifeq ($(IMAS_ENVIRONMENT_LOADED), yes)
     CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz imas-constants-cpp)
     LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
     all: libRunafluid_imas.a
+
+    # google test
+    test:  runafluid_imas.o distinit_imas.o  ids_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test_phys.o test/test_ids.o
+		$(CXX) $(LDFLAGS) -L$(GTEST)/ -lgtest_main $^ -lgtest -o test_imas.bin		
+    test/test_imas.o: test/test.cpp
+		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+    test/test_ids.o: test/test_ids.cpp
+		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+
+    # test developing files
     d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a   
     dev:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a     
-    $(info *** Compiler set to IMAS *** )
+    $(info *** Compiler set to IMAS *** )    
 else
     CXXFLAGS += $(shell pkg-config --cflags imas-cpp blitz)
-    LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)    
-    all: libRunafluid_imas.a
+    LDFLAGS = $(shell pkg-config --libs imas-cpp blitz)  
+    all: libRunafluid_imas.a  
+
+    # google test
+    test:  runafluid_imas.o distinit_imas.o  ids_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test_phys.o test/test_ids.o
+		$(CXX) $(LDFLAGS) -L$(GTEST)/ -lgtest_main $^ -lgtest -o test_imas.bin		
+    test/test_imas.o: test/test.cpp
+		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+    test/test_ids.o: test/test_ids.cpp
+		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
+
+    # test developing files
     d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a   
     dev:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a    
     $(info *** Compiler set to IMAS (no imasconstants) *** )
@@ -55,23 +84,9 @@ libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
 libEfieldEdit_imas.a: efieldedit_imas.o  ids_utils.o  critical_field.o
 	ar -rvs $@ $^	
 	
+#google test phys	
 test/test_phys.o: test/test_phys.cpp
 	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
-
-test/test_ids.o: test/test_ids.cpp
-	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
-
-test/test_cpo.o: test/test_cpo.cpp
-	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
-	
-# google test
-test: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test_phys.o test/test_cpo.o
-	$(CXX) $(LDFLAGS) -L$(ITMWORK)/gtest-1.7.0/ -lgtest_main $^ -lgtest -o test.bin
-		
-test/test.o: test/test.cpp
-	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(ITMWORK)/gtest-1.7.0/include/ -c -o $@ $^
-
-
 
 
 # test C++ files 		
@@ -131,3 +146,4 @@ test/newdist_slice.o: test/newdist_slice.f90
 # delete old files 	
 clean:
 	rm *.a *.o test/*.a test/*.o  #test/*.bin
+
