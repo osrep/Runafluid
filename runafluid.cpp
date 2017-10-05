@@ -83,6 +83,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
+	//old switch
+	if(runafluid_switch!=0){
+		std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch removed. Please read documentation about how to use Code Parameters!"<< std::endl;	
+		std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;
+	}
+
+
 	//! parse codeparam
 	runafluid_switch = set_switch_from_codeparams(codeparams);
 
@@ -370,7 +377,7 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	return 0;
 }
 
-set_switch_from_codeparams(ItmNs::codeparam_t &codeparams){
+int set_switch_from_codeparams(ItmNs::codeparam_t &codeparams){
     int runafluid_switch = 0;
 	DecITM::DecodeITMpar params(codeparams.parameters);
 	std::string parameters;
