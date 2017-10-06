@@ -4,20 +4,19 @@ CXXFLAGS = -pthread -g -fPIC
 
 # for Fortran
 F90=ifort
-F90COPTS = -r8 -assume no2underscore  -fPIC $(shell pkg-config --cflags ual-ifort) -shared-intel
-F90LIBS = $(shell pkg-config --libs ual-ifort) -lm
-F90INCLUDES = $(shell pkg-config --cflags ual-ifort)
-ETSDIR = /marconi_work/eufus_gw/work/g2denka/ETS
-F90ETSINCLUDES = $(shell pkg-config --libs itmtypes-ifort)
+F90COPTS = -r8 -assume no2underscore  -fPIC $(shell eval-pkg-config --cflags ual-ifort) -shared-intel
+F90LIBS = $(shell eval-pkg-config --libs ual-ifort) -lm
+F90INCLUDES = $(shell eval-pkg-config --cflags ual-ifort)
+F90ETSINCLUDES = $(shell eval-pkg-config --libs itmtypes-ifort)
 
 # all files
 
 ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
-    CXXFLAGS += $(shell pkg-config --cflags ual-cpp-gnu --cflags itmconstants)    
+    CXXFLAGS += $(shell eval-pkg-config --cflags ual-cpp-gnu --cflags itmconstants)    
     CXXFLAGS +=-DITM_CONSTANTS
     CXXFLAGS += -I$(ITM_XMLLIB_DIR)/$(ITM_XMLLIB_VERSION)/$(DATAVERSION)/include/  
-    LDFLAGS = $(shell pkg-config --libs ual-cpp-gnu)  
-    CXXFLAGS += $(shell pkg-config --cflags xmllib-gcc) -lTreeShr -lTdiShr -lXTreeShr
+    LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu)  
+    CXXFLAGS += $(shell eval-pkg-config --cflags xmllib-$(ITM_INTEL_OBJECTCODE)) -lTreeShr -lTdiShr -lXTreeShr
     all:   libRunafluid.a libEfieldEdit.a
 
     # google test
@@ -29,9 +28,9 @@ ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
 		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
 
     # test developing files
-    d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a test/libDistinit.a
-    dev:      libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a test/libDistinit.a
-    devonly:  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a test/libDistinit.a
+    d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
+    dev:      libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
+    devonly:  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
     fortran:  test/libNewDistSlice.a     
     $(info *** Compiler set to ITM *** )
 else ifeq ($(IMAS_ENVIRONMENT_LOADED), yes)
@@ -65,8 +64,8 @@ else
 		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
 
     # test developing files
-    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a test/libDistinit_imas.a   
-    dev:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a test/libDistinit_imas.a   
+    d:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a   
+    dev:  libRunafluid_imas.a libEfieldEdit_imas.a  test/libTeEdit_imas.a test/libNeEdit_imas.a    
     $(info *** Compiler set to IMAS (no imasconstants) *** )
 endif
 
@@ -104,9 +103,6 @@ test/libqeexpdecay.a: test/qe_expdecay.o  cpo_utils.o
 	
 test/libteexpdecay.a: test/te_expdecay.o  cpo_utils.o 
 	ar -rvs $@ $^
-
-test/libDistinit.a: distinit.o
-	ar -rvs $@ $^
 	
 	
 # test C++ files 	for IMAS	
@@ -124,12 +120,6 @@ test/libqeexpdecay_imas.a: test/qe_expdecay_imas.o  ids_utils.o
 	
 test/libteexpdecay_imas.a: test/te_expdecay_imas.o  ids_utils.o 
 	ar -rvs $@ $^
-
-test/libDistinit_imas.a: distinit_imas.o
-	ar -rvs $@ $^
-
-test/empty_imas/core_profiles.a: test/empty_imas/core_profiles.o
-	ar -rvs $@ $^	
 	
 # compile C++ files
 .o: .cpp
