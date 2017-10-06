@@ -134,21 +134,13 @@
   <xs:element name="output_module" type="xs:integer">
    <xs:complexType>
       <xs:all>
-        <xs:element ref="output_dreicer" maxOccurs="1"/>
-        <xs:element ref="output_avalanche" maxOccurs="1"/>
-        <xs:element ref="output_other" maxOccurs="1"/>
+        <xs:element ref="output_path"/>
       </xs:all>
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="output_dreicer"  type="xs:boolean">   
-  </xs:element>   
-
-  <xs:element name="output_avalanche"  type="xs:boolean">   
-  </xs:element>  
-  
-  <xs:element name="output_other"  type="xs:boolean">   
-  </xs:element>  
+  <xs:element name="output_path"  type="xs:string">   
+  </xs:element> 
 
 </xs:schema>
 

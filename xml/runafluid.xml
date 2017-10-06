@@ -19,9 +19,7 @@
   </runaway_fluid_input>
   <runaway_fluid_output>
     <output_module>
-      <output_dreicer>1</output_dreicer>
-      <output_avalanche>1</output_avalanche>
-      <output_other>1</output_other>
+      <output_path>runafluid.h5</output_path>
     </output_module>
   </runaway_fluid_output> 
 </parameters>
