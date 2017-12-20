@@ -6,12 +6,18 @@
 #include <libxml/xmlreader.h>
 #include "DecodeITMpar.h"		
 #include <unistd.h>
+#include "H5Cpp.h"
 
 #include "runafluid.h"
 #include "constants.h"
 #include "cpo_utils.h"
 #include "distinit.h"
 #include "control.h"
+#include "codeparams.h"
+#include "hdf5export.h"
+using namespace H5;
+using namespace std;
+
 
 /*! \mainpage
 
@@ -72,6 +78,8 @@ main function
 
 */
 
+//HDF5 init
+int create_hdf5 (void);
 
 
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
@@ -81,12 +89,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::temporary &runaway_rates, ItmNs::codeparam_t &codeparams) {
 
 	//! start: runafluid
-	std::cerr << " START: runaway_fluid" << std::endl;
+	std::cout << " START: runaway_fluid" << std::endl;
 	
 	//old switch
 	if(runafluid_switch!=0){
-		std::cerr << "  [Runaway Fluid] Warning: A new Runaway_Fluid actor released where runafluid_switch removed. Please read documentation about how to use Code Parameters!"<< std::endl;	
-		std::cerr << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;
+		std::cout << "  [Runaway Fluid] \tWarning: A new Runaway_Fluid actor released where runafluid_switch removed. Please read documentation about how to use Code Parameters!"
+		<< std::endl << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;
 	}
 
 
@@ -143,6 +151,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 	//! Runaway fluid switch message	
 	runafluid_switch_message(runafluid_switch);
+	bool hdf5_switch = true;
 
 	//! Distribution source index for output
 	int distsource_out_index = 0;
@@ -204,7 +213,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}*/	
 	   		
 	   	}else{		   	
-			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho << "/"
+			std::cerr << "  [Runaway Fluid] \tERROR: The length of runaway distribution array is incorrect(" << rho << "/"
 					  << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 	   	}   	   	
 	   
@@ -214,17 +223,17 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
    	//! error messages to dump
    	if (runaway_warning == 1){				
-		std::cerr << "  [Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
+		std::cout << "  [Runaway Fluid] \tWarning: Runaway electrons detected at " << time << " s" << std::endl;
 		output_flag = 1;
 	}		
 		
 	if (not_suitable_warning == 1){				
-		std::cerr << "  [Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
+		std::cout << "  [Runaway Fluid] \tWarning: Runaway current is higher than electron current at " << time << " s" << std::endl;
 		output_flag = 2;
 	}		
 	
 	if (critical_fraction_warning == 1){				
-		std::cerr << "  [Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: "
+		std::cout << "  [Runaway Fluid] \tWarning: Runaway density is higher than the range of validity (critical fraction: "
 				  << critical_fraction << "%)  at " << time << " s" << std::endl;
 		output_flag = 3;
 	}	
@@ -244,14 +253,35 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		}
 		
 	} catch (const std::exception& ex) {
-		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling output_flag in codeparam" << std::endl;
-		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
+		std::cerr << "  [Runaway Fluid] \tERROR: An error occurred during filling output_flag in codeparam" << std::endl;
+		std::cerr << "  [Runaway Fluid] \tERROR: " << ex.what() << std::endl;
 	}
 	
 	distribution_out.time = distribution_in.time+timestep;
-	
+
+// HDF5 working
+	//create_hdf5();
+	if (hdf5_switch){
+			H5std_string hdf5_file_name("/afs/eufus.eu/g2itmdev/user/g2maradi/public/runafluid_hdf5/20171220_005.h5");
+
+			int dataset_name_length = 5; 
+			string dataset_name_list[dataset_name_length] = {"time","density", "temperature","runaway_density","runaway_current"};
+			int cols = rho;//sizeof dataext / sizeof(double);
+			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
+
+				//write_data_to_hdf5(hdf5_file_name,"runaway/density",distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens,cols);
+				write_data_to_hdf5(hdf5_file_name,"density",coreprof.ne.value);
+				write_data_to_hdf5(hdf5_file_name,"runaway_density",distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens);		
+				write_data_to_hdf5(hdf5_file_name,"runaway_current",distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
+				write_data_to_hdf5(hdf5_file_name,"temperature",coreprof.te.value);
+				write_data_to_hdf5(hdf5_file_name, "time", distribution_in.time);
+			}else{
+				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
+			}
+	}
+
 	//! end: runafluid
-	std::cerr << " END: runaway_fluid" << std::endl;
+	std::cout << " END: runaway_fluid" << std::endl;
 }
 
 int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
@@ -430,7 +460,7 @@ std::string split_string(std::string s, std::string ref){
 			token.erase(0, pos2 + delimiter2.length());
 			//std::cout <<"     "<<i<<"  "<<token<<" >>>   "<< token << std::endl;
 			if (!token2.compare(ref)){
-				std::cout <<"  [Runaway Fluid] \t Code Parameter for  "<<token2<<" is "<< token << std::endl;
+				std::cout <<"  [Runaway Fluid] \tCode Parameter for  "<<token2<<" is "<< token << std::endl;
 				xml_value = token;
 			}
 		}
