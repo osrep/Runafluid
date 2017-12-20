@@ -9,10 +9,4 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		
 int init_rates(ItmNs::Itm::temporary & runaway_rates, int N_rates, int N_rho);
 
-int set_switch_from_codeparams(ItmNs::codeparam_t &codeparams);
-
-std::string stream_xml_string(std::string xml_string, std::string ref);
-
-std::string split_string(std::string s, std::string ref);
-
 #endif /* RUNAFLUID_H_ */

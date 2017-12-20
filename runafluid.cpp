@@ -9,6 +9,7 @@
 #include "H5Cpp.h"
 
 #include "runafluid.h"
+#include "codeparams.h"
 #include "constants.h"
 #include "cpo_utils.h"
 #include "distinit.h"
@@ -208,9 +209,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	}
 
 		   	//! runaway rates (Dreicer, Avalanche etc.)
-		   /*	for(int rates_i=0;rates_i<N_rates;++rates_i){
+		   	for(int rates_i=0;rates_i<N_rates;++rates_i){
 		   		runaway_rates.timed.float1d(rates_i).value(rho) = rate_values[rates_i];
-			}*/	
+			}	
 	   		
 	   	}else{		   	
 			std::cerr << "  [Runaway Fluid] \tERROR: The length of runaway distribution array is incorrect(" << rho << "/"
@@ -262,19 +263,31 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 // HDF5 working
 	//create_hdf5();
 	if (hdf5_switch){
-			H5std_string hdf5_file_name("/afs/eufus.eu/g2itmdev/user/g2maradi/public/runafluid_hdf5/20171220_005.h5");
+			H5std_string hdf5_file_name("/afs/eufus.eu/g2itmdev/user/g2maradi/public/runafluid_hdf5/20171220_007.h5");
 
-			int dataset_name_length = 5; 
-			string dataset_name_list[dataset_name_length] = {"time","density", "temperature","runaway_density","runaway_current"};
+			int dataset_name_length = 12; 
+			string dataset_name_list[dataset_name_length] = {
+				"time","rho_tor","rho_tor_eq",
+				"density", "temperature", "eparallel","b0", "zeff",
+				"runaway_density","runaway_current","dreicer_rate","avalanche_rate"};
 			int cols = rho;//sizeof dataext / sizeof(double);
 			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
 
 				//write_data_to_hdf5(hdf5_file_name,"runaway/density",distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens,cols);
-				write_data_to_hdf5(hdf5_file_name,"density",coreprof.ne.value);
-				write_data_to_hdf5(hdf5_file_name,"runaway_density",distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens);		
-				write_data_to_hdf5(hdf5_file_name,"runaway_current",distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
-				write_data_to_hdf5(hdf5_file_name,"temperature",coreprof.te.value);
+
 				write_data_to_hdf5(hdf5_file_name, "time", distribution_in.time);
+				write_data_to_hdf5(hdf5_file_name, "rho_tor", coreprof.rho_tor);
+				write_data_to_hdf5(hdf5_file_name, "rho_tor_eq", equilibrium.profiles_1d.rho_tor);				
+				write_data_to_hdf5(hdf5_file_name, "density", coreprof.ne.value);
+				write_data_to_hdf5(hdf5_file_name, "temperature", coreprof.te.value);
+				write_data_to_hdf5(hdf5_file_name, "eparallel", coreprof.profiles1d.eparallel.value);
+				write_data_to_hdf5(hdf5_file_name, "b0", coreprof.toroid_field.b0);
+				write_data_to_hdf5(hdf5_file_name, "zeff", coreprof.profiles1d.zeff.value);
+				write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens);		
+				write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
+				write_data_to_hdf5(hdf5_file_name, "dreicer_rate", runaway_rates.timed.float1d(0).value);
+				write_data_to_hdf5(hdf5_file_name, "avalanche_rate", runaway_rates.timed.float1d(1).value);
+				
 			}else{
 				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
 			}
@@ -407,78 +420,3 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	return 0;
 }
 
-int set_switch_from_codeparams(ItmNs::codeparam_t &codeparams){
-    int runafluid_switch = 0;
-	DecITM::DecodeITMpar params(codeparams.parameters);
-	std::string parameters;
-	parameters = params.get();
-	std::string str_dreicer_formula = stream_xml_string(parameters,"dreicer_formula");
-	std::string str_dreicer_toroidicity =stream_xml_string(parameters,"dreicer_toroidicity");
-	std::string str_avalanche_formula =stream_xml_string(parameters,"avalanche_formula");
-	std::string str_avalanche_toroidicity =stream_xml_string(parameters,"avalanche_toroidicity");
-
-	if(!str_dreicer_toroidicity.compare("1") && !str_avalanche_toroidicity.compare("1")){
-		runafluid_switch += 1000;	
-	}else if(!str_dreicer_toroidicity.compare("1")){
-		runafluid_switch += 2000;	
-	}else if(!str_avalanche_toroidicity.compare("1")){
-		runafluid_switch += 3000;	
-	}
-
-	if(!str_avalanche_formula.compare("rosenbluth_putvinski")){
-		runafluid_switch += 300;	
-	}else if(!str_avalanche_formula.compare("rosenbluth_putvinski_with_threshold")){
-		runafluid_switch += 100;	
-	}
-
-	if(!str_dreicer_formula.compare("hc_formula_63")){
-		runafluid_switch += 10;	
-	}else if(!str_dreicer_formula.compare("hc_formula_66")){
-		runafluid_switch += 20;	
-	}else if(!str_dreicer_formula.compare("hc_formula_67")){
-		runafluid_switch += 30;	
-	}
-	return runafluid_switch;
-}
-	
-
-std::string split_string(std::string s, std::string ref){
-
-	std::string delimiter = "<";
-	std::string delimiter2 = ">";
-	std::string xml_value = ""; 
-	size_t pos = 0;
-	size_t pos2 = 0;
-	std::string token, token2;
-	while ((pos = s.find(delimiter)) != std::string::npos) {
-		token = s.substr(0, pos);
-		//std::cout << "--> "<< token << std::endl;
-
-		for(int i=0; ((pos2 = token.find(delimiter2)) != std::string::npos);i++){
-			token2 = token.substr(0, pos2);
-			//std::cout <<"     "<<i<<"   "<< token2 << std::endl;
-			token.erase(0, pos2 + delimiter2.length());
-			//std::cout <<"     "<<i<<"  "<<token<<" >>>   "<< token << std::endl;
-			if (!token2.compare(ref)){
-				std::cout <<"  [Runaway Fluid] \tCode Parameter for  "<<token2<<" is "<< token << std::endl;
-				xml_value = token;
-			}
-		}
-
-		s.erase(0, pos + delimiter.length());
-	
-	}
-	//std::cout << s << std::endl;
-	return xml_value;
-
-}
-
-
-
-std::string stream_xml_string(std::string xml_string, std::string ref){
-
-	/*std::cout <<  "---- From the Actor ---" << std::endl;
-	std::cout << xml_string << std::flush;*/
-	
-	return split_string(xml_string,ref);
-}

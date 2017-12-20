@@ -72,7 +72,7 @@ endif
 
  
 # Runafluid actor
-libRunafluid.a: runafluid.o distinit.o  cpo_utils.o  hdf5export.o  critical_field.o  control.o  dreicer.o  avalanche.o
+libRunafluid.a: runafluid.o distinit.o  cpo_utils.o  codeparams.o  hdf5export.o  critical_field.o  control.o  dreicer.o  avalanche.o
 	ar -rvs $@ $^	
 	
 libRunafluid_imas.a: runafluid_imas.o distinit_imas.o  ids_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o
