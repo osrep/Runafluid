@@ -100,6 +100,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 
 	//! parse codeparam
+	modules m = read_codeparams(codeparams);
 	runafluid_switch = set_switch_from_codeparams(codeparams);
 
 	//! get time
@@ -139,7 +140,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	int output_flag = 0;
 	
 	//! runaway fluid temporary rates
-	int	modulevar_rates = get_digit(runafluid_switch,1);
+	int modulevar_rates = 1;//get_digit(runafluid_switch,1);
 				
 	//! Number of rate calculations (Dreicer, Avalanche etc.)	
 	int N_rates = 20;
@@ -260,10 +261,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	
 	distribution_out.time = distribution_in.time+timestep;
 
-// HDF5 working
-	//create_hdf5();
-	if (hdf5_switch){
-			H5std_string hdf5_file_name("/afs/eufus.eu/g2itmdev/user/g2maradi/public/runafluid_hdf5/20171220_007.h5");
+	// HDF5 export
+	if (!m.output_path.empty()){
+			H5std_string hdf5_file_name(m.output_path);
 
 			int dataset_name_length = 12; 
 			string dataset_name_list[dataset_name_length] = {
@@ -347,7 +347,7 @@ int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
 	
 	//! Coulomb logarithm
 	runaway_rates.timed.float1d(8).identifier.id = "coulomblog";
-	runaway_rates.timed.float1d(8).identifier.flag = 9;
+	runaway_rates.timed.float1d(8).identifier.flag = 8;
 	runaway_rates.timed.float1d(8).identifier.description = "Coulomb logarithm";
 	runaway_rates.timed.float1d(8).value.resize(N_rho);
 	

@@ -9,8 +9,8 @@
     </xs:annotation>
     <xs:complexType>
       <xs:all>
-        <xs:element ref="runaway_fluid_input" maxOccurs="1"/>
-        <xs:element ref="runaway_fluid_output" maxOccurs="1"/>
+        <xs:element ref="runaway_fluid_input"/>
+        <xs:element ref="runaway_fluid_output"/>
       </xs:all>
     </xs:complexType>
   </xs:element>
@@ -24,8 +24,8 @@
     </xs:annotation>
     <xs:complexType>
       <xs:all>
-        <xs:element ref="sources" maxOccurs="1"/>
-        <xs:element ref="output" maxOccurs="1"/>
+        <xs:element ref="sources"/>
+        <xs:element ref="output"/>
       </xs:all>
     </xs:complexType>
   </xs:element>
@@ -38,8 +38,8 @@
     </xs:annotation>
     <xs:complexType>
       <xs:all>
-        <xs:element ref="dreicer" maxOccurs="1"/>
-        <xs:element ref="avalanche" maxOccurs="1"/>
+        <xs:element ref="dreicer"/>
+        <xs:element ref="avalanche"/>
       </xs:all>
     </xs:complexType>
   </xs:element>
@@ -48,8 +48,8 @@
   <xs:element name="dreicer">
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="dreicer_module" maxOccurs="1"/>
-        <xs:element ref="dreicer_module_off" maxOccurs="1"/>
+        <xs:element ref="dreicer_module"/>
+        <xs:element ref="dreicer_module_off"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>  
@@ -60,8 +60,8 @@
    <xs:element name="dreicer_module">
     <xs:complexType>
       <xs:all>
-        <xs:element ref="dreicer_formula" maxOccurs="1"/>
-        <xs:element ref="dreicer_toroidicity" maxOccurs="1"/>
+        <xs:element ref="dreicer_formula"/>
+        <xs:element ref="dreicer_toroidicity"/>
       </xs:all>
     </xs:complexType>
   </xs:element>  
@@ -83,8 +83,8 @@
   <xs:element name="avalanche">
     <xs:complexType>
       <xs:choice>
-       <xs:element ref="avalanche_module" maxOccurs="1"/>
-        <xs:element ref="avalanche_module_off" maxOccurs="1"/>
+       <xs:element ref="avalanche_module"/>
+        <xs:element ref="avalanche_module_off"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>  
@@ -95,8 +95,8 @@
  <xs:element name="avalanche_module">
     <xs:complexType>
       <xs:all>
-        <xs:element ref="avalanche_formula" maxOccurs="1"/>
-        <xs:element ref="avalanche_toroidicity" maxOccurs="1"/>
+        <xs:element ref="avalanche_formula"/>
+        <xs:element ref="avalanche_toroidicity"/>
       </xs:all>
     </xs:complexType>
   </xs:element>  
@@ -116,14 +116,11 @@
   <!-- Runafluid OUTPUT parameters -->
   <xs:element name="runaway_fluid_output">
     <xs:annotation>
-      <xs:documentation>
-        output data
-      </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="output_module" maxOccurs="1"/>
-        <xs:element ref="output_module_off" maxOccurs="1"/>
+        <xs:element ref="output_module"/>
+        <xs:element ref="output_module_off"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>  

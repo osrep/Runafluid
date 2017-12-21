@@ -8,11 +8,12 @@
 #include <unistd.h>
 #include "H5Cpp.h"
 #include "codeparams.h"
+#include "control.h"
 
 using namespace std;
 
 int set_switch_from_codeparams(ItmNs::codeparam_t &codeparams){
-    int runafluid_switch = 0;
+	int runafluid_switch = 0;
 	DecITM::DecodeITMpar params(codeparams.parameters);
 	std::string parameters;
 	parameters = params.get();
@@ -44,7 +45,49 @@ int set_switch_from_codeparams(ItmNs::codeparam_t &codeparams){
 	}
 	return runafluid_switch;
 }
+
+modules read_codeparams(ItmNs::codeparam_t &codeparams){
+	modules m;
+	DecITM::DecodeITMpar params(codeparams.parameters);
+	std::string parameters;
+	parameters = params.get();
+	std::string str_dreicer_formula = stream_xml_string(parameters,"dreicer_formula");
+	std::string str_dreicer_toroidicity = stream_xml_string(parameters,"dreicer_toroidicity");
+	std::string str_avalanche_formula = stream_xml_string(parameters,"avalanche_formula");
+	std::string str_avalanche_toroidicity = stream_xml_string(parameters,"avalanche_toroidicity");
+	std::string str_output_path = stream_xml_string(parameters,"output_path");
+
+	if(str_dreicer_toroidicity.compare("1")){
+		m.dreicer_toroidicity = true;
+	}else{
+		m.dreicer_toroidicity = false;
+	}
+
+	if(str_avalanche_toroidicity.compare("1")){
+		m.avalanche_toroidicity = true;
+	}else{
+		m.avalanche_toroidicity = false;
+	}
+
+	m.dreicer_formula = str_dreicer_formula;
+	m.avalanche_formula = str_avalanche_formula;
+	m.output_path = str_output_path;
+	/*std::cout << "Dreicer formula\t" << str_dreicer_formula  << std::endl;
+	std::cout << "Avalanche formula\t" << str_avalanche_formula  << std::endl;
+	std::cout << "Output path\t" << str_output_path  << std::endl;
+	if (m.output_path.empty()){		
+		std::cout << "NO HDF5\t" << std::endl;
+	}*/
+
+	return m;
+}
 	
+
+modules simulate_codeparams(int runafluid_switch){
+	
+	modules m;
+	return m;
+}
 
 std::string split_string(std::string s, std::string ref){
 
