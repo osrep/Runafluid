@@ -22,9 +22,7 @@ using namespace std;
 
 */
 
-double avalanche_generation_rate(double electron_density, double electron_temperature,
-								 double effective_charge, double electric_field, double magnetic_field,
-								 int modulevar_avalanche) {
+double avalanche_generation_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field, double magnetic_field, int modulevar_avalanche) {
 				
 	//! \a REQ-1: Coulomb logarithm
 	/*!
@@ -66,8 +64,7 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 
 		//! threshold field: avalanche_thresold_field
 		if (modulevar_avalanche == 2){
-			avalanche_threshold_field = calculate_avalanche_threshold_field(electron_density, electron_temperature,
-																			effective_charge, critical_field, magnetic_field);
+			avalanche_threshold_field = calculate_avalanche_threshold_field(electron_density, electron_temperature, effective_charge, critical_field, magnetic_field);
 		}
 		else{
 			avalanche_threshold_field = 0;
@@ -81,6 +78,33 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 		if(isnan(agr) || (agr<0)){
 			agr = 0;
 		}
+	}
+	
+	return agr;
+	
+}
+
+double avalanche_generation_rate(double electron_density, double electron_temperature, double effective_charge, double electric_field, double magnetic_field, modules m) {
+
+	double agr, avalanche_threshold_field;
+
+	double coulomb_log = calculate_coulomb_log(electron_density, electron_temperature);
+	double critical_field = calculate_critical_field(electron_density, electron_temperature);	
+	double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
+	
+	if ( (m.avalanche_formula.compare("rosenbluth_putvinski")) || (m.avalanche_formula.compare("rosenbluth_putvinski_with_threshold")) ){
+
+		agr = (electric_field/critical_field - 1) / (2*runaway_collision_time*coulomb_log);
+
+		//! threshold field: avalanche_thresold_field
+		if (m.avalanche_formula.compare("rosenbluth_putvinski_with_threshold"))
+			avalanche_threshold_field = calculate_avalanche_threshold_field(electron_density, electron_temperature,	effective_charge, critical_field, magnetic_field);		
+		else avalanche_threshold_field = 0;
+
+		if (electric_field < avalanche_threshold_field) agr = 0;
+
+		//! Avalanche rate must be non-negative
+		if(isnan(agr) || (agr<0)) agr = 0;
 	}
 	
 	return agr;
@@ -118,7 +142,7 @@ double calculate_toroidicity_avalanche(double inv_asp_ratio, double electric_fie
 	
 	double toroidicity_avalanche = pow(1.0-inv_asp_ratio_coord,2)/(ITM_PI*sqrt(inv_asp_ratio_coord*rel_electric_field));
 	
-	if(rel_electric_field<1){
+	if (rel_electric_field < 1){
 		toroidicity_avalanche = 1;
 	}
 	return toroidicity_avalanche;

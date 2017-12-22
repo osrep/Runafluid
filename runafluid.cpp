@@ -166,7 +166,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			//! calculating runaway density
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
 										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
-										   timestep, inv_asp_ratio, it->rho, runafluid_switch, rate_values);
+										   timestep, inv_asp_ratio, it->rho, m, rate_values);
 
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			
 		   	if (it->rho >= rho_max){
@@ -265,15 +265,14 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	if (!m.output_path.empty()){
 			H5std_string hdf5_file_name(m.output_path);
 
-			int dataset_name_length = 12; 
+			int dataset_name_length = 14; 
 			string dataset_name_list[dataset_name_length] = {
 				"time","rho_tor","rho_tor_eq",
 				"density", "temperature", "eparallel","b0", "zeff",
-				"runaway_density","runaway_current","dreicer_rate","avalanche_rate"};
+				"runaway_density","runaway_current","dreicer_rate","avalanche_rate",
+				"electric_field_vs_critical_field", "critical_field"};
 			int cols = rho;//sizeof dataext / sizeof(double);
 			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
-
-				//write_data_to_hdf5(hdf5_file_name,"runaway/density",distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens,cols);
 
 				write_data_to_hdf5(hdf5_file_name, "time", distribution_in.time);
 				write_data_to_hdf5(hdf5_file_name, "rho_tor", coreprof.rho_tor);
@@ -287,6 +286,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
 				write_data_to_hdf5(hdf5_file_name, "dreicer_rate", runaway_rates.timed.float1d(0).value);
 				write_data_to_hdf5(hdf5_file_name, "avalanche_rate", runaway_rates.timed.float1d(1).value);
+				write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", runaway_rates.timed.float1d(19).value);
+				write_data_to_hdf5(hdf5_file_name, "critical_field", runaway_rates.timed.float1d(19).value);
 				
 			}else{
 				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
