@@ -146,6 +146,102 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	return rundensity_after;
 }
 
+double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
+		double effective_charge, double electric_field, double magnetic_field, double timestep, double inv_asp_ratio, double rho_tor_norm, modules m, double *rate_values){
+	
+	double rundensity_after = 0.0;
+	double rate_dreicer = 0.0;
+	double rate_avalanche = 0.0;
+	double dreicer_formula_id = 63;
+		
+	try {		
+		if (m.dreicer_formula.compare("hc_formula_63")) {dreicer_formula_id = 63;}
+		if (m.dreicer_formula.compare("hc_formula_66")) {dreicer_formula_id = 66;}
+		if (m.dreicer_formula.compare("hc_formula_67")) {dreicer_formula_id = 67;}
+
+				
+		if (m.dreicer_formula.empty()){
+			rate_dreicer = 0;		
+		}else{
+			rate_dreicer = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, dreicer_formula_id);
+		}	
+		
+		if (m.avalanche_formula.empty()){
+			rate_avalanche = 0;	
+		}else{		
+			rate_avalanche = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, m);
+		}			
+			
+		if (m.dreicer_toroidicity){
+			rate_dreicer *= calculate_toroidicity_dreicer(inv_asp_ratio, rho_tor_norm);
+		}
+			
+		if (m.avalanche_toroidicity){
+			rate_avalanche *= calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature, rho_tor_norm);
+		}	
+		
+		rundensity_after = rundensity_before + (electron_density*rate_dreicer + rundensity_before*rate_avalanche) * timestep;	
+
+		// temporary data back module CODE OPTIMALISATION NEEDED!
+				
+		//! temporary for Dreicer rate
+		rate_values[0] = rate_dreicer*electron_density;
+	
+		//! temporary for Avalanche rate
+		rate_values[1] = rate_avalanche;
+
+		//! temporary for Dreicer H&C 63,66,67	 FOR TESTS	
+		rate_values[2] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, 63)*electron_density;
+		rate_values[3] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, 66)*electron_density;
+		rate_values[4] = dreicer_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, rho_tor_norm, 67)*electron_density;
+		rate_values[5] = rundensity_before;
+
+		//! temporary for Dreicer field FOR HDF5?
+		rate_values[6] = calculate_dreicer_field(electron_density, electron_temperature);
+
+		//! temporary for critical field FOR HDF5
+		double critical_field = calculate_critical_field(electron_density, electron_temperature);
+		rate_values[7] = critical_field;
+
+		//! temporary for Coulomb log  FOR HDF5?
+		rate_values[8] = calculate_coulomb_log(electron_density, electron_temperature);	
+
+		//! temporary for collision time FOR HDF5?
+		double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);	
+		double synchrotron_loss_time = calculate_synchrotron_loss_time(magnetic_field);
+		double norm_synchrotron_loss_time = synchrotron_loss_time/runaway_collision_time;
+
+		rate_values[9] = calculate_thermal_electron_collision_time(electron_density, electron_temperature);
+		rate_values[10] = runaway_collision_time;		
+	
+		//! temporary for Avalanche models FOR TESTS		
+		rate_values[11] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 1);
+		rate_values[12] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 2);
+		rate_values[13] = avalanche_generation_rate(electron_density, electron_temperature, effective_charge, electric_field, magnetic_field, 3);
+
+		//! temporary time data FOR HDF5?
+		rate_values[14] = 1 + (1+effective_charge) / sqrt(norm_synchrotron_loss_time) / pow( 1.0/8.0 + (1+effective_charge) * (1+effective_charge) / norm_synchrotron_loss_time , 1.0/6.0);
+		rate_values[15] = synchrotron_loss_time;
+		rate_values[16] = norm_synchrotron_loss_time;
+		
+		//! temporary toroidicity data FOR HDF5?
+		rate_values[17] = calculate_toroidicity_dreicer(inv_asp_ratio, rho_tor_norm);				
+		rate_values[18] = calculate_toroidicity_avalanche(inv_asp_ratio, electric_field, electron_density, electron_temperature, rho_tor_norm);
+		
+		//! temporary for relative electric field FOR HDF5				
+		rate_values[19] =  electric_field/critical_field;	
+
+
+	} catch (const std::exception& ex) {
+		//! internal error in runaway distribution calculation
+		std::cerr << "[Runaway Fluid] ERROR: An error occurred during runaway distribution calculation." << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
+		rundensity_after = ITM_INVALID_FLOAT;
+		
+	}
+	return rundensity_after;
+}
+
 
 /*! Runafluid switch message */
 
