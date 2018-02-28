@@ -1,4 +1,6 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
+import matlab.engine 
+eng = matlab.engine.start_matlab()
 
 rho_tor_norm = distribution0[0].distri_vec[0].profiles_1d.geometry.rho_tor_norm
 
@@ -20,72 +22,72 @@ avalanche_rate_thr = temporary0[0].timed.float1d[13].value[indices]
 rel_efield = temporary0[0].timed.float1d[19].value[indices]
 
 
-fig1=plt.figure(1)
-plt.plot(rel_efield, runaway_density)
-plt.xlabel('relative electric field (E/Ec)')
-plt.ylabel('runaway density [1/m3$] ')
-fig1.show()
-fig1.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_density.pdf')
+eng.figure(1)
+eng.plot(rel_efield, runaway_density)
+eng.xlabel('relative electric field (E/Ec)')
+eng.ylabel('runaway density [1/m3$] ')
+eng.show()
+eng.savefig('/u/ahadar/svn/runafluid/trunk/workflow/plot_density.pdf')
 
-fig2=plt.figure(2)
-plt.plot(rel_efield, runaway_current)
-plt.xlabel('relative electric field (E/Ec)')
-plt.ylabel('runaway current [A/m3] ')
-fig2.show()
-fig2.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_current.pdf')
-
-
-
-fig3=plt.figure(3)
-plt.plot(rel_efield, dreicer_rate)
-plt.xlabel('relative electric field (E/Ec)')
-plt.ylabel('Dreicer rate [1/m3s] ')
-fig3.show()
-fig3.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_dreicer.pdf')
+eng.figure(2)
+eng.plot(rel_efield, runaway_current)
+eng.xlabel('relative electric field (E/Ec)')
+eng.ylabel('runaway current [A/m3] ')
+eng.show()
+eng.savefig('/u/ahadar/svn/runafluid/trunk/workflow/plot_current.pdf')
 
 
 
-
-fig4=plt.figure(4)
-plt.plot(rel_efield, dreicer_rate67, label='H&C (67)')
-plt.plot(rel_efield, dreicer_rate66, label='H&C (66)')
-plt.plot(rel_efield, dreicer_rate63, label='H&C (63)')
-plt.xlabel('relative electric field (E/Ec)')
-plt.ylabel('Dreicer rate [1/m3s] ')
-plt.legend(loc=2)
-fig4.show()
-fig4.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_dreicer_all.pdf')
-
-fig5=plt.figure(5)
-plt.plot(rel_efield, dreicer_rate63, label='H&C (63) without toroidicity')
-plt.plot(rel_efield, dreicer_rate, label='H&C (63)  with toroidicity')
-plt.xlabel('relative electric field (E/Ec)')
-plt.ylabel('Dreicer rate [1/m3s] ')
-plt.legend(loc=2)
-fig5.show()
-fig5.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_dreicer_tor.pdf')
+eng.figure(3)
+eng.plot(rel_efield, dreicer_rate)
+eng.xlabel('relative electric field (E/Ec)')
+eng.ylabel('Dreicer rate [1/m3s] ')
+eng.show()
+eng.savefig('/u/ahadar/svn/runafluid/trunk/workflow/plot_dreicer.pdf')
 
 
 
-fig7=plt.figure(7)
-plt.plot(rel_efield, avalanche_rate_lin, label='Rosenbluth-Putvinski linear model')
-plt.plot(rel_efield, avalanche_rate_thr, label='Onset threshold model')
-plt.xlabel('relative electric field (E/Ec)')
-plt.ylabel('normalised Avalanche rate [1/s]')
-plt.legend(loc=2)
-fig7.show()
-fig7.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_avalanche_threshold.pdf')
+
+eng.figure(4)
+eng.plot(rel_efield, dreicer_rate67, label='H&C (67)')
+eng.plot(rel_efield, dreicer_rate66, label='H&C (66)')
+eng.plot(rel_efield, dreicer_rate63, label='H&C (63)')
+eng.xlabel('relative electric field (E/Ec)')
+eng.ylabel('Dreicer rate [1/m3s] ')
+eng.legend(loc=2)
+eng.show()
+eng.savefig('/u/ahadar/svn/runafluid/trunk/workflow/plot_dreicer_all.pdf')
+
+eng.figure(5)
+eng.plot(rel_efield, dreicer_rate63, label='H&C (63) without toroidicity')
+eng.plot(rel_efield, dreicer_rate, label='H&C (63)  with toroidicity')
+eng.xlabel('relative electric field (E/Ec)')
+eng.ylabel('Dreicer rate [1/m3s] ')
+eng.legend(loc=2)
+eng.show()
+eng.savefig('/u/ahadar/svn/runafluid/trunk/workflow/plot_dreicer_tor.pdf')
 
 
 
-fig8=plt.figure(8)
-plt.plot(rel_efield, avalanche_rate_thr, label='OTM without toroidicity')
-plt.plot(rel_efield, avalanche_rate, label='OTM  with toroidicity')
-plt.xlabel('relative electric field (E/Ec)')
-plt.ylabel('normalised Avalanche rate [1/s]')
-plt.legend(loc=2)
-fig8.show()
-fig8.savefig('/u/maradi/svn/runafluid/trunk/workflow/plot_avalanche_tor.pdf')
+eng.figure(7)
+eng.plot(rel_efield, avalanche_rate_lin, label='Rosenbluth-Putvinski linear model')
+eng.plot(rel_efield, avalanche_rate_thr, label='Onset threshold model')
+eng.xlabel('relative electric field (E/Ec)')
+eng.ylabel('normalised Avalanche rate [1/s]')
+eng.legend(loc=2)
+eng.show()
+eng.savefig('/u/ahadar/svn/runafluid/trunk/workflow/plot_avalanche_threshold.pdf')
+
+
+
+eng.figure(8)
+eng.plot(rel_efield, avalanche_rate_thr, label='OTM without toroidicity')
+eng.plot(rel_efield, avalanche_rate, label='OTM  with toroidicity')
+eng.xlabel('relative electric field (E/Ec)')
+eng.ylabel('normalised Avalanche rate [1/s]')
+eng.legend(loc=2)
+eng.show()
+eng.savefig('/u/ahadar/svn/runafluid/trunk/workflow/plot_avalanche_tor.pdf')
 
 # Three subplots sharing both x/y axes
 #fig3, (ax1, ax2, ax3) = plt.subplots(3, sharex=True, sharey=True)
