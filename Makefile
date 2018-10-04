@@ -29,9 +29,9 @@ ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
 		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
 
     # test developing files
-    d:        libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
-    dev:      libRunafluid.a libEfieldEdit.a  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
-    devonly:  test/libnewdist.a test/libNewDistSlice.a test/libTeEdit.a test/libNeEdit.a test/libqeimpEdit.a test/libqeexpdecay.a test/libteexpdecay.a
+    d:        libRunafluid.a libEfieldEdit.a  test/libTeEdit.a test/libNeEdit.a test/libqeexpdecay.a
+    dev:      libRunafluid.a libEfieldEdit.a  test/libTeEdit.a test/libNeEdit.a test/libqeexpdecay.a
+    devonly:  test/libTeEdit.a test/libNeEdit.a test/libqeexpdecay.a
     fortran:  test/libNewDistSlice.a     
     $(info *** Compiler set to ITM *** )
 else ifeq ($(IMAS_ENVIRONMENT_LOADED), yes)
