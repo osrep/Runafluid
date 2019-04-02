@@ -4,7 +4,7 @@
 
 # runafluid (make)
 
-# runaway indicator (EU-IM)
+# runafluid (EU-IM)
 
 if ( ( $?ITM_ENVIRONMENT_LOADED) )  then
     if ( $ITM_ENVIRONMENT_LOADED == yes)  then
@@ -13,7 +13,13 @@ if ( ( $?ITM_ENVIRONMENT_LOADED) )  then
         rmactor runafluid_efieldEdit
         fc2k -docfile doc/runaway_fluid.txt fc2k/runaway_fluid.xml 
         fc2k -docfile doc/runafluid_efieldEdit.txt fc2k/runafluid_efieldEdit.xml 
-    else
+    endif
+endif
+
+# runafluid (IMAS)
+
+if ( ( $?IMAS_ENVIRONMENT_LOADED) )  then
+    if ( $IMAS_ENVIRONMENT_LOADED == yes)  then
         echo "*** Compiler set to IMAS ***"
         rmactor runaway_fluid
         rmactor runafluid_efieldEdit
