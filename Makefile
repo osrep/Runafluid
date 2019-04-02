@@ -41,7 +41,7 @@ else ifeq ($(IMAS_ENVIRONMENT_LOADED), yes)
 
     # google test
     test:  runafluid_imas.o distinit_imas.o  ids_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test_phys.o test/create_hdf5.o
-		$(CXX) $(LDFLAGS) -L$(GTEST)/ -lgtest_main $^ -lgtest -o test_imas.bin		
+		$(CXX) $(LDFLAGS) -L$(GTEST)/ -lgtest_main $^ -lgtest -o test.bin		
     test/test_imas.o: test/test.cpp
 		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
     test/test_ids.o: test/test_ids.cpp
@@ -58,7 +58,7 @@ else
 
     # google test
     test:  runafluid_imas.o distinit_imas.o  ids_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test_phys.o test/test_ids.o
-		$(CXX) $(LDFLAGS) -L$(GTEST)/ -lgtest_main $^ -lgtest -o test_imas.bin		
+		$(CXX) $(LDFLAGS) -L$(GTEST)/ -lgtest_main $^ -lgtest -o test.bin		
     test/test_imas.o: test/test.cpp
 		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
     test/test_ids.o: test/test_ids.cpp
