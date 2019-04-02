@@ -1,5 +1,4 @@
-#!/bin/bash
-# This script starts unit tests of Runin.
+#!/bin/tcsh -f
 
 if (  ( $?GTEST) ) then
     make test || exit
