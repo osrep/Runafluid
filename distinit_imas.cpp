@@ -5,12 +5,6 @@
 #include <UALClasses.h>
 #include "distinit.h"
 
-/*
-#include "constants.h"
-#include "cpo_utils.h"
-#include "runafluid.h"
-#include "init.h"*/
-
 
 
 
@@ -44,13 +38,6 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof elements" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
-	/*
-	try {			
-		N_psi = coreprof.psi.value.rows();		
-	} catch (const std::exception& ex) {
-		std::cerr << "[Runaway Fluid] ERROR: An error occurred during coreprof elements" << std::endl;
-		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
-	}*/
 	
 			
 	//! New distribution data set	
@@ -122,7 +109,6 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	try {	
 		distributions.distribution(0).profiles_1d(0).grid.rho_tor.resize(N_rho_tor);
 		distributions.distribution(0).profiles_1d(0).grid.rho_tor_norm.resize(N_rho_tor_norm);
-/*		distributions.distribution(0).profiles_1d.grid.psi(N_psi);*/
 		
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during geometry vectors allocation" << std::endl;
@@ -130,7 +116,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	}
 	
 	
-	//! Filling up coreprof geometry data	
+	//! Filling up distribution geometry data	
 	try {			
 		for (int i = 0; i < N; ++i){
 			if (i < N_rho_tor){
@@ -141,11 +127,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
         		distributions.distribution(0).profiles_1d(0).grid.rho_tor_norm(i) = core_profiles.profiles_1d(0).grid.rho_tor_norm(i);
 			}
 			
-			
-		//	if (i < N_psi){
-		//		distribution.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
-		//	}
-			
+						
 		}
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
