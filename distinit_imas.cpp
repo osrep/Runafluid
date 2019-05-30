@@ -42,12 +42,26 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 			
 	//! New distribution data set	
 	try {	
-		distributions.distribution.resize(1);	
+		distributions.ids_properties.homegenous_time = 1;	
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during distri_vec allocation" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
+	try {	
+		distributions.time.resize(1);
+		distributions.time(0) = ITM_INVALID_FLOAT;
+	} catch (const std::exception& ex) {
+		std::cerr << "[Runaway Fluid] ERROR: An error occurred during distri_vec allocation" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+	}
+	
+	try {	
+		distributions.distribution.resize(1);	
+	} catch (const std::exception& ex) {
+		std::cerr << "[Runaway Fluid] ERROR: An error occurred during distri_vec allocation" << std::endl;
+		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
+	}
 	
 	//! New distribution data set	
 	try {	
