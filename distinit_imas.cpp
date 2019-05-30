@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <UALClasses.h>
 #include "distinit.h"
-
+#include "constants.h"
 
 
 
@@ -42,7 +42,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 			
 	//! New distribution data set	
 	try {	
-		distributions.ids_properties.homegenous_time = 1;	
+		distributions.ids_properties.homogeneous_time= 1;	
 	} catch (const std::exception& ex) {
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during distri_vec allocation" << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
