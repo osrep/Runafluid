@@ -152,8 +152,9 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	//! Filling up codeparam
 	
 	try {
+		distributions.code.output_flag.resize(1);
 		distributions.code.name = "Runaway Fluid (runafluid)";
-		distributions.code.output_flag = 0;
+		distributions.code.output_flag(0) = 0;
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during filling codeparam" << std::endl;
 		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;

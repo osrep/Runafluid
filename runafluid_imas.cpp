@@ -234,7 +234,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 
 	//! output flag to distribution CPO
 	try {
-		distribution_out.code.output_flag = output_flag;
+		distribution_out.code.output_flag(timeindex) = output_flag;
 		/*
 		if (output_flag == 1){			
 			distribution_out.code.output_diag = "Runaway Fluid was running successfully and runaway electrons indicated";
