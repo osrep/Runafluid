@@ -1,4 +1,4 @@
-#include <algorithm>
+﻿#include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
@@ -205,11 +205,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 				not_suitable_warning = 1;	 	
 		   	}
 
-		   	//! runaway rates (Dreicer, Avalanche etc.)
-		   	/*for(int rates_i=0;rates_i<N_rates;++rates_i){
-		   		runaway_rates.timed.float1d(rates_i).value(i) = rate_values[rates_i];
-			}*/	
-	   		
+		   	
 	   	}else{		   	
 			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << i << "/"
 					  << distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows() << ")" << std::endl;
@@ -238,7 +234,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 
 	//! output flag to distribution CPO
 	try {
-		distribution_out.code.output_flag = output_flag;
+		distribution_out.code.output_flag(timeindex) = output_flag;
 		/*
 		if (output_flag == 1){			
 			distribution_out.code.output_diag = "Runaway Fluid was running successfully and runaway electrons indicated";
@@ -264,125 +260,6 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 int init_rates(IdsNs::IDS::temporary &runaway_rates, int N_rates, int N_rho){
 //! runaway_rates for generation rates
     runaway_rates.constant_float1d.resize(1);
-/*
-	runaway_rates.timed.float1d.resize(N_rates);
 
-	//! Dreicer generation rate initialisation
-	runaway_rates.timed.float1d(0).identifier.id = "dreicer";
-	runaway_rates.timed.float1d(0).identifier.flag = 0;
-	runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
-	runaway_rates.timed.float1d(0).value.resize(N_rho);	
-		
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(1).identifier.id = "avalanche";
-	runaway_rates.timed.float1d(1).identifier.flag = 1;
-	runaway_rates.timed.float1d(1).identifier.description = "Avalanche generation rate";
-	runaway_rates.timed.float1d(1).value.resize(N_rho);
-	
-	runaway_rates.timed.float1d(2).identifier.id = "dreicer63";
-	runaway_rates.timed.float1d(2).identifier.flag = 2;
-	runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate by Connor et al. (63)";
-	runaway_rates.timed.float1d(2).value.resize(N_rho);				
-	
-	//! Dreicer generation rate initialisation
-	runaway_rates.timed.float1d(3).identifier.id = "dreicer66";
-	runaway_rates.timed.float1d(3).identifier.flag = 3;
-	runaway_rates.timed.float1d(3).identifier.description = "Dreicer generation rate by Connor et al. (66)";
-	runaway_rates.timed.float1d(3).value.resize(N_rho);		
-			
-	runaway_rates.timed.float1d(4).identifier.id = "dreicer67";
-	runaway_rates.timed.float1d(4).identifier.flag = 4;
-	runaway_rates.timed.float1d(4).identifier.description = "Dreicer generation rate by Connor et al. (67)";
-	runaway_rates.timed.float1d(4).value.resize(N_rho);
-	
-	runaway_rates.timed.float1d(5).identifier.id = "dreicer_prev";
-	runaway_rates.timed.float1d(5).identifier.flag = 5;
-	runaway_rates.timed.float1d(5).identifier.description = "Dreicer generation rate in the previous timestep";
-	runaway_rates.timed.float1d(5).value.resize(N_rho);	
-
-	//! Dreicer field
-	runaway_rates.timed.float1d(6).identifier.id = "dreicerf01";
-	runaway_rates.timed.float1d(6).identifier.flag = 6;
-	runaway_rates.timed.float1d(6).identifier.description = "Dreicer field (formula 1)";
-	runaway_rates.timed.float1d(6).value.resize(N_rho);	
-	
-	//! critical field
-	runaway_rates.timed.float1d(7).identifier.id = "criticalf";
-	runaway_rates.timed.float1d(7).identifier.flag = 7;
-	runaway_rates.timed.float1d(7).identifier.description = "Critical field";
-	runaway_rates.timed.float1d(7).value.resize(N_rho);
-	
-	//! Coulomb logarithm
-	runaway_rates.timed.float1d(8).identifier.id = "coulomblog";
-	runaway_rates.timed.float1d(8).identifier.flag = 9;
-	runaway_rates.timed.float1d(8).identifier.description = "Coulomb logarithm";
-	runaway_rates.timed.float1d(8).value.resize(N_rho);
-	
-	//! electron collision time
-	runaway_rates.timed.float1d(9).identifier.id = "thermal_electron_collision_time";
-	runaway_rates.timed.float1d(9).identifier.flag = 9;
-	runaway_rates.timed.float1d(9).identifier.description = "Thermal electron collision time";
-	runaway_rates.timed.float1d(9).value.resize(N_rho);
-		
-	//! electron collision time
-	runaway_rates.timed.float1d(10).identifier.id = "runaway_collision_time";
-	runaway_rates.timed.float1d(10).identifier.flag = 10;
-	runaway_rates.timed.float1d(10).identifier.description = "Runaway electron collision time";
-	runaway_rates.timed.float1d(10).value.resize(N_rho);
-	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(11).identifier.id = "avalanche01";
-	runaway_rates.timed.float1d(11).identifier.flag = 11;
-	runaway_rates.timed.float1d(11).identifier.description = "Avalanche generation rate (default)";
-	runaway_rates.timed.float1d(11).value.resize(N_rho);
-	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(12).identifier.id = "avalanche02";
-	runaway_rates.timed.float1d(12).identifier.flag = 12;
-	runaway_rates.timed.float1d(12).identifier.description = "Avalanche generation rate (with onset threshold)";
-	runaway_rates.timed.float1d(12).value.resize(N_rho);
-	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(13).identifier.id = "avalanche03";
-	runaway_rates.timed.float1d(13).identifier.flag = 13;
-	runaway_rates.timed.float1d(13).identifier.description = "Avalanche generation rate (linear without threshold)";
-	runaway_rates.timed.float1d(13).value.resize(N_rho);
-	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(14).identifier.id = "avalanche_onset";
-	runaway_rates.timed.float1d(14).identifier.flag = 14;
-	runaway_rates.timed.float1d(14).identifier.description = "Avalanche onset field (V/m)";
-	runaway_rates.timed.float1d(14).value.resize(N_rho);
-	
-	//! Synchrotron loss time initialisation
-	runaway_rates.timed.float1d(15).identifier.id = "synchrotron_loss_time";
-	runaway_rates.timed.float1d(15).identifier.flag = 15;
-	runaway_rates.timed.float1d(15).identifier.description = "Synchrotron loss time (s)";
-	runaway_rates.timed.float1d(15).value.resize(N_rho);
-	
-	//! Normalised synchrotron loss time initialisation
-	runaway_rates.timed.float1d(16).identifier.id = "norm_synchrotron_loss_time";
-	runaway_rates.timed.float1d(16).identifier.flag = 16;
-	runaway_rates.timed.float1d(16).identifier.description = "Normalised synchrotron loss time";
-	runaway_rates.timed.float1d(16).value.resize(N_rho);
-	
-	//! Toroidicity for Dreicer
-	runaway_rates.timed.float1d(17).identifier.id = "toroidicity_dreicer";
-	runaway_rates.timed.float1d(17).identifier.flag = 17;
-	runaway_rates.timed.float1d(17).identifier.description = "Toroidicity for Dreicer rate";
-	runaway_rates.timed.float1d(17).value.resize(N_rho);
-		
-	//! Toroidicity for Avalanche
-	runaway_rates.timed.float1d(18).identifier.id = "toroidicity_avalanche";
-	runaway_rates.timed.float1d(18).identifier.flag = 18;
-	runaway_rates.timed.float1d(18).identifier.description = "Toroidicity for Avalanche rate";
-	runaway_rates.timed.float1d(18).value.resize(N_rho);
-
-	//! Toroidicity for Avalanche
-	runaway_rates.timed.float1d(19).identifier.id = "relative_electric_field";
-	runaway_rates.timed.float1d(19).identifier.flag = 19;
-	runaway_rates.timed.float1d(19).identifier.description = "Relative electric field (by critical field)";
-	runaway_rates.timed.float1d(19).value.resize(N_rho);
-    */
 	return 0;
 }
