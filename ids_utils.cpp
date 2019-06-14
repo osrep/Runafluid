@@ -262,6 +262,10 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 				/ interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
 						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
 						
+		// local magnetic field
+		celll.magnetic_field = interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
+						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
+				
 		//! total sum of electric charge in \a rho cell
 		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
 		
