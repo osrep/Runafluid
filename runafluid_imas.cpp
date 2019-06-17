@@ -99,6 +99,9 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	//! start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
+	//! parse codeparam
+	module_struct modules = init_modules_from_runafluid_switch(runafluid_switch);
+	
 	//! get time
 	//double time = coreprof.time;
 	int timeindex = 0;
@@ -135,21 +138,20 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	
 	//! output flag
 	int output_flag = 0;
-	
-	//! runaway fluid temporary rates
-	int	modulevar_rates = get_digit(runafluid_switch,1);
 				
-	//! Number of rate calculations (Dreicer, Avalanche etc.)	
-	int N_rates = 20;
-	double rate_values[N_rates];		
-	
-	init_rates(runaway_rates, N_rates, N_rho);
+	//! Number of rate calculations (Dreicer, Avalanche etc.)
+	double rate_values[N_RATES];
+	int pro_size = pro.size();
+	blitz::Array<double,1> dreicer_prof(pro_size);
+	blitz::Array<double,1> avalanche_prof(pro_size);
+	blitz::Array<double,1> electric_field_prof(pro_size);
+	blitz::Array<double,1> critical_field_prof(pro_size);
 	
 	//! inverse aspect ratio \eps = a/R
 	double inv_asp_ratio = equilibrium.time_slice(timeindex).boundary.minor_radius / equilibrium.vacuum_toroidal_field.r0;
 	
 	//! Runaway fluid switch message	
-	runafluid_switch_message(runafluid_switch);
+	runafluid_switch_message(modules);
 
 	//! Distribution source index for output
 	int distsource_out_index = 0;
@@ -162,7 +164,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 			//! calculating runaway density
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
 										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
-										   timestep, inv_asp_ratio, it->rho, runafluid_switch, rate_values);
+										   timestep, inv_asp_ratio, it->rho, modules, rate_values);
 
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			
 		   	if (it->rho >= rho_max){
@@ -204,7 +206,11 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 		   	if (runcurrent/ecurrent >= 1){		   	
 				not_suitable_warning = 1;	 	
 		   	}
-
+		   	
+			dreicer_prof[rho]        = rate_values[RATEID_DREICER];
+			avalanche_prof[rho]      = rate_values[RATEID_AVALANCHE];
+			electric_field_prof[rho] = rate_values[RATEID_ELECTRIC_FIELD];
+			critical_field_prof[rho] = rate_values[RATEID_CRITICAL_FIELD];
 		   	
 	   	}else{		   	
 			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << i << "/"
@@ -257,9 +263,27 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	std::cerr << " END: runaway_fluid" << std::endl;
 }
 
-int init_rates(IdsNs::IDS::temporary &runaway_rates, int N_rates, int N_rho){
-//! runaway_rates for generation rates
-    runaway_rates.constant_float1d.resize(1);
-
-	return 0;
+module_struct init_modules_from_runafluid_switch(int runafluid_switch){
+	
+	switch (get_digit(runafluid_switch, 4)){
+		case 1:  modules.dreicer_toroidicity = true;  modules.avalanche_toroidicity = true;  break;
+		case 2:  modules.dreicer_toroidicity = true;  modules.avalanche_toroidicity = false; break;
+		case 3:  modules.dreicer_toroidicity = false; modules.avalanche_toroidicity = true;  break;
+		default: modules.dreicer_toroidicity = false; modules.avalanche_toroidicity = false; break;
+	}
+	
+	switch (get_digit(runafluid_switch, 3)){
+		case 1:  modules.avalanche_formula.assign("rosenbluth_putvinski_with_threshold"); break;
+		case 3:  modules.avalanche_formula.assign("rosenbluth_putvinski"); break;
+	}
+	
+	switch (get_digit(runafluid_switch, 2)){
+		case 1:  modules.dreicer_formula.assign("hc_formula_63"); break;
+		case 2:  modules.dreicer_formula.assign("hc_formula_66"); break;
+		case 3:  modules.dreicer_formula.assign("hc_formula_67"); break;
+	}
+	
+	modules.output_path.assign("default.h5");
+	
+	return modules;
 }
