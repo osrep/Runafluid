@@ -17,7 +17,7 @@ struct cell {
 
 typedef std::vector<cell> profile;
 
-struct module_struct {
+struct modules {
 	std::string dreicer_formula;
 	bool dreicer_toroidicity;
 	std::string avalanche_formula;
@@ -26,8 +26,11 @@ struct module_struct {
 };
 
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
-		double effective_charge, double electric_field, double magnetic_field, double timestep, double inv_asp_ratio, double rho_tor_norm, module_struct modules, double *rate_values);
+		double effective_charge, double electric_field, double magnetic_field, double timestep, double inv_asp_ratio, double rho_tor_norm, int runafluid_switch, double *rate_values);
 
-int runafluid_switch_message(module_struct modules);
+double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,
+		double effective_charge, double electric_field, double magnetic_field, double timestep, double inv_asp_ratio, double rho_tor_norm, modules m, double *rate_values);
+
+int runafluid_switch_message(int runafluid_switch);		
 		
 #endif /* CONTROL_H_ */
