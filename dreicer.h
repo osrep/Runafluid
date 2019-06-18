@@ -4,7 +4,10 @@
 #include "control.h"
 
 double dreicer_generation_rate(double electron_density, double electron_temperature,
-		double effective_charge, double electric_field, double rho_tor_norm, module_struct modules);
+                               double effective_charge, double electric_field, double rho_tor_norm, int formula_id);
+
+double dreicer_generation_rate(double electron_density, double electron_temperature,
+		double effective_charge, double electric_field, double rho_tor_norm, modules m);
 
 double calculate_toroidicity_dreicer(double inv_asp_ratio, double rho_tor_norm);
 
