@@ -85,18 +85,18 @@ int create_hdf5 (void);
 
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
-		  ItmNs::Itm::distribution &distribution_out, double &timestep, int &runafluid_switch,
+		  ItmNs::Itm::distribution &distribution_out, double &timestep,
 		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
-		  ItmNs::Itm::temporary &runaway_rates, ItmNs::codeparam_t &codeparams) {
+		  ItmNs::codeparam_t &codeparams) {
 
 	//! start: runafluid
 	std::cout << " START: runaway_fluid" << std::endl;
 	
-	//old switch
+	/*old switch
 	if(runafluid_switch!=0){
 		std::cout << "  [Runaway Fluid] \tWarning: A new Runaway_Fluid actor released where runafluid_switch removed. Please read documentation about how to use Code Parameters!"
 		<< std::endl << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;
-	}
+	}*/
 
 	//! parse codeparam
 	module_struct modules = read_codeparams(codeparams);
