@@ -23,13 +23,13 @@ module_struct read_codeparams(ItmNs::codeparam_t &codeparams){
 	std::string str_avalanche_toroidicity = stream_xml_string(parameters,"avalanche_toroidicity");
 	std::string str_output_path = stream_xml_string(parameters,"output_path");
 
-	if(str_dreicer_toroidicity.compare("true") == 0){
+	if(str_dreicer_toroidicity == "true"){
 		modules.dreicer_toroidicity = true;
 	}else{
 		modules.dreicer_toroidicity = false;
 	}
 
-	if(str_avalanche_toroidicity.compare("true") == 0){
+	if(str_avalanche_toroidicity == "true"){
 		modules.avalanche_toroidicity = true;
 	}else{
 		modules.avalanche_toroidicity = false;

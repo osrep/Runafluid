@@ -17,12 +17,12 @@ double avalanche_generation_rate(double electron_density, double electron_temper
 	double critical_field = calculate_critical_field(electron_density, electron_temperature);
 	double runaway_collision_time = calculate_runaway_collision_time(electron_density, electron_temperature);
 	
-	if ( (modules.avalanche_formula.compare("rosenbluth_putvinski")) || (modules.avalanche_formula.compare("rosenbluth_putvinski_with_threshold")) ){
+	if ( (modules.avalanche_formula == "rosenbluth_putvinski") || (modules.avalanche_formula == "rosenbluth_putvinski_with_threshold") ){
 
 		agr = (electric_field/critical_field - 1) / (2*runaway_collision_time*coulomb_log);
 
 		//! threshold field: avalanche_thresold_field
-		if (modules.avalanche_formula.compare("rosenbluth_putvinski_with_threshold"))
+		if (modules.avalanche_formula == "rosenbluth_putvinski_with_threshold")
 			avalanche_threshold_field = calculate_avalanche_threshold_field(electron_density, electron_temperature,	effective_charge, critical_field, magnetic_field);
 		else avalanche_threshold_field = 0;
 
