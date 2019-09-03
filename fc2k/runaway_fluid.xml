@@ -1,5 +1,5 @@
 <generactor.ActorGenerator>
-  <version>R3.0.10</version>
+  <version>R4.2.2</version>
   <paramFile>xml/runafluid.xml</paramFile>
   <defaultparamFile>xml/runafluid.xml</defaultparamFile>
   <paramXsdFile>xml/runafluid.xsd</paramXsdFile>
@@ -85,15 +85,6 @@
             <string>timestep</string>
           </vector>
           <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>runafluid_switch</string>
-          </vector>
-          <vector>
             <string>double</string>
             <string>0</string>
             <string>0</string>
@@ -129,15 +120,6 @@
             <string>1</string>
             <string>critical_fraction_warning</string>
           </vector>
-          <vector>
-            <string>temporary</string>
-            <string>1</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>runaway_rates</string>
-          </vector>
         </tupleParams>
       </default>
     </generactor.TupleP>
@@ -160,4 +142,5 @@
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
   <fDiagnosticInfo>false</fDiagnosticInfo>
+  <useSandbox>false</useSandbox>
 </generactor.ActorGenerator>
