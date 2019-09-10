@@ -132,7 +132,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
 		
 	//! stepping iterator in profile	
-	int rho = 0;	
+	int rho_index = 0;	
 	
 	//! output flag
 	int output_flag = 0;
@@ -158,13 +158,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 		//! Length of the runaway distribution is correct
-		if (rho<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
-				
+		if (rho_index<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
+			
 			//! calculating runaway density
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
 										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
 										   timestep, inv_asp_ratio, it->rho, modules, rate_values);
-
+		
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			
 		   	if (it->rho >= rho_max){
 				rundensity = 0;
@@ -188,7 +188,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	}
 		   	
 		   	//! runaway density n_R if \rho < \rho_\mathrm{max}
-	   		distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho) = rundensity;
+	   		distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho_index) = rundensity;
 		  
 		   	//! runaway current
 		   	/*!
@@ -196,9 +196,9 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		   	j = n_R q_e c \mathrm{sign}(E)
 		   	
 		   	*/
-		   			   	
+		    			   	
 		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);		   	
-		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho) = runcurrent;
+		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho_index) = runcurrent;
 		   	
 		   	//! not suitable warning: j_R > j_e	
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
@@ -206,17 +206,17 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				not_suitable_warning = 1;	 	
 		   	}
 		   	
-			dreicer_prof[rho]        = rate_values[RATEID_DREICER];
-			avalanche_prof[rho]      = rate_values[RATEID_AVALANCHE];
-			electric_field_prof[rho] = rate_values[RATEID_ELECTRIC_FIELD];
-			critical_field_prof[rho] = rate_values[RATEID_CRITICAL_FIELD];
+			dreicer_prof(rho_index)        = rate_values[RATEID_DREICER];
+			avalanche_prof(rho_index)      = rate_values[RATEID_AVALANCHE];
+			electric_field_prof(rho_index) = rate_values[RATEID_ELECTRIC_FIELD];
+			critical_field_prof(rho_index) = rate_values[RATEID_CRITICAL_FIELD];
 	   		
 	   	}else{		   	
-			std::cerr << "  [Runaway Fluid] \tERROR: The length of runaway distribution array is incorrect(" << rho << "/"
+			std::cerr << "  [Runaway Fluid] \tERROR: The length of runaway distribution array is incorrect(" << rho_index << "/"
 					  << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 	   	}   	   	
-	   
-	    rho++;
+
+	    rho_index++;
 	
 	}
 
@@ -268,7 +268,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				"density", "temperature", "eparallel","b0", "zeff",
 				"runaway_density","runaway_current","dreicer_rate","avalanche_rate",
 				"electric_field_vs_critical_field", "critical_field"};
-			int cols = rho;//sizeof dataext / sizeof(double);
+			int cols = rho_index;//sizeof dataext / sizeof(double);
 			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
 
 				write_data_to_hdf5(hdf5_file_name, "time", distribution_in.time);
