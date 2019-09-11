@@ -25,10 +25,10 @@ double dreicer_generation_rate(double electron_density, double electron_temperat
 	double Cr = 1.0;
 	double dgr;
 	
-	if ( (modules.dreicer_formula.compare("hc_formula_67")) || (modules.dreicer_formula.compare("hc_formula_66")) ){
+	if ( (modules.dreicer_formula == "hc_formula_67") || (modules.dreicer_formula == "hc_formula_66") ){
 			dgr = Cr/thermal_electron_collision_time * pow(Ed__E,3.0/16.0*(effective_charge+1.0)) * exp(-1.0/4.0*Ed__E - sqrt((effective_charge+1.0)*Ed__E));
 	
-		if (modules.dreicer_formula.compare("hc_formula_66")){
+		if (modules.dreicer_formula == "hc_formula_66"){
 			dgr = dgr * exp(-kB_T/me_c2 * (Ed__E*Ed__E/8.0 + 2.0/3.0*pow(Ed__E,1.5) *sqrt(1.0+effective_charge)));
 		}
 	
