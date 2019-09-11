@@ -12,8 +12,42 @@
 
 using namespace std;
 
-module_struct read_codeparams(ItmNs::codeparam_t &codeparams){
-	module_struct modules;
+int set_switch_from_codeparams(ItmNs::codeparam_t &codeparams){
+	int runafluid_switch = 0;
+	DecITM::DecodeITMpar params(codeparams.parameters);
+	std::string parameters;
+	parameters = params.get();
+	std::string str_dreicer_formula = stream_xml_string(parameters,"dreicer_formula");
+	std::string str_dreicer_toroidicity =stream_xml_string(parameters,"dreicer_toroidicity");
+	std::string str_avalanche_formula =stream_xml_string(parameters,"avalanche_formula");
+	std::string str_avalanche_toroidicity =stream_xml_string(parameters,"avalanche_toroidicity");
+
+	if(!str_dreicer_toroidicity.compare("1") && !str_avalanche_toroidicity.compare("1")){
+		runafluid_switch += 1000;	
+	}else if(!str_dreicer_toroidicity.compare("1")){
+		runafluid_switch += 2000;	
+	}else if(!str_avalanche_toroidicity.compare("1")){
+		runafluid_switch += 3000;	
+	}
+
+	if(!str_avalanche_formula.compare("rosenbluth_putvinski")){
+		runafluid_switch += 300;	
+	}else if(!str_avalanche_formula.compare("rosenbluth_putvinski_with_threshold")){
+		runafluid_switch += 100;	
+	}
+
+	if(!str_dreicer_formula.compare("hc_formula_63")){
+		runafluid_switch += 10;	
+	}else if(!str_dreicer_formula.compare("hc_formula_66")){
+		runafluid_switch += 20;	
+	}else if(!str_dreicer_formula.compare("hc_formula_67")){
+		runafluid_switch += 30;	
+	}
+	return runafluid_switch;
+}
+
+modules read_codeparams(ItmNs::codeparam_t &codeparams){
+	modules m;
 	DecITM::DecodeITMpar params(codeparams.parameters);
 	std::string parameters;
 	parameters = params.get();
@@ -23,30 +57,40 @@ module_struct read_codeparams(ItmNs::codeparam_t &codeparams){
 	std::string str_avalanche_toroidicity = stream_xml_string(parameters,"avalanche_toroidicity");
 	std::string str_output_path = stream_xml_string(parameters,"output_path");
 
+
 	if(str_dreicer_toroidicity == "true"){
 		modules.dreicer_toroidicity = true;
+
 	}else{
-		modules.dreicer_toroidicity = false;
+		m.dreicer_toroidicity = false;
 	}
+
 
 	if(str_avalanche_toroidicity == "true"){
 		modules.avalanche_toroidicity = true;
+
 	}else{
-		modules.avalanche_toroidicity = false;
+		m.avalanche_toroidicity = false;
 	}
 
-	modules.dreicer_formula = str_dreicer_formula;
-	modules.avalanche_formula = str_avalanche_formula;
-	modules.output_path = str_output_path;
+	m.dreicer_formula = str_dreicer_formula;
+	m.avalanche_formula = str_avalanche_formula;
+	m.output_path = str_output_path;
+	/*std::cout << "Dreicer formula\t" << str_dreicer_formula  << std::endl;
+	std::cout << "Avalanche formula\t" << str_avalanche_formula  << std::endl;
+	std::cout << "Output path\t" << str_output_path  << std::endl;
+	if (m.output_path.empty()){		
+		std::cout << "NO HDF5\t" << std::endl;
+	}*/
 
-	return modules;
+	return m;
 }
 	
 
-module_struct simulate_codeparams(int runafluid_switch){
+modules simulate_codeparams(int runafluid_switch){
 	
-	module_struct modules;
-	return modules;
+	modules m;
+	return m;
 }
 
 std::string split_string(std::string s, std::string ref){

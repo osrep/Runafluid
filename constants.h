@@ -35,13 +35,6 @@
 
     #endif
 
-	//! rate identifiers
-	const int N_RATES = 4;
-	const int RATEID_DREICER = 0;
-	const int RATEID_AVALANCHE = 1;
-	const int RATEID_ELECTRIC_FIELD = 2;
-	const int RATEID_CRITICAL_FIELD = 3;
-
     //! distsource_identifier for runaways (7)
     const int DISTSOURCE_IDENTIFIER = 7;
 
