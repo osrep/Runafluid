@@ -98,10 +98,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		<< std::endl << "\t\t\tMore info:\thttp://portal.efda-itm.eu/twiki/bin/view/Main/HCD-codes-runafluid-usermanual"<< std::endl;
 	}*/
 
-
 	//! parse codeparam
-	modules m = read_codeparams(codeparams);
-	runafluid_switch = set_switch_from_codeparams(codeparams);
+	module_struct modules = read_codeparams(codeparams);
 
 	//! get time
 	double time = coreprof.time;
@@ -139,20 +137,19 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	//! output flag
 	int output_flag = 0;
 	
-	//! runaway fluid temporary rates
-	int modulevar_rates = 1;//get_digit(runafluid_switch,1);
-				
-	//! Number of rate calculations (Dreicer, Avalanche etc.)	
-	int N_rates = 20;
-	double rate_values[N_rates];		
-	
-	init_rates(runaway_rates, N_rates, N_rho);
+	//! Number of rate calculations (Dreicer, Avalanche etc.)
+	double rate_values[N_RATES];
+	int pro_size = pro.size();
+	blitz::Array<double,1> dreicer_prof(pro_size);
+	blitz::Array<double,1> avalanche_prof(pro_size);
+	blitz::Array<double,1> electric_field_prof(pro_size);
+	blitz::Array<double,1> critical_field_prof(pro_size);
 	
 	//! inverse aspect ratio \eps = a/R
 	double inv_asp_ratio = equilibrium.eqgeometry.a_minor / coreprof.toroid_field.r0;
 	
 	//! Runaway fluid switch message	
-	runafluid_switch_message(runafluid_switch);
+	runafluid_switch_message(modules);
 	bool hdf5_switch = true;
 
 	//! Distribution source index for output
@@ -168,7 +165,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
 										   timestep, inv_asp_ratio, it->rho, modules, rate_values);
 		
-
 			//! no runaway if  \rho \ge \rho_\mathrm{max}			
 		   	if (it->rho >= rho_max){
 				rundensity = 0;
@@ -214,7 +210,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			avalanche_prof(rho_index)      = rate_values[RATEID_AVALANCHE];
 			electric_field_prof(rho_index) = rate_values[RATEID_ELECTRIC_FIELD];
 			critical_field_prof(rho_index) = rate_values[RATEID_CRITICAL_FIELD];
-
 	   		
 	   	}else{		   	
 			std::cerr << "  [Runaway Fluid] \tERROR: The length of runaway distribution array is incorrect(" << rho_index << "/"
@@ -264,8 +259,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	distribution_out.time = distribution_in.time+timestep;
 
 	// HDF5 export
-	if (!m.output_path.empty()){
-			H5std_string hdf5_file_name(m.output_path);
+	if (!modules.output_path.empty()){
+			H5std_string hdf5_file_name(modules.output_path);
 
 			int dataset_name_length = 14; 
 			string dataset_name_list[dataset_name_length] = {
@@ -286,10 +281,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				write_data_to_hdf5(hdf5_file_name, "zeff", coreprof.profiles1d.zeff.value);
 				write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens);		
 				write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
-				write_data_to_hdf5(hdf5_file_name, "dreicer_rate", runaway_rates.timed.float1d(0).value);
-				write_data_to_hdf5(hdf5_file_name, "avalanche_rate", runaway_rates.timed.float1d(1).value);
-				write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", runaway_rates.timed.float1d(19).value);
-				write_data_to_hdf5(hdf5_file_name, "critical_field", runaway_rates.timed.float1d(19).value);
+				write_data_to_hdf5(hdf5_file_name, "dreicer_rate", dreicer_prof);
+				write_data_to_hdf5(hdf5_file_name, "avalanche_rate", avalanche_prof);
+				write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", electric_field_prof);
+				write_data_to_hdf5(hdf5_file_name, "critical_field", critical_field_prof);
 				
 			}else{
 				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
@@ -298,128 +293,5 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 	//! end: runafluid
 	std::cout << " END: runaway_fluid" << std::endl;
-}
-
-int init_rates(ItmNs::Itm::temporary &runaway_rates, int N_rates, int N_rho){
-//! runaway_rates for generation rates
-	//! Dreicer generation rate initialisation
-	runaway_rates.timed.float1d.resize(N_rates);
-	runaway_rates.timed.float1d(0).identifier.id = "dreicer";
-	runaway_rates.timed.float1d(0).identifier.flag = 0;
-	runaway_rates.timed.float1d(0).identifier.description = "Dreicer generation rate";
-	runaway_rates.timed.float1d(0).value.resize(N_rho);	
-		
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(1).identifier.id = "avalanche";
-	runaway_rates.timed.float1d(1).identifier.flag = 1;
-	runaway_rates.timed.float1d(1).identifier.description = "Avalanche generation rate";
-	runaway_rates.timed.float1d(1).value.resize(N_rho);
-	
-	runaway_rates.timed.float1d(2).identifier.id = "dreicer63";
-	runaway_rates.timed.float1d(2).identifier.flag = 2;
-	runaway_rates.timed.float1d(2).identifier.description = "Dreicer generation rate by Connor et al. (63)";
-	runaway_rates.timed.float1d(2).value.resize(N_rho);				
-	
-	//! Dreicer generation rate initialisation
-	runaway_rates.timed.float1d(3).identifier.id = "dreicer66";
-	runaway_rates.timed.float1d(3).identifier.flag = 3;
-	runaway_rates.timed.float1d(3).identifier.description = "Dreicer generation rate by Connor et al. (66)";
-	runaway_rates.timed.float1d(3).value.resize(N_rho);		
-			
-	runaway_rates.timed.float1d(4).identifier.id = "dreicer67";
-	runaway_rates.timed.float1d(4).identifier.flag = 4;
-	runaway_rates.timed.float1d(4).identifier.description = "Dreicer generation rate by Connor et al. (67)";
-	runaway_rates.timed.float1d(4).value.resize(N_rho);
-	
-	runaway_rates.timed.float1d(5).identifier.id = "dreicer_prev";
-	runaway_rates.timed.float1d(5).identifier.flag = 5;
-	runaway_rates.timed.float1d(5).identifier.description = "Dreicer generation rate in the previous timestep";
-	runaway_rates.timed.float1d(5).value.resize(N_rho);	
-
-	//! Dreicer field
-	runaway_rates.timed.float1d(6).identifier.id = "dreicerf01";
-	runaway_rates.timed.float1d(6).identifier.flag = 6;
-	runaway_rates.timed.float1d(6).identifier.description = "Dreicer field (formula 1)";
-	runaway_rates.timed.float1d(6).value.resize(N_rho);	
-	
-	//! critical field
-	runaway_rates.timed.float1d(7).identifier.id = "criticalf";
-	runaway_rates.timed.float1d(7).identifier.flag = 7;
-	runaway_rates.timed.float1d(7).identifier.description = "Critical field";
-	runaway_rates.timed.float1d(7).value.resize(N_rho);
-	
-	//! Coulomb logarithm
-	runaway_rates.timed.float1d(8).identifier.id = "coulomblog";
-	runaway_rates.timed.float1d(8).identifier.flag = 8;
-	runaway_rates.timed.float1d(8).identifier.description = "Coulomb logarithm";
-	runaway_rates.timed.float1d(8).value.resize(N_rho);
-	
-	//! electron collision time
-	runaway_rates.timed.float1d(9).identifier.id = "thermal_electron_collision_time";
-	runaway_rates.timed.float1d(9).identifier.flag = 9;
-	runaway_rates.timed.float1d(9).identifier.description = "Thermal electron collision time";
-	runaway_rates.timed.float1d(9).value.resize(N_rho);
-		
-	//! electron collision time
-	runaway_rates.timed.float1d(10).identifier.id = "runaway_collision_time";
-	runaway_rates.timed.float1d(10).identifier.flag = 10;
-	runaway_rates.timed.float1d(10).identifier.description = "Runaway electron collision time";
-	runaway_rates.timed.float1d(10).value.resize(N_rho);
-	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(11).identifier.id = "avalanche01";
-	runaway_rates.timed.float1d(11).identifier.flag = 11;
-	runaway_rates.timed.float1d(11).identifier.description = "Avalanche generation rate (default)";
-	runaway_rates.timed.float1d(11).value.resize(N_rho);
-	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(12).identifier.id = "avalanche02";
-	runaway_rates.timed.float1d(12).identifier.flag = 12;
-	runaway_rates.timed.float1d(12).identifier.description = "Avalanche generation rate (with onset threshold)";
-	runaway_rates.timed.float1d(12).value.resize(N_rho);
-	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(13).identifier.id = "avalanche03";
-	runaway_rates.timed.float1d(13).identifier.flag = 13;
-	runaway_rates.timed.float1d(13).identifier.description = "Avalanche generation rate (linear without threshold)";
-	runaway_rates.timed.float1d(13).value.resize(N_rho);
-	
-	//! Avalanche generation rate initialisation
-	runaway_rates.timed.float1d(14).identifier.id = "avalanche_onset";
-	runaway_rates.timed.float1d(14).identifier.flag = 14;
-	runaway_rates.timed.float1d(14).identifier.description = "Avalanche onset field (V/m)";
-	runaway_rates.timed.float1d(14).value.resize(N_rho);
-	
-	//! Synchrotron loss time initialisation
-	runaway_rates.timed.float1d(15).identifier.id = "synchrotron_loss_time";
-	runaway_rates.timed.float1d(15).identifier.flag = 15;
-	runaway_rates.timed.float1d(15).identifier.description = "Synchrotron loss time (s)";
-	runaway_rates.timed.float1d(15).value.resize(N_rho);
-	
-	//! Normalised synchrotron loss time initialisation
-	runaway_rates.timed.float1d(16).identifier.id = "norm_synchrotron_loss_time";
-	runaway_rates.timed.float1d(16).identifier.flag = 16;
-	runaway_rates.timed.float1d(16).identifier.description = "Normalised synchrotron loss time";
-	runaway_rates.timed.float1d(16).value.resize(N_rho);
-	
-	//! Toroidicity for Dreicer
-	runaway_rates.timed.float1d(17).identifier.id = "toroidicity_dreicer";
-	runaway_rates.timed.float1d(17).identifier.flag = 17;
-	runaway_rates.timed.float1d(17).identifier.description = "Toroidicity for Dreicer rate";
-	runaway_rates.timed.float1d(17).value.resize(N_rho);
-		
-	//! Toroidicity for Avalanche
-	runaway_rates.timed.float1d(18).identifier.id = "toroidicity_avalanche";
-	runaway_rates.timed.float1d(18).identifier.flag = 18;
-	runaway_rates.timed.float1d(18).identifier.description = "Toroidicity for Avalanche rate";
-	runaway_rates.timed.float1d(18).value.resize(N_rho);
-
-	//! Toroidicity for Avalanche
-	runaway_rates.timed.float1d(19).identifier.id = "relative_electric_field";
-	runaway_rates.timed.float1d(19).identifier.flag = 19;
-	runaway_rates.timed.float1d(19).identifier.description = "Relative electric field (by critical field)";
-	runaway_rates.timed.float1d(19).value.resize(N_rho);
-
-	return 0;
 }
 
