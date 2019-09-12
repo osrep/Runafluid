@@ -21,7 +21,7 @@ ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
     all:   libRunafluid.a libEfieldEdit.a
 
     # google test
-    test: runafluid.o distinit.o  cpo_utils.o  critical_field.o  control.o  dreicer.o  avalanche.o test/test_phys.o test/test_cpo.o
+    test: runafluid.o distinit.o  cpo_utils.o codeparams.o critical_field.o  control.o dreicer.o hdf5export.o avalanche.o test/test_phys.o test/test_cpo.o
 		$(CXX) $(LDFLAGS) -L$(GTEST)/ -lgtest_main $^ -lgtest -o test.bin		
     test/test.o: test/test.cpp
 		$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
@@ -83,11 +83,13 @@ libEfieldEdit.a: efieldedit.o  cpo_utils.o  critical_field.o
 	
 libEfieldEdit_imas.a: efieldedit_imas.o  ids_utils.o  critical_field.o
 	ar -rvs $@ $^	
-	
+
 #google test phys	
 test/test_phys.o: test/test_phys.cpp
 	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
 
+test/test_cpo.o: test/test_cpo.cpp
+	$(CXX) -include UALClasses.h $(CXXFLAGS) -I$(GTEST)/include/ -c -o $@ $^
 
 # test C++ files 		
 test/libTeEdit.a: test/te_edit.o  cpo_utils.o 

@@ -22,9 +22,15 @@ const double reference_alpha_1 = 1.2;
 const double reference_alpha_2 = 0.8;
 
 
-const int formula_id_63 = 63;
-const int formula_id_66 = 66;
-const int formula_id_67 = 67;
+module_struct modules63 {
+	modules63.dreicer_formula = "hc_formula_63"
+};
+module_struct modules66 {
+	modules66.dreicer_formula = "hc_formula_66"
+};
+module_struct modules67 {
+	modules67.dreicer_formula = "hc_formula_67"
+};
 const double reference_dreicer_generation_rate_63 = 4.7798e2;
 const double reference_dreicer_generation_rate_66 = 2.1875e1;
 const double reference_dreicer_generation_rate_67 = 4.2101e1;
@@ -39,9 +45,15 @@ const double reference_toroidicity_dreicer = 0.1816067;
 
 const double reference_rho_tor_norm = 0.65;
 const double reference_avalanche_threshold_field = 0.929514;
-const int modulevar_avalanche_1 = 1;
-const int modulevar_avalanche_2 = 2;
-const int modulevar_avalanche_3 = 3;
+
+module_struct modules_no_treshold {
+	modules_no_treshold.avalanche_formula = "rosenbluth_putvinski"
+};
+module_struct modules_treshold {
+	modules_treshold.avalanche_formula = "rosenbluth_putvinski_with_threshold"
+};
+
+
 const double reference_magnetic_field = 2;
 const int avalanche_generation_rate_mod_1 = 0;
 const int avalanche_generation_rate_mod_2 = 0;
@@ -147,17 +159,17 @@ TEST(GrowthRate, CalculateThermalElectronCollisionTime) {
 
 TEST(Dreicer, DreicerGenerationRate_63) {
 	EXPECT_NEAR(reference_dreicer_generation_rate_63, dreicer_generation_rate(reference_ne, reference_te,reference_Zeff_1,
-																		  reference_electric_field_1,reference_rho_tor_norm,formula_id_63), 1e18);
+																		  reference_electric_field_1,reference_rho_tor_norm,modules63), 1e18);
 }
 
 TEST(Dreicer, DreicerGenerationRate_66) {
 	EXPECT_NEAR(reference_dreicer_generation_rate_66, dreicer_generation_rate(reference_ne, reference_te, reference_Zeff_1,
-																		  reference_electric_field_1,reference_rho_tor_norm,formula_id_66), 1e18);
+																		  reference_electric_field_1,reference_rho_tor_norm,modules66), 1e18);
 }
 
 TEST(Dreicer, DreicerGenerationRate_67) {
 	EXPECT_NEAR(reference_dreicer_generation_rate_67, dreicer_generation_rate(reference_ne, reference_te, reference_Zeff_1,
-																		  reference_electric_field_1,reference_rho_tor_norm,formula_id_67), 1e18);
+																		  reference_electric_field_1,reference_rho_tor_norm,modules67), 1e18);
 }
 
 TEST(Dreicer, CalculateLambda) {
@@ -187,13 +199,13 @@ TEST(Avalanche, CalculateAvalancheGenerationRate) {
 
 	EXPECT_NEAR(avalanche_generation_rate_mod_1, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_2,reference_magnetic_field,
-																		 modulevar_avalanche_1), 0.01);
+																		 modules_no_treshold), 0.01);
 	EXPECT_NEAR(avalanche_generation_rate_mod_2, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_2,reference_magnetic_field,
-																		 modulevar_avalanche_2), 0.01);
+																		 modules_no_treshold), 0.01);
 	EXPECT_NEAR(avalanche_generation_rate_mod_3, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_1,reference_magnetic_field,
-																		 modulevar_avalanche_3), 0.01);
+																		 modules_treshold), 0.01);
 
 }
 /*
