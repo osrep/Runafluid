@@ -72,8 +72,8 @@ for i in range(ntime):
 	itmp.coreimpurArray.array[i].time = 0
 	
 	# +++++++++ fill equilibrium
-	#itmp.equilibriumArray.array[i].profiles_1d.rho_tor.resize(rho_size)
-	#itmp.equilibriumArray.array[i].profiles_1d.rho_tor[0] = 0.5
+	itmp.equilibriumArray.array[i].profiles_1d.rho_tor.resize(rho_size)
+	itmp.equilibriumArray.array[i].profiles_1d.rho_tor[0] = 0.5
 	
 	itmp.equilibriumArray.array[i].profiles_1d.b_av.resize(psi_size)
 	itmp.equilibriumArray.array[i].profiles_1d.b_av[0] = 0
