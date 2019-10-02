@@ -15,7 +15,7 @@ ifeq ($(ITM_ENVIRONMENT_LOADED), yes)
     CXXFLAGS += $(shell eval-pkg-config --cflags ual-cpp-gnu hdf5-cpp-gnu itmconstants)    
     CXXFLAGS +=-DITM_CONSTANTS
     CXXFLAGS += -I$(ITM_XMLLIB_DIR)/$(ITM_XMLLIB_VERSION)/$(DATAVERSION)/include/  
-    LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu hdf5-cpp-gnu)  
+    LDFLAGS = $(shell eval-pkg-config --libs ual-cpp-gnu hdf5-cpp-gnu xmllib-$(ITM_INTEL_OBJECTCODE))    
     CXXFLAGS += $(shell eval-pkg-config --cflags xmllib-$(ITM_INTEL_OBJECTCODE)) -lTreeShr -lTdiShr -lXTreeShr
 #CXXFLAGS += -Wl,-rpath=/gw/switm/hdf5/1.8.17/gcc-6.1/lib -L/gw/switm/hdf5/1.8.17/lib -I/gw/switm/hdf5/1.8.17/include -lhdf5 -lhdf5_cpp
     all:   libRunafluid.a libEfieldEdit.a
