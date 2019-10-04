@@ -9,11 +9,12 @@
     #include "../ids_utils.h"
 #endif
 
+using namespace std;
 
 const double reference_te = 1e5;
 const double reference_ne = 1e21;
-const double reference_dreicer_field = 4.27324;
-const double reference_critical_field = 0.83625;
+const double reference_dreicer_field = 4.78235;
+const double reference_critical_field = 0.935882;
 const double reference_thermal_electron_collision_time = 4.9909e-4;
 const double reference_runaway_electron_collision_time = 2.0383e-3;
 const double reference_Zeff_1 = 1.0;
@@ -21,16 +22,17 @@ const double reference_Zeff_2 = 1.2;
 const double reference_alpha_1 = 1.2;
 const double reference_alpha_2 = 0.8;
 
+std::string str_dreicer_formula63 = "hc_formula_63";
+std::string str_dreicer_formula66 = "hc_formula_66";
+std::string str_dreicer_formula67 = "hc_formula_67";
+std::string str_avalanche_formula = "rosenbluth_putvinski";
+std::string str_avalanche_formula_treshold = "rosenbluth_putvinski_with_threshold";
+std::string str_output = "/afs/eufus.eu/g2itmdev/user/g2solasz/public/hdf5/test.h5";
 
-module_struct modules63 {
-	modules63.dreicer_formula = "hc_formula_63"
-};
-module_struct modules66 {
-	modules66.dreicer_formula = "hc_formula_66"
-};
-module_struct modules67 {
-	modules67.dreicer_formula = "hc_formula_67"
-};
+module_struct modules63 {str_dreicer_formula63, false, str_avalanche_formula, false, str_output};
+module_struct modules66 {str_dreicer_formula66, false, str_avalanche_formula, false, str_output};
+module_struct modules67 {str_dreicer_formula67, false, str_avalanche_formula, false, str_output};
+
 const double reference_dreicer_generation_rate_63 = 4.7798e2;
 const double reference_dreicer_generation_rate_66 = 2.1875e1;
 const double reference_dreicer_generation_rate_67 = 4.2101e1;
@@ -44,15 +46,10 @@ const double reference_inv_asp_ratio = 0.30303;
 const double reference_toroidicity_dreicer = 0.1816067;
 
 const double reference_rho_tor_norm = 0.65;
-const double reference_avalanche_threshold_field = 0.929514;
+const double reference_avalanche_threshold_field = 1.03463;
 
-module_struct modules_no_treshold {
-	modules_no_treshold.avalanche_formula = "rosenbluth_putvinski"
-};
-module_struct modules_treshold {
-	modules_treshold.avalanche_formula = "rosenbluth_putvinski_with_threshold"
-};
-
+module_struct modules_no_treshold{str_dreicer_formula63, false, str_avalanche_formula, false, str_output};
+module_struct modules_treshold{str_dreicer_formula63, false, str_avalanche_formula_treshold, false, str_output};
 
 const double reference_magnetic_field = 2;
 const int avalanche_generation_rate_mod_1 = 0;
@@ -134,7 +131,7 @@ TEST(Interpolate, Intrapolate) {
 }
 
 TEST(CoulombLog, CalculateCoulombLog) {
-	EXPECT_NEAR(16.4, calculate_coulomb_log(reference_ne, reference_te), 0.0001);
+	EXPECT_NEAR(18.3539, calculate_coulomb_log(reference_ne, reference_te), 0.0001);
 }
 
 TEST(CriticalField, CalculateCriticalField) {
