@@ -15,8 +15,8 @@ const double reference_te = 1e5;
 const double reference_ne = 1e21;
 const double reference_dreicer_field = 4.78235;
 const double reference_critical_field = 0.935882;
-const double reference_thermal_electron_collision_time = 4.9909e-4;
-const double reference_runaway_electron_collision_time = 2.0383e-3;
+const double reference_thermal_electron_collision_time = 4.4596e-4;
+const double reference_runaway_electron_collision_time = 1.82129e-3;
 const double reference_Zeff_1 = 1.0;
 const double reference_Zeff_2 = 1.2;
 const double reference_alpha_1 = 1.2;
@@ -26,7 +26,7 @@ std::string str_dreicer_formula63 = "hc_formula_63";
 std::string str_dreicer_formula66 = "hc_formula_66";
 std::string str_dreicer_formula67 = "hc_formula_67";
 std::string str_avalanche_formula = "rosenbluth_putvinski";
-std::string str_avalanche_formula_treshold = "rosenbluth_putvinski_with_threshold";
+std::string str_avalanche_formula_threshold = "rosenbluth_putvinski_with_threshold";
 std::string str_output = "/afs/eufus.eu/g2itmdev/user/g2solasz/public/hdf5/test.h5";
 
 module_struct modules63 {str_dreicer_formula63, false, str_avalanche_formula, false, str_output};
@@ -39,17 +39,18 @@ const double reference_dreicer_generation_rate_67 = 4.2101e1;
 const double reference_electric_field_1 =  reference_alpha_1*reference_critical_field;
 const double reference_electric_field_2 =  reference_alpha_2*reference_critical_field;
 const double reference_lambda = 2.0169;
+const double reference_Coulomb_logarithm = 18.3539;
 const double reference_gamma =3.086476806;
 const double reference_h = 0.175510257;
 const double reference_synchrotron_loss_time = 1.28967;
 const double reference_inv_asp_ratio = 0.30303;
-const double reference_toroidicity_dreicer = 0.1816067;
+const double reference_toroidicity_dreicer = 0.311578581;
 
 const double reference_rho_tor_norm = 0.65;
 const double reference_avalanche_threshold_field = 1.03463;
 
-module_struct modules_no_treshold{str_dreicer_formula63, false, str_avalanche_formula, false, str_output};
-module_struct modules_treshold{str_dreicer_formula63, false, str_avalanche_formula_treshold, false, str_output};
+module_struct modules_no_threshold{str_dreicer_formula63, false, str_avalanche_formula, false, str_output};
+module_struct modules_threshold{str_dreicer_formula63, false, str_avalanche_formula_threshold, false, str_output};
 
 const double reference_magnetic_field = 2;
 const int avalanche_generation_rate_mod_1 = 0;
@@ -131,64 +132,62 @@ TEST(Interpolate, Intrapolate) {
 }
 
 TEST(CoulombLog, CalculateCoulombLog) {
-	EXPECT_NEAR(18.3539, calculate_coulomb_log(reference_ne, reference_te), 0.0001);
+	EXPECT_NEAR(reference_Coulomb_logarithm, calculate_coulomb_log(reference_ne, reference_te), reference_Coulomb_logarithm*1e-5);
 }
 
 TEST(CriticalField, CalculateCriticalField) {
-	EXPECT_NEAR(reference_critical_field, calculate_critical_field(reference_ne, reference_te), 0.0001);
+	EXPECT_NEAR(reference_critical_field, calculate_critical_field(reference_ne, reference_te), reference_critical_field*1e-6);
 }
 
 TEST(CriticalField, CalculateRunawayCollisionTime) {
-	EXPECT_NEAR(reference_runaway_electron_collision_time, calculate_runaway_collision_time(reference_ne, reference_te), 0.001);
+	EXPECT_NEAR(reference_runaway_electron_collision_time, calculate_runaway_collision_time(reference_ne, reference_te), reference_runaway_electron_collision_time*1e-4);
 }
 
 TEST(CriticalField, CalculateSynchrotronLossTime) {
-	EXPECT_NEAR(reference_synchrotron_loss_time, calculate_synchrotron_loss_time(reference_magnetic_field), 0.001);
+	EXPECT_NEAR(reference_synchrotron_loss_time, calculate_synchrotron_loss_time(reference_magnetic_field), reference_synchrotron_loss_time*1e-5);
 }
 
 TEST(GrowthRate, CalculateDreicerField) {
-	EXPECT_NEAR(reference_dreicer_field, calculate_dreicer_field(reference_ne, reference_te), 0.01);
+	EXPECT_NEAR(reference_dreicer_field, calculate_dreicer_field(reference_ne, reference_te), reference_dreicer_field*1e-5);
 }
 
 TEST(GrowthRate, CalculateThermalElectronCollisionTime) {
-	EXPECT_NEAR(reference_thermal_electron_collision_time, calculate_thermal_electron_collision_time(reference_ne,reference_te), 0.0001);
+	EXPECT_NEAR(reference_thermal_electron_collision_time, calculate_thermal_electron_collision_time(reference_ne,reference_te), reference_thermal_electron_collision_time*1e-4);
 }
 
 TEST(Dreicer, DreicerGenerationRate_63) {
 	EXPECT_NEAR(reference_dreicer_generation_rate_63, dreicer_generation_rate(reference_ne, reference_te,reference_Zeff_1,
-																		  reference_electric_field_1,reference_rho_tor_norm,modules63), 1e18);
+																		  reference_electric_field_1,reference_rho_tor_norm,modules63), reference_dreicer_generation_rate_63*1e-4);
 }
 
 TEST(Dreicer, DreicerGenerationRate_66) {
 	EXPECT_NEAR(reference_dreicer_generation_rate_66, dreicer_generation_rate(reference_ne, reference_te, reference_Zeff_1,
-																		  reference_electric_field_1,reference_rho_tor_norm,modules66), 1e18);
+																		  reference_electric_field_1,reference_rho_tor_norm,modules66), reference_dreicer_generation_rate_66*1e-4);
 }
 
 TEST(Dreicer, DreicerGenerationRate_67) {
 	EXPECT_NEAR(reference_dreicer_generation_rate_67, dreicer_generation_rate(reference_ne, reference_te, reference_Zeff_1,
-																		  reference_electric_field_1,reference_rho_tor_norm,modules67), 1e18);
+																		  reference_electric_field_1,reference_rho_tor_norm,modules67), reference_dreicer_generation_rate_67*1e-4);
 }
 
 TEST(Dreicer, CalculateLambda) {
-	EXPECT_NEAR(reference_lambda,calculate_lambda(reference_alpha_1),0.001);
+	EXPECT_NEAR(reference_lambda,calculate_lambda(reference_alpha_1),reference_lambda*1e-4);
 }
 
 TEST(Dreicer, CalculateGamma) {
-	EXPECT_NEAR(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha_1),0.001);
+	EXPECT_NEAR(reference_gamma,calculate_gamma(reference_Zeff_1, reference_alpha_1),reference_gamma*1e-9);
 }
 
 TEST(Dreicer, CalculateH) {
-	EXPECT_NEAR(reference_h,calculate_h(reference_alpha_1, reference_Zeff_1), 0.001);
+	EXPECT_NEAR(reference_h,calculate_h(reference_alpha_1, reference_Zeff_1), reference_h*1e-8);
 }
 
 TEST(Dreicer, CalculateToroidicityDreicer) {
-	EXPECT_NEAR(reference_toroidicity_dreicer,calculate_toroidicity_dreicer(reference_inv_asp_ratio,reference_rho_tor_norm),1e18);
+	EXPECT_NEAR(reference_toroidicity_dreicer,calculate_toroidicity_dreicer(reference_inv_asp_ratio,reference_rho_tor_norm),reference_toroidicity_dreicer*1e-6);
 }
 
 TEST(Avalanche, CalculateAvalancheThresholdField){								//new test with good inputs and outputs
-	EXPECT_NEAR(reference_avalanche_threshold_field, calculate_avalanche_threshold_field(reference_ne, reference_te,
-																					 	 reference_Zeff_1, reference_critical_field,
-																						 reference_magnetic_field),0.01);
+	EXPECT_NEAR(reference_avalanche_threshold_field, calculate_avalanche_threshold_field(reference_ne, reference_te, reference_Zeff_1, reference_critical_field, reference_magnetic_field),reference_avalanche_threshold_field*1e-5);
 }
 
 
@@ -196,13 +195,13 @@ TEST(Avalanche, CalculateAvalancheGenerationRate) {
 
 	EXPECT_NEAR(avalanche_generation_rate_mod_1, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_2,reference_magnetic_field,
-																		 modules_no_treshold), 0.01);
+																		 modules_no_threshold), avalanche_generation_rate_mod_1*1e-6);
 	EXPECT_NEAR(avalanche_generation_rate_mod_2, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_2,reference_magnetic_field,
-																		 modules_no_treshold), 0.01);
+																		 modules_no_threshold), avalanche_generation_rate_mod_2*1e-6);
 	EXPECT_NEAR(avalanche_generation_rate_mod_3, avalanche_generation_rate(reference_ne, reference_te, reference_Zeff_1,
 																		 reference_electric_field_1,reference_magnetic_field,
-																		 modules_treshold), 0.01);
+																		 modules_threshold), avalanche_generation_rate_mod_3*1e-5);
 
 }
 /*
