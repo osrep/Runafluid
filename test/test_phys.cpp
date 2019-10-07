@@ -33,9 +33,9 @@ module_struct modules63 {str_dreicer_formula63, false, str_avalanche_formula, fa
 module_struct modules66 {str_dreicer_formula66, false, str_avalanche_formula, false, str_output};
 module_struct modules67 {str_dreicer_formula67, false, str_avalanche_formula, false, str_output};
 
-const double reference_dreicer_generation_rate_63 = 4.7798e2;
-const double reference_dreicer_generation_rate_66 = 2.1875e1;
-const double reference_dreicer_generation_rate_67 = 4.2101e1;
+const double reference_dreicer_generation_rate_63 =4.1378e-2;
+const double reference_dreicer_generation_rate_66 = 9.1233;
+const double reference_dreicer_generation_rate_67 = 7.1931e1;
 const double reference_electric_field_1 =  reference_alpha_1*reference_critical_field;
 const double reference_electric_field_2 =  reference_alpha_2*reference_critical_field;
 const double reference_lambda = 2.0169;
