@@ -7,29 +7,13 @@
 #include "../constants.h"
 #include "../cpo_utils.h"
 
-/*! 
-
-Parallel electric field editor
-
-te_switch:
-
-AB
-
- A
-   0: non-increasing temperature
-   1: increasing temperature   
- 
- B  
-   0: linear
-   1: logarithmic
-
-*/
+// Parallel electric field editor
 
 void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, double &output) {		
 		
 	try {
 		
-		//! start: runafluidteEdit
+		// start: runafluidteEdit
 		std::cerr << " START: runafluid_teEdit" << std::endl;
 		bool bools[2];
 		
@@ -41,10 +25,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 
 		double te_value2;
 
-		//! reading profile from CPO inputs
+		// reading profile from CPO inputs
 		profile pro = cpo_to_profile(coreprof);
 		
-		//! stepping iterator in profile		
+		// stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {	
 
 			if(bools[1]){			
@@ -65,12 +49,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, double &te_value, int &te_switch, doub
 		
 		output = 0;	
 
-		//! end: runafluid_teEdit
+		// end: runafluid_teEdit
 		std::cerr << " END: runafluid_teEdit" << std::endl;
 
 	} catch (const std::exception& ex) {
 	
-		//! internal error in distribution
+		// internal error in distribution
 		std::cerr << "ERROR An error occurred during firing actor runafluid_teEdit." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 		output = ITM_INVALID_INT;		

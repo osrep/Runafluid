@@ -5,32 +5,6 @@
 using namespace H5;
 using namespace std;
 
-/*int main (void){
-
-	H5std_string hdf5_file_name("test2008.h5");
-
-	int dataset_name_length = 4; 
-	string dataset_name_list[dataset_name_length] = {"density", "temperature","time","zeff"};
-
-
-	int cols = 3;//sizeof dataext / sizeof(double);
-	if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
-
-		srand (time(NULL));
-		double dataext[3] = { 22+(double)rand() / RAND_MAX, 13+(double)rand() / RAND_MAX, 14+(double)rand() / RAND_MAX};		 
-		write_data_to_hdf5(hdf5_file_name,"density",dataext,cols);
-
-		srand (time(NULL));
-		double dataext2[3] = { 22+(double)rand() / RAND_MAX, 13+(double)rand() / RAND_MAX, 14+(double)rand() / RAND_MAX};
-		write_data_to_hdf5(hdf5_file_name,"temperature",dataext2, cols);
-
-		write_data_to_hdf5(hdf5_file_name, "time", 1.234);
-	}else{
-		cout << "  [Runaway Fluid] HDF5 init was not successful." << endl;
-	}
-
-	return 0;
-}*/
 
 int init_hdf5_file(H5std_string FILE_NAME, int cols, string* dataset_name_list, int dataset_name_length){
 	try{
@@ -121,22 +95,6 @@ int write_data_to_hdf5(H5std_string FILE_NAME, H5std_string DATASETNAME, double*
 
 		size_out[0] = size_in[0] + size_ext[0]; size_out[1] = size_ext[1];
 		offset[0] = size_in[0]; offset[1] = 0;
-
-		/*
-		int i,j;
-		cout << "---" << DATASETNAME << "---" << endl;
-		for (j = 0; j < size_in[0]; j++) {
-			for (i = 0; i < size_in[1]; i++)
-				cout << " " << data_in[j][i];
-			cout << endl;
-		}	
-		cout << endl;	
-		for (i = 0; i < size_in[1]; i++)
-			cout << " " << dataext[i];
-		cout << endl;
-
-		cout << "oldsize\t"<<(unsigned long)(size_in[0]) << " x " << (unsigned long)(size_in[1]) << endl;
-		cout << "offset\t"<<(unsigned long)(offset[0]) << " x " << (unsigned long)(offset[1]) << endl;*/
 
 		dataset->extend(size_out);
 		filespace = new DataSpace(dataset->getSpace());

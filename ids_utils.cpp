@@ -1,14 +1,6 @@
 #include <stdexcept>
 #include "ids_utils.h"
 
-/*!
-\param a
-
-\details
-\f[
-	\mathrm{sign}(a) 
-\f]
-*/
 
 double sign(double a){
 
@@ -24,22 +16,11 @@ double sign(double a){
 	return b;
 }
 
-/*!
-\param a
-\param b
-\param tolerance
-
-\details
-\f[
-	2 \cdot \left| a-b\right| \le \left( |a| + |b| \right) \cdot tolerance
-\f]
-*/
 bool equal(double a, double b, double tolerance) {
 	return abs(a - b) * 2.0 <= (abs(a) + abs(b)) * tolerance;
 }
 
-//! Binary search 
-
+// Binary search
 int binary_search(const Array<double, 1> &array, int first, int last, double search_key) {
 	if (first == last)
 		return first;
@@ -60,15 +41,6 @@ int binary_search(const Array<double, 1> &array, int first, int last, double sea
 int binary_search(const Array<double, 1> &array, double search_key) {
 	return binary_search(array, 0, array.rows() - 2, search_key);
 }
-
-/*!
-linear interpolation
-
-\f[
-	y_a = y_i + \frac{y_{i+1}-y_i}{x_{i+1}-x_i}\cdot(x_a -x_i)
-\f]
-
-*/
 
 double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double xa) {
 
@@ -98,13 +70,7 @@ no runaway: -1
 
 */
 
-
-/*!
-
-switch handling
-
-*/
-
+// switch handling
 int bool_switch(int switch_number, bool *bools, int N){
 	
 	
@@ -153,7 +119,7 @@ int whereRunaway(const IdsNs::IDS::distributions &distributions){
 		
 		for (int i=0; (i<N_distr && runaway_index<0); i++){
 
-			//! Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
+			// Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
 			if (distributions.distribution(i).process.rows()>0){
 				if (distributions.distribution(i).process(0).type.index == DISTSOURCE_IDENTIFIER){
 					runaway_index = i;
@@ -205,20 +171,20 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timei
 
 	profile pro;
 
-	//! read electron density profile length of dataset: cells	
+	// read electron density profile length of dataset: cells	
 	int cells = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
 	
-	//! read data in every $\rho$ 
+	// read data in every rho
 	for (int i = 0; i < cells; i++) {
 		cell celll;
 		
-		//! electron density
+		// electron density
 		celll.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
 		
-		//! electron temperature
+		// electron temperature
 		celll.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
 						
-		//! total sum of electric charge in \a rho cell
+		// total sum of electric charge in a rho cell
 		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
 
 		pro.push_back(celll);
@@ -232,32 +198,28 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 
 	profile pro;
 
-	//! read electron density profile length of dataset: N_rho
+	// read electron density profile length of dataset: N_rho
 	int N_rho_tor = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
 	int N_rho_tor_norm = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm.rows();
 	
 	int N_rho = (N_rho_tor>N_rho_tor_norm)?N_rho_tor:N_rho_tor_norm;
 	
-    //! read distribution source index for runaways from distribution CPO						
+    	// read distribution source index for runaways from distribution CPO
 	int distsource_index = whereRunaway(distributions);	
-	
-    //! read data in every $\rho$ 
+
+    	// read data in every rho
 	for (int i = 0; i < N_rho; i++) {
 		cell celll;
-		//! normalised minor radius
+		// normalised minor radius
 		celll.rho = fill_rho_tor_norm(core_profiles, equilibrium, i, timeindex);
 		
-		//! electron density
+		// electron density
 		celll.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
 		
-		//! electron temperature
+		// electron temperature
 		celll.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
 		
-		/*! local electric field
-			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
-			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
-		*/
-				
+		// local electric field
 		celll.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(i) * equilibrium.vacuum_toroidal_field.b0(timeindex)
 				/ interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
 						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
@@ -266,19 +228,19 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 		celll.magnetic_field = interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
 						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
 				
-		//! total sum of electric charge in \a rho cell
+		// total sum of electric charge in a rho cell
 		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
 		
 		try{		
-			//! No runaway in previous distribution CPO
+			// No runaway in previous distribution CPO
 			if (distsource_index<0){
 				celll.runaway_density = 0;
-			//! Runaway in previous distribution CPO
+			// Runaway in previous distribution CPO
 			}else{
 				celll.runaway_density = distributions.distribution(distsource_index).profiles_1d(timeindex).density(i);
 			}
 
-		//! internal error in distribution
+		// internal error in distribution
 		} catch (const std::exception& ex) {
 
 			celll.runaway_density = 0;

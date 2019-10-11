@@ -86,11 +86,11 @@ void create_cpo() {
 	distribution.distri_vec(0).profiles_1d.state.dens.resize(6);
 	distribution.distri_vec(0).profiles_1d.state.current.resize(6);
 	distribution.distri_vec(0).source_id.resize(1);
-	//! Filling up distribution source
+	// Filling up distribution source
 	distribution.distri_vec(0).source_id(0).type.id = "runaway";
 	distribution.distri_vec(0).source_id(0).type.flag = 7;
 	distribution.distri_vec(0).source_id(0).type.description = "Source from runaway processes";
-	//! Filling up distribution species
+	// Filling up distribution species
 	distribution.distri_vec(0).species.type.id = "electron";
 	distribution.distri_vec(0).species.type.flag = 1;
 	distribution.distri_vec(0).species.type.description = "Electron";

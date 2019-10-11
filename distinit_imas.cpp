@@ -16,7 +16,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	int N_psi=0;
 	 
 	  
-	//! number of coreprof geometry elements
+	// number of coreprof geometry elements
 	try {		
 		N = core_profiles.profiles_1d(timeindex).electrons.density.rows();		
 	} catch (const std::exception& ex) {
@@ -40,7 +40,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	}
 	
 			
-	//! New distribution data set	
+	// New distribution data set	
 	try {	
 		distributions.ids_properties.homogeneous_time= 1;	
 	} catch (const std::exception& ex) {
@@ -63,7 +63,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
-	//! New distribution data set	
+	// New distribution data set	
 	try {	
 		distributions.distribution(0).profiles_1d.resize(1);	
 	} catch (const std::exception& ex) {
@@ -72,10 +72,10 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	}
 	
 	try {		
-		//! Initialisation of runaway density
+		// Initialisation of runaway density
 		distributions.distribution(0).profiles_1d(0).density.resize(N);
 
-		//! Initialisation of runaway current
+		// Initialisation of runaway current
 		distributions.distribution(0).profiles_1d(0).current_tor.resize(N);
 		
 	} catch (const std::exception& ex) {
@@ -83,7 +83,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
-	//! Filling up distribution density and current
+	// Filling up distribution density and current
 	try {	
 		for (int i = 0; i < N; ++i){		
 			distributions.distribution(0).profiles_1d(0).density(i) = 0;
@@ -94,22 +94,22 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
-	//! Filling up metadata
+	// Filling up metadata
 	try {	
-		//! New distribution source
+		// New distribution source
 		distributions.distribution(0).process.resize(1);	
 	
-		//! Filling up distribution source
+		// Filling up distribution source
 		distributions.distribution(0).process(0).type.name = "runaway";
 		distributions.distribution(0).process(0).type.index = 7;
 		distributions.distribution(0).process(0).type.description = "Source from runaway processes";
 
-		//! Filling up distribution species
+		// Filling up distribution species
 		distributions.distribution(0).species.type.name = "electron";
 		distributions.distribution(0).species.type.index = 1;
 		distributions.distribution(0).species.type.description = "Electron";
 
-		//! Filling up distribution gyro type
+		// Filling up distribution gyro type
 		distributions.distribution(0).gyro_type = 1;	
 			
 	} catch (const std::exception& ex) {
@@ -118,7 +118,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	}
 	
 	
-	//! Initialisation of geometry data
+	// Initialisation of geometry data
 	
 	try {	
 		distributions.distribution(0).profiles_1d(0).grid.rho_tor.resize(N_rho_tor);
@@ -130,7 +130,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	}
 	
 	
-	//! Filling up distribution geometry data	
+	// Filling up distribution geometry data	
 	try {			
 		for (int i = 0; i < N; ++i){
 			if (i < N_rho_tor){
@@ -149,7 +149,7 @@ void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profile
 	}
 
 	
-	//! Filling up codeparam
+	// Filling up codeparam
 	
 	try {
 		distributions.code.output_flag.resize(1);
