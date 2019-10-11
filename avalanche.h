@@ -9,6 +9,3 @@ double calculate_avalanche_threshold_field(double electron_density, double elect
 
 #endif /* AVALANCHE_H_ */
 
-/*double calculate_flow_Ap(double p, double E, double Z);
-double calculate_flow_costheta(double p, double E, double Z);
-double calculate_flow_velocity(double electron_density, double electron_temperature, double effective_charge, double electric_field, double magnetic_field);*/

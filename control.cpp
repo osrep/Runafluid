@@ -11,7 +11,7 @@
 #endif
 #include "products.h"
 
-/*!
+/*
 Runafluid actor
 
 timestep: in s
@@ -57,7 +57,7 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 		rate_values[RATEID_ELECTRIC_FIELD] = electric_field/critical_field;
 
 	} catch (const std::exception& ex) {
-		//! internal error in runaway distribution calculation
+		// internal error in runaway distribution calculation
 		std::cerr << "[Runaway Fluid] ERROR: An error occurred during runaway distribution calculation." << std::endl;
 		std::cerr << "[Runaway Fluid] ERROR : " << ex.what() << std::endl;
 		rundensity_after = ITM_INVALID_FLOAT;
@@ -66,24 +66,24 @@ double runafluid_control(double electron_density, double rundensity_before, doub
 	return rundensity_after;
 }
 
-/*! Runafluid switch message */
+// Runafluid switch message
 int runafluid_switch_message(module_struct modules){
 	
-	//! Dreicer message
+	// Dreicer message
 	if (modules.dreicer_formula.empty()){
 		std::cerr << "  [Runaway Fluid] \tDreicer module OFF"<< std::endl;
 	}else{
 		std::cerr << "  [Runaway Fluid] \tDreicer module ON ("  << modules.dreicer_formula << ")"<< std::endl;
 	}
 		
-	//! avalanche message
+	// avalanche message
 	if (modules.avalanche_formula.empty()){
 		std::cerr << "  [Runaway Fluid] \tAvalanche OFF"<< std::endl;
 	}else{
 		std::cerr << "  [Runaway Fluid] \tAvalanche module ON (" << modules.avalanche_formula << ")" << std::endl;
 	}
 	
-	//! toroidicity message
+	// toroidicity message
 	if (!modules.dreicer_toroidicity && !modules.avalanche_toroidicity){
 		std::cerr << "  [Runaway Fluid] \tToroidicity module OFF"<< std::endl;
 		

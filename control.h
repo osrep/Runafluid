@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-//! cell structure	
+// cell structure	
 struct cell {
 	double rho;
 	double electron_density;

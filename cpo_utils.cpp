@@ -1,5 +1,4 @@
 #include <stdexcept>
-//#include "cpo_utils.h"
 #include <UALClasses.h>
 #include <cmath>
 #include <iostream>
@@ -8,15 +7,6 @@
 #include "distinit.h"
 #include "control.h"
 
-
-/*!
-\param a
-
-\details
-\f[
-	\mathrm{sign}(a) 
-\f]
-*/
 
 double sign(double a){
 
@@ -32,25 +22,13 @@ double sign(double a){
 	return b;
 }
 
-
-/*!
-\param a
-\param b
-\param tolerance
-
-\details
-\f[
-	2 \cdot \left| a-b\right| \le \left( |a| + |b| \right) \cdot tolerance
-\f]
-*/
 bool equal(double a, double b, double tolerance) {
 	return abs(a - b) * 2.0 <= (abs(a) + abs(b)) * tolerance;
 }
 
 
 
-//! Binary search 
-
+// Binary search
 int binary_search(const Array<double, 1> &array, int first, int last, double search_key) {
 	if (first == last)
 		return first;
@@ -73,14 +51,8 @@ int binary_search(const Array<double, 1> &array, double search_key) {
 }
 
 
-/*!
-linear interpolation
 
-\f[
-	y_a = y_i + \frac{y_{i+1}-y_i}{x_{i+1}-x_i}\cdot(x_a -x_i)
-\f]
-
-*/
+// Linear interpolation
 double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double xa) {
 
 	int rows = x.rows();
@@ -109,12 +81,7 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 	return y(index) + (y(index + 1) - y(index)) / (x(index + 1) - x(index)) * (xa - x(index));
 }
 
-/*!
-
-switch handling
-
-*/
-
+// Switch handling
 int bool_switch(int switch_number, bool *bools, int N){
 	
 	
@@ -147,30 +114,12 @@ int get_digit(int number, int digit){
 		}
 		return got_digit;
 	}
-		//if the incoming digit is negative, return invalid int value
+		// if the incoming digit is negative, return invalid int value
 	else
 		return ITM_INVALID_INT;
 }
 
-
-/*
-int bool_switch(bool *bools, int N){
-	
-	int switch_number = 0;
-	for (int i=0; i<N; i++){
-		switch_number *= 10;
-		if (bools[i]=true){			
-			switch_number += 1;
-		}
-	}
-	
-	return switch_number;
-
-}*/
-
-
-
-/*! This code is looking for
+/* This code is looking for
 which element of distri_vec is 
 the runaway distribution
 
@@ -190,7 +139,7 @@ int whereRunaway(const ItmNs::Itm::distribution &distribution){
 		
 		for (int i=0; (i<N_distr && runaway_index<0); i++){
 
-			//! Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
+			// Is the distribution flag the runaway DISTSOURCE_IDENTIFIER (7)?
 			if (distribution.distri_vec(i).source_id.rows()>0){
 				if (distribution.distri_vec(i).source_id(0).type.flag == DISTSOURCE_IDENTIFIER){
 					runaway_index = i;
@@ -221,33 +170,30 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof) {
 
 	profile pro;
 
-	//! read electron density profile length of dataset: cell_length	
+	// read electron density profile length of dataset: cell_length	
 	int cell_length = coreprof.ne.value.rows();
 	
-	//! read electron temperature profile length of dataset, comparing with cell_length
+	// read electron temperature profile length of dataset, comparing with cell_length
 	if (coreprof.te.value.rows() != cell_length)
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
 
-	//! read eparallel profile length of dataset, comparing with cell_length
+	// read eparallel profile length of dataset, comparing with cell_length
 	if (coreprof.profiles1d.eparallel.value.rows() != cell_length)
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
 
-    //! read data in every $\rho$ 
+   	// read data in every rho
 
 	for (int i = 0; i < cell_length; i++) {
 		cell celll;
 				
-		//! electron density
+		// electron density
 		celll.electron_density = coreprof.ne.value(i);
 		
-		//! electron temperature
+		// electron temperature
 		celll.electron_temperature = coreprof.te.value(i);
 		
-		/*! local electric field
-			\f[ E = E_\parallel(\rho) 
-			where $\rho$ normalised minor radius
-		*/
+		// paralle electric field
 		celll.electric_field = coreprof.profiles1d.eparallel.value(i); 
 
 		pro.push_back(celll);
@@ -269,57 +215,52 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 	profile pro;
 	double number_of_parts;
 
-	//! read electron density profile length of dataset: cell_length	
+	// read electron density profile length of dataset: cell_length	
 	int cell_length = coreprof.ne.value.rows();
 	
-	//! read electron temperature profile length of dataset, comparing with cell_length
+	// read electron temperature profile length of dataset, comparing with cell_length
 	if (coreprof.te.value.rows() != cell_length){
-	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cell_length << " and Te: " << coreprof.te.value.rows() << std::endl;
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and Te.");		
 	}		
 	
-	//! read eparallel profile length of dataset, comparing with cell_length
-	if (coreprof.profiles1d.eparallel.value.rows() != cell_length){
-	//	std::cerr << "ERROR : Number of values is different in CPOPROFILE\tne: " << cell_length << " and Eparallel: " << coreprof.profiles1d.eparallel.value.rows() << std::endl;		
+	// read eparallel profile length of dataset, comparing with cell_length
+	if (coreprof.profiles1d.eparallel.value.rows() != cell_length){		
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");		
 	}			
 													
 						
-	//! read distribution source index for runaways from distribution CPO						
+	// read distribution source index for runaways from distribution CPO						
 	int distsource_index = whereRunaway(distribution);	
 								
-    //! read data in every $\rho$ 
+    	// read data in every rho 
 
 	for (int i = 0; i < cell_length; i++) {
 		cell celll;
 		
-		//! normalised minor radius
+		// normalised minor radius
 		celll.rho = coreprof.rho_tor_norm(i);
 				
-		//! electron density
+		// electron density
 		celll.electron_density = coreprof.ne.value(i);
 		
-		//! electron temperature
+		// electron temperature
 		celll.electron_temperature = coreprof.te.value(i);
 		
-		/*! local electric field
-			\f[ E = \frac{E_\parallel(\rho) B_0}{B_\mathrm{av}(\rho)} \f]
-			where B_\mathrm{av} is known on discreate \f$R \f$ major radius and interpolated at $\rho$ normalised minor radius
-		*/
+		// local electric field
 		try{
 			celll.electric_field = coreprof.profiles1d.eparallel.value(i) * coreprof.toroid_field.b0
 					/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
 							coreprof.rho_tor(i));
 		
-		//! internal error in equilibrium
+		// internal error in equilibrium
 		} catch (const std::exception& ex) {
 			celll.electric_field = 0;			
 			std::cerr << "  [Runaway Fluid] ERROR : rho_tor is empty in equilibrium CPO, electric field set to zero. (" << i << ")" << std::endl;
 		}
 		
 		try{		
-			//! local magnetic field
+			// local magnetic field
 			celll.magnetic_field = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
 							coreprof.rho_tor(i));
 			
@@ -329,15 +270,15 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		}
 		
 		try{		
-			//! No runaway in previous distribution CPO
+			// No runaway in previous distribution CPO
 			if (distsource_index<0){
 				celll.runaway_density = 0;
-			//! Runaway in previous distribution CPO
+			// Runaway in previous distribution CPO
 			}else{
 				celll.runaway_density = distribution.distri_vec(distsource_index).profiles_1d.state.dens(i);
 			}
 
-		//! internal error in distribution
+		// internal error in distribution
 		} catch (const std::exception& ex) {
 
 			celll.runaway_density = 0;
@@ -345,7 +286,7 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 			std::cerr << "  [Runaway Fluid] WARNING : Cannot read runaway density, density set to zero." << std::endl;
 		}
 
-		//! total sum of electric charge from coreprof CPO
+		// total sum of electric charge from coreprof CPO
 		celll.effective_charge = coreprof.profiles1d.zeff.value(i);	
 
 		pro.push_back(celll);

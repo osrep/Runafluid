@@ -5,15 +5,6 @@
 #include <UALClasses.h>
 #include "distinit.h"
 
-/*
-#include "constants.h"
-#include "cpo_utils.h"
-#include "runafluid.h"
-#include "init.h"*/
-
-
-
-
 void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &coreprof) {
 	
 	int N=0;
@@ -22,7 +13,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	int N_psi=0;
 	 
 	  
-	//! number of coreprof geometry elements
+	// number of coreprof geometry elements
 	try {		
 		N = coreprof.ne.value.rows();		
 	} catch (const std::exception& ex) {
@@ -53,7 +44,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	}
 	
 			
-	//! New distribution data set	
+	// New distribution data set	
 	try {	
 		distribution.distri_vec.resize(1);	
 	} catch (const std::exception& ex) {
@@ -62,10 +53,10 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	}
 	
 	try {		
-		//! Initialisation of runaway density
+		// Initialisation of runaway density
 		distribution.distri_vec(0).profiles_1d.state.dens.resize(N);
 
-		//! Initialisation of runaway current
+		// Initialisation of runaway current
 		distribution.distri_vec(0).profiles_1d.state.current.resize(N);
 		
 	} catch (const std::exception& ex) {
@@ -73,7 +64,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
-	//! Filling up distribution density and current
+	// Filling up distribution density and current
 	try {	
 		for (int i = 0; i < N; ++i){		
 			distribution.distri_vec(0).profiles_1d.state.dens(i) = 0;
@@ -84,22 +75,22 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 		std::cerr << "[Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
 	
-	//! Filling up metadata
+	// Filling up metadata
 	try {	
-		//! New distribution source
+		// New distribution source
 		distribution.distri_vec(0).source_id.resize(1);	
 	
-		//! Filling up distribution source
+		// Filling up distribution source
 		distribution.distri_vec(0).source_id(0).type.id = "runaway";
 		distribution.distri_vec(0).source_id(0).type.flag = 7;
 		distribution.distri_vec(0).source_id(0).type.description = "Source from runaway processes";
 
-		//! Filling up distribution species
+		// Filling up distribution species
 		distribution.distri_vec(0).species.type.id = "electron";
 		distribution.distri_vec(0).species.type.flag = 1;
 		distribution.distri_vec(0).species.type.description = "Electron";
 
-		//! Filling up distribution gyro type
+		// Filling up distribution gyro type
 		distribution.distri_vec(0).gyro_type = 1;	
 			
 	} catch (const std::exception& ex) {
@@ -108,7 +99,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	}
 	
 	
-	//! Initialisation of geometry data	
+	// Initialisation of geometry data	
 	try {	
 		distribution.distri_vec(0).profiles_1d.geometry.rho_tor.resize(N_rho_tor);
 		distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm.resize(N_rho_tor_norm);
@@ -120,7 +111,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	}
 	
 	
-	//! Filling up coreprof geometry data	
+	// Filling up coreprof geometry data	
 	try {			
 		for (int i = 0; i < N; ++i){
 			if (i < N_rho_tor){
@@ -130,12 +121,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 			if (i < N_rho_tor_norm){
 				distribution.distri_vec(0).profiles_1d.geometry.rho_tor_norm(i) = coreprof.rho_tor_norm(i);
 			}
-			
-			
-		//	if (i < N_psi){
-		//		distribution.distri_vec(0).profiles_1d.geometry.psi(i) = coreprof.psi.value(i);
-		//	}
-			
+
 		}
 	} catch (const std::exception& ex) {
 		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during coreprof geometry vectors filling" << std::endl;
@@ -143,7 +129,7 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	}
 
 	
-	//! Filling up codeparam
+	// Filling up codeparam
 	
 	try {
 		distribution.codeparam.codename = "Runaway Fluid (runafluid)";
@@ -156,8 +142,3 @@ void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &core
 	}
 	
 }
-
-
-
-
-	

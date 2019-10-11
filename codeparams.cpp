@@ -59,13 +59,10 @@ std::string split_string(std::string s, std::string ref){
 	std::string token, token2;
 	while ((pos = s.find(delimiter)) != std::string::npos) {
 		token = s.substr(0, pos);
-		//std::cout << "--> "<< token << std::endl;
 
 		for(int i=0; ((pos2 = token.find(delimiter2)) != std::string::npos);i++){
 			token2 = token.substr(0, pos2);
-			//std::cout <<"     "<<i<<"   "<< token2 << std::endl;
 			token.erase(0, pos2 + delimiter2.length());
-			//std::cout <<"     "<<i<<"  "<<token<<" >>>   "<< token << std::endl;
 			if (!token2.compare(ref)){
 				std::cout <<"  [Runaway Fluid] \t Code Parameter for  "<<token2<<" is "<< token << std::endl;
 				xml_value = token;
@@ -75,7 +72,7 @@ std::string split_string(std::string s, std::string ref){
 		s.erase(0, pos + delimiter.length());
 	
 	}
-	//std::cout << s << std::endl;
+
 	return xml_value;
 
 }
@@ -84,8 +81,5 @@ std::string split_string(std::string s, std::string ref){
 
 std::string stream_xml_string(std::string xml_string, std::string ref){
 
-	/*std::cout <<  "---- From the Actor ---" << std::endl;
-	std::cout << xml_string << std::flush;*/
-	
 	return split_string(xml_string,ref);
 }

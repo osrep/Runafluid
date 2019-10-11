@@ -7,31 +7,13 @@
 #include "../constants.h"
 #include "../ids_utils.h"
 
-/*! 
-
-Parallel electric field editor
-
-ne_switch:
-
-AB
-
- A
-   0: non-increasing density
-   1: increasing density   
- 
- B  
-   0: linear
-   1: logarithmic
-
-
-*/
-
+// Parallel electric field editor
 
 void fire(IdsNs::IDS::core_profiles &core_profiles, double &ne_value, int &ne_switch, double &output) {		
 		
 	try {
 
-		//! start: runafluid_neEdit
+		// start: runafluid_neEdit
 		std::cerr << " START: runafluid_neEdit" << std::endl;
 		
 		bool bools[2];
@@ -45,10 +27,10 @@ void fire(IdsNs::IDS::core_profiles &core_profiles, double &ne_value, int &ne_sw
 
 		double ne_value2;
 							
-		//! reading profile from CPO inputs
+		// reading profile from CPO inputs
 		profile pro = ids_to_profile(core_profiles, timeindex);
 		
-		//! stepping iterator in profile		
+		// stepping iterator in profile		
 		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 			if(bools[1]){			
@@ -69,12 +51,12 @@ void fire(IdsNs::IDS::core_profiles &core_profiles, double &ne_value, int &ne_sw
 		
 		output = 0;
 
-		//! end: runafluid_neEdit
+		// end: runafluid_neEdit
 		std::cerr << " END: runafluid_neEdit" << std::endl;
 
 	} catch (const std::exception& ex) {
 	
-		//! internal error in distribution
+		// internal error in distribution
 		std::cerr << "ERROR An error occurred during firing actor runafluid_neEdit." << std::endl;
 		std::cerr << "ERROR : " << ex.what() << std::endl;
 		output = ITM_INVALID_INT;		
