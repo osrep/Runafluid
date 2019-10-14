@@ -219,10 +219,8 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 		// electron temperature
 		celll.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
 		
-		// local electric field
-		celll.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(i) * equilibrium.vacuum_toroidal_field.b0(timeindex)
-				/ interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
-						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
+		// parallel electric field
+		celll.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(i);
 						
 		// local magnetic field
 		celll.magnetic_field = interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,

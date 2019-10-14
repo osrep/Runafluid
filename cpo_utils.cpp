@@ -247,17 +247,8 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 		// electron temperature
 		celll.electron_temperature = coreprof.te.value(i);
 		
-		// local electric field
-		try{
-			celll.electric_field = coreprof.profiles1d.eparallel.value(i) * coreprof.toroid_field.b0
-					/ interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-							coreprof.rho_tor(i));
-		
-		// internal error in equilibrium
-		} catch (const std::exception& ex) {
-			celll.electric_field = 0;			
-			std::cerr << "  [Runaway Fluid] ERROR : rho_tor is empty in equilibrium CPO, electric field set to zero. (" << i << ")" << std::endl;
-		}
+		// parallel electric field
+		celll.electric_field = coreprof.profiles1d.eparallel.value(i);
 		
 		try{		
 			// local magnetic field
