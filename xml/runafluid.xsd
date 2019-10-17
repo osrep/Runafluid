@@ -25,11 +25,12 @@
     <xs:complexType>
       <xs:all>
         <xs:element ref="sources"/>
-        <xs:element ref="output"/>
+        <xs:element ref="limits"/>
       </xs:all>
     </xs:complexType>
   </xs:element>
   
+  <!-- Setting sources --> 
   <xs:element name="sources">
     <xs:annotation>
       <xs:documentation>
@@ -112,7 +113,28 @@
 
   <xs:element name="avalanche_toroidicity"  type="xs:boolean">   
   </xs:element>    
- 
+
+  <!-- Setting limits --> 
+  <xs:element name="limits">
+    <xs:annotation>
+      <xs:documentation>
+        Limits on runaway indication
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="warning_fraction_limit"/>
+        <xs:element ref="rho_edge_calculation_limit"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="warning_fraction_limit"  type="xs:decimal">   
+  </xs:element>  
+
+  <xs:element name="rho_edge_calculation_limit"  type="xs:decimal">   
+  </xs:element>  
+  
   <!-- Runafluid OUTPUT parameters -->
   <xs:element name="runaway_fluid_output">
     <xs:annotation>

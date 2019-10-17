@@ -22,7 +22,10 @@ struct module_struct {
 	bool dreicer_toroidicity;
 	std::string avalanche_formula;
 	bool avalanche_toroidicity;
-	std::string output_path;	
+	std::string output_path;
+	double warning_fraction_limit;
+	double rho_edge_calculation_limit;
+	
 };
 
 double runafluid_control(double electron_density, double rundensity_before, double electron_temperature,

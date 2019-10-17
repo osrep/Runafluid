@@ -28,10 +28,12 @@ std::string str_dreicer_formula67 = "hc_formula_67";
 std::string str_avalanche_formula = "rosenbluth_putvinski";
 std::string str_avalanche_formula_threshold = "rosenbluth_putvinski_with_threshold";
 std::string str_output = "/afs/eufus.eu/g2itmdev/user/g2solasz/public/hdf5/test.h5";
+double warning_fraction_limit = 1.0;
+double rho_edge_calculation_limit = 0.85;
 
-module_struct modules63 {str_dreicer_formula63, false, str_avalanche_formula, false, str_output};
-module_struct modules66 {str_dreicer_formula66, false, str_avalanche_formula, false, str_output};
-module_struct modules67 {str_dreicer_formula67, false, str_avalanche_formula, false, str_output};
+module_struct modules63 {str_dreicer_formula63, false, str_avalanche_formula, false, str_output, warning_fraction_limit, rho_edge_calculation_limit};
+module_struct modules66 {str_dreicer_formula66, false, str_avalanche_formula, false, str_output, warning_fraction_limit, rho_edge_calculation_limit};
+module_struct modules67 {str_dreicer_formula67, false, str_avalanche_formula, false, str_output, warning_fraction_limit, rho_edge_calculation_limit};
 
 const double reference_dreicer_generation_rate_63 =4.1378e-2;
 const double reference_dreicer_generation_rate_66 = 9.1233;
@@ -49,8 +51,8 @@ const double reference_toroidicity_dreicer = 0.311578581;
 const double reference_rho_tor_norm = 0.65;
 const double reference_avalanche_threshold_field = 1.03463;
 
-module_struct modules_no_threshold{str_dreicer_formula63, false, str_avalanche_formula, false, str_output};
-module_struct modules_threshold{str_dreicer_formula63, false, str_avalanche_formula_threshold, false, str_output};
+module_struct modules_no_threshold{str_dreicer_formula63, false, str_avalanche_formula, false, str_output, warning_fraction_limit, rho_edge_calculation_limit};
+module_struct modules_threshold{str_dreicer_formula63, false, str_avalanche_formula_threshold, false, str_output, warning_fraction_limit, rho_edge_calculation_limit};
 
 const double reference_magnetic_field = 2;
 const int avalanche_generation_rate_mod_1 = 0;

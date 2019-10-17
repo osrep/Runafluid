@@ -32,7 +32,7 @@ int create_hdf5 (void);
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
 		  ItmNs::Itm::distribution &distribution_out, double &timestep,
-		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
+		  int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
 		  ItmNs::codeparam_t &codeparams) {
 
 	//!start: runafluid
@@ -53,7 +53,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	double zero_threshold = 1e-20;
 
 	// maximal normalised minor radius
-	double rho_max = 0.95;
+	double rho_max = modules.rho_edge_calculation_limit;
+
+	// critical fraction
+	double critical_fraction = modules.warning_fraction_limit;
+
+	std::cout << " rho_max " << rho_max << std::endl;
+	std::cout << " critical fraction " << critical_fraction << std::endl;
 
 	// empty distribution initialiser (integrated distinit)
 	distinit(distribution_out, coreprof);

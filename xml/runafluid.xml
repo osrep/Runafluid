@@ -16,6 +16,10 @@
           </avalanche_module> 
         </avalanche>          
       </sources>
+      <limits>
+        <warning_fraction_limit>1</warning_fraction_limit> 
+	<rho_edge_calculation_limit>0.85</rho_edge_calculation_limit>          
+      </limits>
   </runaway_fluid_input>
   <runaway_fluid_output>
     <hdf5_writing>
