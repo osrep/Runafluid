@@ -1,5 +1,5 @@
 <generactor.ActorGenerator>
-  <version>R4.2.2</version>
+  <version>R4.2.7</version>
   <paramFile>xml/runafluid.xml</paramFile>
   <defaultparamFile>xml/runafluid.xml</defaultparamFile>
   <paramXsdFile>xml/runafluid.xsd</paramXsdFile>
@@ -83,15 +83,6 @@
             <string>1</string>
             <string>0</string>
             <string>timestep</string>
-          </vector>
-          <vector>
-            <string>double</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>critical_fraction</string>
           </vector>
           <vector>
             <string>integer</string>
