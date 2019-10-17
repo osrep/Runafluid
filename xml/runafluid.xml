@@ -20,7 +20,7 @@
   <runaway_fluid_output>
     <output_module>
       <output_module_off>Output module turned OFF</output_module_off>
-      <output_path>/afs/eufus.eu/g2itmdev/user/g2maradi/public/runafluid_hdf5/20171221_001.h5</output_path>
+      <output_path>/afs/eufus.eu/g2itmdev/user/g2solasz/public/hdf5/FILENAME.h5</output_path>
     </output_module>
   </runaway_fluid_output> 
 </parameters>
