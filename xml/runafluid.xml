@@ -18,9 +18,9 @@
       </sources>
   </runaway_fluid_input>
   <runaway_fluid_output>
-    <output_module>
-      <output_module_off>Output module turned OFF</output_module_off>
+    <hdf5_writing>
+      <hdf5_writing_off>Writing data to hdf5 file turned OFF</hdf5_writing_off>
       <output_path>/afs/eufus.eu/g2itmdev/user/g2solasz/public/hdf5/FILENAME.h5</output_path>
-    </output_module>
+    </hdf5_writing>
   </runaway_fluid_output> 
 </parameters>

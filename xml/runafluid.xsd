@@ -119,16 +119,16 @@
     </xs:annotation>
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="output_module"/>
-        <xs:element ref="output_module_off"/>
+        <xs:element ref="hdf5_writing"/>
+        <xs:element ref="hdf5_writing_off"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>  
 
-  <xs:element name="output_module_off" type="xs:string"
-    fixed="Output module turned OFF"/>  
+  <xs:element name="hdf5_writing_off" type="xs:string"
+    fixed="Writing data to hdf5 file turned OFF"/>  
 
-  <xs:element name="output_module" type="xs:integer">
+  <xs:element name="hdf5_writing" type="xs:integer">
    <xs:complexType>
       <xs:all>
         <xs:element ref="output_path"/>
