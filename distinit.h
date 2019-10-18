@@ -3,8 +3,8 @@
 
     #ifdef ITM_CONSTANTS    
         void distinit(ItmNs::Itm::distribution &distribution, ItmNs::Itm::coreprof &coreprof);        
-    #elif IMAS_CONSTANTS    
-        void distinit(const IdsNs::IDS::distribution &distribution, const IdsNs::IDS::core_profiles &core_profiles);
+    #else   
+        void distinit(IdsNs::IDS::distributions &distributions, IdsNs::IDS::core_profiles &core_profiles, int timeindex);
     #endif
     
 #endif /* DISTINIT_H_ */

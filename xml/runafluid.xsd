@@ -1,0 +1,165 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- document element -->
+  <xs:element name="parameters">
+    <xs:annotation>
+      <xs:documentation>
+        Runaway Fluid parameters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="runaway_fluid_input"/>
+        <xs:element ref="runaway_fluid_output"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Runafluid INPUT parameters -->
+  <xs:element name="runaway_fluid_input">
+    <xs:annotation>
+      <xs:documentation>
+        Runaway Fluid input and output switches
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="sources"/>
+        <xs:element ref="limits"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Setting sources --> 
+  <xs:element name="sources">
+    <xs:annotation>
+      <xs:documentation>
+        runaway sources
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="dreicer"/>
+        <xs:element ref="avalanche"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Dreicer parameters -->  
+  <xs:element name="dreicer">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="dreicer_module"/>
+        <xs:element ref="dreicer_module_off"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>  
+    
+  <xs:element name="dreicer_module_off" type="xs:string"
+    fixed="Dreicer module turned OFF"/>
+  
+   <xs:element name="dreicer_module">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="dreicer_formula"/>
+        <xs:element ref="dreicer_toroidicity"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>  
+  
+  <xs:element name="dreicer_formula">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="hc_formula_63"/>
+        <xs:enumeration value="hc_formula_66"/>
+        <xs:enumeration value="hc_formula_67"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="dreicer_toroidicity"  type="xs:boolean">   
+  </xs:element>   
+ 
+  <!-- Avalanche parameters --> 
+  <xs:element name="avalanche">
+    <xs:complexType>
+      <xs:choice>
+       <xs:element ref="avalanche_module"/>
+        <xs:element ref="avalanche_module_off"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>  
+  
+ <xs:element name="avalanche_module_off" type="xs:string"
+    fixed="Avalanche module turned OFF"/>
+    
+ <xs:element name="avalanche_module">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="avalanche_formula"/>
+        <xs:element ref="avalanche_toroidicity"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>  
+    
+  <xs:element name="avalanche_formula">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="rosenbluth_putvinski"/>
+        <xs:enumeration value="rosenbluth_putvinski_with_threshold"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="avalanche_toroidicity"  type="xs:boolean">   
+  </xs:element>    
+
+  <!-- Setting limits --> 
+  <xs:element name="limits">
+    <xs:annotation>
+      <xs:documentation>
+        Limits on runaway indication
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="warning_fraction_limit"/>
+        <xs:element ref="rho_edge_calculation_limit"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="warning_fraction_limit"  type="xs:decimal">   
+  </xs:element>  
+
+  <xs:element name="rho_edge_calculation_limit"  type="xs:decimal">   
+  </xs:element>  
+  
+  <!-- Runafluid OUTPUT parameters -->
+  <xs:element name="runaway_fluid_output">
+    <xs:annotation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="hdf5_writing"/>
+        <xs:element ref="hdf5_writing_off"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>  
+
+  <xs:element name="hdf5_writing_off" type="xs:string"
+    fixed="Writing data to hdf5 file turned OFF"/>  
+
+  <xs:element name="hdf5_writing" type="xs:integer">
+   <xs:complexType>
+      <xs:all>
+        <xs:element ref="output_path"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="output_path"  type="xs:string">   
+  </xs:element> 
+
+</xs:schema>
+

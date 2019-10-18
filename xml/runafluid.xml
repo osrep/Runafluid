@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./runafluid.xsl" charset="utf-8"?>
+ 
+<parameters>
+  <runaway_fluid_input>
+      <sources>
+        <dreicer>
+          <dreicer_module>
+            <dreicer_formula>hc_formula_63</dreicer_formula>
+            <dreicer_toroidicity>0</dreicer_toroidicity> 
+          </dreicer_module>       
+        </dreicer> 
+        <avalanche>         
+          <avalanche_module>
+            <avalanche_formula>rosenbluth_putvinski</avalanche_formula>           
+          </avalanche_module> 
+        </avalanche>          
+      </sources>
+      <limits>
+        <warning_fraction_limit>1</warning_fraction_limit> 
+	<rho_edge_calculation_limit>0.85</rho_edge_calculation_limit>          
+      </limits>
+  </runaway_fluid_input>
+  <runaway_fluid_output>
+    <hdf5_writing>
+      <hdf5_writing_off>Writing data to hdf5 file turned OFF</hdf5_writing_off>
+      <output_path>/afs/eufus.eu/g2itmdev/user/g2solasz/public/hdf5/FILENAME.h5</output_path>
+    </hdf5_writing>
+  </runaway_fluid_output> 
+</parameters>
