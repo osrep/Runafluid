@@ -58,9 +58,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	// critical fraction
 	double critical_fraction = modules.warning_fraction_limit;
 
-	std::cout << " rho_max " << rho_max << std::endl;
-	std::cout << " critical fraction " << critical_fraction << std::endl;
-
 	// empty distribution initialiser (integrated distinit)
 	distinit(distribution_out, coreprof);
 
@@ -110,7 +107,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
 										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
 										   timestep, inv_asp_ratio, it->rho, modules, rate_values);
-		
+
 			// no runaway if is larger then a preset maximum rho	
 		   	if (it->rho >= rho_max){
 				rundensity = 0;
