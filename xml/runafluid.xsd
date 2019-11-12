@@ -19,7 +19,7 @@
   <xs:element name="runaway_fluid_input">
     <xs:annotation>
       <xs:documentation>
-        Runaway Fluid input and output switches
+        Runaway Fluid input modules and limits
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -34,7 +34,7 @@
   <xs:element name="sources">
     <xs:annotation>
       <xs:documentation>
-        runaway sources
+        Runaway generation sources
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -47,6 +47,11 @@
   
   <!-- Dreicer parameters -->  
   <xs:element name="dreicer">
+    <xs:annotation>
+      <xs:documentation>
+        Dreicer generation module
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:choice>
         <xs:element ref="dreicer_module"/>
@@ -68,6 +73,11 @@
   </xs:element>  
   
   <xs:element name="dreicer_formula">
+    <xs:annotation>
+      <xs:documentation>
+        Dreicer generation rate formula to use
+      </xs:documentation>
+    </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
         <xs:enumeration value="hc_formula_63"/>
@@ -77,11 +87,21 @@
     </xs:simpleType>
   </xs:element>
 
-  <xs:element name="dreicer_toroidicity"  type="xs:boolean">   
+  <xs:element name="dreicer_toroidicity"  type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>
+        Use of toroidicity correction
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>   
  
   <!-- Avalanche parameters --> 
   <xs:element name="avalanche">
+    <xs:annotation>
+      <xs:documentation>
+        Avalanche generation module
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:choice>
        <xs:element ref="avalanche_module"/>
@@ -103,6 +123,11 @@
   </xs:element>  
     
   <xs:element name="avalanche_formula">
+    <xs:annotation>
+      <xs:documentation>
+        Avalanche generation rate formula to use
+      </xs:documentation>
+    </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
         <xs:enumeration value="rosenbluth_putvinski"/>
@@ -111,7 +136,12 @@
     </xs:simpleType>
   </xs:element>
 
-  <xs:element name="avalanche_toroidicity"  type="xs:boolean">   
+  <xs:element name="avalanche_toroidicity"  type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>
+        Use of toroidicity correction
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>    
 
   <!-- Setting limits --> 
@@ -123,21 +153,41 @@
     </xs:annotation>
     <xs:complexType>
       <xs:all>
-        <xs:element ref="warning_fraction_limit"/>
+        <xs:element ref="warning_percentage_limit"/>
         <xs:element ref="rho_edge_calculation_limit"/>
       </xs:all>
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="warning_fraction_limit"  type="xs:decimal">   
+  <xs:element name="warning_percentage_limit"  type="xs:decimal">
+    <xs:annotation>
+      <xs:documentation>
+        Value of runaway electron density in percentage of total electron density above which warning is given
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>  
 
-  <xs:element name="rho_edge_calculation_limit"  type="xs:decimal">   
-  </xs:element>  
+  <xs:element name="rho_edge_calculation_limit">   
+    <xs:annotation>
+      <xs:documentation>
+        Cutoff value of normalized rho coordinate
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
   
   <!-- Runafluid OUTPUT parameters -->
   <xs:element name="runaway_fluid_output">
     <xs:annotation>
+      <xs:documentation>
+        Runaway fluid output parameters
+      </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:choice>
@@ -158,7 +208,12 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="output_path"  type="xs:string">   
+  <xs:element name="output_path"  type="xs:string">
+    <xs:annotation>
+      <xs:documentation>
+        Saving location of output hdf5 file 
+      </xs:documentation>
+    </xs:annotation>
   </xs:element> 
 
 </xs:schema>
