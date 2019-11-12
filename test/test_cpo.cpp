@@ -134,11 +134,11 @@ profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
 
 ASSERT_EQ(5, pro.size());
 
-EXPECT_DOUBLE_EQ(1.0 * 2.0 / 5.5, pro[0].electric_field);
-EXPECT_DOUBLE_EQ(2.0 * 2.0 / 1.5, pro[1].electric_field);
-EXPECT_DOUBLE_EQ(3.0 * 2.0 / 2.5, pro[2].electric_field);
-EXPECT_DOUBLE_EQ(5.0 * 2.0 / 1.9, pro[3].electric_field);
-EXPECT_DOUBLE_EQ(9.0 * 2.0 / 7.6, pro[4].electric_field);
+EXPECT_DOUBLE_EQ(1.0, pro[0].electric_field);
+EXPECT_DOUBLE_EQ(2.0, pro[1].electric_field);
+EXPECT_DOUBLE_EQ(3.0, pro[2].electric_field);
+EXPECT_DOUBLE_EQ(5.0, pro[3].electric_field);
+EXPECT_DOUBLE_EQ(9.0, pro[4].electric_field);
 }
 
 TEST(CpoToProfil, EffectiveCharge) {
