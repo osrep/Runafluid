@@ -159,12 +159,18 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="warning_percentage_limit"  type="xs:decimal">
+  <xs:element name="warning_percentage_limit">
     <xs:annotation>
       <xs:documentation>
         Value of runaway electron density in percentage of total electron density above which warning is given
       </xs:documentation>
     </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:decimal">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="100"/>
+      </xs:restriction>
+    </xs:simpleType>
   </xs:element>  
 
   <xs:element name="rho_edge_calculation_limit">   
