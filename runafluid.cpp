@@ -199,7 +199,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	if (!modules.output_path.empty()){
 			H5std_string hdf5_file_name(modules.output_path);
 
-			int dataset_name_length = 14; 
+			const int dataset_name_length = 14; 
 			string dataset_name_list[dataset_name_length] = {
 				"time","rho_tor","rho_tor_eq",
 				"density", "temperature", "eparallel","b0", "zeff",
