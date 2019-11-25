@@ -205,7 +205,7 @@
    <xs:element name="hdf5_output"  type="xs:boolean">
     <xs:annotation>
       <xs:documentation>
-        Write additional data to hdf5 file (location at $HDF5_BASE)
+        Write additional data to hdf5 file (location taken from HDF5_BASE variable)
       </xs:documentation>
     </xs:annotation>
   </xs:element>   
