@@ -22,8 +22,8 @@ struct module_struct {
 	bool dreicer_toroidicity;
 	std::string avalanche_formula;
 	bool avalanche_toroidicity;
-	std::string output_path;
-	double warning_fraction_limit;
+	bool hdf5_output;
+	double warning_percentage_limit;
 	double rho_edge_calculation_limit;
 	
 };

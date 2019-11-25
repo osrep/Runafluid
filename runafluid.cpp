@@ -56,7 +56,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	double rho_max = modules.rho_edge_calculation_limit;
 
 	// critical fraction
-	double critical_fraction = modules.warning_fraction_limit;
+	double critical_fraction = modules.warning_percentage_limit;
 
 	// empty distribution initialiser (integrated distinit)
 	distinit(distribution_out, coreprof);
@@ -196,7 +196,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	distribution_out.time = distribution_in.time+timestep;
 
 	// HDF5 export
-	if (!modules.output_path.empty()){
+	if (modules.hdf5_output == true){
 
 			std::string str_shot_number = std::to_string(shot_number);
 			std::string str_run_number = std::to_string(run_number);

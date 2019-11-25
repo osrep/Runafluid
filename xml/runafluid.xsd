@@ -197,30 +197,18 @@
     </xs:annotation>
     <xs:complexType>
       <xs:choice>
-        <xs:element ref="hdf5_writing"/>
-        <xs:element ref="hdf5_writing_off"/>
+        <xs:element ref="hdf5_output"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>  
 
-  <xs:element name="hdf5_writing_off" type="xs:string"
-    fixed="Writing data to hdf5 file turned OFF"/>  
-
-  <xs:element name="hdf5_writing" type="xs:integer">
-   <xs:complexType>
-      <xs:all>
-        <xs:element ref="output_path"/>
-      </xs:all>
-    </xs:complexType>
-  </xs:element>
-
-  <xs:element name="output_path"  type="xs:string">
+   <xs:element name="hdf5_output"  type="xs:boolean">
     <xs:annotation>
       <xs:documentation>
-        Saving location of output hdf5 file 
+        Write additional data to hdf5 file (location at $HDF5_BASE)
       </xs:documentation>
     </xs:annotation>
-  </xs:element> 
+  </xs:element>   
 
 </xs:schema>
 

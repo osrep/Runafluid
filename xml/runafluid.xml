@@ -12,7 +12,8 @@
         </dreicer> 
         <avalanche>         
           <avalanche_module>
-            <avalanche_formula>rosenbluth_putvinski</avalanche_formula>           
+            <avalanche_formula>rosenbluth_putvinski</avalanche_formula>
+	    <avalanche_toroidicity>0</avalanche_toroidicity> 
           </avalanche_module> 
         </avalanche>          
       </sources>
@@ -23,8 +24,7 @@
   </runaway_fluid_input>
   <runaway_fluid_output>
     <hdf5_writing>
-      <hdf5_writing_off>Writing data to hdf5 file turned OFF</hdf5_writing_off>
-      <output_path>/afs/eufus.eu/g2itmdev/user/g2solasz/public/hdf5/FILENAME.h5</output_path>
+      <hdf5_output>0</hdf5_output> 
     </hdf5_writing>
   </runaway_fluid_output> 
 </parameters>
