@@ -22,11 +22,11 @@ module_struct read_codeparams(ItmNs::codeparam_t &codeparams){
 	std::string str_dreicer_toroidicity = stream_xml_string(parameters,"dreicer_toroidicity");
 	std::string str_avalanche_formula = stream_xml_string(parameters,"avalanche_formula");
 	std::string str_avalanche_toroidicity = stream_xml_string(parameters,"avalanche_toroidicity");
-	std::string str_output_path = stream_xml_string(parameters,"output_path");
-	std::string str_warning_fraction_limit = stream_xml_string(parameters, "warning_fraction_limit");
+	std::string str_hdf5_output = stream_xml_string(parameters,"hdf5_output");
+	std::string str_warning_percentage_limit = stream_xml_string(parameters, "warning_percentage_limit");
 	std::string str_rho_edge_calculation_limit = stream_xml_string(parameters, "rho_edge_calculation_limit");
 
-	double dbl_warning_fraction_limit = atof(str_warning_fraction_limit.c_str());
+	double dbl_warning_percentage_limit = atof(str_warning_percentage_limit.c_str());
 	double dbl_rho_edge_calculation_limit = atof(str_rho_edge_calculation_limit.c_str());
 
 	if(str_dreicer_toroidicity == "true"){
@@ -41,10 +41,15 @@ module_struct read_codeparams(ItmNs::codeparam_t &codeparams){
 		modules.avalanche_toroidicity = false;
 	}
 
+	if(str_hdf5_output == "true"){
+		modules.hdf5_output = true;
+	}else{
+		modules.hdf5_output = false;
+	}
+
 	modules.dreicer_formula = str_dreicer_formula;
 	modules.avalanche_formula = str_avalanche_formula;
-	modules.output_path = str_output_path;
-	modules.warning_fraction_limit = dbl_warning_fraction_limit;
+	modules.warning_percentage_limit = dbl_warning_percentage_limit;
 	modules.rho_edge_calculation_limit = dbl_rho_edge_calculation_limit;
 
 	return modules;
