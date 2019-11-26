@@ -7,6 +7,7 @@
 #include "DecodeITMpar.h"		
 #include <unistd.h>
 #include "H5Cpp.h"
+#include <cstdio>
 
 #include "runafluid.h"
 #include "codeparams.h"
@@ -199,9 +200,11 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	if (modules.hdf5_output == true){
 
 			std::string str_shot_number = std::to_string(shot_number);
-			std::string str_run_number = std::to_string(run_number);
 
-			std::string filename = "/euitm_" + str_shot_number + str_run_number + "_runafluid" + ".h5";
+			char char_run_number [40];
+			sprintf(char_run_number, "%04i", run_number);
+
+			std::string filename = "/euitm_" + str_shot_number + char_run_number + "_runafluid" + ".h5";
 			std::string hdf5_file_name = hdf5_base + filename;
 
 			const int dataset_name_length = 14; 
