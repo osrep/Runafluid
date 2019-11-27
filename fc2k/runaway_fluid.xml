@@ -129,15 +129,6 @@
             <string>0</string>
             <string>run_number</string>
           </vector>
-          <vector>
-            <string>character</string>
-            <string>0</string>
-            <string>1</string>
-            <string>-1</string>
-            <string>1</string>
-            <string>0</string>
-            <string>hdf5_base</string>
-          </vector>
         </tupleParams>
       </default>
     </generactor.TupleP>

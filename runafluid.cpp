@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include "H5Cpp.h"
 #include <cstdio>
+#include <sys/types.h>
+#include <pwd.h>
 
 #include "runafluid.h"
 #include "codeparams.h"
@@ -34,7 +36,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
 		  ItmNs::Itm::distribution &distribution_out, double &timestep,
 		  int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
-		  int &shot_number, int &run_number, int arraysize, char* hdf5_base, ItmNs::codeparam_t &codeparams) {
+		  int &shot_number, int &run_number, ItmNs::codeparam_t &codeparams) {
 
 	//!start: runafluid
 	std::cout << " START: runaway_fluid" << std::endl;
@@ -199,9 +201,24 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	// HDF5 export
 	if (modules.hdf5_output == true){
 
+			const char *hdf5_base;
+
+			if ((hdf5_base = getenv("HDF5_BASE")) == NULL){
+
+				const char *homedir;
+
+				if ((homedir = getenv("HOME")) == NULL) {
+
+					homedir = getpwuid(getuid())->pw_dir;
+					hdf5_base = homedir;
+
+				} else hdf5_base = getenv("HOME");
+
+			} else hdf5_base = getenv("HDF5_BASE");
+
 			std::string str_shot_number = std::to_string(shot_number);
 
-			char char_run_number [40];
+			char char_run_number [4];
 			sprintf(char_run_number, "%04i", run_number);
 
 			std::string filename = "/euitm_" + str_shot_number + char_run_number + "_runafluid" + ".h5";
@@ -234,6 +251,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}else{
 				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
 			}
+
 	}
 
 	// end: runafluid
