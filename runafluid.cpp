@@ -199,6 +199,8 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	// HDF5 export
 	if (modules.hdf5_output == true){
 
+		if (arraysize != 0){
+
 			std::string str_shot_number = std::to_string(shot_number);
 
 			char char_run_number [40];
@@ -234,6 +236,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}else{
 				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
 			}
+		} else {
+
+			std::cout << "  [Runaway Fluid] WARNING : Cannot create hdf5 file." << std::endl;
+
+		}
+
 	}
 
 	// end: runafluid
