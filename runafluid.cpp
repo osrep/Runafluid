@@ -7,6 +7,9 @@
 #include "DecodeITMpar.h"		
 #include <unistd.h>
 #include "H5Cpp.h"
+#include <cstdio>
+#include <sys/types.h>
+#include <pwd.h>
 
 #include "runafluid.h"
 #include "codeparams.h"
@@ -33,7 +36,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
 		  ItmNs::Itm::distribution &distribution_out, double &timestep,
 		  int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
-		  ItmNs::codeparam_t &codeparams) {
+		  int &shot_number, int &run_number, ItmNs::codeparam_t &codeparams) {
 
 	//!start: runafluid
 	std::cout << " START: runaway_fluid" << std::endl;
@@ -56,7 +59,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	double rho_max = modules.rho_edge_calculation_limit;
 
 	// critical fraction
-	double critical_fraction = modules.warning_fraction_limit;
+	double critical_fraction = modules.warning_percentage_limit;
 
 	// empty distribution initialiser (integrated distinit)
 	distinit(distribution_out, coreprof);
@@ -196,8 +199,30 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	distribution_out.time = distribution_in.time+timestep;
 
 	// HDF5 export
-	if (!modules.output_path.empty()){
-			H5std_string hdf5_file_name(modules.output_path);
+	if (modules.hdf5_output == true){
+
+			const char *hdf5_base;
+
+			if ((hdf5_base = getenv("HDF5_BASE")) == NULL){
+
+				const char *homedir;
+
+				if ((homedir = getenv("HOME")) == NULL) {
+
+					homedir = getpwuid(getuid())->pw_dir;
+					hdf5_base = homedir;
+
+				} else hdf5_base = getenv("HOME");
+
+			} else hdf5_base = getenv("HDF5_BASE");
+
+			std::string str_shot_number = std::to_string(shot_number);
+
+			char char_run_number [4];
+			sprintf(char_run_number, "%04i", run_number);
+
+			std::string filename = "/euitm_" + str_shot_number + char_run_number + "_runafluid" + ".h5";
+			std::string hdf5_file_name = hdf5_base + filename;
 
 			const int dataset_name_length = 14; 
 			string dataset_name_list[dataset_name_length] = {
@@ -226,6 +251,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			}else{
 				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
 			}
+
 	}
 
 	// end: runafluid
