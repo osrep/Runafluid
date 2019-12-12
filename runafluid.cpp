@@ -10,6 +10,8 @@
 #include <cstdio>
 #include <sys/types.h>
 #include <pwd.h>
+#include <string>
+#include <cassert>
 
 #include "runafluid.h"
 #include "codeparams.h"
@@ -216,7 +218,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 			} else hdf5_base = getenv("HDF5_BASE");
 
-			std::string str_shot_number = std::to_string(shot_number);
+			std::string str_shot_number = to_string(shot_number);
 
 			char char_run_number [4];
 			sprintf(char_run_number, "%04i", run_number);
@@ -258,3 +260,12 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	std::cout << " END: runaway_fluid" << std::endl;
 }
 
+std::string to_string( int x ) {
+  int length = snprintf( NULL, 0, "%d", x );
+  assert( length >= 0 );
+  char* buf = new char[length + 1];
+  snprintf( buf, length + 1, "%d", x );
+  std::string str( buf );
+  delete[] buf;
+  return str;
+}
