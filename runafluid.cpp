@@ -197,8 +197,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		std::cerr << "  [Runaway Fluid] \tERROR: An error occurred during filling output_flag in codeparam" << std::endl;
 		std::cerr << "  [Runaway Fluid] \tERROR: " << ex.what() << std::endl;
 	}
-	
-	distribution_out.time = distribution_in.time+timestep;
 
 	// HDF5 export
 	if (modules.hdf5_output == true){
@@ -235,7 +233,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			int cols = rho_index;//sizeof dataext / sizeof(double);
 			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
 
-				write_data_to_hdf5(hdf5_file_name, "time", distribution_in.time);
+				write_data_to_hdf5(hdf5_file_name, "time", time);
 				write_data_to_hdf5(hdf5_file_name, "rho_tor", coreprof.rho_tor);
 				write_data_to_hdf5(hdf5_file_name, "rho_tor_eq", equilibrium.profiles_1d.rho_tor);				
 				write_data_to_hdf5(hdf5_file_name, "density", coreprof.ne.value);
