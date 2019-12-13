@@ -10,6 +10,8 @@
 #include <cstdio>
 #include <sys/types.h>
 #include <pwd.h>
+#include <string>
+#include <cassert>
 
 #include "runafluid.h"
 #include "codeparams.h"
@@ -195,8 +197,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		std::cerr << "  [Runaway Fluid] \tERROR: An error occurred during filling output_flag in codeparam" << std::endl;
 		std::cerr << "  [Runaway Fluid] \tERROR: " << ex.what() << std::endl;
 	}
-	
-	distribution_out.time = distribution_in.time+timestep;
 
 	// HDF5 export
 	if (modules.hdf5_output == true){
@@ -216,7 +216,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 			} else hdf5_base = getenv("HDF5_BASE");
 
-			std::string str_shot_number = std::to_string(shot_number);
+			std::string str_shot_number = int_to_string(shot_number);
 
 			char char_run_number [4];
 			sprintf(char_run_number, "%04i", run_number);
@@ -233,7 +233,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			int cols = rho_index;//sizeof dataext / sizeof(double);
 			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
 
-				write_data_to_hdf5(hdf5_file_name, "time", distribution_in.time);
+				write_data_to_hdf5(hdf5_file_name, "time", time);
 				write_data_to_hdf5(hdf5_file_name, "rho_tor", coreprof.rho_tor);
 				write_data_to_hdf5(hdf5_file_name, "rho_tor_eq", equilibrium.profiles_1d.rho_tor);				
 				write_data_to_hdf5(hdf5_file_name, "density", coreprof.ne.value);
@@ -258,3 +258,13 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	std::cout << " END: runaway_fluid" << std::endl;
 }
 
+std::string int_to_string( int x ) {
+  // Introduce the int_to_string function, std::to_string didn't work with gcc 4.8.5
+  int length = snprintf( NULL, 0, "%d", x );
+  assert( length >= 0 );
+  char* buf = new char[length + 1];
+  snprintf( buf, length + 1, "%d", x );
+  std::string str( buf );
+  delete[] buf;
+  return str;
+}
