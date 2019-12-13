@@ -216,7 +216,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 			} else hdf5_base = getenv("HDF5_BASE");
 
-			std::string str_shot_number = to_string(shot_number);
+			std::string str_shot_number = int_to_string(shot_number);
 
 			char char_run_number [4];
 			sprintf(char_run_number, "%04i", run_number);
@@ -258,7 +258,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	std::cout << " END: runaway_fluid" << std::endl;
 }
 
-std::string to_string( int x ) {
+std::string int_to_string( int x ) {
   // Introduce the to string function, std_to_string didn't work with gcc 4.8.5
   int length = snprintf( NULL, 0, "%d", x );
   assert( length >= 0 );
