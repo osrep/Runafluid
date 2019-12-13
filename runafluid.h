@@ -8,4 +8,6 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  int &critical_fraction_warning,  int &shot_number,
 		  int &run_number, ItmNs::codeparam_t&);
 
+std::string to_string( int x );
+
 #endif /* RUNAFLUID_H_ */
