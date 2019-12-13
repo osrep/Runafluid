@@ -259,7 +259,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 }
 
 std::string int_to_string( int x ) {
-  // Introduce the to string function, std_to_string didn't work with gcc 4.8.5
+  // Introduce the int_to_string function, std::to_string didn't work with gcc 4.8.5
   int length = snprintf( NULL, 0, "%d", x );
   assert( length >= 0 );
   char* buf = new char[length + 1];
