@@ -29,10 +29,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::equilibrium &equilibrium, 
 		double electric_field_value2;
 					
 		// reading profile from CPO inputs
-		profile pro = cpo_to_profile(coreprof);
+		plasma_profile pro = cpo_to_profile(coreprof);
 		
 		// stepping iterator in profile		
-		for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
+		for (plasma_profile::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 			if(bools[3]){
 			
