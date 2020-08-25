@@ -16,9 +16,7 @@ double sign(double a){
 	return b;
 }
 
-bool equal(double a, double b, double tolerance) {
-	return abs(a - b) * 2.0 <= (abs(a) + abs(b)) * tolerance;
-}
+
 
 // Binary search
 int binary_search(const Array<double, 1> &array, int first, int last, double search_key) {

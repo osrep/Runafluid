@@ -7,8 +7,6 @@
 
 double sign(double a);
 
-bool equal(double a, double b, double tolerance);
-
 int binary_search(const Array<double, 1> &array, double search_key);
 
 double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double xa);
