@@ -4,6 +4,7 @@
 #include <UALClasses.h>
 #include "constants.h"
 #include "control.h"
+#include "plasma_structures.h"
 
 double sign(double a);
 
@@ -20,8 +21,8 @@ int whereRunaway(IdsNs::IDS::distributions &distributions);
 
 double fill_rho_tor_norm(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, int cpindex, int timeindex);
 		
-profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex);
+plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex);
 
-profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex);
+plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex);
 
 #endif /* IDS_UTILS_H_ */

@@ -165,36 +165,36 @@ double fill_rho_tor_norm(const IdsNs::IDS::core_profiles &core_profiles, const I
 
 // IMAS utilities
 // https://portal.iter.org/departments/POP/CM/IMDesign/Data%20Model/CI/imas-3.7.3/html_documentation.html
-profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex){
+plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex){
 
-	profile pro;
+	plasma_profile pro;
 
 	// read electron density profile length of dataset: cells	
 	int cells = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
 	
 	// read data in every rho
 	for (int i = 0; i < cells; i++) {
-		cell celll;
+		plasma_local plasmaLocal;
 		
 		// electron density
-		celll.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
+		plasmaLocal.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
 		
 		// electron temperature
-		celll.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
+		plasmaLocal.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
 						
 		// total sum of electric charge in a rho cell
-		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
+		plasmaLocal.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
 
-		pro.push_back(celll);
+		pro.push_back(plasmaLocal);
 	}
 
 	return pro;
 }
 
 
-profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex){
+plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex){
 
-	profile pro;
+	plasma_profile pro;
 
 	// read electron density profile length of dataset: N_rho
 	int N_rho_tor = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
@@ -207,44 +207,44 @@ profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const Ids
 
     	// read data in every rho
 	for (int i = 0; i < N_rho; i++) {
-		cell celll;
+		cell plasmaLocal;
 		// normalised minor radius
-		celll.rho = fill_rho_tor_norm(core_profiles, equilibrium, i, timeindex);
+		plasmaLocal.rho = fill_rho_tor_norm(core_profiles, equilibrium, i, timeindex);
 		
 		// electron density
-		celll.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
+		plasmaLocal.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
 		
 		// electron temperature
-		celll.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
+		plasmaLocal.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
 		
 		// parallel electric field
-		celll.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(i);
+		plasmaLocal.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(i);
 						
 		// local magnetic field
-		celll.magnetic_field = interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
+		plasmaLocal.magnetic_field = interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
 						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
 				
 		// total sum of electric charge in a rho cell
-		celll.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
+		plasmaLocal.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
 		
 		try{		
 			// No runaway in previous distribution CPO
 			if (distsource_index<0){
-				celll.runaway_density = 0;
+				plasmaLocal.runaway_density = 0;
 			// Runaway in previous distribution CPO
 			}else{
-				celll.runaway_density = distributions.distribution(distsource_index).profiles_1d(timeindex).density(i);
+				plasmaLocal.runaway_density = distributions.distribution(distsource_index).profiles_1d(timeindex).density(i);
 			}
 
 		// internal error in distribution
 		} catch (const std::exception& ex) {
 
-			celll.runaway_density = 0;
+			plasmaLocal.runaway_density = 0;
 			
 			std::cerr << "  [Runaway Fluid] WARNING : Cannot read runaway density, density set to zero." << std::endl;
 		}
 
-		pro.push_back(celll);
+		pro.push_back(plasmaLocal);
 	}
 
 	return pro;
