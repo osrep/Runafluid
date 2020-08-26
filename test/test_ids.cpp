@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../dreicer.h"
+#include "dreicer.h"
 
 
 ItmNs::Itm::coreprof coreprof;

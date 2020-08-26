@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../cpo_utils.h"
-#include "../distinit.h"
+#include "cpo_utils.h"
+#include "distinit.h"
 
 
 ItmNs::Itm::coreprof coreprof;

@@ -4,8 +4,8 @@
 #include <stdexcept>
 #include <UALClasses.h>
 
-#include "../constants.h"
-#include "../cpo_utils.h"
+#include "constants.h"
+#include "cpo_utils.h"
 
 void fire(ItmNs::Itm::coreprof &coreprof, double &time_step, double &exponential_time_constant, double &temperature_limit) {		
 		
