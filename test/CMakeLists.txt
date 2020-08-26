@@ -34,9 +34,9 @@ endif()
 
 # Set Runin test sources
 SET(TEST_SOURCES
-    test_ids.cpp
+    test_cpo.cpp
 )
 
 add_executable(RunafluidTests ${TEST_SOURCES})
 
-target_link_libraries(RunafluidTests Runaphys gtest_main pthread)
+target_link_libraries(RunafluidTests runafluid gtest_main pthread)
