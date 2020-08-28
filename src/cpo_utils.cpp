@@ -169,20 +169,20 @@ plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof) {
 	plasma_profile pro;
 
 	// read electron density profile length of dataset: cell_length	
-	int cell_length = coreprof.ne.value.rows();
+	int plasmaProfileLength = coreprof.ne.value.rows();
 	
 	// read electron temperature profile length of dataset, comparing with cell_length
-	if (coreprof.te.value.rows() != cell_length)
+	if (coreprof.te.value.rows() != plasmaProfileLength)
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
 
 	// read eparallel profile length of dataset, comparing with cell_length
-	if (coreprof.profiles1d.eparallel.value.rows() != cell_length)
+	if (coreprof.profiles1d.eparallel.value.rows() != plasmaProfileLength)
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
 
    	// read data in every rho
 
-	for (int i = 0; i < cell_length; i++) {
+	for (int i = 0; i < plasmaProfileLength; i++) {
 		plasma_local plasmaLocal;
 				
 		// electron density
@@ -214,15 +214,15 @@ plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs:
 	double number_of_parts;
 
 	// read electron density profile length of dataset: cell_length	
-	int plasmaLocal_length = coreprof.ne.value.rows();
+	int plasmaProfileLength = coreprof.ne.value.rows();
 	
 	// read electron temperature profile length of dataset, comparing with cell_length
-	if (coreprof.te.value.rows() != plasmaLocal_length){
+	if (coreprof.te.value.rows() != plasmaProfileLength){
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and Te.");		
 	}		
 	
 	// read eparallel profile length of dataset, comparing with cell_length
-	if (coreprof.profiles1d.eparallel.value.rows() != plasmaLocal_length){		
+	if (coreprof.profiles1d.eparallel.value.rows() != plasmaProfileLength){		
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");		
 	}			
@@ -233,7 +233,7 @@ plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs:
 								
     	// read data in every rho 
 
-	for (int i = 0; i < plasmaLocal_length; i++) {
+	for (int i = 0; i < plasmaProfileLength; i++) {
 		plasma_local plasmaLocal;
 		
 		// normalised minor radius
