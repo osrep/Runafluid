@@ -3,7 +3,7 @@
   <paramFile>xml/runafluid.xml</paramFile>
   <defaultparamFile>xml/runafluid.xml</defaultparamFile>
   <paramXsdFile>xml/runafluid.xsd</paramXsdFile>
-  <fFile>libRunafluid.a</fFile>
+  <fFile>build/src/librunafluid.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
   <subrt>fire</subrt>

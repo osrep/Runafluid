@@ -4,10 +4,9 @@
 #include <UALClasses.h>
 #include "constants.h"
 #include "control.h"
+#include "plasma_structures.h"
 
 double sign(double a);
-
-bool equal(double a, double b, double tolerance);
 
 int binary_search(const Array<double, 1> &array, double search_key);
 
@@ -19,9 +18,9 @@ int get_digit(int number, int digit);
 
 int whereRunaway(ItmNs::Itm::distribution &distribution);
 
-profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof);	
+plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof);	
 
-profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
+plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
 		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution);	
 
 #endif /* CPO_UTILS_H_ */

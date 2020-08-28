@@ -12,6 +12,7 @@
 #include <pwd.h>
 #include <string>
 #include <cassert>
+#include <array>
 
 #include "runafluid.h"
 #include "codeparams.h"
@@ -21,6 +22,7 @@
 #include "control.h"
 #include "codeparams.h"
 #include "hdf5export.h"
+#include "plasma_structures.h"
 using namespace H5;
 using namespace std;
 
@@ -77,7 +79,7 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	double ecurrent = 0.0;
 
 	// reading profile from CPO inputs (cpo_utils.h)
-	profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
+	plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution_in); // testing until previous distribution validating
 
 	// stepping iterator in profile
 	int rho_index = 0;
@@ -88,30 +90,29 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 	// Number of rate calculations (Dreicer, Avalanche etc.)
 	double rate_values[N_RATES];
 	int pro_size = pro.size();
-	blitz::Array<double,1> dreicer_prof(pro_size);
-	blitz::Array<double,1> avalanche_prof(pro_size);
-	blitz::Array<double,1> electric_field_prof(pro_size);
-	blitz::Array<double,1> critical_field_prof(pro_size);
+	std::vector<double> dreicer_prof(pro_size);
+	std::vector<double> avalanche_prof(pro_size);
+	std::vector<double> electric_field_prof(pro_size);
+	std::vector<double> critical_field_prof(pro_size);
 
 	// inverse aspect ratio
 	double inv_asp_ratio = equilibrium.eqgeometry.a_minor / coreprof.toroid_field.r0;
 
 	// Runaway fluid switch message
-	runafluid_switch_message(modules);
+	list_parameter_settings(modules);
 	bool hdf5_switch = true;
 
 	// Distribution source index for output
 	int distsource_out_index = 0;
 
-	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
+	for (plasma_profile::iterator it = pro.begin(); it != pro.end(); ++it) {
 			
 		// Length of the runaway distribution is correct
 		if (rho_index<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
-			
+			it->electric_field = std::abs(it->electric_field);
+			it->magnetic_field = std::abs(it->magnetic_field);
 			// calculating runaway density
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
-										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
-										   timestep, inv_asp_ratio, it->rho, modules, rate_values);
+			rundensity = advance_runaway_population(*it,timestep, inv_asp_ratio, it->rho, modules, rate_values);
 
 			// no runaway if is larger then a preset maximum rho	
 		   	if (it->rho >= rho_max){
@@ -148,10 +149,10 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 				not_suitable_warning = 1;
 		   	}
 		   	
-			dreicer_prof(rho_index)        = rate_values[RATEID_DREICER];
-			avalanche_prof(rho_index)      = rate_values[RATEID_AVALANCHE];
-			electric_field_prof(rho_index) = rate_values[RATEID_ELECTRIC_FIELD];
-			critical_field_prof(rho_index) = rate_values[RATEID_CRITICAL_FIELD];
+			dreicer_prof[rho_index]        = rate_values[RATEID_DREICER];
+			avalanche_prof[rho_index]      = rate_values[RATEID_AVALANCHE];
+			electric_field_prof[rho_index] = rate_values[RATEID_ELECTRIC_FIELD];
+			critical_field_prof[rho_index] = rate_values[RATEID_CRITICAL_FIELD];
 	   		
 	   	}else{
 			std::cerr << "  [Runaway Fluid] \tERROR: The length of runaway distribution array is incorrect(" << rho_index << "/"
@@ -233,20 +234,20 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			int cols = rho_index;//sizeof dataext / sizeof(double);
 			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
 
-				write_data_to_hdf5(hdf5_file_name, "time", time);
-				write_data_to_hdf5(hdf5_file_name, "rho_tor", coreprof.rho_tor);
-				write_data_to_hdf5(hdf5_file_name, "rho_tor_eq", equilibrium.profiles_1d.rho_tor);				
-				write_data_to_hdf5(hdf5_file_name, "density", coreprof.ne.value);
-				write_data_to_hdf5(hdf5_file_name, "temperature", coreprof.te.value);
-				write_data_to_hdf5(hdf5_file_name, "eparallel", coreprof.profiles1d.eparallel.value);
-				write_data_to_hdf5(hdf5_file_name, "b0", coreprof.toroid_field.b0);
-				write_data_to_hdf5(hdf5_file_name, "zeff", coreprof.profiles1d.zeff.value);
-				write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens);		
-				write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
-				write_data_to_hdf5(hdf5_file_name, "dreicer_rate", dreicer_prof);
-				write_data_to_hdf5(hdf5_file_name, "avalanche_rate", avalanche_prof);
-				write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", electric_field_prof);
-				write_data_to_hdf5(hdf5_file_name, "critical_field", critical_field_prof);
+				//write_data_to_hdf5(hdf5_file_name, "time", time);
+				//write_data_to_hdf5(hdf5_file_name, "rho_tor", coreprof.rho_tor);
+				//write_data_to_hdf5(hdf5_file_name, "rho_tor_eq", equilibrium.profiles_1d.rho_tor);				
+				//write_data_to_hdf5(hdf5_file_name, "density", coreprof.ne.value);
+				//write_data_to_hdf5(hdf5_file_name, "temperature", coreprof.te.value);
+				//write_data_to_hdf5(hdf5_file_name, "eparallel", coreprof.profiles1d.eparallel.value);
+				//write_data_to_hdf5(hdf5_file_name, "b0", coreprof.toroid_field.b0);
+				//write_data_to_hdf5(hdf5_file_name, "zeff", coreprof.profiles1d.zeff.value);
+				//write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens);		
+				//write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
+				//write_data_to_hdf5(hdf5_file_name, "dreicer_rate", dreicer_prof);
+				//write_data_to_hdf5(hdf5_file_name, "avalanche_rate", avalanche_prof);
+				//write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", electric_field_prof);
+				//write_data_to_hdf5(hdf5_file_name, "critical_field", critical_field_prof);
 				
 			}else{
 				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
