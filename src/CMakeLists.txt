@@ -3,8 +3,15 @@ if($ENV{ITM_ENVIRONMENT_LOADED})
 		runafluid.cpp
 		codeparams.cpp
 		cpo_utils.cpp
-		efieldedit.cpp
 		distinit.cpp
+		../ext/Runaphys/src/avalanche.cpp
+		../ext/Runaphys/src/control.cpp
+		../ext/Runaphys/src/critical_field.cpp
+		../ext/Runaphys/src/dreicer.cpp
+		../ext/Runaphys/src/growth_rate.cpp
+		../ext/Runaphys/src/hdf5export.cpp
+		../ext/Runaphys/src/checks.cpp
+
 	)
 	add_library(runafluid ${SOURCE_FILES})
 elseif($ENV{IMAS_ENVIRONMENT_LOADED})
@@ -12,8 +19,14 @@ elseif($ENV{IMAS_ENVIRONMENT_LOADED})
 		runafluid_imas.cpp
 		codeparams.cpp
 		ids_utils.cpp
-		efieldedit_imas.cpp
 		distinit.cpp
+		ext/Runaphys/src/avalanche.cpp
+		ext/Runaphys/src/checks.cpp
+		ext/Runaphys/src/control.cpp
+		ext/Runaphys/src/critical_field.cpp
+		ext/Runaphys/src/dreicer.cpp
+		ext/Runaphys/src/growth_rate.cpp
+		ext/Runaphys/src/hdf5export.cpp
 	)
 	add_library(runafluid_imas ${SOURCE_FILES})
 endif()
