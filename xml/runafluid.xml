@@ -23,8 +23,6 @@
       </limits>
   </runaway_fluid_input>
   <runaway_fluid_output>
-    <hdf5_writing>
-      <hdf5_output>0</hdf5_output> 
-    </hdf5_writing>
+    <hdf5_output>false</hdf5_output> 
   </runaway_fluid_output> 
 </parameters>

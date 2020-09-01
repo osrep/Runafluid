@@ -196,13 +196,13 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:choice>
+      <xs:all>
         <xs:element ref="hdf5_output"/>
-      </xs:choice>
+      </xs:all>
     </xs:complexType>
   </xs:element>  
 
-   <xs:element name="hdf5_output"  type="xs:boolean">
+   <xs:element name="hdf5_output"  type="xs:boolean" default="false">
     <xs:annotation>
       <xs:documentation>
         Write additional data to hdf5 file (location taken from HDF5_BASE variable)

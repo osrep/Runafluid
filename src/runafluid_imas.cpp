@@ -34,9 +34,9 @@ fix time label
 
 void fire(IdsNs::IDS::core_profiles &core_profiles,
 		  IdsNs::IDS::equilibrium &equilibrium, IdsNs::IDS::distributions &distribution_in,
-		  IdsNs::IDS::distributions &distribution_out, double &timestep, int &runafluid_switch,
-		  double &critical_fraction, int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
-		  IdsNs::IDS::temporary &runaway_rates) {
+		  IdsNs::IDS::distributions &distribution_out, double &timestep,
+		  int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
+		  int &shot_number, int &run_number, IdsNs::codeparam_t &codeparams) {
 
 	// start: runafluid
 	std::cerr << " START: runaway_fluid" << std::endl;
@@ -56,8 +56,11 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	double zero_threshold = 1e-20;
 	
 	// maximal normalised minor radius
-	double rho_max = 0.95;
+	double rho_max = modules.rho_edge_calculation_limit;
 	
+	// critical fraction
+	double critical_fraction = modules.warning_percentage_limit;
+
 	// empty distribution initialiser (integrated distinit)
 	distinit(distribution_out, core_profiles, 0);
 	
@@ -75,7 +78,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	plasma_profile pro = ids_to_profile(core_profiles, equilibrium, distribution_in, timeindex); // testing until previous distribution validating
 
 	// stepping iterator in profile
-	int i = 0;
+	int rho_index = 0;
 	
 	// output flag
 	int output_flag = 0;
@@ -100,7 +103,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	for (std::vector<plasma_local>::iterator it = pro.begin(); it != pro.end(); ++it) {
 
 		// Length of the runaway distribution is correct
-		if (i<distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows()){
+		if (rho_index<distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows()){
 
 			// calculating runaway density
 			rundensity = advance_runaway_population(*it, timestep, inv_asp_ratio, it->rho, modules, rate_values);
@@ -128,11 +131,11 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 		   	}
 
 		   	// runaway density writing to output distribution
-	   		distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density(i) = rundensity;
+	   		distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density(rho_index) = rundensity;
 
 		   	// runaway current
 		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);
-		   	distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).current_tor(i) = runcurrent;
+		   	distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).current_tor(rho_index) = runcurrent;
 
 		   	// not suitable warning: j_R > j_e	
 		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
@@ -140,17 +143,17 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 				not_suitable_warning = 1;
 		   	}
 
-			dreicer_prof[i]        = rate_values[RATEID_DREICER];
-			avalanche_prof[i]      = rate_values[RATEID_AVALANCHE];
-			electric_field_prof[i] = rate_values[RATEID_ELECTRIC_FIELD];
-			critical_field_prof[i] = rate_values[RATEID_CRITICAL_FIELD];
+			dreicer_prof[rho_index]        = rate_values[RATEID_DREICER];
+			avalanche_prof[rho_index]      = rate_values[RATEID_AVALANCHE];
+			electric_field_prof[rho_index] = rate_values[RATEID_ELECTRIC_FIELD];
+			critical_field_prof[rho_index] = rate_values[RATEID_CRITICAL_FIELD];
 
 	   	}else{
-			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << i << "/"
+			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho_index << "/"
 					  << distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows() << ")" << std::endl;
 	   	}
 
-	    i++;
+	    rho_index++;
 
 	}
 
@@ -186,27 +189,4 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	std::cerr << " END: runaway_fluid" << std::endl;
 }
 
-module_struct init_modules_from_runafluid_switch(int runafluid_switch){
-	module_struct modules;
-	switch (get_digit(runafluid_switch, 4)){
-		case 1:  modules.dreicer_toroidicity = true;  modules.avalanche_toroidicity = true;  break;
-		case 2:  modules.dreicer_toroidicity = true;  modules.avalanche_toroidicity = false; break;
-		case 3:  modules.dreicer_toroidicity = false; modules.avalanche_toroidicity = true;  break;
-		default: modules.dreicer_toroidicity = false; modules.avalanche_toroidicity = false; break;
-	}
 
-	switch (get_digit(runafluid_switch, 3)){
-		case 1:  modules.avalanche_formula.assign("rosenbluth_putvinski_with_threshold"); break;
-		case 3:  modules.avalanche_formula.assign("rosenbluth_putvinski"); break;
-	}
-
-	switch (get_digit(runafluid_switch, 2)){
-		case 1:  modules.dreicer_formula.assign("hc_formula_63"); break;
-		case 2:  modules.dreicer_formula.assign("hc_formula_66"); break;
-		case 3:  modules.dreicer_formula.assign("hc_formula_67"); break;
-	}
-
-	modules.output_path.assign("default.h5");
-	
-	return modules;
-}
