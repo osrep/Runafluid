@@ -3,13 +3,27 @@
 #include <iostream>
 #include <stdexcept>
 #include <UALClasses.h>
+#include <libxml/xmlreader.h>
+#include "DecodeITMpar.h"
+#include <unistd.h>
+#include <cstdio>
+#include <sys/types.h>
+#include <pwd.h>
+#include <string>
+#include <cassert>
+#include <array>
 
 #include "runafluid_imas.h"
 #include "constants.h"
 #include "ids_utils.h"
-#include "distinit.h"
 #include "control.h"
-
+#include "codeparams_imas.h"
+#include "distinit.h"
+#include "hdf5export.h"
+#include "plasma_structures.h"
+#include "H5Cpp.h"
+using namespace H5;
+using namespace std;
 /*
 
 main function
@@ -28,7 +42,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	std::cerr << " START: runaway_fluid" << std::endl;
 	
 	// parse codeparam
-	module_struct modules = init_modules_from_runafluid_switch(runafluid_switch);
+	module_struct modules = read_codeparams(codeparams);
 	
 	// get time
 	int timeindex = 0;
@@ -69,29 +83,27 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	// Number of rate calculations (Dreicer, Avalanche etc.)
 	double rate_values[N_RATES];
 	int pro_size = pro.size();
-	blitz::Array<double,1> dreicer_prof(pro_size);
-	blitz::Array<double,1> avalanche_prof(pro_size);
-	blitz::Array<double,1> electric_field_prof(pro_size);
-	blitz::Array<double,1> critical_field_prof(pro_size);
+	std::vector<double> dreicer_prof(pro_size);
+	std::vector<double> avalanche_prof(pro_size);
+	std::vector<double> electric_field_prof(pro_size);
+	std::vector<double> critical_field_prof(pro_size);
 	
 	// inverse aspect ratio
 	double inv_asp_ratio = equilibrium.time_slice(timeindex).boundary.minor_radius / equilibrium.vacuum_toroidal_field.r0;
 	
 	// Runaway fluid switch message
-	runafluid_switch_message(modules);
+	list_parameter_settings(modules);
 
 	// Distribution source index for output
 	int distsource_out_index = 0;
 	
-	for (std::vector<cell>::iterator it = pro.begin(); it != pro.end(); ++it) {
+	for (std::vector<plasma_local>::iterator it = pro.begin(); it != pro.end(); ++it) {
 
 		// Length of the runaway distribution is correct
 		if (i<distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows()){
 
 			// calculating runaway density
-			rundensity = runafluid_control(it->electron_density, it->runaway_density, it->electron_temperature,
-										   it->effective_charge, abs(it->electric_field), abs(it->magnetic_field),
-										   timestep, inv_asp_ratio, it->rho, modules, rate_values);
+			rundensity = advance_runaway_population(*it, timestep, inv_asp_ratio, it->rho, modules, rate_values);
 
 			// no runaway if  rho is larger then a preset maximum rho value
 		   	if (it->rho >= rho_max){
@@ -128,10 +140,10 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 				not_suitable_warning = 1;
 		   	}
 
-			dreicer_prof[rho]        = rate_values[RATEID_DREICER];
-			avalanche_prof[rho]      = rate_values[RATEID_AVALANCHE];
-			electric_field_prof[rho] = rate_values[RATEID_ELECTRIC_FIELD];
-			critical_field_prof[rho] = rate_values[RATEID_CRITICAL_FIELD];
+			dreicer_prof[i]        = rate_values[RATEID_DREICER];
+			avalanche_prof[i]      = rate_values[RATEID_AVALANCHE];
+			electric_field_prof[i] = rate_values[RATEID_ELECTRIC_FIELD];
+			critical_field_prof[i] = rate_values[RATEID_CRITICAL_FIELD];
 
 	   	}else{
 			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << i << "/"
@@ -175,7 +187,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 }
 
 module_struct init_modules_from_runafluid_switch(int runafluid_switch){
-
+	module_struct modules;
 	switch (get_digit(runafluid_switch, 4)){
 		case 1:  modules.dreicer_toroidicity = true;  modules.avalanche_toroidicity = true;  break;
 		case 2:  modules.dreicer_toroidicity = true;  modules.avalanche_toroidicity = false; break;
