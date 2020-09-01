@@ -22,9 +22,7 @@ double sign(double a){
 	return b;
 }
 
-bool equal(double a, double b, double tolerance) {
-	return abs(a - b) * 2.0 <= (abs(a) + abs(b)) * tolerance;
-}
+
 
 
 
@@ -166,37 +164,37 @@ output: profile
 
 */
 
-profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof) {
+plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof) {
 
-	profile pro;
+	plasma_profile pro;
 
 	// read electron density profile length of dataset: cell_length	
-	int cell_length = coreprof.ne.value.rows();
+	int plasmaProfileLength = coreprof.ne.value.rows();
 	
 	// read electron temperature profile length of dataset, comparing with cell_length
-	if (coreprof.te.value.rows() != cell_length)
+	if (coreprof.te.value.rows() != plasmaProfileLength)
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
 
 	// read eparallel profile length of dataset, comparing with cell_length
-	if (coreprof.profiles1d.eparallel.value.rows() != cell_length)
+	if (coreprof.profiles1d.eparallel.value.rows() != plasmaProfileLength)
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
 
    	// read data in every rho
 
-	for (int i = 0; i < cell_length; i++) {
-		cell celll;
+	for (int i = 0; i < plasmaProfileLength; i++) {
+		plasma_local plasmaLocal;
 				
 		// electron density
-		celll.electron_density = coreprof.ne.value(i);
+		plasmaLocal.electron_density = coreprof.ne.value(i);
 		
 		// electron temperature
-		celll.electron_temperature = coreprof.te.value(i);
+		plasmaLocal.electron_temperature = coreprof.te.value(i);
 		
 		// paralle electric field
-		celll.electric_field = coreprof.profiles1d.eparallel.value(i); 
+		plasmaLocal.electric_field = coreprof.profiles1d.eparallel.value(i); 
 
-		pro.push_back(celll);
+		pro.push_back(plasmaLocal);
 	}
 
 	return pro;
@@ -209,22 +207,22 @@ Copy data from CPO inputs to profile structure
 
 */
 		
-profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
+plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::coreimpur &coreimpur,
 		const ItmNs::Itm::equilibrium &equilibrium, const ItmNs::Itm::distribution &distribution){		
 
-	profile pro;
+	plasma_profile pro;
 	double number_of_parts;
 
 	// read electron density profile length of dataset: cell_length	
-	int cell_length = coreprof.ne.value.rows();
+	int plasmaProfileLength = coreprof.ne.value.rows();
 	
 	// read electron temperature profile length of dataset, comparing with cell_length
-	if (coreprof.te.value.rows() != cell_length){
+	if (coreprof.te.value.rows() != plasmaProfileLength){
 		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and Te.");		
 	}		
 	
 	// read eparallel profile length of dataset, comparing with cell_length
-	if (coreprof.profiles1d.eparallel.value.rows() != cell_length){		
+	if (coreprof.profiles1d.eparallel.value.rows() != plasmaProfileLength){		
 		throw std::invalid_argument(
 				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");		
 	}			
@@ -235,52 +233,52 @@ profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof, const ItmNs::Itm::c
 								
     	// read data in every rho 
 
-	for (int i = 0; i < cell_length; i++) {
-		cell celll;
+	for (int i = 0; i < plasmaProfileLength; i++) {
+		plasma_local plasmaLocal;
 		
 		// normalised minor radius
-		celll.rho = coreprof.rho_tor_norm(i);
+		plasmaLocal.rho = coreprof.rho_tor_norm(i);
 				
 		// electron density
-		celll.electron_density = coreprof.ne.value(i);
+		plasmaLocal.electron_density = coreprof.ne.value(i);
 		
 		// electron temperature
-		celll.electron_temperature = coreprof.te.value(i);
+		plasmaLocal.electron_temperature = coreprof.te.value(i);
 		
 		// parallel electric field
-		celll.electric_field = coreprof.profiles1d.eparallel.value(i);
+		plasmaLocal.electric_field = coreprof.profiles1d.eparallel.value(i);
 		
 		try{		
 			// local magnetic field
-			celll.magnetic_field = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
+			plasmaLocal.magnetic_field = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
 							coreprof.rho_tor(i));
 			
 		} catch (const std::exception& ex) {
-			celll.magnetic_field = 0;			
+			plasmaLocal.magnetic_field = 0;			
 			std::cerr << "  [Runaway Fluid] ERROR : in magnetic field, magnetic field set to zero. (" << i << ")" << std::endl;
 		}
 		
 		try{		
 			// No runaway in previous distribution CPO
 			if (distsource_index<0){
-				celll.runaway_density = 0;
+				plasmaLocal.runaway_density = 0;
 			// Runaway in previous distribution CPO
 			}else{
-				celll.runaway_density = distribution.distri_vec(distsource_index).profiles_1d.state.dens(i);
+				plasmaLocal.runaway_density = distribution.distri_vec(distsource_index).profiles_1d.state.dens(i);
 			}
 
 		// internal error in distribution
 		} catch (const std::exception& ex) {
 
-			celll.runaway_density = 0;
+			plasmaLocal.runaway_density = 0;
 			
 			std::cerr << "  [Runaway Fluid] WARNING : Cannot read runaway density, density set to zero." << std::endl;
 		}
 
 		// total sum of electric charge from coreprof CPO
-		celll.effective_charge = coreprof.profiles1d.zeff.value(i);	
+		plasmaLocal.effective_charge = coreprof.profiles1d.zeff.value(i);	
 
-		pro.push_back(celll);
+		pro.push_back(plasmaLocal);
 	}
 
 	return pro;
