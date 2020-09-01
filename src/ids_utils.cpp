@@ -207,7 +207,7 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 
     	// read data in every rho
 	for (int i = 0; i < N_rho; i++) {
-		cell plasmaLocal;
+		plasma_local plasmaLocal;
 		// normalised minor radius
 		plasmaLocal.rho = fill_rho_tor_norm(core_profiles, equilibrium, i, timeindex);
 		
