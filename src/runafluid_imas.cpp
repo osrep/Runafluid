@@ -31,6 +31,28 @@ main function
 fix time label
 
 */
+std::string int_to_string( int x ) {
+  // Introduce the int_to_string function, std::to_string didn't work with gcc 4.8.5
+  int length = snprintf( NULL, 0, "%d", x );
+  assert( length >= 0 );
+  char* buf = new char[length + 1];
+  snprintf( buf, length + 1, "%d", x );
+  std::string str( buf );
+  delete[] buf;
+  return str;
+}
+
+int write_data_to_hdf5(H5std_string FILE_NAME, H5std_string DATASETNAME,  blitz::Array<double,1> dataext_blitz){
+
+	int cols =  dataext_blitz.rows();
+	double dataext[cols];
+	for (int i=0;i<cols;i++){
+		dataext[i] = dataext_blitz(i);
+	}
+	return write_data_to_hdf5(FILE_NAME, DATASETNAME, dataext, cols);
+
+}
+
 
 void fire(IdsNs::IDS::core_profiles &core_profiles,
 		  IdsNs::IDS::equilibrium &equilibrium, IdsNs::IDS::distributions &distribution_in,
@@ -100,7 +122,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	// Distribution source index for output
 	int distsource_out_index = 0;
 	
-	for (std::vector<plasma_local>::iterator it = pro.begin(); it != pro.end(); ++it) {
+	for (std::vector<plasma_local>::iterator it = pro.begin(); it != pro.end(); ++it, rho_index++) {
 
 		// Length of the runaway distribution is correct
 		if (rho_index<distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows()){
@@ -153,7 +175,6 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 					  << distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows() << ")" << std::endl;
 	   	}
 
-	    rho_index++;
 
 	}
 
@@ -184,9 +205,66 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	}
 
 	distribution_out.time(timeindex) = distribution_in.time(timeindex)+timestep;
+	
+	// HDF5 export
+	if (modules.hdf5_output == true){
 
+			const char *hdf5_base;
+
+			if ((hdf5_base = getenv("HDF5_BASE")) == NULL){
+
+				const char *homedir;
+
+				if ((homedir = getenv("HOME")) == NULL) {
+
+					homedir = getpwuid(getuid())->pw_dir;
+					hdf5_base = homedir;
+
+				} else hdf5_base = getenv("HOME");
+
+			} else hdf5_base = getenv("HDF5_BASE");
+
+			std::string str_shot_number = int_to_string(shot_number);
+
+			char char_run_number [4];
+			sprintf(char_run_number, "%04i", run_number);
+
+			std::string filename = "/euitm_" + str_shot_number + char_run_number + "_runafluid" + ".h5";
+			std::string hdf5_file_name = hdf5_base + filename;
+
+			const int dataset_name_length = 14; 
+			string dataset_name_list[dataset_name_length] = {
+				"time","rho_tor","rho_tor_eq",
+				"density", "temperature", "eparallel","b0", "zeff",
+				"runaway_density","runaway_current","dreicer_rate","avalanche_rate",
+				"electric_field_vs_critical_field", "critical_field"};
+			int cols = rho_index;//sizeof dataext / sizeof(double);
+			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
+
+				write_data_to_hdf5(hdf5_file_name, "time", core_profiles.time);
+				write_data_to_hdf5(hdf5_file_name, "rho_tor", core_profiles.profiles_1d(timeindex).grid.rho_tor);
+				write_data_to_hdf5(hdf5_file_name, "rho_tor_eq", equilibrium.time_slice(timeindex).profiles_1d.rho_tor);				
+				write_data_to_hdf5(hdf5_file_name, "density", core_profiles.profiles_1d(timeindex).electrons.density);
+				write_data_to_hdf5(hdf5_file_name, "temperature", core_profiles.profiles_1d(timeindex).electrons.temperature);
+				write_data_to_hdf5(hdf5_file_name, "eparallel", core_profiles.profiles_1d(timeindex).e_field.parallel);
+				write_data_to_hdf5(hdf5_file_name, "b0", core_profiles.vacuum_toroidal_field.b0);
+				write_data_to_hdf5(hdf5_file_name, "zeff", core_profiles.profiles_1d(timeindex).zeff);
+				//write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distribution.profiles_1d.state.density);		
+				//write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distribution.profiles_1d.current_fast_tor);
+				write_data_to_hdf5(hdf5_file_name, "dreicer_rate", dreicer_prof.data(),dreicer_prof.size());
+				write_data_to_hdf5(hdf5_file_name, "avalanche_rate", avalanche_prof.data(),avalanche_prof.size());
+				write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", electric_field_prof.data(),electric_field_prof.size());
+				write_data_to_hdf5(hdf5_file_name, "critical_field", critical_field_prof.data(),critical_field_prof.size());
+				
+			}else{
+				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;
+			}
+
+	}
+	
 	// end: runafluid
 	std::cerr << " END: runaway_fluid" << std::endl;
 }
+
 
 
