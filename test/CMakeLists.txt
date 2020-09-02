@@ -44,8 +44,7 @@ elseif($ENV{IMAS_ENVIRONMENT_LOADED})
 	SET(TEST_SOURCES
 		test_ids.cpp
 	)
-	add_executable(RunafluidTests_imas ${TEST_SOURCES})
-	target_link_libraries(RunafluidTests_imas runafluid_imas gtest_main pthread)
-
+	add_executable(RunafluidTests ${TEST_SOURCES})
+	target_link_libraries(RunafluidTests runafluid_imas gtest_main pthread)
 endif()
 

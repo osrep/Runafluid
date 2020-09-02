@@ -44,8 +44,6 @@ elseif($ENV{IMAS_ENVIRONMENT_LOADED})
 
 	add_gateway_flag(INPUT ${cxx_flags} TO CMAKE_CXX_FLAGS)
 	add_gateway_flag(INPUT ${linker_flags} TO CMAKE_EXE_LINKER_FLAGS)
-	message(${CMAKE_CXX_FLAGS})
-	message(${CMAKE_EXE_LINKER_FLAGS})
 
 	include_directories("include" "ext/Runaphys/include")
 
