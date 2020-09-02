@@ -12,10 +12,6 @@ int binary_search(const Array<double, 1> &array, double search_key);
 
 double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double xa);
 
-int bool_switch(int switch_number, bool *bools, int N);
-
-int get_digit(int number, int digit);
-
 int whereRunaway(ItmNs::Itm::distribution &distribution);
 
 plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof);	

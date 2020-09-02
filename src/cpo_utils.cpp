@@ -79,43 +79,6 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 	return y(index) + (y(index + 1) - y(index)) / (x(index + 1) - x(index)) * (xa - x(index));
 }
 
-// Switch handling
-int bool_switch(int switch_number, bool *bools, int N){
-	
-	
-	for (int i=0; i<N; i++){
-		if (switch_number%10==1){
-			bools[i]=true;
-		}else{		
-			bools[i]=false;
-		}
-				
-		switch_number /= 10;
-	}
-	
-	return N;
-
-}
-
-
-int get_digit(int number, int digit){
-
-	int input_number = number;
-	int divided_number;
-	int got_digit;
-
-	if(digit>0) {
-		for (int i = 0; i < digit; i++) {
-			divided_number = input_number / 10;
-			got_digit = input_number % 10;
-			input_number = divided_number;
-		}
-		return got_digit;
-	}
-		// if the incoming digit is negative, return invalid int value
-	else
-		return ITM_INVALID_INT;
-}
 
 /* This code is looking for
 which element of distri_vec is 
@@ -125,8 +88,6 @@ runaway: distri_vec index
 no runaway: -1
 
 */
-
-
 int whereRunaway(const ItmNs::Itm::distribution &distribution){
 	int N_distr = 0;
 	
