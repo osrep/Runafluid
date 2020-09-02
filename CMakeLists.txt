@@ -37,9 +37,9 @@ if($ENV{ITM_ENVIRONMENT_LOADED})
 elseif($ENV{IMAS_ENVIRONMENT_LOADED})
 	message("###Compiler set to IMAS###")
 
-	execute_process(COMMAND tcsh -c "pkg-config --cflags imas-cpp blitz imas-constants-cpp"
+	execute_process(COMMAND tcsh -c "pkg-config --cflags imas-cpp --cflags blitz --cflags imas-constants-cpp --cflags libxml-2.0 xmllib --cflags hdf5-cpp-gnu"
 			OUTPUT_VARIABLE cxx_flags)
-	execute_process(COMMAND tcsh -c "pkg-config --libs imas-cpp blitz"
+	execute_process(COMMAND tcsh -c "pkg-config --libs imas-cpp blitz libxml-2.0 xmllib hdf5-cpp-gnu"
 			OUTPUT_VARIABLE linker_flags)
 
 	add_gateway_flag(INPUT ${cxx_flags} TO CMAKE_CXX_FLAGS)

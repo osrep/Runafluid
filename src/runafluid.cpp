@@ -35,6 +35,17 @@ main function
 // HDF5 init
 int create_hdf5 (void);
 
+int write_data_to_hdf5(H5std_string FILE_NAME, H5std_string DATASETNAME,  blitz::Array<double,1> dataext_blitz){
+
+	int cols =  dataext_blitz.rows();
+	double dataext[cols];
+	for (int i=0;i<cols;i++){
+		dataext[i] = dataext_blitz(i);
+	}
+	return write_data_to_hdf5(FILE_NAME, DATASETNAME, dataext, cols);
+
+}
+
 
 void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 		  ItmNs::Itm::equilibrium &equilibrium, ItmNs::Itm::distribution &distribution_in,
@@ -234,20 +245,20 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 			int cols = rho_index;//sizeof dataext / sizeof(double);
 			if (init_hdf5_file(hdf5_file_name,cols,dataset_name_list, dataset_name_length)==0){
 
-				//write_data_to_hdf5(hdf5_file_name, "time", time);
-				//write_data_to_hdf5(hdf5_file_name, "rho_tor", coreprof.rho_tor);
-				//write_data_to_hdf5(hdf5_file_name, "rho_tor_eq", equilibrium.profiles_1d.rho_tor);				
-				//write_data_to_hdf5(hdf5_file_name, "density", coreprof.ne.value);
-				//write_data_to_hdf5(hdf5_file_name, "temperature", coreprof.te.value);
-				//write_data_to_hdf5(hdf5_file_name, "eparallel", coreprof.profiles1d.eparallel.value);
-				//write_data_to_hdf5(hdf5_file_name, "b0", coreprof.toroid_field.b0);
-				//write_data_to_hdf5(hdf5_file_name, "zeff", coreprof.profiles1d.zeff.value);
-				//write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens);		
-				//write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
-				//write_data_to_hdf5(hdf5_file_name, "dreicer_rate", dreicer_prof);
-				//write_data_to_hdf5(hdf5_file_name, "avalanche_rate", avalanche_prof);
-				//write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", electric_field_prof);
-				//write_data_to_hdf5(hdf5_file_name, "critical_field", critical_field_prof);
+				write_data_to_hdf5(hdf5_file_name, "time", time);
+				write_data_to_hdf5(hdf5_file_name, "rho_tor", coreprof.rho_tor);
+				write_data_to_hdf5(hdf5_file_name, "rho_tor_eq", equilibrium.profiles_1d.rho_tor);				
+				write_data_to_hdf5(hdf5_file_name, "density", coreprof.ne.value);
+				write_data_to_hdf5(hdf5_file_name, "temperature", coreprof.te.value);
+				write_data_to_hdf5(hdf5_file_name, "eparallel", coreprof.profiles1d.eparallel.value);
+				write_data_to_hdf5(hdf5_file_name, "b0", coreprof.toroid_field.b0);
+				write_data_to_hdf5(hdf5_file_name, "zeff", coreprof.profiles1d.zeff.value);
+				write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens);		
+				write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current);
+				write_data_to_hdf5(hdf5_file_name, "dreicer_rate", dreicer_prof.data(),dreicer_prof.size());
+				write_data_to_hdf5(hdf5_file_name, "avalanche_rate", avalanche_prof.data(),avalanche_prof.size());
+				write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", electric_field_prof.data(),electric_field_prof.size());
+				write_data_to_hdf5(hdf5_file_name, "critical_field", critical_field_prof.data(),critical_field_prof.size());
 				
 			}else{
 				cout << "  [Runaway Fluid] \tHDF5 init was not successful." << endl;

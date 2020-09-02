@@ -67,46 +67,6 @@ runaway: distri_vec index
 no runaway: -1
 
 */
-
-// switch handling
-int bool_switch(int switch_number, bool *bools, int N){
-	
-	
-	for (int i=0; i<N; i++){
-		if (switch_number%10==1){
-			bools[i]=true;
-		}else{		
-			bools[i]=false;
-		}
-				
-		switch_number /= 10;
-	}
-	
-	return N;
-
-}
-
-
-
-int get_digit(int number, int digit){
-
-	int input_number = number;
-	int divided_number;
-	int got_digit;
-
-	if(digit>0) {
-		for (int i = 0; i < digit; i++) {
-			divided_number = input_number / 10;
-			got_digit = input_number % 10;
-			input_number = divided_number;
-		}
-		return got_digit;
-	}
-		//if the incoming digit is negative, return invalid int value
-	else
-		return ITM_INVALID_INT;
-}
-
 int whereRunaway(const IdsNs::IDS::distributions &distributions){
 	int N_distr = 0;
 	
@@ -207,7 +167,7 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 
     	// read data in every rho
 	for (int i = 0; i < N_rho; i++) {
-		cell plasmaLocal;
+		plasma_local plasmaLocal;
 		// normalised minor radius
 		plasmaLocal.rho = fill_rho_tor_norm(core_profiles, equilibrium, i, timeindex);
 		

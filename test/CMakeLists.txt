@@ -33,10 +33,18 @@ else()
 endif()
 
 # Set Runin test sources
-SET(TEST_SOURCES
-    test_cpo.cpp
-)
+if($ENV{ITM_ENVIRONMENT_LOADED})
+	SET(TEST_SOURCES
+		test_cpo.cpp
+	)
+	add_executable(RunafluidTests ${TEST_SOURCES})
+	target_link_libraries(RunafluidTests runafluid gtest_main pthread)
 
-add_executable(RunafluidTests ${TEST_SOURCES})
+elseif($ENV{IMAS_ENVIRONMENT_LOADED})
+	SET(TEST_SOURCES
+		test_ids.cpp
+	)
+	add_executable(RunafluidTests ${TEST_SOURCES})
+	target_link_libraries(RunafluidTests runafluid_imas gtest_main pthread)
+endif()
 
-target_link_libraries(RunafluidTests runafluid gtest_main pthread)
