@@ -18,25 +18,13 @@ double RefNumberIsNegative = -1.0;
 int reference_got_digit = 7;
 int reference_number = 9876;
 int reference_digit = 2;
-/*
-TEST(CpoFunc, bool_switch) {												//Új teszt, még nincsenek meg hozzá a
-EXPECT_EQ(reference_bool, bool_switch(switch_numbers, *bools, N ));			//referenciaértékek
-}
-*/
+
 TEST(CpoFunc, sign) {
-EXPECT_EQ(RefNumberIsPositive, sign(reference_positive));
-EXPECT_EQ(RefNumberIsZero, sign(reference_zero));
-EXPECT_EQ(RefNumberIsNegative, sign(reference_negative));
-}
-/*
-TEST(CpoFunc, get_digit) {													//Új teszt, még nincsenek meg hozzá a
-EXPECT_EQ(reference_got_digit, get_digit(reference_number, reference_digit));	//referenciaértékek
+	EXPECT_EQ(RefNumberIsPositive, sign(reference_positive));
+	EXPECT_EQ(RefNumberIsZero, sign(reference_zero));
+	EXPECT_EQ(RefNumberIsNegative, sign(reference_negative));
 }
 
-TEST(CpoFunc, whereRunaway) {												//Új teszt, még nincsenek meg hozzá a
-EXPECT_EQ(reference_runaway_index, whereRunaway(*reference_distribution));	//referenciaértékek, és a ref_dist-et sem
-}																			//tudom, mi pontosan
-*/
 
 void create_cpo() {
 	coreprof.rho_tor.resize(5);
@@ -102,54 +90,54 @@ void create_cpo() {
 }
 
 TEST(CpoToProfil, ElectronDensity) {
-create_cpo();
-distinit(distribution, coreprof);
-plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
-
-ASSERT_EQ(5, pro.size());
-
-EXPECT_DOUBLE_EQ(10.0, pro[0].electron_density);
-EXPECT_DOUBLE_EQ(11.0, pro[1].electron_density);
-EXPECT_DOUBLE_EQ(12.0, pro[2].electron_density);
-EXPECT_DOUBLE_EQ(14.0, pro[3].electron_density);
-EXPECT_DOUBLE_EQ(18.0, pro[4].electron_density);
+	create_cpo();
+	distinit(distribution, coreprof);
+	plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
+	
+	ASSERT_EQ(5, pro.size());
+	
+	EXPECT_DOUBLE_EQ(10.0, pro[0].electron_density);
+	EXPECT_DOUBLE_EQ(11.0, pro[1].electron_density);
+	EXPECT_DOUBLE_EQ(12.0, pro[2].electron_density);
+	EXPECT_DOUBLE_EQ(14.0, pro[3].electron_density);
+	EXPECT_DOUBLE_EQ(18.0, pro[4].electron_density);
 }
 
 TEST(CpoToProfil, ElectronTemperature) {
-create_cpo();
-plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
-
-ASSERT_EQ(5, pro.size());
-
-EXPECT_DOUBLE_EQ(20.0, pro[0].electron_temperature);
-EXPECT_DOUBLE_EQ(21.0, pro[1].electron_temperature);
-EXPECT_DOUBLE_EQ(22.0, pro[2].electron_temperature);
-EXPECT_DOUBLE_EQ(24.0, pro[3].electron_temperature);
-EXPECT_DOUBLE_EQ(28.0, pro[4].electron_temperature);
+	create_cpo();
+	plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
+	
+	ASSERT_EQ(5, pro.size());
+	
+	EXPECT_DOUBLE_EQ(20.0, pro[0].electron_temperature);
+	EXPECT_DOUBLE_EQ(21.0, pro[1].electron_temperature);
+	EXPECT_DOUBLE_EQ(22.0, pro[2].electron_temperature);
+	EXPECT_DOUBLE_EQ(24.0, pro[3].electron_temperature);
+	EXPECT_DOUBLE_EQ(28.0, pro[4].electron_temperature);
 }
 
 TEST(CpoToProfil, ElectricField) {
-create_cpo();
-plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
-
-ASSERT_EQ(5, pro.size());
-
-EXPECT_DOUBLE_EQ(1.0, pro[0].electric_field);
-EXPECT_DOUBLE_EQ(2.0, pro[1].electric_field);
-EXPECT_DOUBLE_EQ(3.0, pro[2].electric_field);
-EXPECT_DOUBLE_EQ(5.0, pro[3].electric_field);
-EXPECT_DOUBLE_EQ(9.0, pro[4].electric_field);
+	create_cpo();
+	plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
+	
+	ASSERT_EQ(5, pro.size());
+	
+	EXPECT_DOUBLE_EQ(1.0, pro[0].electric_field);
+	EXPECT_DOUBLE_EQ(2.0, pro[1].electric_field);
+	EXPECT_DOUBLE_EQ(3.0, pro[2].electric_field);
+	EXPECT_DOUBLE_EQ(5.0, pro[3].electric_field);
+	EXPECT_DOUBLE_EQ(9.0, pro[4].electric_field);
 }
 
 TEST(CpoToProfil, EffectiveCharge) {
-create_cpo();
-plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
-
-ASSERT_EQ(5, pro.size());
-
-EXPECT_NEAR(1.0, pro[0].effective_charge, 0.00001);
-EXPECT_NEAR(1.0, pro[1].effective_charge, 0.00001);
-EXPECT_NEAR(1.0, pro[2].effective_charge, 0.00001);
-EXPECT_NEAR(1.0, pro[3].effective_charge, 0.00001);
-EXPECT_NEAR(1.0, pro[4].effective_charge, 0.00001);
+	create_cpo();
+	plasma_profile pro = cpo_to_profile(coreprof, coreimpur, equilibrium, distribution);
+	
+	ASSERT_EQ(5, pro.size());
+	
+	EXPECT_NEAR(1.0, pro[0].effective_charge, 0.00001);
+	EXPECT_NEAR(1.0, pro[1].effective_charge, 0.00001);
+	EXPECT_NEAR(1.0, pro[2].effective_charge, 0.00001);
+	EXPECT_NEAR(1.0, pro[3].effective_charge, 0.00001);
+	EXPECT_NEAR(1.0, pro[4].effective_charge, 0.00001);
 }

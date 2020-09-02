@@ -8,6 +8,19 @@ IdsNs::IDS::equilibrium equilibrium;
 IdsNs::IDS::distributions distribution;
 
 const int timeindex = 0;
+const double RefNumberIsPositive = 1.0;
+const double RefNumberIsZero = 0.0;
+const double RefNumberIsNegative = -1.0;
+const double reference_negative = -1.5;
+const double reference_zero = 0;
+const double reference_positive = 1.5;
+
+TEST(IdsFunc, sign) {
+	EXPECT_EQ(RefNumberIsPositive, sign(reference_positive));
+	EXPECT_EQ(RefNumberIsZero, sign(reference_zero));
+	EXPECT_EQ(RefNumberIsNegative, sign(reference_negative));
+}
+
 
 void create_ids() {
 	std::size_t size = 5;
@@ -39,7 +52,11 @@ void create_ids() {
 	equilibrium.time_slice(timeindex).profiles_1d.b_field_average = 1.0, 1.0, 1.0, 1.0, 1.0;
 	equilibrium.time_slice(timeindex).profiles_1d.rho_tor = 1.0, 1.0, 1.0, 1.0, 1.0;
 }
-
+TEST(IdsFunc, whereRunaway){
+	create_ids();
+	distinit(distribution, coreprof, timeindex);	
+	EXPECT_EQ(0, whereRunaway(distribution));
+}
 
 TEST(IdsToProfile, profileSize){
 	create_ids();
