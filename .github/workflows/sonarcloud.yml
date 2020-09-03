@@ -9,9 +9,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
-
       - name: Scan with Sonar Scanner
-	uses: mathrix-education/sonar-scanner@1.0.0
+        uses: mathrix-education/sonar-scanner@1.0.0
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
