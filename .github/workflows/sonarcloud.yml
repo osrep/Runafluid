@@ -10,7 +10,6 @@ jobs:
         uses: actions/checkout@master
 
 
-       Runs a single command using the runners shell
       - name: run sonarcloud
         uses: sonarsource/sonarcloud-github-action@sonarcloud_and_codecov
         env: 
