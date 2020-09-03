@@ -12,9 +12,9 @@ jobs:
 
       - name: run sonarcloud
         uses: sonarsource/sonarcloud-github-action@v1.4
-        env: 
+        with:
+        	args: -Dsonar.projectKey=osrep_Runafluid      -Dsonar.sources=src,include -Dsonar.organization=osrep 
+	env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
-        with:
-	  args: -Dsonar.projectKey=osrep_Runafluid -Dsonar.sources=src,include -Dsonar.organization=osrep 
-          projectBaseDir: ../..
+	
