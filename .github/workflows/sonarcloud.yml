@@ -9,13 +9,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout
         uses: actions/checkout@master
-
+      - name: setup
+        uses: warchant/setup-sonar-scanner@v1
 
       - name: run sonarcloud
-        uses: SonarSource/sonarcloud-github-action@v1.4
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
-        with:
-          args: -Dsonar.projectKey=osrep_Runafluid -Dsonar.sources=src,include -Dsonar.organization=osrep 
-          projectBaseDir: ../..
+        run: sonar-scanner
+		-Dsonar.login=${{ secrets.SONAR_TOKEN }}
+       		-Dsonar.projectKey=osrep_Runafluid
+		-Dsonar.sources=src,include 
+		-Dsonar.organization=osrep 
