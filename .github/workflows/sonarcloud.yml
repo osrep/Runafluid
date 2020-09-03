@@ -11,7 +11,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: run sonarcloud
-        uses: sonarsource/sonarcloud-github-action@sonarcloud_and_codecov
+        uses: sonarsource/sonarcloud-github-action@master 
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
