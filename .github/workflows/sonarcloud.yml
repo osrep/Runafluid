@@ -15,4 +15,4 @@ jobs:
       - name: run sonarcloud
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: sonar-scanner -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.projectKey=osrep_Runafluid -Dsonar.sources=src,include -Dsonar.organization=osrep 
+        run: sonar-scanner -Dsonar.login=${{ secrets.SONAR_TOKEN }} 
