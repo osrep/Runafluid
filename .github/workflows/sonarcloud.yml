@@ -10,10 +10,9 @@ jobs:
         uses: actions/checkout@master
 
 
-      - name: run sonarcloud
-        uses: SonarSource/sonarcloud-github-action@v1.4
+      - name: Scan with Sonar Scanner
+	uses: mathrix-education/sonar-scanner@1.0.0
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
-        with:
-          projectBaseDir: Runafluid
+
