@@ -5,13 +5,11 @@ project(Runafluid VERSION 2.0.0
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_CXX_FLAGS "-pthread -g -fPIC -std=gnu++11")
+set(CMAKE_CXX_FLAGS "-pthread -g -fPIC -std=gnu++11 -march=native -mno-avx -fprofile-arcs -ftest-coverage")
 
 include(cmake/AddGatewayFlagFunction.cmake)
 find_package(HDF5)
 
-#set(BUILD_TESTING no)
-#add_subdirectory(ext/Runaphys)
 
 #ITM Enviroment 
 if($ENV{ITM_ENVIRONMENT_LOADED})
