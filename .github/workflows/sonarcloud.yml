@@ -9,21 +9,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
-      - name: SonarCloud Scan
-        # You may pin to the exact commit or the version.
-        # uses: SonarSource/sonarcloud-github-action@f4c6e4d91ea9785ec823eaeed459042606123402
-        uses: SonarSource/sonarcloud-github-action@v1.4
-	env: 
+
+       Runs a single command using the runners shell
+      - name: run sonarcloud
+        uses: sonarsource/sonarcloud-github-action@sonarcloud_and_codecov
+        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
         with:
           projectBaseDir: ../..
-
-
-      # Runs a single command using the runners shell
-      #- name: run sonarcloud
-      #  uses: sonarsource/sonarcloud-github-action@sonarcloud_and_codecov
-      #  env: 
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
- 
