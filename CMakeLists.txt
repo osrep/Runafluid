@@ -5,18 +5,21 @@ project(Runafluid VERSION 2.0.0
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_CXX_FLAGS "-pthread -g -fPIC -std=gnu++11")
+set(CMAKE_CXX_FLAGS "-pthread -g -fPIC -std=gnu++11 -march=native ")
+
+
 
 include(cmake/AddGatewayFlagFunction.cmake)
 find_package(HDF5)
 
-#set(BUILD_TESTING no)
-#add_subdirectory(ext/Runaphys)
 
 #ITM Enviroment 
 if($ENV{ITM_ENVIRONMENT_LOADED})
 	message("###Compiler set to ITM###")
-
+	
+	#gcov flags
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-avx  -fprofile-arcs -ftest-coverage")
+	message("-- Coverage flags set")
 
 	execute_process(COMMAND tcsh -c "eval-pkg-config --cflags ual-cpp-gnu --cflags hdf5-cpp-gnu --cflags itmconstants --cflags xmllib-$ITM_INTEL_OBJECTCODE"
 			OUTPUT_VARIABLE cxx_flags)	
