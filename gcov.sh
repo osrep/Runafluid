@@ -23,7 +23,3 @@ gcov test/test_cpo.cpp.cpp
 mkdir gcov_reports 
 mv *.gcov gcov_reports
 
-#for gcovr reports gcovr should be installed with the command: 
-#pip install git+https://github.com/gcovr/gcovr.git 
-#the path to the installation must be added to the PATH enviromental variable
-
