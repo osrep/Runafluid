@@ -141,7 +141,8 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, in
 
 	// read eparallel profile length of dataset, comparing with N_rho
 	if (core_profiles.profiles_1d(timeindex).e_field.parallel.rows() != cells)
-		throw std::invalid_argument("Number of values is different in coreprof rho coordinates and eparallel.");	
+		throw std::invalid_argument(
+				"Number of values is different in coreprof rho coordinates and eparallel.");	
 
 
 	// read data in every rho
@@ -191,23 +192,17 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 		
 		// parallel electric field
 		plasmaLocal.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(i);
-						
+		try{				
 		// local magnetic field
 		plasmaLocal.magnetic_field = interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
 						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
-				
-		// total sum of electric charge in a rho cell
-		plasmaLocal.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
-		try{		
-			// local magnetic field
-			plasmaLocal.magnetic_field = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
-							coreprof.rho_tor(i));
-			
 		} catch (const std::exception& ex) {
 			plasmaLocal.magnetic_field = 0;			
 			std::cerr << "  [Runaway Fluid] ERROR : in magnetic field, magnetic field set to zero. (" << i << ")" << std::endl;
-		}		
-
+		}
+		// total sum of electric charge in a rho cell
+		plasmaLocal.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
+		
 		try{		
 			// No runaway in previous distribution CPO
 			if (distsource_index<0){
