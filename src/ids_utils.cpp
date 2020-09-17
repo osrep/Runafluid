@@ -198,7 +198,16 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 				
 		// total sum of electric charge in a rho cell
 		plasmaLocal.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
-		
+		try{		
+			// local magnetic field
+			plasmaLocal.magnetic_field = interpolate(equilibrium.profiles_1d.rho_tor, equilibrium.profiles_1d.b_av,
+							coreprof.rho_tor(i));
+			
+		} catch (const std::exception& ex) {
+			plasmaLocal.magnetic_field = 0;			
+			std::cerr << "  [Runaway Fluid] ERROR : in magnetic field, magnetic field set to zero. (" << i << ")" << std::endl;
+		}		
+
 		try{		
 			// No runaway in previous distribution CPO
 			if (distsource_index<0){
