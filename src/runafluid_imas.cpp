@@ -59,21 +59,13 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 		  IdsNs::IDS::distributions &distribution_out, double &timestep,
 		  int &runaway_warning, int &not_suitable_warning, int &critical_fraction_warning,
 		  int &shot_number, int &run_number, IdsNs::codeparam_t &codeparams) {
-
-	// start: runafluid
-	std::cerr << " START: runaway_fluid" << std::endl;
-	
+			
 	// parse codeparam
 	module_struct modules = read_codeparams(codeparams);
 	
 	// get time
 	int timeindex = 0;
-	
-	// output initialisation
-	runaway_warning = 0;
-	not_suitable_warning = 0;
-	critical_fraction_warning = 0;
-	
+
 	// zero limit
 	double zero_threshold = 1e-20;
 	
@@ -83,6 +75,12 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	// critical fraction
 	double critical_fraction = modules.warning_percentage_limit;
 
+	
+	// output initialisation
+	runaway_warning = 0;
+	not_suitable_warning = 0;
+	critical_fraction_warning = 0;
+		
 	// empty distribution initialiser (integrated distinit)
 	distinit(distribution_out, core_profiles, 0);
 	
@@ -112,7 +110,7 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 	std::vector<double> avalanche_prof(pro_size);
 	std::vector<double> electric_field_prof(pro_size);
 	std::vector<double> critical_field_prof(pro_size);
-	
+
 	// inverse aspect ratio
 	double inv_asp_ratio = equilibrium.time_slice(timeindex).boundary.minor_radius / equilibrium.vacuum_toroidal_field.r0;
 	
@@ -121,80 +119,87 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 
 	// Distribution source index for output
 	int distsource_out_index = 0;
+
+	try {
+		// start: runafluid
+		std::cerr << " START: runaway_fluid" << std::endl;
+			
+		for (std::vector<plasma_local>::iterator it = pro.begin(); it != pro.end(); ++it, rho_index++) {
 	
-	for (std::vector<plasma_local>::iterator it = pro.begin(); it != pro.end(); ++it, rho_index++) {
-
-		// Length of the runaway distribution is correct
-		if (rho_index<distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows()){
-
-			// calculating runaway density
-			rundensity = advance_runaway_population(*it, timestep, inv_asp_ratio, it->rho, modules, rate_values);
-
-			// no runaway if  rho is larger then a preset maximum rho value
-		   	if (it->rho >= rho_max){
-				rundensity = 0;
-			}
-
-		   	// IDS output -- runaway warning
-	   		if (rundensity > zero_threshold){
-				runaway_warning = 1;
+			// Length of the runaway distribution is correct
+			if (rho_index<distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows()){
+	
+				// calculating runaway density
+				rundensity = advance_runaway_population(*it, timestep, inv_asp_ratio, it->rho, modules, rate_values);
+	
+				// no runaway if  rho is larger then a preset maximum rho value
+				if (it->rho >= rho_max){
+					rundensity = 0;
+				}
+	
+				// IDS output -- runaway warning
+				if (rundensity > zero_threshold){
+					runaway_warning = 1;
+				}else{
+					rundensity = 0; // no runaway
+				}
+		
+				//  critical fraction warning
+				if (rundensity > critical_fraction/100.0*it->electron_density){
+					critical_fraction_warning = 1;
+				}
+	
+				// runaway density hard limit
+				if (rundensity > it->electron_density){
+					rundensity = it->electron_density;
+				}
+	
+				// runaway density writing to output distribution
+				distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density(rho_index) = rundensity;
+	
+				// runaway current
+				runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);
+				distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).current_tor(rho_index) = runcurrent;
+	
+				// not suitable warning: j_R > j_e	
+				ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
+				if (runcurrent/ecurrent >= 1){
+					not_suitable_warning = 1;
+				}
+	
+				dreicer_prof[rho_index]        = rate_values[RATEID_DREICER];
+				avalanche_prof[rho_index]      = rate_values[RATEID_AVALANCHE];
+				electric_field_prof[rho_index] = rate_values[RATEID_ELECTRIC_FIELD];
+				critical_field_prof[rho_index] = rate_values[RATEID_CRITICAL_FIELD];
+	
 			}else{
-				rundensity = 0; // no runaway
+				std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho_index << "/"
+						<< distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows() << ")" << std::endl;
 			}
 	
-			//  critical fraction warning
-	   		if (rundensity > critical_fraction/100.0*it->electron_density){
-				critical_fraction_warning = 1;
-			}
-
-		   	// runaway density hard limit
-		   	if (rundensity > it->electron_density){
-		   		rundensity = it->electron_density;
-		   	}
-
-		   	// runaway density writing to output distribution
-	   		distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density(rho_index) = rundensity;
-
-		   	// runaway current
-		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);
-		   	distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).current_tor(rho_index) = runcurrent;
-
-		   	// not suitable warning: j_R > j_e	
-		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
-		   	if (runcurrent/ecurrent >= 1){
-				not_suitable_warning = 1;
-		   	}
-
-			dreicer_prof[rho_index]        = rate_values[RATEID_DREICER];
-			avalanche_prof[rho_index]      = rate_values[RATEID_AVALANCHE];
-			electric_field_prof[rho_index] = rate_values[RATEID_ELECTRIC_FIELD];
-			critical_field_prof[rho_index] = rate_values[RATEID_CRITICAL_FIELD];
-
-	   	}else{
-			std::cerr << "  [Runaway Fluid] ERROR: The length of runaway distribution array is incorrect(" << rho_index << "/"
-					  << distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density.rows() << ")" << std::endl;
-	   	}
-
-
+	
+		}
+	
+		// error messages to dump
+		if (runaway_warning == 1){
+			std::cerr << "  [Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
+			output_flag = 1;
+		}
+	
+		if (not_suitable_warning == 1){
+			std::cerr << "  [Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
+			output_flag = 2;
+		}
+	
+		if (critical_fraction_warning == 1){
+			std::cerr << "  [Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: "
+					<< critical_fraction << "%)  at " << time << " s" << std::endl;
+			output_flag = 3;
+		}
+	} catch (const std::exception& ex){
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during calculations." << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 	}
-
-   	// error messages to dump
-   	if (runaway_warning == 1){
-		std::cerr << "  [Runaway Fluid] Warning: Runaway electrons detected at " << time << " s" << std::endl;
-		output_flag = 1;
-	}
-
-	if (not_suitable_warning == 1){
-		std::cerr << "  [Runaway Fluid] Warning: Runaway current is higher than electron current at " << time << " s" << std::endl;
-		output_flag = 2;
-	}
-
-	if (critical_fraction_warning == 1){
-		std::cerr << "  [Runaway Fluid] Warning: Runaway density is higher than the range of validity (critical fraction: "
-				  << critical_fraction << "%)  at " << time << " s" << std::endl;
-		output_flag = 3;
-	}
-
 	// output flag to distribution CPO
 	try {
 		distribution_out.code.output_flag(timeindex) = output_flag;

@@ -115,82 +115,85 @@ void fire(ItmNs::Itm::coreprof &coreprof, ItmNs::Itm::coreimpur &coreimpur,
 
 	// Distribution source index for output
 	int distsource_out_index = 0;
-
-	for (plasma_profile::iterator it = pro.begin(); it != pro.end(); ++it) {
-			
-		// Length of the runaway distribution is correct
-		if (rho_index<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
-			it->electric_field = std::abs(it->electric_field);
-			it->magnetic_field = std::abs(it->magnetic_field);
-			// calculating runaway density
-			rundensity = advance_runaway_population(*it,timestep, inv_asp_ratio, it->rho, modules, rate_values);
-
-			// no runaway if is larger then a preset maximum rho	
-		   	if (it->rho >= rho_max){
-				rundensity = 0;
-			}
-			  
-		   	// CPO output -- runaway warning
-	   		if (rundensity > zero_threshold){
-				runaway_warning = 1;
-			}else{
-				rundensity = 0; // no runaway
-			}
+	try{
+		for (plasma_profile::iterator it = pro.begin(); it != pro.end(); ++it) {
 				
-			//  critical fraction warning
-	   		if (rundensity > critical_fraction/100.0*it->electron_density){
-				critical_fraction_warning = 1;
+			// Length of the runaway distribution is correct
+			if (rho_index<distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows()){
+				it->electric_field = std::abs(it->electric_field);
+				it->magnetic_field = std::abs(it->magnetic_field);
+				// calculating runaway density
+				rundensity = advance_runaway_population(*it,timestep, inv_asp_ratio, it->rho, modules, rate_values);
+	
+				// no runaway if is larger then a preset maximum rho	
+				if (it->rho >= rho_max){
+					rundensity = 0;
+				}
+				
+				// CPO output -- runaway warning
+				if (rundensity > zero_threshold){
+					runaway_warning = 1;
+				}else{
+					rundensity = 0; // no runaway
+				}
+					
+				//  critical fraction warning
+				if (rundensity > critical_fraction/100.0*it->electron_density){
+					critical_fraction_warning = 1;
+				}
+				
+				// runaway density hard limit
+				if (rundensity > it->electron_density){
+					rundensity = it->electron_density;
+				}
+				
+				// runaway density
+				distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho_index) = rundensity;
+			
+				// runaway current
+				runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);
+				distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho_index) = runcurrent;
+				
+				// not suitable warning: j_R > j_e	
+				ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
+				if (runcurrent/ecurrent >= 1){
+					not_suitable_warning = 1;
+				}
+				
+				dreicer_prof[rho_index]        = rate_values[RATEID_DREICER];
+				avalanche_prof[rho_index]      = rate_values[RATEID_AVALANCHE];
+				electric_field_prof[rho_index] = rate_values[RATEID_ELECTRIC_FIELD];
+				critical_field_prof[rho_index] = rate_values[RATEID_CRITICAL_FIELD];
+				
+			}else{
+				std::cerr << "  [Runaway Fluid] \tERROR: The length of runaway distribution array is incorrect(" << rho_index << "/"
+						<< distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
 			}
-		   	
-		   	// runaway density hard limit
-		   	if (rundensity > it->electron_density){
-		   		rundensity = it->electron_density;
-		   	}
-		   	
-		   	// runaway density
-	   		distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens(rho_index) = rundensity;
-		  
-		   	// runaway current
-		   	runcurrent = rundensity * ITM_QE * ITM_C * sign(it->electric_field);
-		   	distribution_out.distri_vec(distsource_out_index).profiles_1d.state.current(rho_index) = runcurrent;
-		   	
-		   	// not suitable warning: j_R > j_e	
-		   	ecurrent = it->electron_density * ITM_QE * ITM_C * sign(it->electric_field);
-		   	if (runcurrent/ecurrent >= 1){
-				not_suitable_warning = 1;
-		   	}
-		   	
-			dreicer_prof[rho_index]        = rate_values[RATEID_DREICER];
-			avalanche_prof[rho_index]      = rate_values[RATEID_AVALANCHE];
-			electric_field_prof[rho_index] = rate_values[RATEID_ELECTRIC_FIELD];
-			critical_field_prof[rho_index] = rate_values[RATEID_CRITICAL_FIELD];
-	   		
-	   	}else{
-			std::cerr << "  [Runaway Fluid] \tERROR: The length of runaway distribution array is incorrect(" << rho_index << "/"
-					  << distribution_out.distri_vec(distsource_out_index).profiles_1d.state.dens.rows() << ")" << std::endl;
-	   	}
-
-	    rho_index++;
 	
-	}
-
-   	// error messages to dump
-   	if (runaway_warning == 1){
-		std::cout << "  [Runaway Fluid] \tWarning: Runaway electrons detected at " << time << " s" << std::endl;
-		output_flag = 1;
-	}
+		rho_index++;
 		
-	if (not_suitable_warning == 1){
-		std::cout << "  [Runaway Fluid] \tWarning: Runaway current is higher than electron current at " << time << " s" << std::endl;
-		output_flag = 2;
-	}
+		}
 	
-	if (critical_fraction_warning == 1){
-		std::cout << "  [Runaway Fluid] \tWarning: Runaway density is higher than the range of validity (critical fraction: "
-				  << critical_fraction << "%)  at " << time << " s" << std::endl;
-		output_flag = 3;
-	}
-
+		// error messages to dump
+		if (runaway_warning == 1){
+			std::cout << "  [Runaway Fluid] \tWarning: Runaway electrons detected at " << time << " s" << std::endl;
+			output_flag = 1;
+		}
+			
+		if (not_suitable_warning == 1){
+			std::cout << "  [Runaway Fluid] \tWarning: Runaway current is higher than electron current at " << time << " s" << std::endl;
+			output_flag = 2;
+		}
+		
+		if (critical_fraction_warning == 1){
+			std::cout << "  [Runaway Fluid] \tWarning: Runaway density is higher than the range of validity (critical fraction: "
+					<< critical_fraction << "%)  at " << time << " s" << std::endl;
+			output_flag = 3;
+		}
+	} catch (const std::exception& ex){
+		std::cerr << "  [Runaway Fluid] ERROR: An error occurred during calculations." << std::endl;
+		std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
+	} 
 	// output flag to distribution CPO
 	try {
 		distribution_out.codeparam.output_flag = output_flag;

@@ -132,6 +132,19 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, in
 	// read electron density profile length of dataset: cells	
 	int cells = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
 	
+	if (core_profiles.profiles_1d(timeindex).electrons.density.rows() != cells)
+		throw std::invalid_argument("Number of values is different in coreprof rho cordinates and electron density.");
+
+	// read electron temperature profile length of dataset, comparing with N_rho
+	if (core_profiles.profiles_1d(timeindex).electrons.temperature.rows() != cells)
+		throw std::invalid_argument("Number of values is different in coreprof rho cordinates and electron temperature.");
+
+	// read eparallel profile length of dataset, comparing with N_rho
+	if (core_profiles.profiles_1d(timeindex).e_field.parallel.rows() != cells)
+		throw std::invalid_argument(
+				"Number of values is different in coreprof rho coordinates and eparallel.");	
+
+
 	// read data in every rho
 	for (int i = 0; i < cells; i++) {
 		plasma_local plasmaLocal;
