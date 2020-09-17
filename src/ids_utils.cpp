@@ -141,8 +141,7 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, in
 
 	// read eparallel profile length of dataset, comparing with N_rho
 	if (core_profiles.profiles_1d(timeindex).e_field.parallel.rows() != cells)
-		throw std::invalid_argument(
-				"Number of values is different in coreprof rho coordinates and eparallel.");	
+		throw std::invalid_argument("Number of values is different in coreprof rho coordinates and eparallel.");	
 
 
 	// read data in every rho
