@@ -123,46 +123,6 @@ double fill_rho_tor_norm(const IdsNs::IDS::core_profiles &core_profiles, const I
 }
 
 
-// IMAS utilities
-// https://portal.iter.org/departments/POP/CM/IMDesign/Data%20Model/CI/imas-3.7.3/html_documentation.html
-plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex){
-
-	plasma_profile pro;
-
-	// read electron density profile length of dataset: cells	
-	int cells = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
-	
-	if (core_profiles.profiles_1d(timeindex).electrons.density.rows() != cells)
-		throw std::invalid_argument("Number of values is different in coreprof rho cordinates and electron density.");
-
-	// read electron temperature profile length of dataset, comparing with N_rho
-	if (core_profiles.profiles_1d(timeindex).electrons.temperature.rows() != cells)
-		throw std::invalid_argument("Number of values is different in coreprof rho cordinates and electron temperature.");
-
-	// read eparallel profile length of dataset, comparing with N_rho
-	if (core_profiles.profiles_1d(timeindex).e_field.parallel.rows() != cells)
-		throw std::invalid_argument(
-				"Number of values is different in coreprof rho coordinates and eparallel.");	
-
-
-	// read data in every rho
-	for (int i = 0; i < cells; i++) {
-		plasma_local plasmaLocal;
-		
-		// electron density
-		plasmaLocal.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
-		
-		// electron temperature
-		plasmaLocal.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
-						
-		// total sum of electric charge in a rho cell
-		plasmaLocal.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
-
-		pro.push_back(plasmaLocal);
-	}
-
-	return pro;
-}
 
 
 plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex){

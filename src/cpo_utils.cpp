@@ -117,53 +117,6 @@ int whereRunaway(const ItmNs::Itm::distribution &distribution){
 
 /*!
 
-Copy data from coreprof CPO
-Other fields would be undefined!
-
-input: ItmNs::Itm::coreprof &coreprof
-output: profile
-
-*/
-
-plasma_profile cpo_to_profile(const ItmNs::Itm::coreprof &coreprof) {
-
-	plasma_profile pro;
-
-	// read electron density profile length of dataset: cell_length	
-	int plasmaProfileLength = coreprof.ne.value.rows();
-	
-	// read electron temperature profile length of dataset, comparing with cell_length
-	if (coreprof.te.value.rows() != plasmaProfileLength)
-		throw std::invalid_argument("  [Runaway Fluid] Number of values is different in coreprof ne and te.");
-
-	// read eparallel profile length of dataset, comparing with cell_length
-	if (coreprof.profiles1d.eparallel.value.rows() != plasmaProfileLength)
-		throw std::invalid_argument(
-				"  [Runaway Fluid] Number of values is different in coreprof.ne and coreprof.profiles1d.eparallel.");
-
-   	// read data in every rho
-
-	for (int i = 0; i < plasmaProfileLength; i++) {
-		plasma_local plasmaLocal;
-				
-		// electron density
-		plasmaLocal.electron_density = coreprof.ne.value(i);
-		
-		// electron temperature
-		plasmaLocal.electron_temperature = coreprof.te.value(i);
-		
-		// paralle electric field
-		plasmaLocal.electric_field = coreprof.profiles1d.eparallel.value(i); 
-
-		pro.push_back(plasmaLocal);
-	}
-
-	return pro;
-}
-
-
-/*!
-
 Copy data from CPO inputs to profile structure
 
 */

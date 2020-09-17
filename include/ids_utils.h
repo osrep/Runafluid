@@ -16,8 +16,6 @@ double interpolate(const Array<double, 1> &x, const Array<double, 1> &y, double 
 int whereRunaway(const IdsNs::IDS::distributions &distributions);
 
 double fill_rho_tor_norm(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, int cpindex, int timeindex);
-		
-plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex);
 
 plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex);
 
