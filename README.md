@@ -1,6 +1,11 @@
 # About Runaway Fluid
 Repository for the Runaway Fluid Kepler actor for integration into [IMAS](https://core.ac.uk/download/pdf/207980869.pdf) and [ETS](https://wpcd-workflows.github.io/). 
 
+# How to clone repository
+The latest release of the code should be checked out using
+
+`git clone --depth 1 --branch <tag_name> https://github.com/osrep/Runafluid.git`.
+
 # How to build
 This code can only be run and compiled on ITM or IMAS environments. To build simply type:
 
