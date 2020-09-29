@@ -5,7 +5,7 @@ project(Runafluid VERSION 2.0.0
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_CXX_FLAGS "-pthread -g -fPIC -std=gnu++11 -march=native ")
+set(CMAKE_CXX_FLAGS "-pthread -g -fPIC -std=gnu++11  ")
 
 
 

@@ -123,33 +123,6 @@ double fill_rho_tor_norm(const IdsNs::IDS::core_profiles &core_profiles, const I
 }
 
 
-// IMAS utilities
-// https://portal.iter.org/departments/POP/CM/IMDesign/Data%20Model/CI/imas-3.7.3/html_documentation.html
-plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, int timeindex){
-
-	plasma_profile pro;
-
-	// read electron density profile length of dataset: cells	
-	int cells = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
-	
-	// read data in every rho
-	for (int i = 0; i < cells; i++) {
-		plasma_local plasmaLocal;
-		
-		// electron density
-		plasmaLocal.electron_density = core_profiles.profiles_1d(timeindex).electrons.density(i);
-		
-		// electron temperature
-		plasmaLocal.electron_temperature = core_profiles.profiles_1d(timeindex).electrons.temperature(i);
-						
-		// total sum of electric charge in a rho cell
-		plasmaLocal.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
-
-		pro.push_back(plasmaLocal);
-	}
-
-	return pro;
-}
 
 
 plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, const IdsNs::IDS::equilibrium &equilibrium, const IdsNs::IDS::distributions &distributions, int timeindex){
@@ -160,10 +133,24 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 	int N_rho_tor = core_profiles.profiles_1d(timeindex).grid.rho_tor.rows();
 	int N_rho_tor_norm = core_profiles.profiles_1d(timeindex).grid.rho_tor_norm.rows();
 	
+	
+
 	int N_rho = (N_rho_tor>N_rho_tor_norm)?N_rho_tor:N_rho_tor_norm;
 	
     	// read distribution source index for runaways from distribution CPO
 	int distsource_index = whereRunaway(distributions);	
+	
+	if (core_profiles.profiles_1d(timeindex).electrons.density.rows() != N_rho)
+		throw std::invalid_argument("Number of values is different in coreprof rho cordinates and electron density.");
+
+	// read electron temperature profile length of dataset, comparing with N_rho
+	if (core_profiles.profiles_1d(timeindex).electrons.temperature.rows() != N_rho)
+		throw std::invalid_argument("Number of values is different in coreprof rho cordinates and electron temperature.");
+
+	// read eparallel profile length of dataset, comparing with N_rho
+	if (core_profiles.profiles_1d(timeindex).e_field.parallel.rows() != N_rho)
+		throw std::invalid_argument(
+				"Number of values is different in coreprof rho coordinates and eparallel.");	
 
     	// read data in every rho
 	for (int i = 0; i < N_rho; i++) {
@@ -179,11 +166,14 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 		
 		// parallel electric field
 		plasmaLocal.electric_field = core_profiles.profiles_1d(timeindex).e_field.parallel(i);
-						
+		try{				
 		// local magnetic field
 		plasmaLocal.magnetic_field = interpolate(equilibrium.time_slice(timeindex).profiles_1d.rho_tor, equilibrium.time_slice(timeindex).profiles_1d.b_field_average,
 						core_profiles.profiles_1d(timeindex).grid.rho_tor(i));
-				
+		} catch (const std::exception& ex) {
+			plasmaLocal.magnetic_field = 0;			
+			std::cerr << "  [Runaway Fluid] ERROR : in magnetic field, magnetic field set to zero. (" << i << ")" << std::endl;
+		}
 		// total sum of electric charge in a rho cell
 		plasmaLocal.effective_charge = core_profiles.profiles_1d(timeindex).zeff(i);
 		
