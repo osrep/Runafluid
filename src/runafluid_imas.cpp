@@ -205,7 +205,6 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 			std::cerr << "  [Runaway Fluid] ERROR: " << ex.what() << std::endl;
 		}
 	
-		distribution_out.time(timeindex) = distribution_in.time(timeindex)+timestep;
 		
 		// HDF5 export
 		if (modules.hdf5_output == true){
