@@ -16,11 +16,13 @@ find_package(HDF5)
 #ITM Enviroment 
 if($ENV{ITM_ENVIRONMENT_LOADED})
 	message("###Compiler set to ITM###")
-	
-	#gcov flags
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-avx  -fprofile-arcs -ftest-coverage")
-	message("-- Coverage flags set")
 
+	if(TESTING_ENABLED)
+		#gcov flags
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-avx  -fprofile-arcs -ftest-coverage")
+		message("-- Coverage flags set")
+	endif()
+	
 	execute_process(COMMAND tcsh -c "eval-pkg-config --cflags ual-cpp-gnu --cflags hdf5-cpp-gnu --cflags itmconstants --cflags xmllib-$ITM_INTEL_OBJECTCODE"
 			OUTPUT_VARIABLE cxx_flags)	
 	execute_process(COMMAND tcsh -c "eval-pkg-config --libs ual-cpp-gnu hdf5-cpp-gnu xmllib-$ITM_INTEL_OBJECTCODE"
