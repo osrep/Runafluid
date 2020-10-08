@@ -1,11 +1,16 @@
 <org.iter.imas.fc2k.ActorGenerator>
-  <version>4.1.0</version>
-  <paramFile>empty</paramFile>
-  <defaultparamFile>empty</defaultparamFile>
-  <paramXsdFile>empty</paramXsdFile>
-  <fFile>libRunafluid_imas.a</fFile>
+  <version>4.13.0</version>
+  <isKeplerActorGenerated>true</isKeplerActorGenerated>
+  <isPythonActorGenerated>true</isPythonActorGenerated>
+  <isDummyActorGenerated>false</isDummyActorGenerated>
+  <paramFile>xml/runafluid.xml</paramFile>
+  <defaultparamFile>xml/runafluid.xml</defaultparamFile>
+  <paramXsdFile>xml/runafluid.xsd</paramXsdFile>
+  <fFile>build/src/librunafluid_imas.a</fFile>
   <mainLibraryOptim></mainLibraryOptim>
   <HasOptim>false</HasOptim>
+  <headerPath></headerPath>
+  <useHeader>false</useHeader>
   <subrt>fire</subrt>
   <tupleParams serialization="custom">
     <unserializable-parents/>
@@ -80,24 +85,6 @@
             <string>0</string>
             <string>0</string>
             <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>runafluid_switch</string>
-          </vector>
-          <vector>
-            <string>double</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
-            <string>1</string>
-            <string>0</string>
-            <string>critical_fraction</string>
-          </vector>
-          <vector>
-            <string>integer</string>
-            <string>0</string>
-            <string>0</string>
-            <string>0</string>
             <string>0</string>
             <string>1</string>
             <string>runaway_warning</string>
@@ -121,34 +108,45 @@
             <string>critical_fraction_warning</string>
           </vector>
           <vector>
-            <string>temporary</string>
-            <string>1</string>
+            <string>integer</string>
             <string>0</string>
             <string>0</string>
             <string>0</string>
             <string>1</string>
-            <string>runaway_rates</string>
+            <string>0</string>
+            <string>shot_number</string>
+          </vector>
+          <vector>
+            <string>integer</string>
+            <string>0</string>
+            <string>0</string>
+            <string>0</string>
+            <string>1</string>
+            <string>0</string>
+            <string>run_number</string>
           </vector>
         </tupleParams>
-
       </default>
     </org.iter.imas.fc2k.TupleP>
   </tupleParams>
   <actor>runaway_fluid</actor>
   <actorVersion></actorVersion>
-  <actorDoc></actorDoc>
-  <actorFolder>org/iter/runaway_fluid</actorFolder>
-  <ualFolder>/gw/swimas/core/imas/3.7.4/ual/3.4.0</ualFolder>
+  <actorDoc>﻿RUNAFLUID&amp;#xA;Runaway Fluid&amp;#xA;&amp;#xA;Purpose&amp;#xA;&amp;#xA;This document specifies software requirements of the Runaway Fluid (runafluid) software module. The module is developed and deployed in the European Transport Solver (ETS) framework maintained by the Code Development for Integrated Modelling Project (ITM) of the EUROfusion consortium (https://portal.eufus.eu/itm/portal/).&amp;#xA;&amp;#xA;Intended Audience and Reading Suggestions&amp;#xA;&amp;#xA;This Software Requirements Specification (SRS) document is intended for ITM/ETS/HCD workflow developers, and developers of runafluid module. The document describes the module runafluid, laying out functional and non-functional requirements. Purpose, overview of the module, interfaces, and CPO objects used, constraints, assumptions and dependencies, functional requirements are contained in this documentation.&amp;#xA;&amp;#xA;Product Scope&amp;#xA;&amp;#xA;The Runaway Fluid (Runafluid) project supplies a simulator module assembled as a Kepler workflow actor, which is capable of estimating the runawway electron population during tokamak operation. This functionality is highly valuable in ITM simulations, since present equilibrium and transport calculations neglect the generation of runaway electrons. The Runafluid module can determine the approximate size of the runaway population thus validate the results of equilibrium and transport.&amp;#xA;&amp;#xA;References&amp;#xA;&amp;#xA;Runaway Fluid is maintained under a Github repository dedicated to runaway electron physics. The project’s basic description, documentation and source code is stored in the Github project https://github.com/osrep.&amp;#xA;&amp;#xA;Analytical formula used to determine the critical electric field is based on the work of A. Stahl et al [1]. The method of calculating Dreicer runaway generation growth rate stems from the article of J. W. Connor et al [2]. The runaway avalanche growth rate is based on the form in the article by E. Nilsson [3].&amp;#xA;&amp;#xA;&amp;#xA;[1] A. Stahl, E. Hirvijoki, J. Decker, O. Embréus, and T. Fülöp. Effective Critical Electric Field for Runaway-Electron Generation. Physical Review Letters 114(11), 115002 (2015)&amp;#xA;[2] J.W. Connor and R.J. Hastie. Relativistic limitations on runaway electrons. Nuclear Fusion 15, 415 (1975) &amp;#xA;[3] E. Nilsson, J. Decker, N.J.Fisch, Y. Peysson. Trapped-Electron Runaway Effect. Journal of Plasma Physics 81(4), 475810403 (2015)&amp;#xA;[4] G.I. Pokol, et. al, Runaway electron modelling in the self-consistent core European Transport Simulator, ETS, Nuclear Fusion 59, 076024 (2019)</actorDoc>
+  <actorFolder>org/iter/imas/runaway_fluid</actorFolder>
   <semantic>imas</semantic>
-  <keplerFolder>/afs/eufus.eu/user/g/g2maradi/kepler_imas/2.4-imas-3.7.3</keplerFolder>
+  <pythonActorDir>$ITMWORK/PYTHON_ACTORS</pythonActorDir>
   <compiler>g++</compiler>
   <libraries/>
-  <systemLibraries/>
+  <systemLibraries>
+    <string>hdf5-cpp-gnu</string>
+    <string>xmllib</string>
+  </systemLibraries>
   <lang>c</lang>
-  <HasCodeParam>false</HasCodeParam>
+  <HasCodeParam>true</HasCodeParam>
   <MPI>false</MPI>
   <OPENMP>false</OPENMP>
   <BATCH>false</BATCH>
   <InitFunc>false</InitFunc>
   <fDiagnosticInfo>false</fDiagnosticInfo>
+  <useSandbox>false</useSandbox>
 </org.iter.imas.fc2k.ActorGenerator>

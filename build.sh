@@ -1,10 +1,16 @@
-#!/bin/tcsh -fe
+#!/bin/bash
 
 ########## compiling code #########
 
-# without test files
-make
+# update submodules before building code
+. ./handle_submodules.sh
+update=${SUBMODULE_UPDATE:-true}
+submodules=${SUBMODULES:-"ext/Runaphys"}
+update_submodules "$submodules" $update
 
-# with test files
-#make t
-#test/test.bin
+
+
+# without test files
+mkdir build && cd build
+cmake .. && make
+
