@@ -34,7 +34,6 @@ if($ENV{ITM_ENVIRONMENT_LOADED})
 	include_directories("include" "ext/Runaphys/include")
 
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DITM_CONSTANTS")
-	#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lTreeShr -lTdiShr -lXTreeShr")
 
 	add_subdirectory(src)
 
