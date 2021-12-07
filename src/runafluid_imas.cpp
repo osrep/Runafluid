@@ -249,8 +249,8 @@ void fire(IdsNs::IDS::core_profiles &core_profiles,
 					write_data_to_hdf5(hdf5_file_name, "eparallel", core_profiles.profiles_1d(timeindex).e_field.parallel);
 					write_data_to_hdf5(hdf5_file_name, "b0", core_profiles.vacuum_toroidal_field.b0);
 					write_data_to_hdf5(hdf5_file_name, "zeff", core_profiles.profiles_1d(timeindex).zeff);
-					//write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distribution.profiles_1d.state.density);		
-					//write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distribution.profiles_1d.current_fast_tor);
+					write_data_to_hdf5(hdf5_file_name, "runaway_density", distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).density);	
+					write_data_to_hdf5(hdf5_file_name, "runaway_current", distribution_out.distribution(distsource_out_index).profiles_1d(timeindex).current_tor);
 					write_data_to_hdf5(hdf5_file_name, "dreicer_rate", dreicer_prof.data(),dreicer_prof.size());
 					write_data_to_hdf5(hdf5_file_name, "avalanche_rate", avalanche_prof.data(),avalanche_prof.size());
 					write_data_to_hdf5(hdf5_file_name, "electric_field_vs_critical_field", electric_field_prof.data(),electric_field_prof.size());
