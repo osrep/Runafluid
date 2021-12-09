@@ -12,8 +12,6 @@ set(CMAKE_CXX_FLAGS "-pthread -g -fPIC -std=c++11")
 
 
 include(cmake/AddGatewayFlagFunction.cmake)
-#find_package(HDF5)
-#find_package (HDF5 REQUIRED COMPONENTS CXX)
 
 #ITM Enviroment 
 if($ENV{ITM_ENVIRONMENT_LOADED})
