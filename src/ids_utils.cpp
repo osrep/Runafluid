@@ -197,15 +197,11 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 			std::cerr << "  [Runaway Fluid] WARNING : Cannot read runaway density, density set to zero." << std::endl;
 		}
 
+
 		pro.push_back(plasmaLocal);
 	}
 
-	if (total = 0.0){
-		std::cout << "[Runaway Fluid] TEST OUTPUT: No previous runaway population" << std::endl;
-
-	}else{
-		std::cout<< "[Runaway Fluid] TEST OUTPUT: The total previous runaway density is " << total << " m^-3" << std::endl;
-	}
+	std::cout<< "[Runaway Fluid] TEST OUTPUT: The total previous runaway density is " << total << " m^-3" << std::endl;
 
 
 	return pro;
