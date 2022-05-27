@@ -152,6 +152,8 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 		throw std::invalid_argument(
 				"Number of values is different in coreprof rho coordinates and eparallel.");	
 
+	float total = 0.0;
+
     	// read data in every rho
 	for (int i = 0; i < N_rho; i++) {
 		plasma_local plasmaLocal;
@@ -184,6 +186,7 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 			// Runaway in previous distribution CPO
 			}else{
 				plasmaLocal.runaway_density = distributions.distribution(distsource_index).profiles_1d(timeindex).density(i);
+				total += distributions.distribution(distsource_index).profiles_1d(timeindex).density(i);
 			}
 
 		// internal error in distribution
@@ -196,6 +199,14 @@ plasma_profile ids_to_profile(const IdsNs::IDS::core_profiles &core_profiles, co
 
 		pro.push_back(plasmaLocal);
 	}
+
+	if (total = 0.0){
+		std::cout << "[Runaway Fluid] TEST OUTPUT: No previous runaway population" << std::endl;
+
+	}else{
+		std::cout<< "[Runaway Fluid] TEST OUTPUT: The total previous runaway density is " << total << " m^-3" << std::endl;
+	}
+
 
 	return pro;
 }
